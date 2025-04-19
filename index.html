@@ -905,24 +905,16 @@
         </div>
     </section>
     
-    <!-- Text Scroll - Alpha Omicron Pi style -->
-    <section id="blocknum-5" class="px-block px-text-scroll-block content-bar-l">
-        <div class="px-scroller" data-speed="slow" data-animated="true">    
-            <ul class="tag-list px-scroller__inner">
-                <li>SERVICE</li>                    
-                <li>LEADERSHIP</li>                    
-                <li>COMMUNITY</li>                    
-                <li>EMPOWERMENT</li>                    
-                <li>ADVOCACY</li>
-                <!-- Duplicate items for continuous scroll -->
-                <li aria-hidden="true">SERVICE</li>
-                <li aria-hidden="true">LEADERSHIP</li>
-                <li aria-hidden="true">COMMUNITY</li>
-                <li aria-hidden="true">EMPOWERMENT</li>
-                <li aria-hidden="true">ADVOCACY</li>
-            </ul>
+    <!-- Slider Animation -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">SERVICE</div>
+            <div class="slide">LEADERSHIP</div>
+            <div class="slide">COMMUNITY</div>
+            <div class="slide">EMPOWERMENT</div>
+            <div class="slide">ADVOCACY</div>
         </div>
-    </section>
+    </div>
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -1337,25 +1329,15 @@
             }
         });
         
-        // Initialize text scroller
-        document.addEventListener('DOMContentLoaded', function() {
-            const scroller = document.querySelector('.px-scroller');
-            if (scroller && scroller.getAttribute('data-animated') === 'true') {
-                const speed = scroller.getAttribute('data-speed') || 'medium';
-                const scrollerInner = scroller.querySelector('.px-scroller__inner');
-                
-                let duration = 20; // default (medium speed)
-                
-                // Adjust animation speed based on the data-speed attribute
-                if (speed === 'slow') {
-                    duration = 30;
-                } else if (speed === 'fast') {
-                    duration = 15;
-                }
-                
-                // Apply the animation duration
-                scrollerInner.style.animationDuration = duration + 's';
-            }
+        // Pause slider on hover
+        const slides = document.querySelector('.slides');
+        
+        document.querySelector('.slider').addEventListener('mouseenter', () => {
+            slides.style.animationPlayState = 'paused';
+        });
+        
+        document.querySelector('.slider').addEventListener('mouseleave', () => {
+            slides.style.animationPlayState = 'running';
         });
     </script>
 </body>
