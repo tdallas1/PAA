@@ -1,1 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pediatric Advocacy Alliance - Advancing the health, rights, and well-being of children through advocacy, education, and outreach.">
+    <meta name="keywords" content="pediatric advocacy, children's health, Dominican University, advocacy, education, outreach">
+    <title>Pediatric Advocacy Alliance | Dominican University</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #F2B8C6; /* Soft pink from logo */
+            --secondary-color: #E8D4A9; /* Light gold/cream from the crown */
+            --tertiary-color: #C5D5C0; /* Soft sage green from leaves */
+            --accent-color: #D4AA70; /* Warmer gold/tan from teddy bears */
+            --text-color: #5D4037; /* Warm brown for text */
+            --light-color: #FFFFFF;
+            --background-color: #FBF7F6; /* Very light pink/cream background */
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--background-color);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header/Navigation */
+        header {
+            background-color: var(--light-color);
+            box-shadow: 0 2px 10px rgba(93, 64, 55, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            position: relative;
+            color: var(--text-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(242, 184, 198, 0.3), rgba(242, 184, 198, 0.3)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-color);
+            padding-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(242, 184, 198, 0.2);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            color: var(--text-color);
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-img {
+            flex: 1;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(93, 64, 55, 0.1);
+            border: 5px solid var(--light-color);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        /* Pillars Section */
+        .pillars {
+            padding: 6rem 0;
+            background-color: var(--background-color);
+            position: relative;
+        }
+        
+        .pillars::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://via.placeholder.com/100x100');
+            background-repeat: repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .pillars .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pillar-card {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(93, 64, 55, 0.05);
+            padding: 2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(242, 184, 198, 0.2);
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(93, 64, 55, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .pillar-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .pillar-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        /* Events Section */
+        .events {
+            padding: 6rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .event-card {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(93, 64, 55, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(242, 184, 198, 0.2);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(93, 64, 55, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .event-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .event-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .event-card:hover .event-img img {
+            transform: scale(1.1);
+        }
+        
+        .event-content {
+            padding: 1.5rem;
+        }
+        
+        .event-date {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .event-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        /* Join Us Section */
+        .join-us {
+            padding: 6rem 0;
+            background: linear-gradient(rgba(93, 64, 55, 0.8), rgba(93, 64, 55, 0.8)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            color: var(--light-color);
+            text-align: center;
+        }
+        
+        .join-us h2 {
+            color: var(--light-color);
+        }
+        
+        .join-us p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .join-us .btn {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .join-us .btn:hover {
+            background-color: transparent;
+            color: var(--light-color);
+            border-color: var(--light-color);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background-color: var(--background-color);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .contact-form {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(93, 64, 55, 0.05);
+            border: 1px solid rgba(242, 184, 198, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(242, 184, 198, 0.2);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+        }
+        
+        .contact-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--light-color);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--light-color);
+            margin-right: 1rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            color: var(--text-color);
+        }
+        
+        .footer-section form input {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 50px;
+            border: none;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section .btn {
+            width: 100%;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animation Classes */
+        .pillar-card, .event-card, .about-img, .about-text, .contact-form, .contact-info {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .pillar-card.animate, .event-card.animate, .about-img.animate, .about-text.animate, 
+        .contact-form.animate, .contact-info.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: white;
+            font-weight: 500;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .notification.success {
+            background-color: #4CAF50;
+        }
+        
+        .notification.error {
+            background-color: #F44336;
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100% - 80px);
+                background-color: var(--light-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="images/paa-logo.png" alt="PAA Logo">
+                    <span>PAA</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pillars">Our Work</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#join-us">Join Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Pediatric Advocacy Alliance</h1>
+            <p>Advancing the health, rights, and well-being of children—especially those in underserved communities—through advocacy, education, and outreach.</p>
+            <a href="#join-us" class="btn">Join Our Mission</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About PAA</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="images/about-image.jpg" alt="PAA Team">
+                </div>
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>The Pediatric Advocacy Alliance (PAA) was founded at Dominican University with a mission to advance the health, rights, and well-being of children—especially those in underserved communities—through advocacy, education, and outreach.</p>
+                    <p>Founded by Trinity, PAA was born from a personal commitment to pediatric health, equity, and community-based care. We believe that every child deserves access to quality healthcare, education, and support regardless of their background or circumstances.</p>
+                    <p>Our dedicated team of student advocates works tirelessly to create meaningful change in our community and beyond, partnering with healthcare professionals, community organizations, and policymakers to amplify our impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section id="pillars" class="pillars">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Pillars</h2>
+            </div>
+            <div class="pillars-container">
+                <div class="pillar-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Advocacy</h3>
+                    <p>We advocate for policies and initiatives that promote children's health and well-being through legislative action, campaigns, and awareness events. Our advocacy efforts focus on creating sustainable change at local, state, and national levels.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education</h3>
+                    <p>We provide educational resources and programs including workshops, panels, first aid training, and health literacy programs. Our goal is to empower communities with knowledge and skills to support children's health needs.</p>
+                </div>
+                <div class="pillar-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Outreach</h3>
+                    <p>We engage directly with communities through volunteering, donation drives, and collaborations with outside organizations. Our outreach initiatives aim to provide immediate support while building lasting relationships with the communities we serve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Events</h2>
+            </div>
+            <div class="events-container">
+                <div class="event-card">
+                    <div class="event-img">
+                        <img src="images/event1.jpg" alt="Event 1">
+                    </div>
+                    <div class="event-content">
+                        <span class="event-date">May 15, 2025</span>
+                        <h3>Pediatric First Aid Workshop</h3>
+                        <p>Learn essential first aid skills specifically for children. This hands-on workshop will cover emergency response, CPR, and common childhood injuries.</p>
+                        <a href="#" class="btn">Register</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-img">
+                        <img src="images/event2.jpg" alt="Event 2">
+                    </div>
+                    <div class="event-content">
+                        <span class="event-date">June 2, 2025</span>
+                        <h3>Child Health Policy Panel</h3>
+                        <p>Join our discussion with healthcare professionals and policy experts on current issues affecting children's healthcare and advocacy opportunities.</p>
+                        <a href="#" class="btn">Register</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-img">
+                        <img src="images/event3.jpg" alt="Event 3">
+                    </div>
+                    <div class="event-content">
+                        <span class="event-date">June 20, 2025</span>
+                        <h3>Summer Supply Drive</h3>
+                        <p>Help us collect essential supplies for children in need. We're accepting donations of school supplies, hygiene items, and more.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section id="join-us" class="join-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Mission</h2>
+            </div>
+            <p>Whether you're a student at Dominican University or a community member passionate about children's health and well-being, there's a place for you in the Pediatric Advocacy Alliance. Join us in making a difference in the lives of children!</p>
+            <a href="#contact" class="btn">Get Involved</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Dominican University, 7900 W Division St, River Forest, IL 60305</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>paa@dominican.edu</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>(123) 456-7890</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Pediatric Advocacy Alliance</h3>
+                    <p>Advancing the health, rights, and well-being of children through advocacy, education, and outreach.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#pillars">Our Work</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#join-us">Join Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Stay updated with our latest news and events.</p>
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pediatric Advocacy Alliance. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Element -->
+    <div class="notification"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            initializeHamburgerMenu();
+            
+            // Smooth Scrolling
+            initializeSmoothScrolling();
+            
+            // Form Handling
+            initializeFormHandling();
+            
+            // Animations
+            initializeAnimations();
+        });
+
+        // Mobile Menu Toggle
+        function initializeHamburgerMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+                
+                // Close menu when pressing escape key
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === 'Escape') {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            }
+        }
+
+        // Smooth Scrolling
+        function initializeSmoothScrolling() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').length > 1) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            // Close mobile menu if open
+                            const navLinks = document.querySelector('.nav-links');
+                            const hamburger = document.querySelector('.hamburger');
+                            
+                            if (navLinks && hamburger) {
+                                navLinks.classList.remove('active');
+                                hamburger.classList.remove('active');
+                            }
+                            
+                            // Scroll to element
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Form Handling
+        function initializeFormHandling() {
+            const contactForm = document.getElementById('contactForm');
+            const newsletterForm = document.getElementById('newsletterForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validate form
+                    let isValid = true;
+                    const formElements = contactForm.querySelectorAll('input, textarea');
+                    
+                    formElements.forEach(element => {
+                        if (element.hasAttribute('required') && !element.value.trim()) {
+                            isValid = false;
+                            element.classList.add('error');
+                        } else {
+                            element.classList.remove('error');
+                        }
+                        
+                        if (element.type === 'email' && element.value.trim()) {
+                            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            if (!emailPattern.test(element.value.trim())) {
+                                isValid = false;
+                                element.classList.add('error');
+                            }
+                        }
+                    });
+                    
+                    if (isValid) {
+                        // Here you would typically handle form submission with an API call
+                        // For GitHub Pages, you might use a service like Formspree or Netlify Forms
+                        
+                        // Example success message
+                        showNotification('Thank you for your message! We will get back to you soon.', 'success');
+                        contactForm.reset();
+                    } else {
+                        showNotification('Please fill in all required fields correctly.', 'error');
+                    }
+                });
+            }
+            
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const emailInput = newsletterForm.querySelector('input[type="email"]');
+                    if (emailInput && emailInput.value.trim()) {
+                        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (emailPattern.test(emailInput.value.trim())) {
+                            // Handle newsletter signup
+                            showNotification('Thank you for subscribing to our newsletter!', 'success');
+                            newsletterForm.reset();
+                        } else {
+                            showNotification('Please enter a valid email address.', 'error');
+                        }
+                    } else {
+                        showNotification('Please enter your email address.', 'error');
+                    }
+                });
+            }
+        }
+
+        // Notification System
+        function showNotification(message, type) {
+            const notification = document.querySelector('.notification');
+            
+            // Set message and type
+            notification.textContent = message;
+            notification.className = 'notification ' + type;
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+            
+            // Hide notification after delay
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Animation effects
+        function initializeAnimations() {
+            // Function to check if element is in viewport and animate
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.pillar-card, .event-card, .about-img, .about-text, .contact-form, .contact-info');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('animate');
+                    }
+                });
+            };
+            
+            // Run on load
+            animateOnScroll();
+            
+            // Run on scroll
+            window.addEventListener('scroll', animateOnScroll);
+        }
+    </script>
+</body>
+</html>
