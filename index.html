@@ -905,29 +905,14 @@
         </div>
     </section>
     
-    <!-- Text Carousel -->
-    <div class="text-carousel-container">
-        <div class="text-carousel">
-            <span>SERVICE</span>
-            <div class="flower-icon"><img src="/api/placeholder/50/50" alt="Flower Icon"></div>
-            <span>LEADERSHIP</span>
-            <div class="flower-icon"><img src="/api/placeholder/50/50" alt="Flower Icon"></div>
-            <span>COMMUNITY</span>
-            <div class="flower-icon"><img src="/api/placeholder/50/50" alt="Flower Icon"></div>
-            <span>EMPOWERMENT</span>
-            <div class="flower-icon"><img src="/api/placeholder/50/50" alt="Flower Icon"></div>
-            <span>ADVOCACY</span>
-            <div class="flower-icon"><img src="/api/placeholder/50/50" alt="Flower Icon"></div>
-            <!-- Duplicate for seamless loop -->
-            <span>SERVICE</span>
-            <div class="flower-icon"><img src="/api/placeholder/50/50" alt="Flower Icon"></div>
-            <span>LEADERSHIP</span>
-            <div class="flower-icon"><img src="/api/placeholder/50/50" alt="Flower Icon"></div>
-            <span>COMMUNITY</span>
-            <div class="flower-icon"><img src="/api/placeholder/50/50" alt="Flower Icon"></div>
-            <span>EMPOWERMENT</span>
-            <div class="flower-icon"><img src="/api/placeholder/50/50" alt="Flower Icon"></div>
-            <span>ADVOCACY</span>
+    <!-- Text Slider -->
+    <div class="text-slider-container">
+        <div class="text-slider">
+            <div class="slider-item">SERVICE</div>
+            <div class="slider-item">LEADERSHIP</div>
+            <div class="slider-item">COMMUNITY</div>
+            <div class="slider-item">EMPOWERMENT</div>
+            <div class="slider-item">ADVOCACY</div>
         </div>
     </div>
 
@@ -1341,6 +1326,30 @@
             } else {
                 header.classList.remove('header-scrolled');
             }
+        });
+        
+        // Text Slider Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliderItems = document.querySelectorAll('.slider-item');
+            let currentItem = 0;
+            
+            // Set first item as active initially
+            sliderItems[0].classList.add('active');
+            
+            // Function to advance to next slide
+            function nextSlide() {
+                // Remove active class from current item
+                sliderItems[currentItem].classList.remove('active');
+                
+                // Advance to next item or loop back to first
+                currentItem = (currentItem + 1) % sliderItems.length;
+                
+                // Add active class to new current item
+                sliderItems[currentItem].classList.add('active');
+            }
+            
+            // Set interval for autoplay
+            setInterval(nextSlide, 3000); // Change slide every 3 seconds
         });
     </script>
 </body>
