@@ -1337,21 +1337,24 @@
             }
         });
         
-        // Initialize text scroller when page loads
+        // Initialize text scroller
         document.addEventListener('DOMContentLoaded', function() {
             const scroller = document.querySelector('.px-scroller');
             if (scroller && scroller.getAttribute('data-animated') === 'true') {
                 const speed = scroller.getAttribute('data-speed') || 'medium';
                 const scrollerInner = scroller.querySelector('.px-scroller__inner');
                 
+                let duration = 20; // default (medium speed)
+                
                 // Adjust animation speed based on the data-speed attribute
                 if (speed === 'slow') {
-                    scrollerInner.style.animationDuration = '30s';
+                    duration = 30;
                 } else if (speed === 'fast') {
-                    scrollerInner.style.animationDuration = '15s';
-                } else {
-                    scrollerInner.style.animationDuration = '20s';
+                    duration = 15;
                 }
+                
+                // Apply the animation duration
+                scrollerInner.style.animationDuration = duration + 's';
             }
         });
     </script>
