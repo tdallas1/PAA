@@ -16,6 +16,7 @@
             --gold: #dac17c;
             --text-color: #5a5a5a;
             --accent-pink: #e291a8;
+            --header-transition: all 0.3s ease;
         }
 
         * {
@@ -78,6 +79,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: var(--header-transition);
         }
 
         .logo-container {
@@ -85,6 +87,7 @@
             justify-content: center;
             padding: 15px 0;
             background-color: var(--cream);
+            transition: var(--header-transition);
         }
 
         .logo {
@@ -93,6 +96,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--blush-pink);
+            transition: var(--header-transition);
         }
 
         nav {
@@ -101,6 +105,7 @@
             background-color: white;
             border-top: 1px solid var(--blush-pink);
             border-bottom: 1px solid var(--blush-pink);
+            transition: var(--header-transition);
         }
 
         nav ul {
@@ -119,7 +124,7 @@
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: var(--header-transition);
         }
 
         nav a:hover {
@@ -773,12 +778,25 @@
                 font-size: 2rem;
             }
         }
+        /* Scroll Effect for Header */
+        .header-scrolled .logo-container {
+            padding: 5px 0;
+        }
+        
+        .header-scrolled .logo {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .header-scrolled nav a {
+            padding: 10px 25px;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header Navigation -->
-    <header>
+    <header id="main-header">
         <div class="logo-container">
             <img src="/api/placeholder/120/120" alt="PAA Logo" class="logo">
         </div>
@@ -1230,5 +1248,17 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    
+    <!-- Script for Header Scroll Effect -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
