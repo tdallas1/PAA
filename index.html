@@ -3,840 +3,1179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pediatric Advocacy Alliance - Advancing the health, rights, and well-being of children through advocacy, education, and outreach.">
-    <meta name="keywords" content="pediatric advocacy, children's health, Dominican University, advocacy, education, outreach">
-    <title>Pediatric Advocacy Alliance | Dominican University</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
+    <title>PAA - Pediatric Advocacy Association</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Base Styles */
+        /* Color Palette from Profile Picture */
         :root {
-            --primary-color: #F2B8C6; /* Soft pink from logo */
-            --secondary-color: #E8D4A9; /* Light gold/cream from the crown */
-            --tertiary-color: #C5D5C0; /* Soft sage green from leaves */
-            --accent-color: #D4AA70; /* Warmer gold/tan from teddy bears */
-            --text-color: #5D4037; /* Warm brown for text */
-            --light-color: #FFFFFF;
-            --background-color: #FBF7F6; /* Very light pink/cream background */
-            --transition: all 0.3s ease;
+            --blush-pink: #f9d1d9;
+            --baby-blue: #d1e0f6;
+            --cream: #fef9f0;
+            --pastel-yellow: #fcf5d9;
+            --soft-mint: #e6f0e4;
+            --gold: #dac17c;
+            --text-color: #5a5a5a;
+            --accent-pink: #e291a8;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-        
-        body {
             font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
             color: var(--text-color);
             line-height: 1.6;
-            background-color: var(--background-color);
         }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-        
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Container */
-        .container {
+
+        /* Decorative Elements */
+        .crown-decor {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+            height: 60px;
+            background-image: url('/api/placeholder/120/60');
+            background-position: center;
+            background-repeat: repeat-x;
+            opacity: 0.8;
         }
-        
-        /* Header/Navigation */
+
+        .ribbon {
+            width: 100%;
+            height: 30px;
+            background-color: var(--blush-pink);
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .ribbon::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: var(--blush-pink);
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            transform: rotate(45deg);
+        }
+
+        .ribbon::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: var(--blush-pink);
+            position: absolute;
+            right: -10px;
+            top: 5px;
+            transform: rotate(45deg);
+        }
+
+        /* Navigation */
         header {
-            background-color: var(--light-color);
-            box-shadow: 0 2px 10px rgba(93, 64, 55, 0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: var(--cream);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--blush-pink);
+        }
+
         nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
+            justify-content: center;
+            background-color: white;
+            border-top: 1px solid var(--blush-pink);
+            border-bottom: 1px solid var(--blush-pink);
         }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 50px;
-            margin-right: 10px;
-            border-radius: 50%;
-        }
-        
-        .nav-links {
+
+        nav ul {
             display: flex;
             list-style: none;
+            padding: 0;
         }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 0.5rem 0;
+
+        nav li {
             position: relative;
-            color: var(--text-color);
         }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        .hamburger span {
+
+        nav a {
             display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--text-color);
-            margin: 5px 0;
-            transition: var(--transition);
+            padding: 15px 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+
+        nav a:hover {
+            color: var(--accent-pink);
         }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
+
+        nav li:hover .dropdown {
+            display: block;
         }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 0 0 5px 5px;
+            border-top: 3px solid var(--blush-pink);
         }
-        
+
+        .dropdown a {
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
         /* Hero Section */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(242, 184, 198, 0.3), rgba(242, 184, 198, 0.3)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            height: 600px;
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            color: var(--text-color);
-            padding-top: 60px;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid var(--primary-color);
-        }
-        
-        .btn:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(242, 184, 198, 0.2);
-        }
-        
-        /* About Section */
-        .about {
-            padding: 6rem 0;
-            background-color: var(--light-color);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            color: var(--text-color);
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background-color: var(--primary-color);
-            bottom: -10px;
-            left: 25%;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .about-img {
-            flex: 1;
-        }
-        
-        .about-img img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(93, 64, 55, 0.1);
-            border: 5px solid var(--light-color);
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-        
-        /* Pillars Section */
-        .pillars {
-            padding: 6rem 0;
-            background-color: var(--background-color);
             position: relative;
         }
-        
-        .pillars::before {
-            content: '';
+
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://via.placeholder.com/100x100');
-            background-repeat: repeat;
-            opacity: 0.05;
-            z-index: 0;
+            background-color: rgba(249, 209, 217, 0.4);
         }
-        
-        .pillars .container {
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            border: 2px solid var(--blush-pink);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-pink);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent-pink);
+            display: inline-block;
+            padding: 0 20px;
+            background-color: var(--cream);
             position: relative;
             z-index: 1;
         }
-        
-        .pillars-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--blush-pink);
+            z-index: 0;
         }
-        
-        .pillar-card {
-            background-color: var(--light-color);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(93, 64, 55, 0.05);
-            padding: 2rem;
-            transition: var(--transition);
-            border: 1px solid rgba(242, 184, 198, 0.2);
-        }
-        
-        .pillar-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(93, 64, 55, 0.1);
-            border-color: var(--primary-color);
-        }
-        
-        .pillar-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-        
-        .pillar-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-        
-        /* Events Section */
-        .events {
-            padding: 6rem 0;
-            background-color: var(--light-color);
-        }
-        
-        .events-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .event-card {
-            background-color: var(--light-color);
-            border-radius: 15px;
+
+        /* About Section */
+        .about {
+            background-color: var(--baby-blue);
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(93, 64, 55, 0.05);
-            transition: var(--transition);
-            border: 1px solid rgba(242, 184, 198, 0.2);
         }
-        
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(93, 64, 55, 0.1);
-            border-color: var(--primary-color);
-        }
-        
-        .event-img {
+
+        .about::before {
+            content: "";
+            position: absolute;
+            width: 200px;
             height: 200px;
-            overflow: hidden;
+            background-color: var(--blush-pink);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            opacity: 0.5;
         }
-        
-        .event-img img {
+
+        .about::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: var(--pastel-yellow);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            opacity: 0.5;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
         }
-        
-        .event-card:hover .event-img img {
-            transform: scale(1.1);
+
+        /* Board Members */
+        .board {
+            background-color: white;
         }
-        
-        .event-content {
-            padding: 1.5rem;
+
+        .board-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
         }
-        
-        .event-date {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--light-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .event-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent-color);
-        }
-        
-        /* Join Us Section */
-        .join-us {
-            padding: 6rem 0;
-            background: linear-gradient(rgba(93, 64, 55, 0.8), rgba(93, 64, 55, 0.8)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-            color: var(--light-color);
+
+        .board-member {
             text-align: center;
+            transition: transform 0.3s ease;
         }
-        
-        .join-us h2 {
-            color: var(--light-color);
+
+        .board-member:hover {
+            transform: translateY(-10px);
         }
-        
-        .join-us p {
-            max-width: 800px;
-            margin: 0 auto 2rem;
+
+        .member-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--blush-pink);
         }
-        
-        .join-us .btn {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            border: 2px solid var(--primary-color);
-        }
-        
-        .join-us .btn:hover {
-            background-color: transparent;
-            color: var(--light-color);
-            border-color: var(--light-color);
-        }
-        
-        /* Contact Section */
-        .contact {
-            padding: 6rem 0;
-            background-color: var(--background-color);
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        
-        .contact-form {
-            background-color: var(--light-color);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(93, 64, 55, 0.05);
-            border: 1px solid rgba(242, 184, 198, 0.2);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-        
-        .form-group input,
-        .form-group textarea {
+
+        .member-photo img {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-            transition: var(--transition);
+            height: 100%;
+            object-fit: cover;
         }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(242, 184, 198, 0.2);
+
+        .member-info h3 {
+            color: var(--accent-pink);
+            margin-bottom: 5px;
         }
-        
-        .form-group textarea {
-            resize: vertical;
-            height: 150px;
+
+        .member-info p {
+            font-style: italic;
+            color: var(--text-color);
         }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-right: 1rem;
-        }
-        
-        .contact-item h3 {
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--text-color);
-            color: var(--light-color);
-            padding: 4rem 0 2rem;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .footer-section h3 {
-            color: var(--light-color);
-            margin-bottom: 1.5rem;
+
+        /* Volunteer Section */
+        .volunteer {
+            background-color: var(--pastel-yellow);
             position: relative;
         }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
-            bottom: -10px;
-            left: 0;
+
+        .events-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
         }
-        
-        .footer-links {
-            list-style: none;
+
+        .event-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
-        
-        .footer-links a {
-            color: #ddd;
+
+        .event-image {
+            height: 200px;
+            overflow: hidden;
         }
-        
-        .footer-links a:hover {
-            color: var(--primary-color);
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
-        
-        .social-links {
+
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-details {
+            padding: 20px;
+        }
+
+        .event-details h3 {
+            color: var(--accent-pink);
+            margin-bottom: 10px;
+        }
+
+        .event-date {
             display: flex;
-            margin-top: 1.5rem;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--text-color);
         }
-        
-        .social-links a {
+
+        .event-date i {
+            margin-right: 8px;
+            color: var(--accent-pink);
+        }
+
+        .event-details p {
+            margin-bottom: 20px;
+        }
+
+        /* Past Highlights */
+        .highlights {
+            background-color: var(--cream);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .testimonials {
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            font-size: 80px;
+            color: var(--blush-pink);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .testimonial-author-info h4 {
+            margin-bottom: 3px;
+            color: var(--accent-pink);
+        }
+
+        /* Advocacy Section */
+        .advocacy {
+            background-color: var(--soft-mint);
+        }
+
+        .causes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .cause-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .cause-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cause-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .cause-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cause-details {
+            padding: 20px;
+        }
+
+        .cause-details h3 {
+            color: var(--accent-pink);
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--accent-pink);
+            border-radius: 5px;
+            width: 75%;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Resources Section */
+        .resources {
+            background-color: white;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card {
+            background-color: var(--cream);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--blush-pink);
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 0 auto 20px;
+        }
+
+        .resource-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .resource-card h3 {
+            color: var(--accent-pink);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--baby-blue);
+        }
+
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--light-color);
-            margin-right: 1rem;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-            color: var(--text-color);
-        }
-        
-        .footer-section form input {
-            width: 100%;
-            padding: 0.8rem;
-            border-radius: 50px;
-            border: none;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section .btn {
-            width: 100%;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Animation Classes */
-        .pillar-card, .event-card, .about-img, .about-text, .contact-form, .contact-info {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        .pillar-card.animate, .event-card.animate, .about-img.animate, .about-text.animate, 
-        .contact-form.animate, .contact-info.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Notification Styles */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 5px;
+            background-color: var(--accent-pink);
             color: white;
-            font-weight: 500;
-            z-index: 9999;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s, transform 0.3s;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
         }
-        
-        .notification.show {
-            opacity: 1;
-            transform: translateY(0);
+
+        .social-link:hover {
+            transform: translateY(-5px);
         }
-        
-        .notification.success {
-            background-color: #4CAF50;
+
+        /* Footer */
+        footer {
+            background-color: white;
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--blush-pink);
         }
-        
-        .notification.error {
-            background-color: #F44336;
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
         }
-        
-        /* Responsive Styles */
-        @media screen and (max-width: 992px) {
-            .about-content {
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-pink);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-pink);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #f1f1f1;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul {
                 flex-direction: column;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media screen and (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
                 width: 100%;
-                height: calc(100% - 80px);
-                background-color: var(--light-color);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: var(--transition);
             }
-            
-            .nav-links.active {
-                left: 0;
+
+            nav li {
+                width: 100%;
+                text-align: center;
             }
-            
-            .nav-links li {
-                margin: 1.5rem 0;
+
+            .dropdown {
+                position: static;
+                width: 100%;
             }
-            
-            .hero h1 {
-                font-size: 2.5rem;
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <img src="images/paa-logo.png" alt="PAA Logo">
-                    <span>PAA</span>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#pillars">Our Work</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#join-us">Join Us</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+        <div class="logo-container">
+            <img src="/api/placeholder/120/120" alt="PAA Logo" class="logo">
         </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                    <div class="dropdown">
+                        <a href="#">Who We Are</a>
+                        <a href="#">What We Do</a>
+                        <a href="#">Our Mission</a>
+                        <a href="#">2025-2026 Board</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Volunteer</a>
+                    <div class="dropdown">
+                        <a href="#">Upcoming Events</a>
+                        <a href="#">Sign-Up Forms</a>
+                        <a href="#">How to Get Involved</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Past Highlights</a>
+                </li>
+                <li>
+                    <a href="#">Advocacy</a>
+                </li>
+                <li>
+                    <a href="#">Resources</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Pediatric Advocacy Alliance</h1>
-            <p>Advancing the health, rights, and well-being of children—especially those in underserved communities—through advocacy, education, and outreach.</p>
-            <a href="#join-us" class="btn">Join Our Mission</a>
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Pediatric Advocacy Association</h1>
+            <p>Advocating for children's health, welfare, and bright futures. Join us in making a difference!</p>
+            <a href="#" class="btn">Get Involved</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="section-title">
                 <h2>About PAA</h2>
             </div>
             <div class="about-content">
-                <div class="about-img">
-                    <img src="images/about-image.jpg" alt="PAA Team">
-                </div>
                 <div class="about-text">
-                    <h3>Our Story</h3>
-                    <p>The Pediatric Advocacy Alliance (PAA) was founded at Dominican University with a mission to advance the health, rights, and well-being of children—especially those in underserved communities—through advocacy, education, and outreach.</p>
-                    <p>Founded by Trinity, PAA was born from a personal commitment to pediatric health, equity, and community-based care. We believe that every child deserves access to quality healthcare, education, and support regardless of their background or circumstances.</p>
-                    <p>Our dedicated team of student advocates works tirelessly to create meaningful change in our community and beyond, partnering with healthcare professionals, community organizations, and policymakers to amplify our impact.</p>
+                    <h3>Who We Are</h3>
+                    <p>The Pediatric Advocacy Association (PAA) is a student-led organization dedicated to supporting children's health and welfare initiatives on campus and in our community.</p>
+                    
+                    <div class="ribbon"></div>
+                    
+                    <h3>What We Do</h3>
+                    <p>Through direct service, fundraising, and awareness campaigns, we work to improve the lives of children facing medical challenges and their families.</p>
+                    
+                    <div class="ribbon"></div>
+                    
+                    <h3>Our Mission</h3>
+                    <p>We believe every child deserves access to quality healthcare, emotional support, and the opportunity to thrive. Our mission is to advocate for children's rights and needs while providing meaningful experiences for our members to grow as compassionate leaders.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/500/500" alt="PAA Members">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pillars Section -->
-    <section id="pillars" class="pillars">
+    <!-- Board Members Section -->
+    <section class="board" id="board">
         <div class="container">
             <div class="section-title">
-                <h2>Our Core Pillars</h2>
+                <h2>2025-2026 Board</h2>
             </div>
-            <div class="pillars-container">
-                <div class="pillar-card">
-                    <i class="fas fa-bullhorn"></i>
-                    <h3>Advocacy</h3>
-                    <p>We advocate for policies and initiatives that promote children's health and well-being through legislative action, campaigns, and awareness events. Our advocacy efforts focus on creating sustainable change at local, state, and national levels.</p>
+            <div class="board-members">
+                <div class="board-member">
+                    <div class="member-photo">
+                        <img src="/api/placeholder/200/200" alt="President">
+                    </div>
+                    <div class="member-info">
+                        <h3>Emma Wilson</h3>
+                        <p>President</p>
+                    </div>
                 </div>
-                <div class="pillar-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Education</h3>
-                    <p>We provide educational resources and programs including workshops, panels, first aid training, and health literacy programs. Our goal is to empower communities with knowledge and skills to support children's health needs.</p>
+                <div class="board-member">
+                    <div class="member-photo">
+                        <img src="/api/placeholder/200/200" alt="Vice President">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sophia Chen</h3>
+                        <p>Vice President</p>
+                    </div>
                 </div>
-                <div class="pillar-card">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Outreach</h3>
-                    <p>We engage directly with communities through volunteering, donation drives, and collaborations with outside organizations. Our outreach initiatives aim to provide immediate support while building lasting relationships with the communities we serve.</p>
+                <div class="board-member">
+                    <div class="member-photo">
+                        <img src="/api/placeholder/200/200" alt="Treasurer">
+                    </div>
+                    <div class="member-info">
+                        <h3>Maya Johnson</h3>
+                        <p>Treasurer</p>
+                    </div>
+                </div>
+                <div class="board-member">
+                    <div class="member-photo">
+                        <img src="/api/placeholder/200/200" alt="Secretary">
+                    </div>
+                    <div class="member-info">
+                        <h3>Olivia Taylor</h3>
+                        <p>Secretary</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Events Section -->
-    <section id="events" class="events">
+    <!-- Volunteer Section -->
+    <section class="volunteer" id="volunteer">
         <div class="container">
             <div class="section-title">
-                <h2>Upcoming Events</h2>
+                <h2>Volunteer Opportunities</h2>
             </div>
-            <div class="events-container">
+            <div class="events-list">
                 <div class="event-card">
-                    <div class="event-img">
-                        <img src="images/event1.jpg" alt="Event 1">
+                    <div class="event-image">
+                        <img src="/api/placeholder/350/200" alt="Hospital Volunteers">
                     </div>
-                    <div class="event-content">
-                        <span class="event-date">May 15, 2025</span>
-                        <h3>Pediatric First Aid Workshop</h3>
-                        <p>Learn essential first aid skills specifically for children. This hands-on workshop will cover emergency response, CPR, and common childhood injuries.</p>
-                        <a href="#" class="btn">Register</a>
+                    <div class="event-details">
+                        <h3>Children's Hospital Volunteer Day</h3>
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>May 15, 2025</span>
+                        </div>
+                        <p>Join us for a day of games, crafts, and companionship with young patients at Children's Memorial Hospital.</p>
+                        <a href="#" class="btn">Sign Up</a>
                     </div>
                 </div>
                 <div class="event-card">
-                    <div class="event-img">
-                        <img src="images/event2.jpg" alt="Event 2">
+                    <div class="event-image">
+                        <img src="/api/placeholder/350/200" alt="Bundles of Joy">
                     </div>
-                    <div class="event-content">
-                        <span class="event-date">June 2, 2025</span>
-                        <h3>Child Health Policy Panel</h3>
-                        <p>Join our discussion with healthcare professionals and policy experts on current issues affecting children's healthcare and advocacy opportunities.</p>
-                        <a href="#" class="btn">Register</a>
+                    <div class="event-details">
+                        <h3>Bundles of Joy Program</h3>
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Ongoing</span>
+                        </div>
+                        <p>Help collect and assemble care packages for newborns and their families facing financial hardship.</p>
+                        <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
                 <div class="event-card">
-                    <div class="event-img">
-                        <img src="images/event3.jpg" alt="Event 3">
+                    <div class="event-image">
+                        <img src="/api/placeholder/350/200" alt="Community Service">
                     </div>
-                    <div class="event-content">
-                        <span class="event-date">June 20, 2025</span>
-                        <h3>Summer Supply Drive</h3>
-                        <p>Help us collect essential supplies for children in need. We're accepting donations of school supplies, hygiene items, and more.</p>
+                    <div class="event-details">
+                        <h3>Community-Based Learning Initiative</h3>
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Fall Semester 2025</span>
+                        </div>
+                        <p>Partner with local schools to provide mentorship to elementary students in underserved communities.</p>
+                        <a href="#" class="btn">Register Interest</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Highlights Section -->
+    <section class="highlights" id="highlights">
+        <div class="container">
+            <div class="section-title">
+                <h2>Past Highlights</h2>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/250" alt="Fundraiser Event">
+                    <div class="gallery-caption">
+                        <h4>Spring Fundraiser 2024</h4>
+                        <p>Raised over $10,000 for the Children's Medical Research Foundation</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/250" alt="Hospital Visit">
+                    <div class="gallery-caption">
+                        <h4>Holiday Hospital Visit</h4>
+                        <p>Bringing gifts and cheer to pediatric patients</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/250" alt="Awareness Campaign">
+                    <div class="gallery-caption">
+                        <h4>Childhood Cancer Awareness Month</h4>
+                        <p>Campus-wide education initiative</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/250" alt="Volunteer Day">
+                    <div class="gallery-caption">
+                        <h4>Community Volunteer Day</h4>
+                        <p>Building a playground at the local children's center</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/250" alt="Award Ceremony">
+                    <div class="gallery-caption">
+                        <h4>Outstanding Service Award</h4>
+                        <p>PAA recognized by the University for excellence in community engagement</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/250" alt="Conference">
+                    <div class="gallery-caption">
+                        <h4>National Student Advocacy Conference</h4>
+                        <p>PAA representatives shared best practices with peers nationwide</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <div class="section-title">
+                    <h2>Member Testimonials</h2>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Joining PAA has been the most rewarding experience of my college career. I've made lifelong friends while making a real difference in children's lives."</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Student">
+                        <div class="testimonial-author-info">
+                            <h4>Jessica Parker</h4>
+                            <p>Senior, Psychology Major</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The leadership skills and compassion I developed through PAA have been invaluable. Our work with the children's hospital opened my eyes to pediatric healthcare as a career path."</p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Student">
+                        <div class="testimonial-author-info">
+                            <h4>Marcus Thomas</h4>
+                            <p>Junior, Pre-Med</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advocacy Section -->
+    <section class="advocacy" id="advocacy">
+        <div class="container">
+            <div class="section-title">
+                <h2>Advocacy & Awareness</h2>
+            </div>
+            <div class="causes">
+                <div class="cause-card">
+                    <div class="cause-image">
+                        <img src="/api/placeholder/350/200" alt="Child Welfare">
+                    </div>
+                    <div class="cause-details">
+                        <h3>Child Welfare Initiatives</h3>
+                        <p>Supporting policy changes that strengthen child protection services and improve outcomes for children in foster care.</p>
+                        <a href="#" class="btn">Take Action</a>
+                    </div>
+                </div>
+                <div class="cause-card">
+                    <div class="cause-image">
+                        <img src="/api/placeholder/350/200" alt="Pediatric Health">
+                    </div>
+                    <div class="cause-details">
+                        <h3>Pediatric Healthcare Access</h3>
+                        <p>Advocating for expanded access to quality healthcare for all children regardless of socioeconomic background.</p>
+                        <a href="#" class="btn">Sign Petition</a>
+                    </div>
+                </div>
+                <div class="cause-card">
+                    <div class="cause-image">
+                        <img src="/api/placeholder/350/200" alt="Education">
+                    </div>
+                    <div class="cause-details">
+                        <h3>Educational Equity</h3>
+                        <p>Working to ensure all children have access to high-quality educational resources and support services.</p>
                         <a href="#" class="btn">Learn More</a>
                     </div>
                 </div>
             </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <h3>Current Action Items</h3>
+                <div style="max-width: 600px; margin: 30px auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <p>Ready to make your voice heard? Download our letter templates and contact your representatives about these important issues:</p>
+                    <ul style="list-style-type: none; padding: 0; margin-top: 20px;">
+                        <li style="margin-bottom: 15px;"><a href="#" style="color: var(--accent-pink); text-decoration: none;">🖋 Children's Healthcare Funding Letter Template</a></li>
+                        <li style="margin-bottom: 15px;"><a href="#" style="color: var(--accent-pink); text-decoration: none;">🖋 School Lunch Program Support Letter</a></li>
+                        <li style="margin-bottom: 15px;"><a href="#" style="color: var(--accent-pink); text-decoration: none;">🖋 Pediatric Research Funding Advocacy Guide</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Join Us Section -->
-    <section id="join-us" class="join-us">
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
         <div class="container">
             <div class="section-title">
-                <h2>Join Our Mission</h2>
+                <h2>Resources</h2>
             </div>
-            <p>Whether you're a student at Dominican University or a community member passionate about children's health and well-being, there's a place for you in the Pediatric Advocacy Alliance. Join us in making a difference in the lives of children!</p>
-            <a href="#contact" class="btn">Get Involved</a>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Donation Lists</h3>
+                    <p>View our current needs for various donation drives, from toys to essential supplies for children in need.</p>
+                    <a href="#" class="btn">View List</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Community Partners</h3>
+                    <p>Explore our network of organizations working together to support children and families in our community.</p>
+                    <a href="#" class="btn">See Partners</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Scholarships</h3>
+                    <p>Information about scholarships and internships related to child advocacy and pediatric health.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contact Us</h2>
+                <h2>Contact & Connect</h2>
             </div>
-            <div class="contact-container">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
+            <div class="contact-flex">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Address</h3>
-                            <p>Dominican University, 7900 W Division St, River Forest, IL 60305</p>
-                        </div>
+                    <h3>Get in Touch</h3>
+                    <p>Interested in joining PAA or have questions about our initiatives? We'd love to hear from you!</p>
+                    <div style="margin: 30px 0;">
+                        <p><i class="fas fa-envelope" style="color: var(--accent-pink); margin-right: 10px;"></i> paa@university.edu</p>
+                        <p><i class="fas fa-map-marker-alt" style="color: var(--accent-pink); margin-right: 10px;"></i> Student Center, Room 302<br>University Campus</p>
+                        <p><i class="fas fa-clock" style="color: var(--accent-pink); margin-right: 10px;"></i> Office Hours: Monday-Thursday, 2-5pm</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>paa@dominican.edu</p>
-                        </div>
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>(123) 456-7890</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Join PAA</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year in School</label>
+                            <select id="year" class="form-control">
+                                <option value="">Select</option>
+                                <option value="freshman">Freshman</option>
+                                <option value="sophomore">Sophomore</option>
+                                <option value="junior">Junior</option>
+                                <option value="senior">Senior</option>
+                                <option value="graduate">Graduate Student</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interests">What interests you about PAA?</label>
+                            <textarea id="interests" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="border: none; cursor: pointer;">Submit Interest Form</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -845,233 +1184,51 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>Pediatric Advocacy Alliance</h3>
-                    <p>Advancing the health, rights, and well-being of children through advocacy, education, and outreach.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
+            <div class="footer-content">
+                <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#pillars">Our Work</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#join-us">Join Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Volunteer Opportunities</a></li>
+                        <li><a href="#">Past Highlights</a></li>
+                        <li><a href="#">Advocacy</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Newsletter</h3>
-                    <p>Stay updated with our latest news and events.</p>
-                    <form id="newsletterForm">
-                        <div class="form-group">
-                            <input type="email" placeholder="Enter your email" required>
-                        </div>
-                        <button type="submit" class="btn">Subscribe</button>
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Donation Lists</a></li>
+                        <li><a href="#">Community Partners</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Campus Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Join PAA</a></li>
+                        <li><a href="#">Upcoming Events</a></li>
+                        <li><a href="#">Sign-Up Forms</a></li>
+                        <li><a href="#">Support Our Causes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Email Us</a></li>
+                        <li><a href="#">Office Location</a></li>
+                        <li><a href="#">Social Media</a></li>
+                        <li><a href="#">Newsletter Signup</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Pediatric Advocacy Alliance. All Rights Reserved.</p>
+            <div class="copyright">
+                <p>&copy; 2025 Pediatric Advocacy Association. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Notification Element -->
-    <div class="notification"></div>
-
-    <!-- JavaScript -->
-    <script>
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile Menu Toggle
-            initializeHamburgerMenu();
-            
-            // Smooth Scrolling
-            initializeSmoothScrolling();
-            
-            // Form Handling
-            initializeFormHandling();
-            
-            // Animations
-            initializeAnimations();
-        });
-
-        // Mobile Menu Toggle
-        function initializeHamburgerMenu() {
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (hamburger && navLinks) {
-                hamburger.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
-                    hamburger.classList.toggle('active');
-                });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
-                        navLinks.classList.remove('active');
-                        hamburger.classList.remove('active');
-                    }
-                });
-                
-                // Close menu when pressing escape key
-                document.addEventListener('keydown', function(event) {
-                    if (event.key === 'Escape') {
-                        navLinks.classList.remove('active');
-                        hamburger.classList.remove('active');
-                    }
-                });
-            }
-        }
-
-        // Smooth Scrolling
-        function initializeSmoothScrolling() {
-            const links = document.querySelectorAll('a[href^="#"]');
-            
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    if (this.getAttribute('href').length > 1) {
-                        e.preventDefault();
-                        
-                        const targetId = this.getAttribute('href');
-                        const targetElement = document.querySelector(targetId);
-                        
-                        if (targetElement) {
-                            // Close mobile menu if open
-                            const navLinks = document.querySelector('.nav-links');
-                            const hamburger = document.querySelector('.hamburger');
-                            
-                            if (navLinks && hamburger) {
-                                navLinks.classList.remove('active');
-                                hamburger.classList.remove('active');
-                            }
-                            
-                            // Scroll to element
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
-        }
-
-        // Form Handling
-        function initializeFormHandling() {
-            const contactForm = document.getElementById('contactForm');
-            const newsletterForm = document.getElementById('newsletterForm');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Validate form
-                    let isValid = true;
-                    const formElements = contactForm.querySelectorAll('input, textarea');
-                    
-                    formElements.forEach(element => {
-                        if (element.hasAttribute('required') && !element.value.trim()) {
-                            isValid = false;
-                            element.classList.add('error');
-                        } else {
-                            element.classList.remove('error');
-                        }
-                        
-                        if (element.type === 'email' && element.value.trim()) {
-                            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                            if (!emailPattern.test(element.value.trim())) {
-                                isValid = false;
-                                element.classList.add('error');
-                            }
-                        }
-                    });
-                    
-                    if (isValid) {
-                        // Here you would typically handle form submission with an API call
-                        // For GitHub Pages, you might use a service like Formspree or Netlify Forms
-                        
-                        // Example success message
-                        showNotification('Thank you for your message! We will get back to you soon.', 'success');
-                        contactForm.reset();
-                    } else {
-                        showNotification('Please fill in all required fields correctly.', 'error');
-                    }
-                });
-            }
-            
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const emailInput = newsletterForm.querySelector('input[type="email"]');
-                    if (emailInput && emailInput.value.trim()) {
-                        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (emailPattern.test(emailInput.value.trim())) {
-                            // Handle newsletter signup
-                            showNotification('Thank you for subscribing to our newsletter!', 'success');
-                            newsletterForm.reset();
-                        } else {
-                            showNotification('Please enter a valid email address.', 'error');
-                        }
-                    } else {
-                        showNotification('Please enter your email address.', 'error');
-                    }
-                });
-            }
-        }
-
-        // Notification System
-        function showNotification(message, type) {
-            const notification = document.querySelector('.notification');
-            
-            // Set message and type
-            notification.textContent = message;
-            notification.className = 'notification ' + type;
-            
-            // Show notification
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 10);
-            
-            // Hide notification after delay
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        }
-
-        // Animation effects
-        function initializeAnimations() {
-            // Function to check if element is in viewport and animate
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.pillar-card, .event-card, .about-img, .about-text, .contact-form, .contact-info');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.2;
-                    
-                    if (elementPosition < screenPosition) {
-                        element.classList.add('animate');
-                    }
-                });
-            };
-            
-            // Run on load
-            animateOnScroll();
-            
-            // Run on scroll
-            window.addEventListener('scroll', animateOnScroll);
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
 </html>
