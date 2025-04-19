@@ -778,6 +778,60 @@
                 font-size: 2rem;
             }
         }
+        /* Custom Cursor */
+        html {
+            cursor: url('PAApennant.png'), auto;
+        }
+        
+        /* Text Carousel Animation */
+        .text-carousel {
+            height: 60px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .carousel-items {
+            position: relative;
+            animation: carousel 10s infinite;
+        }
+        
+        .carousel-item {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        @keyframes carousel {
+            0%, 16% {
+                transform: translateY(0);
+            }
+            20%, 36% {
+                transform: translateY(-60px);
+            }
+            40%, 56% {
+                transform: translateY(-120px);
+            }
+            60%, 76% {
+                transform: translateY(-180px);
+            }
+            80%, 96% {
+                transform: translateY(-240px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
         /* Scroll Effect for Header */
         .header-scrolled .logo-container {
             padding: 5px 0;
@@ -843,6 +897,15 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Pediatric Advocacy Association</h1>
+            <div class="text-carousel">
+                <div class="carousel-items">
+                    <div class="carousel-item">SERVICE</div>
+                    <div class="carousel-item">LEADERSHIP</div>
+                    <div class="carousel-item">COMMUNITY</div>
+                    <div class="carousel-item">EMPOWERMENT</div>
+                    <div class="carousel-item">ADVOCACY</div>
+                </div>
+            </div>
             <p>Advocating for children's health, welfare, and bright futures. Join us in making a difference!</p>
             <a href="#" class="btn">Get Involved</a>
         </div>
