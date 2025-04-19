@@ -240,6 +240,8 @@
             font-weight: 500;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: none;
         }
 
         .btn:hover {
@@ -875,6 +877,76 @@
         .header-scrolled nav a {
             padding: 10px 25px;
         }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: var(--cream);
+            margin: 10% auto;
+            padding: 30px;
+            border: 2px solid var(--blush-pink);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            color: var(--accent-pink);
+            cursor: pointer;
+        }
+
+        .success-message {
+            text-align: center;
+            color: #4CAF50;
+            font-weight: 600;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: rgba(76, 175, 80, 0.1);
+            border-radius: 5px;
+            display: none;
+        }
+
+        /* File download styles */
+        .download-template {
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .download-template:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .download-template i {
+            margin-right: 15px;
+            font-size: 24px;
+            color: var(--accent-pink);
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -882,41 +954,41 @@
     <!-- Header Navigation -->
     <header id="main-header">
         <div class="logo-container">
-            <img src="/api/placeholder/120/120" alt="PAA Logo" class="logo">
+            <a href="#" id="logo-link"><img src="/api/placeholder/120/120" alt="PAA Logo" class="logo"></a>
         </div>
         <nav>
             <ul>
                 <li>
-                    <a href="#">Home</a>
+                    <a href="#" id="nav-home">Home</a>
                 </li>
                 <li>
-                    <a href="#">About Us</a>
+                    <a href="#about" id="nav-about">About Us</a>
                     <div class="dropdown">
-                        <a href="#">Who We Are</a>
-                        <a href="#">What We Do</a>
-                        <a href="#">Our Mission</a>
-                        <a href="#">2025-2026 Board</a>
+                        <a href="#about" id="who-we-are">Who We Are</a>
+                        <a href="#about" id="what-we-do">What We Do</a>
+                        <a href="#about" id="our-mission">Our Mission</a>
+                        <a href="#board" id="nav-board">2025-2026 Board</a>
                     </div>
                 </li>
                 <li>
-                    <a href="#">Volunteer</a>
+                    <a href="#volunteer" id="nav-volunteer">Volunteer</a>
                     <div class="dropdown">
-                        <a href="#">Upcoming Events</a>
-                        <a href="#">Sign-Up Forms</a>
-                        <a href="#">How to Get Involved</a>
+                        <a href="#volunteer" id="upcoming-events">Upcoming Events</a>
+                        <a href="#" id="signup-forms">Sign-Up Forms</a>
+                        <a href="#" id="get-involved">How to Get Involved</a>
                     </div>
                 </li>
                 <li>
-                    <a href="#">Past Highlights</a>
+                    <a href="#highlights" id="nav-highlights">Past Highlights</a>
                 </li>
                 <li>
-                    <a href="#">Advocacy</a>
+                    <a href="#advocacy" id="nav-advocacy">Advocacy</a>
                 </li>
                 <li>
-                    <a href="#">Resources</a>
+                    <a href="#resources" id="nav-resources">Resources</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#contact" id="nav-contact">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -928,11 +1000,10 @@
         <div class="hero-content">
             <h1>Pediatric Advocacy Alliance</h1>
             <p>Advocating for children's health, welfare, and bright futures. Join us in making a difference!</p>
-            <a href="#" class="btn">Get Involved</a>
+            <a href="#contact" class="btn" id="hero-get-involved">Get Involved</a>
         </div>
     </section>
     
-    <!-- Animated Text Carousel Section -->
     <!-- Animated Text Carousel Section -->
     <div class="slider">
         <div class="slides">
@@ -1042,7 +1113,7 @@
                             <span>May 15, 2025</span>
                         </div>
                         <p>Join us for a day of games, crafts, and companionship with young patients at Children's Memorial Hospital.</p>
-                        <a href="#" class="btn">Sign Up</a>
+                        <a href="#" class="btn" id="hospital-signup">Sign Up</a>
                     </div>
                 </div>
                 <div class="event-card">
@@ -1056,7 +1127,7 @@
                             <span>Ongoing</span>
                         </div>
                         <p>Help collect and assemble care packages for newborns and their families facing financial hardship.</p>
-                        <a href="#" class="btn">Learn More</a>
+                        <a href="#" class="btn" id="bundles-learn-more">Learn More</a>
                     </div>
                 </div>
                 <div class="event-card">
@@ -1070,7 +1141,7 @@
                             <span>Fall Semester 2025</span>
                         </div>
                         <p>Partner with local schools to provide mentorship to elementary students in underserved communities.</p>
-                        <a href="#" class="btn">Register Interest</a>
+                        <a href="#" class="btn" id="community-register">Register Interest</a>
                     </div>
                 </div>
             </div>
@@ -1170,7 +1241,7 @@
                     <div class="cause-details">
                         <h3>Child Welfare Initiatives</h3>
                         <p>Supporting policy changes that strengthen child protection services and improve outcomes for children in foster care.</p>
-                        <a href="#" class="btn">Take Action</a>
+                        <a href="#" class="btn" id="welfare-action">Take Action</a>
                     </div>
                 </div>
                 <div class="cause-card">
@@ -1180,7 +1251,7 @@
                     <div class="cause-details">
                         <h3>Pediatric Healthcare Access</h3>
                         <p>Advocating for expanded access to quality healthcare for all children regardless of socioeconomic background.</p>
-                        <a href="#" class="btn">Sign Petition</a>
+                        <a href="#" class="btn" id="petition-btn">Sign Petition</a>
                     </div>
                 </div>
                 <div class="cause-card">
@@ -1190,7 +1261,7 @@
                     <div class="cause-details">
                         <h3>Educational Equity</h3>
                         <p>Working to ensure all children have access to high-quality educational resources and support services.</p>
-                        <a href="#" class="btn">Learn More</a>
+                        <a href="#" class="btn" id="education-learn-more">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1200,9 +1271,9 @@
                 <div style="max-width: 600px; margin: 30px auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
                     <p>Ready to make your voice heard? Download our letter templates and contact your representatives about these important issues:</p>
                     <ul style="list-style-type: none; padding: 0; margin-top: 20px;">
-                        <li style="margin-bottom: 15px;"><a href="#" style="color: var(--accent-pink); text-decoration: none;">🖋 Children's Healthcare Funding Letter Template</a></li>
-                        <li style="margin-bottom: 15px;"><a href="#" style="color: var(--accent-pink); text-decoration: none;">🖋 School Lunch Program Support Letter</a></li>
-                        <li style="margin-bottom: 15px;"><a href="#" style="color: var(--accent-pink); text-decoration: none;">🖋 Pediatric Research Funding Advocacy Guide</a></li>
+                        <li style="margin-bottom: 15px;"><a href="#" id="healthcare-template" class="download-link" style="color: var(--accent-pink); text-decoration: none;">🖋 Children's Healthcare Funding Letter Template</a></li>
+                        <li style="margin-bottom: 15px;"><a href="#" id="lunch-template" class="download-link" style="color: var(--accent-pink); text-decoration: none;">🖋 School Lunch Program Support Letter</a></li>
+                        <li style="margin-bottom: 15px;"><a href="#" id="research-template" class="download-link" style="color: var(--accent-pink); text-decoration: none;">🖋 Pediatric Research Funding Advocacy Guide</a></li>
                     </ul>
                 </div>
             </div>
@@ -1222,7 +1293,7 @@
                     </div>
                     <h3>Donation Lists</h3>
                     <p>View our current needs for various donation drives, from toys to essential supplies for children in need.</p>
-                    <a href="#" class="btn">View List</a>
+                    <a href="#" class="btn" id="donation-list-btn">View List</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -1230,7 +1301,7 @@
                     </div>
                     <h3>Community Partners</h3>
                     <p>Explore our network of organizations working together to support children and families in our community.</p>
-                    <a href="#" class="btn">See Partners</a>
+                    <a href="#" class="btn" id="partners-btn">See Partners</a>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">
@@ -1238,7 +1309,7 @@
                     </div>
                     <h3>Scholarships</h3>
                     <p>Information about scholarships and internships related to child advocacy and pediatric health.</p>
-                    <a href="#" class="btn">Learn More</a>
+                    <a href="#" class="btn" id="scholarships-btn">Learn More</a>
                 </div>
             </div>
         </div>
@@ -1261,15 +1332,15 @@
                     </div>
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" id="instagram-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" id="facebook-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" id="twitter-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" id="linkedin-link"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
                     <h3>Join PAA</h3>
-                    <form>
+                    <form id="join-form">
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" class="form-control" required>
@@ -1294,6 +1365,7 @@
                             <textarea id="interests" class="form-control"></textarea>
                         </div>
                         <button type="submit" class="btn" style="border: none; cursor: pointer;">Submit Interest Form</button>
+                        <div class="success-message" id="form-success">Thank you for your interest in PAA! We'll be in touch soon.</div>
                     </form>
                 </div>
             </div>
@@ -1307,38 +1379,38 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Volunteer Opportunities</a></li>
-                        <li><a href="#">Past Highlights</a></li>
-                        <li><a href="#">Advocacy</a></li>
+                        <li><a href="#" id="footer-home">Home</a></li>
+                        <li><a href="#about" id="footer-about">About Us</a></li>
+                        <li><a href="#volunteer" id="footer-volunteer">Volunteer Opportunities</a></li>
+                        <li><a href="#highlights" id="footer-highlights">Past Highlights</a></li>
+                        <li><a href="#advocacy" id="footer-advocacy">Advocacy</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Donation Lists</a></li>
-                        <li><a href="#">Community Partners</a></li>
-                        <li><a href="#">Scholarships</a></li>
-                        <li><a href="#">Campus Resources</a></li>
+                        <li><a href="#" id="footer-donations">Donation Lists</a></li>
+                        <li><a href="#" id="footer-partners">Community Partners</a></li>
+                        <li><a href="#" id="footer-scholarships">Scholarships</a></li>
+                        <li><a href="#" id="footer-campus">Campus Resources</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Get Involved</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Join PAA</a></li>
-                        <li><a href="#">Upcoming Events</a></li>
-                        <li><a href="#">Sign-Up Forms</a></li>
-                        <li><a href="#">Support Our Causes</a></li>
+                        <li><a href="#contact" id="footer-join">Join PAA</a></li>
+                        <li><a href="#volunteer" id="footer-events">Upcoming Events</a></li>
+                        <li><a href="#" id="footer-signup">Sign-Up Forms</a></li>
+                        <li><a href="#advocacy" id="footer-support">Support Our Causes</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Email Us</a></li>
-                        <li><a href="#">Office Location</a></li>
-                        <li><a href="#">Social Media</a></li>
-                        <li><a href="#">Newsletter Signup</a></li>
+                        <li><a href="mailto:paaexecutiveboard@mydomedu.onmicrosoft.com" id="footer-email">Email Us</a></li>
+                        <li><a href="https://maps.app.goo.gl/rCN8L5vKHm6NCLhH8" target="_blank" id="footer-location">Office Location</a></li>
+                        <li><a href="#" id="footer-social">Social Media</a></li>
+                        <li><a href="#" id="footer-newsletter">Newsletter Signup</a></li>
                     </ul>
                 </div>
             </div>
@@ -1347,6 +1419,249 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modals -->
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-signup">&times;</span>
+            <h3>Event Sign Up</h3>
+            <p>Complete the form below to register for this volunteer opportunity.</p>
+            <form id="event-signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone">Phone Number</label>
+                    <input type="tel" id="signup-phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-event">Event</label>
+                    <select id="signup-event" class="form-control" required>
+                        <option value="">Select an Event</option>
+                        <option value="hospital">Children's Hospital Volunteer Day</option>
+                        <option value="bundles">Bundles of Joy Program</option>
+                        <option value="community">Community-Based Learning Initiative</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="signup-notes">Additional Notes</label>
+                    <textarea id="signup-notes" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Submit Registration</button>
+                <div class="success-message" id="signup-success">Thank you for signing up! You'll receive a confirmation email shortly.</div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Petition Modal -->
+    <div class="modal" id="petition-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-petition">&times;</span>
+            <h3>Sign Our Petition</h3>
+            <p>Your voice matters! Sign our petition to support expanded pediatric healthcare access for all children.</p>
+            <form id="petition-form">
+                <div class="form-group">
+                    <label for="petition-name">Full Name</label>
+                    <input type="text" id="petition-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="petition-email">Email Address</label>
+                    <input type="email" id="petition-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="petition-zip">Zip Code</label>
+                    <input type="text" id="petition-zip" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="petition-message">Why This Matters to You (Optional)</label>
+                    <textarea id="petition-message" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Sign Petition</button>
+                <div class="success-message" id="petition-success">Thank you for signing our petition! Together we can make a difference.</div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Download Template Modal -->
+    <div class="modal" id="download-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-download">&times;</span>
+            <h3>Download Advocacy Materials</h3>
+            <p>Thank you for your interest in advocating for children's causes. Please select the materials you'd like to download:</p>
+            <div class="download-templates">
+                <a href="#" class="download-template" id="healthcare-download">
+                    <i class="fas fa-file-download"></i>
+                    <div>
+                        <strong>Children's Healthcare Funding Letter Template</strong>
+                        <p>PDF format, 2 pages</p>
+                    </div>
+                </a>
+                <a href="#" class="download-template" id="lunch-download">
+                    <i class="fas fa-file-download"></i>
+                    <div>
+                        <strong>School Lunch Program Support Letter</strong>
+                        <p>Word document, 1 page</p>
+                    </div>
+                </a>
+                <a href="#" class="download-template" id="research-download">
+                    <i class="fas fa-file-download"></i>
+                    <div>
+                        <strong>Pediatric Research Funding Advocacy Guide</strong>
+                        <p>PDF format, 5 pages</p>
+                    </div>
+                </a>
+            </div>
+            <div class="success-message" id="download-success">Download started! Thank you for advocating for children's health and welfare.</div>
+        </div>
+    </div>
+
+    <!-- Donation List Modal -->
+    <div class="modal" id="donation-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-donation">&times;</span>
+            <h3>Current Donation Needs</h3>
+            <p>We appreciate your generosity! Here are the items we're currently collecting:</p>
+            <div style="margin: 20px 0;">
+                <h4>Hospital Comfort Kits</h4>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>New stuffed animals (small to medium size)</li>
+                    <li>Coloring books and crayons</li>
+                    <li>Children's books (ages 3-12)</li>
+                    <li>Small puzzles and games</li>
+                    <li>New cozy socks (children's sizes)</li>
+                </ul>
+                
+                <h4>Newborn Care Packages</h4>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Diapers (newborn and size 1)</li>
+                    <li>Baby wipes (unscented)</li>
+                    <li>Baby blankets</li>
+                    <li>Infant clothing (0-3 months)</li>
+                    <li>Baby care items (gentle soap, lotion)</li>
+                </ul>
+                
+                <h4>School Supply Drive</h4>
+                <ul style="margin-left: 20px;">
+                    <li>Backpacks</li>
+                    <li>Notebooks and folders</li>
+                    <li>Pencils, pens, markers</li>
+                    <li>Rulers, scissors, glue sticks</li>
+                    <li>Scientific calculators (for older students)</li>
+                </ul>
+            </div>
+            <p><strong>Drop-off Location:</strong> Student Activities Office, Room 170, Monday-Friday, 9am-5pm</p>
+            <button class="btn" id="close-donation-btn" style="width: 100%; margin-top: 20px;">Close</button>
+        </div>
+    </div>
+
+    <!-- Partners Modal -->
+    <div class="modal" id="partners-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-partners">&times;</span>
+            <h3>Our Community Partners</h3>
+            <p>We're proud to collaborate with these organizations to support children in our community:</p>
+            <div style="margin: 20px 0;">
+                <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                    <h4>Children's Memorial Hospital</h4>
+                    <p>We provide volunteer support and organize special events for pediatric patients.</p>
+                </div>
+                <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                    <h4>Little Angels Foundation</h4>
+                    <p>Together we create care packages for children and families facing serious medical challenges.</p>
+                </div>
+                <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                    <h4>West Side Community Center</h4>
+                    <p>Our members mentor local children and assist with after-school programming.</p>
+                </div>
+                <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                    <h4>First Steps Daycare</h4>
+                    <p>We provide books, educational materials, and volunteer support.</p>
+                </div>
+                <div>
+                    <h4>Pediatric Health Policy Initiative</h4>
+                    <p>We collaborate on advocacy efforts to improve children's healthcare access.</p>
+                </div>
+            </div>
+            <p>Interested in becoming a partner? <a href="mailto:paaexecutiveboard@mydomedu.onmicrosoft.com" style="color: var(--accent-pink);">Contact us</a> to discuss collaboration opportunities.</p>
+            <button class="btn" id="close-partners-btn" style="width: 100%; margin-top: 20px;">Close</button>
+        </div>
+    </div>
+
+    <!-- Scholarships Modal -->
+    <div class="modal" id="scholarships-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-scholarships">&times;</span>
+            <h3>Scholarships & Professional Development</h3>
+            <p>We're committed to supporting students interested in careers related to child advocacy and pediatric healthcare:</p>
+            <div style="margin: 20px 0;">
+                <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                    <h4>PAA Leadership Scholarship</h4>
+                    <p>$1,000 award for active PAA members pursuing careers in fields that impact children's welfare.</p>
+                    <p><strong>Application Deadline:</strong> March 15, 2026</p>
+                </div>
+                <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                    <h4>Conference Sponsorships</h4>
+                    <p>Funding available for members to attend relevant professional conferences.</p>
+                    <p><strong>Applications:</strong> Reviewed on a rolling basis</p>
+                </div>
+                <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee;">
+                    <h4>Summer Internship Grant</h4>
+                    <p>Financial support for students completing unpaid internships in pediatric healthcare or child advocacy.</p>
+                    <p><strong>Application Deadline:</strong> February 1, 2026</p>
+                </div>
+                <div>
+                    <h4>External Scholarship Resources</h4>
+                    <p>We maintain a database of scholarships for students interested in pediatric medicine, child psychology, social work, and related fields.</p>
+                </div>
+            </div>
+            <p>For application forms and more information, please <a href="mailto:paaexecutiveboard@mydomedu.onmicrosoft.com" style="color: var(--accent-pink);">email us</a>.</p>
+            <button class="btn" id="close-scholarships-btn" style="width: 100%; margin-top: 20px;">Close</button>
+        </div>
+    </div>
+    
+    <!-- Newsletter Signup Modal -->
+    <div class="modal" id="newsletter-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-newsletter">&times;</span>
+            <h3>Subscribe to our Newsletter</h3>
+            <p>Stay informed about our initiatives, upcoming events, and advocacy opportunities.</p>
+            <form id="newsletter-form">
+                <div class="form-group">
+                    <label for="newsletter-name">Full Name</label>
+                    <input type="text" id="newsletter-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="newsletter-email">Email Address</label>
+                    <input type="email" id="newsletter-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Interests (Select all that apply)</label>
+                    <div style="margin-top: 10px;">
+                        <label style="display: block; margin-bottom: 10px;">
+                            <input type="checkbox" name="interests" value="events"> Volunteer Opportunities
+                        </label>
+                        <label style="display: block; margin-bottom: 10px;">
+                            <input type="checkbox" name="interests" value="advocacy"> Advocacy Campaigns
+                        </label>
+                        <label style="display: block; margin-bottom: 10px;">
+                            <input type="checkbox" name="interests" value="fundraising"> Fundraising Events
+                        </label>
+                        <label style="display: block; margin-bottom: 10px;">
+                            <input type="checkbox" name="interests" value="resources"> Resource Updates
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                <div class="success-message" id="newsletter-success">Thank you for subscribing to our newsletter!</div>
+            </form>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     
@@ -1360,6 +1675,295 @@
             } else {
                 header.classList.remove('header-scrolled');
             }
+        });
+
+        // Smooth Scrolling for All Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return; // Skip if it's just a hash
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100, // Offset for fixed header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            // Reset any success messages when opening a modal
+            const successMessage = document.getElementById(modalId).querySelector('.success-message');
+            if (successMessage) {
+                successMessage.style.display = 'none';
+            }
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modals when clicking on X
+        document.querySelectorAll('.close-modal').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                if (modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Close modals when clicking outside the modal content
+        window.addEventListener('click', function(event) {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Button Event Listeners - Hero Section
+        document.getElementById('hero-get-involved').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({behavior: 'smooth', block: 'start'});
+        });
+
+        // Button Event Listeners - Volunteer Section
+        document.getElementById('hospital-signup').addEventListener('click', function(e) {
+            e.preventDefault();
+            const eventSelect = document.getElementById('signup-event');
+            if (eventSelect) {
+                // Set the select box to the hospital event
+                for (let i = 0; i < eventSelect.options.length; i++) {
+                    if (eventSelect.options[i].value === 'hospital') {
+                        eventSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            openModal('signup-modal');
+        });
+
+        document.getElementById('bundles-learn-more').addEventListener('click', function(e) {
+            e.preventDefault();
+            const eventSelect = document.getElementById('signup-event');
+            if (eventSelect) {
+                // Set the select box to the bundles event
+                for (let i = 0; i < eventSelect.options.length; i++) {
+                    if (eventSelect.options[i].value === 'bundles') {
+                        eventSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            openModal('signup-modal');
+        });
+
+        document.getElementById('community-register').addEventListener('click', function(e) {
+            e.preventDefault();
+            const eventSelect = document.getElementById('signup-event');
+            if (eventSelect) {
+                // Set the select box to the community event
+                for (let i = 0; i < eventSelect.options.length; i++) {
+                    if (eventSelect.options[i].value === 'community') {
+                        eventSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            openModal('signup-modal');
+        });
+
+        // Button Event Listeners - Advocacy Section
+        document.getElementById('welfare-action').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('download-modal');
+        });
+
+        document.getElementById('petition-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('petition-modal');
+        });
+
+        document.getElementById('education-learn-more').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('download-modal');
+        });
+
+        // Button Event Listeners - Download Links
+        document.querySelectorAll('.download-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal('download-modal');
+            });
+        });
+
+        // Button Event Listeners - Resources Section
+        document.getElementById('donation-list-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('donation-modal');
+        });
+
+        document.getElementById('partners-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('partners-modal');
+        });
+
+        document.getElementById('scholarships-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('scholarships-modal');
+        });
+
+        // Footer Button Event Listeners
+        document.getElementById('footer-donations').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('donation-modal');
+        });
+
+        document.getElementById('footer-partners').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('partners-modal');
+        });
+
+        document.getElementById('footer-scholarships').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('scholarships-modal');
+        });
+
+        document.getElementById('footer-signup').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('signup-modal');
+        });
+
+        document.getElementById('footer-newsletter').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('newsletter-modal');
+        });
+
+        document.getElementById('footer-social').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Scroll to the social links section
+            document.querySelector('.social-links').scrollIntoView({behavior: 'smooth', block: 'start'});
+        });
+
+        // Form Submissions
+        function handleFormSubmit(formId, successMessageId) {
+            const form = document.getElementById(formId);
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Normally would send data to server here
+                    
+                    // Show success message
+                    const successMessage = document.getElementById(successMessageId);
+                    if (successMessage) {
+                        successMessage.style.display = 'block';
+                        
+                        // Reset form
+                        form.reset();
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(function() {
+                            successMessage.style.display = 'none';
+                        }, 5000);
+                    }
+                });
+            }
+        }
+
+        // Set up form submissions
+        handleFormSubmit('join-form', 'form-success');
+        handleFormSubmit('event-signup-form', 'signup-success');
+        handleFormSubmit('petition-form', 'petition-success');
+        handleFormSubmit('newsletter-form', 'newsletter-success');
+
+        // Download buttons in Download Modal
+        document.getElementById('healthcare-download').addEventListener('click', function(e) {
+            e.preventDefault();
+            const successMessage = document.getElementById('download-success');
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                // Hide success message after 5 seconds
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+            // Normally would trigger file download here
+        });
+
+        document.getElementById('lunch-download').addEventListener('click', function(e) {
+            e.preventDefault();
+            const successMessage = document.getElementById('download-success');
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                // Hide success message after 5 seconds
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+            // Normally would trigger file download here
+        });
+
+        document.getElementById('research-download').addEventListener('click', function(e) {
+            e.preventDefault();
+            const successMessage = document.getElementById('download-success');
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                // Hide success message after 5 seconds
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+            // Normally would trigger file download here
+        });
+
+        // Close buttons for modals
+        document.getElementById('close-donation-btn').addEventListener('click', function() {
+            closeModal('donation-modal');
+        });
+
+        document.getElementById('close-partners-btn').addEventListener('click', function() {
+            closeModal('partners-modal');
+        });
+
+        document.getElementById('close-scholarships-btn').addEventListener('click', function() {
+            closeModal('scholarships-modal');
+        });
+
+        // Social Media Links (would normally link to actual profiles)
+        document.getElementById('instagram-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This would link to the PAA Instagram profile');
+        });
+
+        document.getElementById('facebook-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This would link to the PAA Facebook page');
+        });
+
+        document.getElementById('twitter-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This would link to the PAA Twitter profile');
+        });
+
+        document.getElementById('linkedin-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This would link to the PAA LinkedIn page');
+        });
+
+        // Logo link to home
+        document.getElementById('logo-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
