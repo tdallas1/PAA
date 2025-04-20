@@ -130,7 +130,7 @@
         /* Welcome Page Enhancements */
         .hero {
             height: 600px;
-            background-image: url('background.jpg');
+            background-image: url('background.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -258,7 +258,7 @@
             margin-bottom: 20px;
         }
 
-        /* Horizontal Scrolling Text Animation */
+        /* Updated Horizontal Scrolling Text Animation */
         .values-banner {
             padding: 30px 0;
             background-color: var(--purple);
@@ -268,15 +268,17 @@
 
         .values-container {
             display: flex;
-            gap: 150px;
+            align-items: center;
             animation: scrollLeft 30s linear infinite;
             white-space: nowrap;
+            width: max-content; /* Ensure container fits all items */
         }
 
         .value-item {
             display: inline-flex;
             align-items: center;
-            gap: 20px;
+            justify-content: center;
+            margin: 0 75px; /* Equal space on both sides */
         }
 
         .value-item h3 {
@@ -289,11 +291,12 @@
             width: 60px;
             height: 60px;
             object-fit: contain;
+            margin: 0 20px; /* Add space on both sides of the logo */
         }
 
         @keyframes scrollLeft {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+            100% { transform: translateX(calc(-50% - 0px)); } /* Move exactly half the width */
         }
 
         /* Sections */
@@ -316,151 +319,6 @@
             font-size: 2.5rem;
             color: var(--pink);
             margin-bottom: 15px;
-        }
-
-        /* Fall Events Section */
-        .fall-events {
-            background-color: var(--light-pink);
-            padding: 80px 0;
-        }
-
-        .events-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .event-month {
-            margin-bottom: 30px;
-        }
-
-        .event-month h3 {
-            color: var(--green);
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--light-pink);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-
-        .event-list {
-            list-style: none;
-        }
-
-        .event-list li {
-            margin-bottom: 15px;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .event-list li::before {
-            content: "•";
-            color: var(--pink);
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-
-        .event-title {
-            font-weight: 600;
-            color: var(--pink);
-        }
-
-        .event-description {
-            font-size: 0.95rem;
-            margin-top: 5px;
-        }
-
-        /* Updated About Section - Scrapbook Style */
-        .about {
-            background-color: var(--teal);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            padding: 30px;
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .about-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .about-card-content {
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .about-card h3 {
-            color: var(--pink);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .about-card h3 span {
-            font-family: 'Updock', cursive;
-            font-size: 1.7em;
-        }
-
-        .about-card p {
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        /* Fact Counter Animation */
-        .facts {
-            background-color: var(--cream);
-            padding: 50px 0;
-        }
-
-        .facts-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-
-        .fact-item {
-            flex: 1;
-            min-width: 250px;
-            margin: 20px;
-        }
-
-        .fact-number {
-            font-size: 3.5rem;
-            color: var(--pink);
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .fact-label {
-            font-family: 'Updock', cursive;
-            color: var(--green);
-            font-size: 1.7rem;
         }
 
         /* Board Members - Polaroid Style */
@@ -631,7 +489,7 @@
             object-fit: contain;
         }
 
-        /* Calendar Section */
+        /* Calendar Section - Updated */
         .calendar {
             padding: 80px 0;
             background-color: var(--cream);
@@ -639,7 +497,7 @@
 
         .calendar-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Center the title */
             align-items: center;
             margin-bottom: 30px;
         }
@@ -647,28 +505,7 @@
         .calendar-title {
             font-size: 2rem;
             color: var(--green);
-        }
-
-        .calendar-nav {
-            display: flex;
-            gap: 10px;
-        }
-
-        .calendar-nav-btn {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--light-pink);
-            color: white;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .calendar-nav-btn:hover {
-            background-color: var(--pink);
+            text-align: center;
         }
 
         .calendar-grid {
@@ -733,6 +570,58 @@
         .calendar-day.other-month {
             background-color: #f9f9f9;
             color: #aaa;
+        }
+
+        /* Events container for Fall Events */
+        .events-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 50px;
+        }
+
+        .event-month {
+            margin-bottom: 30px;
+        }
+
+        .event-month h3 {
+            color: var(--green);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--light-pink);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .event-list {
+            list-style: none;
+        }
+
+        .event-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .event-list li::before {
+            content: "•";
+            color: var(--pink);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .event-title {
+            font-weight: 600;
+            color: var(--pink);
+        }
+
+        .event-description {
+            font-size: 0.95rem;
+            margin-top: 5px;
         }
 
         /* CBL Info Hub */
@@ -809,99 +698,64 @@
             left: -15px;
         }
 
-        /* Additional Pages Styling */
-        .page-header {
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+        /* Volunteer Section */
+        .volunteer {
+            background-color: white;
         }
 
-        .page-header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+        .events-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
         }
 
-        .page-title {
-            position: relative;
-            z-index: 2;
-            color: white;
-            text-align: center;
-        }
-
-        .page-title h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .page-title p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background-color: var(--pink);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .event-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
         }
 
-        .social-link:hover {
-            transform: translateY(-5px);
+        .event-card:hover {
+            transform: translateY(-10px);
         }
 
-        .success-message {
-            display: none;
-            padding: 10px;
-            background-color: rgba(76, 175, 80, 0.1);
-            color: #4CAF50;
-            border-radius: 5px;
-            margin-top: 15px;
-            text-align: center;
+        .event-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .event-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover .event-image img {
+            transform: scale(1.1);
+        }
+
+        .event-details {
+            padding: 20px;
+        }
+
+        .event-details h3 {
+            color: var(--pink);
+            margin-bottom: 10px;
+        }
+
+        .event-date {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--green);
+        }
+
+        .event-date i {
+            margin-right: 8px;
         }
 
         /* Footer */
@@ -1089,7 +943,7 @@
             <div class="section-heading">
                 <h2>Monthly <span class="calligraphy">Observance</span></h2>
             </div>
-                            <div class="observance-container">
+            <div class="observance-container">
                 <div class="observance-image">
                     <img src="aprilobservance.png" alt="April Observance">
                 </div>
@@ -1102,45 +956,31 @@
         </div>
     </section>
 
-    <!-- Values Banner with Logo -->
+    <!-- Values Banner with Logo - UPDATED -->
     <section class="values-banner">
         <div class="values-container">
+            <!-- First set of items -->
             <div class="value-item">
+                <h3>COMMUNITY</h3>
+                <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
+                <h3>EMPOWERMENT</h3>
+                <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
+                <h3>ADVOCACY</h3>
                 <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
                 <h3>LEADERSHIP</h3>
             </div>
+            <!-- Duplicate set for seamless scrolling -->
             <div class="value-item">
-                <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
                 <h3>COMMUNITY</h3>
-            </div>
-            <div class="value-item">
                 <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
                 <h3>EMPOWERMENT</h3>
-            </div>
-            <div class="value-item">
                 <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
                 <h3>ADVOCACY</h3>
-            </div>
-            <!-- Duplicate items for continuous scrolling -->
-            <div class="value-item">
                 <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
                 <h3>LEADERSHIP</h3>
-            </div>
-            <div class="value-item">
-                <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
-                <h3>COMMUNITY</h3>
-            </div>
-            <div class="value-item">
-                <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
-                <h3>EMPOWERMENT</h3>
-            </div>
-            <div class="value-item">
-                <img src="paa-logo.png" alt="PAA Logo" class="value-logo">
-                <h3>ADVOCACY</h3>
             </div>
         </div>
     </section>
-    
 
     <!-- Board Members Section - Polaroid Style -->
     <section class="board" id="board">
@@ -1237,153 +1077,232 @@
         </div>
     </section>
 
-<!-- Current Calendar Section (Enhanced) -->
-<section class="calendar" id="calendar-preview">
-    <div class="container">
-        <div class="section-heading">
-             <h2>PAA <span class="calligraphy">Calendar</span></h2>
-         </div>
-        <div class="calendar-header">
-            <h3 class="calendar-title">April 2025</h3>
-            <div class="calendar-nav">
-                <div class="calendar-nav-btn"><i class="fas fa-chevron-left"></i></div>
-                <div class="calendar-nav-btn"><i class="fas fa-chevron-right"></i></div>
+    <!-- Current Calendar Section (Enhanced) -->
+    <section class="calendar" id="calendar-preview">
+        <div class="container">
+            <div class="section-heading">
+                <h2>PAA <span class="calligraphy">Calendar</span></h2>
+            </div>
+            
+            <!-- Updated Calendar Header without arrows -->
+            <div class="calendar-header">
+                <h3 class="calendar-title">April 2025</h3>
+            </div>
+            
+            <!-- Calendar Grid - First Row (Weekdays) -->
+            <div class="calendar-grid">
+                <div class="calendar-weekday">Sun</div>
+                <div class="calendar-weekday">Mon</div>
+                <div class="calendar-weekday">Tue</div>
+                <div class="calendar-weekday">Wed</div>
+                <div class="calendar-weekday">Thu</div>
+                <div class="calendar-weekday">Fri</div>
+                <div class="calendar-weekday">Sat</div>
+                
+                <!-- Calendar Days - First Week -->
+                <div class="calendar-day other-month">
+                    <div class="day-number">30</div>
+                </div>
+                <div class="calendar-day other-month">
+                    <div class="day-number">31</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">1</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">2</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">3</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">4</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">5</div>
+                </div>
+                
+                <!-- Calendar Days - Second Week -->
+                <div class="calendar-day">
+                    <div class="day-number">6</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">7</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">8</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">9</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">10</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">11</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">12</div>
+                    <div class="event-item">Community Outreach - 10AM</div>
+                </div>
+                
+                <!-- Calendar Days - Third Week -->
+                <div class="calendar-day">
+                    <div class="day-number">13</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">14</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">15</div>
+                    <div class="event-item">Board Meeting - 5PM</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">16</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">17</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">18</div>
+                </div>
+                <div class="calendar-day current-day">
+                    <div class="day-number">19</div>
+                    <div class="event-item">Hospital Visit - 2PM</div>
+                    <div class="event-item">Awareness Workshop - 6PM</div>
+                </div>
+                
+                <!-- Calendar Days - Fourth Week -->
+                <div class="calendar-day">
+                    <div class="day-number">20</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">21</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">22</div>
+                    <div class="event-item">Earth Day Celebration - 11AM</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">23</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">24</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">25</div>
+                    <div class="event-item">Fundraising Committee - 4PM</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">26</div>
+                </div>
+                
+                <!-- Calendar Days - Fifth Week -->
+                <div class="calendar-day">
+                    <div class="day-number">27</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">28</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">29</div>
+                </div>
+                <div class="calendar-day">
+                    <div class="day-number">30</div>
+                    <div class="event-item">End of Month Social - 7PM</div>
+                </div>
+                <div class="calendar-day other-month">
+                    <div class="day-number">1</div>
+                </div>
+                <div class="calendar-day other-month">
+                    <div class="day-number">2</div>
+                </div>
+                <div class="calendar-day other-month">
+                    <div class="day-number">3</div>
+                </div>
+            </div>
+            
+            <!-- Fall 2025 Events List (Integrated from removed section) -->
+            <div class="events-container" style="margin-top: 50px;">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--pink);">Upcoming Fall 2025 Events</h3>
+                
+                <div class="event-month">
+                    <h3>AUGUST</h3>
+                    <ul class="event-list">
+                        <li>
+                            <div class="event-title">Work Week</div>
+                            <div class="event-description">Board prep, social campaign, team bonding</div>
+                        </li>
+                        <li>
+                            <div class="event-title">Car Wash Fundraiser</div>
+                            <div class="event-description">High-energy kickoff with PAA crop tops</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="event-month">
+                    <h3>SEPTEMBER</h3>
+                    <ul class="event-list">
+                        <li>
+                            <div class="event-title">Glow Up for Good</div>
+                            <div class="event-description">Self-care kit building event for youth, glam theme</div>
+                        </li>
+                        <li>
+                            <div class="event-title">Girl Scouts Volunteering Day</div>
+                            <div class="event-description">Activity-based day with a local troop + PAA merch handout</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="event-month">
+                    <h3>OCTOBER</h3>
+                    <ul class="event-list">
+                        <li>
+                            <div class="event-title">Trunk-or-Treat with Purpose</div>
+                            <div class="event-description">Halloween event + advocacy info + custom PAA stickers</div>
+                        </li>
+                        <li>
+                            <div class="event-title">Under the Same Moon: Sky Lantern Festival</div>
+                            <div class="event-description">Emotional remembrance night honoring infant/maternal loss, foster care deaths, gun violence victims, and more</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="event-month">
+                    <h3>NOVEMBER</h3>
+                    <ul class="event-list">
+                        <li>
+                            <div class="event-title">PAA Sleepover</div>
+                            <div class="event-description">Chill dorm-style social event with snacks, reflection, games</div>
+                        </li>
+                        <li>
+                            <div class="event-title">Rose Encouragement Drop</div>
+                            <div class="event-description">Members place roses + uplifting cards on cars in hospital lots</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="event-month">
+                    <h3>NOVEMBER–DECEMBER</h3>
+                    <ul class="event-list">
+                        <li>
+                            <div class="event-title">Donation Drive w/ River Forest Methodist Church</div>
+                            <div class="event-description">Ongoing donation collection of baby and family items</div>
+                        </li>
+                        <li>
+                            <div class="event-title">Jingle Bell Run – Running for Little Lives</div>
+                            <div class="event-description">Final event of the semester with team onesies, lunch, and themed accessories</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="calendar.html" class="btn">View Full Calendar</a>
             </div>
         </div>
-        
-        <!-- April Calendar Grid -->
-        <div class="calendar-grid">
-            <div class="calendar-weekday">Sun</div>
-            <div class="calendar-weekday">Mon</div>
-            <div class="calendar-weekday">Tue</div>
-            <div class="calendar-weekday">Wed</div>
-            <div class="calendar-weekday">Thu</div>
-            <div class="calendar-weekday">Fri</div>
-            <div class="calendar-weekday">Sat</div>
-            
-            <!-- Calendar Days - First Week -->
-            <div class="calendar-day other-month">
-                <div class="day-number">30</div>
-            </div>
-            <div class="calendar-day other-month">
-                <div class="day-number">31</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">1</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">2</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">3</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">4</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">5</div>
-            </div>
-            
-            <!-- Calendar Days - Second Week -->
-            <div class="calendar-day">
-                <div class="day-number">6</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">7</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">8</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">9</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">10</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">11</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">12</div>
-                <div class="event-item">Community Outreach - 10AM</div>
-            </div>
-            
-            <!-- Calendar Days - Third Week -->
-            <div class="calendar-day">
-                <div class="day-number">13</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">14</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">15</div>
-                <div class="event-item">Board Meeting - 5PM</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">16</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">17</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">18</div>
-            </div>
-            <div class="calendar-day current-day">
-                <div class="day-number">19</div>
-                <div class="event-item">Hospital Visit - 2PM</div>
-                <div class="event-item">Awareness Workshop - 6PM</div>
-            </div>
-            
-            <!-- Calendar Days - Fourth Week -->
-            <div class="calendar-day">
-                <div class="day-number">20</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">21</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">22</div>
-                <div class="event-item">Earth Day Celebration - 11AM</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">23</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">24</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">25</div>
-                <div class="event-item">Fundraising Committee - 4PM</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">26</div>
-            </div>
-            
-            <!-- Calendar Days - Fifth Week -->
-            <div class="calendar-day">
-                <div class="day-number">27</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">28</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">29</div>
-            </div>
-            <div class="calendar-day">
-                <div class="day-number">30</div>
-                <div class="event-item">End of Month Social - 7PM</div>
-            </div>
-            <div class="calendar-day other-month">
-                <div class="day-number">1</div>
-            </div>
-            <div class="calendar-day other-month">
-                <div class="day-number">2</div>
-            </div>
-            <div class="calendar-day other-month">
-                <div class="day-number">3</div>
-            </div>
-        </div>
-        
+    </section>
+
     <!-- Member Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container">
@@ -1628,18 +1547,6 @@
 
         // Set up form submissions
         handleFormSubmit('newsletter-form', 'newsletter-success');
-
-        // Calendar Navigation
-        const calendarNavBtns = document.querySelectorAll('.calendar-nav-btn');
-        if (calendarNavBtns.length > 0) {
-            calendarNavBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // This would normally update the calendar
-                    // For now just show an alert
-                    alert('Calendar navigation would change the month');
-                });
-            });
-        }
 
         // Event item click handler
         const eventItems = document.querySelectorAll('.event-item');
