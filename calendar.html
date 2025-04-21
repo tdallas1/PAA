@@ -1363,6 +1363,73 @@
             alert('Thank you for your event suggestion! Our team will review it and get back to you soon.');
             eventSuggestionForm.reset();
         });
+
+        // JavaScript to dynamically load the calendar content on month change
+// You can plug this in just after updating monthTitle text
+
+const calendarGrid = document.getElementById('grid-view');
+
+function generateCalendar(monthIndex, year) {
+    calendarGrid.innerHTML = '';
+
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    weekdays.forEach(day => {
+        const header = document.createElement('div');
+        header.className = 'calendar-weekday';
+        header.textContent = day;
+        calendarGrid.appendChild(header);
+    });
+
+    const firstDay = new Date(year, monthIndex, 1).getDay();
+    const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+    const daysInPrevMonth = new Date(year, monthIndex, 0).getDate();
+
+    // Previous month's trailing days
+    for (let i = firstDay - 1; i >= 0; i--) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day other-month';
+        day.innerHTML = `<div class="day-number">${daysInPrevMonth - i}</div>`;
+        calendarGrid.appendChild(day);
+    }
+
+    // Current month
+    for (let i = 1; i <= daysInMonth; i++) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day';
+        day.innerHTML = `<div class="day-number">${i}</div>`;
+        calendarGrid.appendChild(day);
+    }
+
+    // Fill remaining cells for a 6-row grid
+    const totalCells = calendarGrid.children.length;
+    const remainingCells = 42 - totalCells;
+    for (let i = 1; i <= remainingCells; i++) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day other-month';
+        day.innerHTML = `<div class="day-number">${i}</div>`;
+        calendarGrid.appendChild(day);
+    }
+}
+
+// Hook up the buttons to regenerate calendar
+prevMonthBtn.addEventListener('click', function() {
+    currentMonthIndex = currentMonthIndex > 0 ? currentMonthIndex - 1 : 11;
+    if (currentMonthIndex === 11) currentYear--;
+    monthTitle.textContent = `${months[currentMonthIndex]} ${currentYear}`;
+    generateCalendar(currentMonthIndex, currentYear);
+});
+
+nextMonthBtn.addEventListener('click', function() {
+    currentMonthIndex = currentMonthIndex < 11 ? currentMonthIndex + 1 : 0;
+    if (currentMonthIndex === 0) currentYear++;
+    monthTitle.textContent = `${months[currentMonthIndex]} ${currentYear}`;
+    generateCalendar(currentMonthIndex, currentYear);
+});
+
+// Initial calendar load
+generateCalendar(currentMonthIndex, currentYear);
+
     </script>
+    
 </body>
 </html>
