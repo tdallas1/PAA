@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - Pediatric Advocacy Alliance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Castoro+Titling&display=swap" rel="stylesheet">
+    <style>
+        /* Updated Color Palette */
+        :root {
+            --pink: #ff6f91;
+            --green: #3e5f4a;
+            --light-pink: #ffc6d3;
+            --yellow: #ffe497;
+            --purple: #d4c1ec;
+            --teal: #c2efe9;
+            --cream: #FFFCF9;
+            --text-color: #333;
+            --header-transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Font Styles */
+        .calligraphy {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+            font-size: 1.3em;
+        }
+
+        .castoro {
+            font-family: 'Castoro Titling', serif;
+        }
+
+        /* Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--header-transition);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: var(--cream);
+            transition: var(--header-transition);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--light-pink);
+            transition: var(--header-transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            border-top: 1px solid var(--light-pink);
+            border-bottom: 1px solid var(--light-pink);
+            transition: var(--header-transition);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--header-transition);
+        }
+
+        nav a:hover {
+            color: var(--pink);
+        }
+
+        nav li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 0 0 5px 5px;
+            border-top: 3px solid var(--light-pink);
+        }
+
+        .dropdown a {
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            height: 50vh;
+            background-image: url('volunteer-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 111, 145, 0.3);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .banner-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .banner-content p {
+            font-size: 1.2rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5rem;
+            color: var(--pink);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background-color: var(--green);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--pink);
+            color: var(--pink);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--pink);
+            color: white;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Volunteer Intro Section */
+        .volunteer-intro {
+            background-color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .intro-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Opportunity Cards */
+        .opportunity-section {
+            background-color: var(--cream);
+            padding: 80px 0;
+        }
+
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .opportunity-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .opportunity-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            color: var(--pink);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .card-details {
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            align-items: flex-start;
+        }
+
+        .detail-icon {
+            color: var(--pink);
+            margin-right: 10px;
+            font-size: 1rem;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .card-action {
+            margin-top: auto;
+        }
+
+        /* Process Steps */
+        .process-section {
+            background-color: var(--purple);
+            background-image: url('process-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+        }
+
+        .steps-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .step-line {
+            position: absolute;
+            top: 50px;
+            bottom: 50px;
+            left: 50%;
+            width: 6px;
+            background-color: var(--light-pink);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--pink);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin: 0 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .step-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 400px;
+        }
+
+        .step-content h3 {
+            color: var(--pink);
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            background-color: var(--cream);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+        }
+
+        .testimonial-slide::before {
+            content: """;
+            font-size: 80px;
+            color: var(--light-pink);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 3px solid var(--light-pink);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--pink);
+            margin-bottom: 5px;
+        }
+
+        .author-role {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--light-pink);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: var(--pink);
+            transform: scale(1.2);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--cream);
+            padding: 80px 0;
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .accordion-header {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: rgba(255, 111, 145, 0.05);
+        }
+
+        .accordion-header i {
+            color: var(--pink);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            padding: 0 20px 20px;
+            max-height: 300px;
+        }
+
+        .accordion-item.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--teal);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            color: var(--green);
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .cta-content p {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+
+        /* Application Form */
+        .application-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--cream);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .checkbox-item input {
+            margin-right: 5px;
+            width: auto;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            background-image: url('background11.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--light-pink);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            color: var(--pink);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--pink);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #f1f1f1;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .dropdown {
+                position: static;
+                width: 100%;
+            }
+
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .step {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 30px;
+            }
+
+            .step:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .step-number {
+                margin: 0 0 20px 0;
+            }
+
+            .step-line {
+                left: 30px;
+                transform: none;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header id="main-header">
+        <div class="logo-container">
+            <a href="index.html" id="logo-link">
+                <img src="paa-logo.png" alt="PAA Logo" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+                <li>
+                    <a href="volunteer.html">Volunteer</a>
+                </li>
+                <li>
+                    <a href="calendar.html">Calendar</a>
+                </li>
+                <li>
+                    <a href="cbl.html">CBL Hub</a>
+                </li>
+                <li>
+                    <a href="highlights.html">Past Highlights</a>
+                </li>
+                <li>
+                    <a href="partnership.html">Partnership</a>
+                </li>
+                <li>
+                    <a href="donate.html">Donate</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h1>Volunteer With Us</h1>
+            <p>Join our community of dedicated advocates making a difference in children's lives</p>
+            <a href="#application" class="btn">Apply Now</a>
+        </div>
+    </section>
+    
+    <!-- Volunteer Intro Section -->
+    <section class="volunteer-intro">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Why <span class="calligraphy">Volunteer</span> With PAA?</h2>
+                <p>Make a meaningful impact while gaining valuable experience</p>
+            </div>
+            <div class="intro-content">
+                <p>Volunteering with Pediatric Advocacy Alliance offers a unique opportunity to combine your passion for helping children with valuable hands-on experience. Whether you're pursuing a career in healthcare, education, social work, or simply have a heart for service, PAA provides a supportive environment where you can develop skills, build relationships, and create meaningful change.</p>
+                <p>Our volunteers come from diverse backgrounds but share a common dedication to improving children's lives. As a volunteer, you'll work alongside like-minded peers and professionals, gain insight into pediatric healthcare challenges, and directly contribute to programs that support vulnerable children and families in our community.</p>
+                <div class="btn-container">
+                    <a href="#opportunities" class="btn">View Opportunities</a>
+                    <a href="#application" class="btn btn-secondary">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Volunteer Opportunities Section -->
+    <section id="opportunities" class="opportunity-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Volunteer <span class="calligraphy">Opportunities</span></h2>
+                <p>Find the perfect way to contribute your time and talents</p>
+            </div>
+            <div class="opportunity-grid">
+                <div class="opportunity-card">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/320" alt="Hospital Buddy Program">
+                    </div>
+                    <div class="card-content">
+                        <h3>Hospital Buddy Program</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="far fa-clock"></i></span>
+                                <span>Time Commitment: 4-8 hours per month</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
+                                <span>Schedule: Flexible, 2-4 hour shifts</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Location: Children's Hospital</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
+                                <span>Provide companionship to pediatric patients through activities like reading, arts and crafts, and games. Help create a positive environment for children during their hospital stay.</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#application" class="btn btn-outline">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/320" alt="Family Resource Navigator">
+                    </div>
+                    <div class="card-content">
+                        <h3>Family Resource Navigator</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="far fa-clock"></i></span>
+                                <span>Time Commitment: 6-10 hours per month</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
+                                <span>Schedule: Weekly shifts, flexible hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Location: Family Resource Center</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
+                                <span>Help connect families with available healthcare resources, social services, and educational materials. Assist with intake processes and provide information about community supports.</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#application" class="btn btn-outline">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/320" alt="Community Outreach Team">
+                    </div>
+                    <div class="card-content">
+                        <h3>Community Outreach Team</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="far fa-clock"></i></span>
+                                <span>Time Commitment: 5-15 hours per month</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
+                                <span>Schedule: Event-based, typically weekends</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Location: Various community sites</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
+                                <span>Represent PAA at health fairs, school events, and community gatherings. Distribute educational materials, engage with the public, and help raise awareness about children's health issues.</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#application" class="btn btn-outline">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/320" alt="Advocacy & Research Team">
+                    </div>
+                    <div class="card-content">
+                        <h3>Advocacy & Research Team</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="far fa-clock"></i></span>
+                                <span>Time Commitment: 8-12 hours per month</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
+                                <span>Schedule: Regular meetings plus flexible hours</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Location: Campus and remote work</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
+                                <span>Contribute to research projects, policy analysis, and advocacy initiatives. Help develop position papers, educational materials, and awareness campaigns focused on pediatric health issues.</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#application" class="btn btn-outline">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/320" alt="Special Events Committee">
+                    </div>
+                    <div class="card-content">
+                        <h3>Special Events Committee</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="far fa-clock"></i></span>
+                                <span>Time Commitment: 5-20 hours per month</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
+                                <span>Schedule: Event-based, varies throughout year</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Location: Various venues</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
+                                <span>Help plan and execute fundraisers, awareness events, and community gatherings. Assist with logistics, promotion, vendor coordination, and day-of event support.</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#application" class="btn btn-outline">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/320" alt="Social Media & Communications">
+                    </div>
+                    <div class="card-content">
+                        <h3>Social Media & Communications</h3>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="far fa-clock"></i></span>
+                                <span>Time Commitment: 3-8 hours per month</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
+                                <span>Schedule: Flexible, remote work</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                <span>Location: Remote with occasional in-person meetings</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
+                                <span>Create engaging content for social media platforms, assist with newsletter production, develop promotional materials, and help maintain the PAA website and online presence.</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#application" class="btn btn-outline">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Volunteer Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>How to <span class="calligraphy">Get Involved</span></h2>
+                <p>From application to active volunteering in four simple steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-line"></div>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Submit Your Application</h3>
+                        <p>Complete our online volunteer application form with your contact information, availability, areas of interest, and relevant experience or skills. We welcome volunteers from all backgrounds and experience levels!</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Attend Orientation</h3>
+                        <p>After your application is reviewed, you'll be invited to attend a volunteer orientation session (offered monthly). Learn about PAA's mission, programs, policies, and the various ways you can contribute.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Complete Training</h3>
+                        <p>Depending on your selected volunteer role, you'll receive specific training to prepare you for your responsibilities. Training may include child safety protocols, hospital policies, advocacy skills, or resource navigation.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Begin Your Volunteer Journey</h3>
+                        <p>Start making a difference! You'll be connected with your volunteer team and begin contributing to PAA programs. Ongoing support and additional training opportunities will be available throughout your volunteer experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Volunteer <span class="calligraphy">Stories</span></h2>
+                <p>Hear from our community of dedicated advocates</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active" id="testimonial1">
+                    <div class="testimonial-text">
+                        "Volunteering with PAA has been one of the most rewarding experiences of my college career. I started as a hospital buddy, spending time with children who were receiving treatment, and it completely changed my perspective on healthcare. Seeing firsthand the impact of compassionate support on pediatric patients has shaped my approach to my nursing studies and reinforced my commitment to patient-centered care."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/400/320" alt="Testimonial Author">
+                        </div>
+                        <div class="author-name">Mia Patel</div>
+                        <div class="author-role">Hospital Buddy Volunteer, Nursing Student</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide" id="testimonial2">
+                    <div class="testimonial-text">
+                        "Being part of the Advocacy & Research team at PAA has given me valuable experience that complements my public health studies. I've had the opportunity to contribute to real community health initiatives, develop educational materials, and even present our findings at a campus research symposium. The skills I've gained in research, communication, and advocacy will be invaluable in my future career."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/400/320" alt="Testimonial Author">
+                        </div>
+                        <div class="author-name">Jordan Taylor</div>
+                        <div class="author-role">Advocacy Team Volunteer, Public Health Major</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide" id="testimonial3">
+                    <div class="testimonial-text">
+                        "I joined PAA's Community Outreach team because I wanted to make a difference in my community. What I didn't expect was how much I would grow personally through this experience. I've developed leadership skills, learned how to communicate effectively with diverse audiences, and built meaningful connections with families and fellow volunteers. PAA has become like a second family to me."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/400/320" alt="Testimonial Author">
+                        </div>
+                        <div class="author-name">Elena Ramirez</div>
+                        <div class="author-role">Outreach Volunteer, Education Major</div>
+                    </div>
+                </div>
+                
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-slide="testimonial1"></div>
+                    <div class="slider-dot" data-slide="testimonial2"></div>
+                    <div class="slider-dot" data-slide="testimonial3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Frequently <span class="calligraphy">Asked Questions</span></h2>
+                <p>Answers to common questions about volunteering with PAA</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Do I need prior experience to volunteer with PAA?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>No prior experience is required for most volunteer roles! We welcome students from all backgrounds and provide comprehensive training for each position. Your enthusiasm, reliability, and commitment to our mission are the most important qualifications. Some specialized roles may benefit from specific skills or experience, but we have opportunities for everyone regardless of background.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        What is the minimum time commitment for volunteers?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We ask for a minimum commitment of 3-4 hours per month for at least one semester (about 4 months). This ensures continuity in our programs and allows you to have a meaningful volunteer experience. Many of our roles offer flexible scheduling to accommodate student academic calendars. Some specialized positions or committees may require additional time commitments, which will be clearly communicated during the application process.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Are there any requirements I need to fulfill before volunteering?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>All volunteers must complete an orientation session and role-specific training. Depending on your volunteer position, you may also need to complete a background check (provided at no cost to you), provide proof of certain vaccinations (especially for hospital-based roles), and complete child safety training. These requirements help ensure the safety and well-being of the children and families we serve.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Can I receive academic credit or service hours for volunteering?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes! Many volunteers use their PAA experience to fulfill service-learning requirements, practicum hours, or community service credits. We're happy to complete any necessary documentation for your academic program. Please let us know about your specific requirements during the application process, and we'll work with you to ensure your volunteer experience aligns with your academic goals.</p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        What support will I receive as a volunteer?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>PAA is committed to supporting our volunteers throughout their experience with us. You'll receive thorough initial training, ongoing guidance from experienced team leaders, regular check-ins, and opportunities for additional skill development. We also host volunteer appreciation events, offer letters of recommendation for dedicated volunteers, and provide networking opportunities with healthcare professionals and community organizations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Make a Difference?</h2>
+                <p>Join our dedicated community of volunteers and help create a brighter future for children in need.</p>
+                <a href="#application" class="btn">Apply Now</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Application Form Section -->
+    <section id="application" class="application-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Volunteer <span class="calligraphy">Application</span></h2>
+                <p>Take the first step toward making a difference today</p>
+            </div>
+            <div class="form-container">
+                <form id="volunteer-application-form">
+                    <div class="form-group">
+                        <label for="full-name">Full Name *</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="major">Major/Field of Study</label>
+                        <input type="text" id="major" name="major">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="graduation-year">Expected Graduation Year</label>
+                            <input type="text" id="graduation-year" name="graduation-year">
+                        </div>
+                        <div class="form-group">
+                            <label for="availability-start">Available Start Date *</label>
+                            <input type="date" id="availability-start" name="availability-start" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Areas of Interest (select all that apply) *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="hospital-buddy" name="interest" value="hospital-buddy">
+                                <label for="hospital-buddy">Hospital Buddy Program</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="resource-navigator" name="interest" value="resource-navigator">
+                                <label for="resource-navigator">Family Resource Navigator</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="outreach-team" name="interest" value="outreach-team">
+                                <label for="outreach-team">Community Outreach Team</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="advocacy-team" name="interest" value="advocacy-team">
+                                <label for="advocacy-team">Advocacy & Research Team</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="events-committee" name="interest" value="events-committee">
+                                <label for="events-committee">Special Events Committee</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="social-media" name="interest" value="social-media">
+                                <label for="social-media">Social Media & Communications</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availability">Weekly Availability *</label>
+                        <textarea id="availability" name="availability" placeholder="Please indicate which days and times you are typically available to volunteer." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Relevant Experience</label>
+                        <textarea id="experience" name="experience" placeholder="Please share any relevant experience, skills, or qualifications you have (prior volunteer work, coursework, certifications, etc.)."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivation">Motivation for Volunteering *</label>
+                        <textarea id="motivation" name="motivation" placeholder="Why are you interested in volunteering with PAA? What do you hope to contribute and gain from this experience?" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hear-about">How did you hear about PAA?</label>
+                        <select id="hear-about" name="hear-about">
+                            <option value="">Please select</option>
+                            <option value="social-media">Social Media</option>
+                            <option value="friend">Friend or Classmate</option>
+                            <option value="faculty">Faculty/Staff Member</option>
+                            <option value="campus-event">Campus Event</option>
+                            <option value="website">Website</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About PAA</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="mission.html">Mission & Vision</a></li>
+                        <li><a href="chapters.html">Find a Chapter</a></li>
+                        <li><a href="create-chapter.html">Start a Chapter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="volunteer.html">Volunteer Opportunities</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="events.html">Upcoming Events</a></li>
+                        <li><a href="partnership.html">Partner With Us</a></li>
+                        <li><a href="cbl.html">Community-Based Learning</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Educational Materials</a></li>
+                        <li><a href="advocacy.html">Advocacy Tools</a></li>
+                        <li><a href="calendar.html">Event Calendar</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.facebook.com/PediatricAdvocacyAlliance" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="https://www.instagram.com/paa_official" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.twitter.com/PAAofficial" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="https://www.linkedin.com/company/pediatric-advocacy-alliance" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        // Sticky Header Functionality
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            const logo = document.querySelector('.logo');
+            const logoContainer = document.querySelector('.logo-container');
+            
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+                logo.style.width = '80px';
+                logo.style.height = '80px';
+                logoContainer.style.padding = '5px 0';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                logo.style.width = '120px';
+                logo.style.height = '120px';
+                logoContainer.style.padding = '15px 0';
+            }
+        });
+
+        // Testimonial Slider Functionality
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        
+        sliderDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideId = this.getAttribute('data-slide');
+                
+                // Hide all slides and remove active class from dots
+                testimonialSlides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                sliderDots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Show selected slide and add active class to clicked dot
+                document.getElementById(slideId).classList.add('active');
+                this.classList.add('active');
+            });
+        });
+        
+        // Automatic slide rotation
+        let currentSlide = 0;
+        const testimonialInterval = setInterval(function() {
+            currentSlide = (currentSlide + 1) % testimonialSlides.length;
+            
+            // Hide all slides and remove active class from dots
+            testimonialSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            sliderDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show next slide and add active class to corresponding dot
+            testimonialSlides[currentSlide].classList.add('active');
+            sliderDots[currentSlide].classList.add('active');
+        }, 8000);
+        
+        // FAQ Accordion Functionality
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            
+            header.addEventListener('click', function() {
+                // Toggle active class on clicked item
+                item.classList.toggle('active');
+                
+                // Close other open accordion items (optional)
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Form Submission
+        const volunteerForm = document.getElementById('volunteer-application-form');
+        
+        volunteerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            const interestCheckboxes = document.querySelectorAll('input[name="interest"]:checked');
+            if (interestCheckboxes.length === 0) {
+                alert('Please select at least one area of interest.');
+                return;
+            }
+            
+            // Here you would typically send the form data to a server
+            // For demonstration purposes, we'll just show a success message
+            alert('Thank you for your application! We\'ll be in touch soon about next steps.');
+            
+            // Optional: Reset form after submission
+            volunteerForm.reset();
+            
+            // Optional: Scroll back to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100, // Offset for header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
