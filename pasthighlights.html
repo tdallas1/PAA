@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Highlights - Pediatric Advocacy Alliance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Castoro+Titling&display=swap" rel="stylesheet">
+    <style>
+        /* Updated Color Palette */
+        :root {
+            --pink: #ff6f91;
+            --green: #3e5f4a;
+            --light-pink: #ffc6d3;
+            --yellow: #ffe497;
+            --purple: #d4c1ec;
+            --teal: #c2efe9;
+            --cream: #FFFCF9;
+            --text-color: #333;
+            --header-transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Font Styles */
+        .calligraphy {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+            font-size: 1.3em;
+        }
+
+        .castoro {
+            font-family: 'Castoro Titling', serif;
+        }
+
+        /* Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--header-transition);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: var(--cream);
+            transition: var(--header-transition);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--light-pink);
+            transition: var(--header-transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            border-top: 1px solid var(--light-pink);
+            border-bottom: 1px solid var(--light-pink);
+            transition: var(--header-transition);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--header-transition);
+        }
+
+        nav a:hover {
+            color: var(--pink);
+        }
+
+        nav li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 0 0 5px 5px;
+            border-top: 3px solid var(--light-pink);
+        }
+
+        .dropdown a {
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            height: 40vh;
+            background-image: url('highlights-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 111, 145, 0.3);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .banner-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .banner-content p {
+            font-size: 1.2rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5rem;
+            color: var(--pink);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .timeline-container {
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .timeline-center-line {
+            position: absolute;
+            left: 50%;
+            width: 6px;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            background-color: var(--light-pink);
+            z-index: 1;
+        }
+
+        .timeline-item {
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-content {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-date {
+            position: absolute;
+            width: 120px;
+            background-color: var(--pink);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 30px;
+            font-weight: 600;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -20px;
+        }
+
+        .timeline-media {
+            flex: 0 0 50%;
+            padding: 0 50px;
+        }
+
+        .timeline-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-image:hover {
+            transform: scale(1.03);
+        }
+
+        .timeline-text {
+            flex: 0 0 50%;
+            padding: 0 50px;
+        }
+
+        .timeline-text h3 {
+            color: var(--pink);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+        }
+
+        .timeline-text p {
+            margin-bottom: 20px;
+        }
+
+        .timeline-indicator {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            border: 5px solid var(--pink);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--cream);
+            padding: 80px 0;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: white;
+            border: 2px solid var(--light-pink);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn.active {
+            background-color: var(--pink);
+            color: white;
+            border-color: var(--pink);
+        }
+
+        .filter-btn:hover {
+            background-color: var(--light-pink);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            aspect-ratio: 1/1;
+            cursor: pointer;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .gallery-caption h3 {
+            font-size: 1.1rem;
+            color: var(--pink);
+            margin-bottom: 5px;
+        }
+
+        .gallery-caption p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            margin: 0 auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .lightbox-caption {
+            color: white;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            transform: translateY(-50%);
+            left: 0;
+        }
+
+        .lightbox-prev, .lightbox-next {
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .lightbox-prev:hover, .lightbox-next:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Press Coverage */
+        .press-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .press-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .press-card {
+            background-color: var(--cream);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .press-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .press-content {
+            padding: 25px;
+        }
+
+        .press-date {
+            color: var(--green);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .press-title {
+            font-size: 1.3rem;
+            color: var(--pink);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .press-excerpt {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .press-source {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .press-source img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        .press-link {
+            margin-top: 20px;
+        }
+
+        .press-link a {
+            color: var(--pink);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .press-link a i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .press-link a:hover {
+            color: var(--green);
+        }
+
+        .press-link a:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Impact Numbers */
+        .impact-section {
+            background-color: var(--purple);
+            background-image: url('impact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .impact-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 10px;
+        }
+
+        .impact-label {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        /* Newsletter CTA */
+        .newsletter-section {
+            background-color: var(--teal);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-container h2 {
+            color: var(--green);
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+        }
+
+        .newsletter-container p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .newsletter-btn {
+            padding: 15px 30px;
+            background-color: var(--pink);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            background-image: url('background11.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--light-pink);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            color: var(--pink);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--pink);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #f1f1f1;
+            font-size: 0.9rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background-color: var(--green);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--pink);
+            color: var(--pink);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--pink);
+            color: white;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .dropdown {
+                position: static;
+                width: 100%;
+            }
+
+            .banner-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline-content {
+                flex-direction: column-reverse !important;
+            }
+
+            .timeline-media, .timeline-text {
+                flex: 0 0 100%;
+                padding: 0 20px;
+                margin-bottom: 30px;
+            }
+
+            .timeline-center-line {
+                left: 30px;
+                transform: none;
+            }
+
+            .timeline-indicator {
+                left: 30px;
+                transform: none;
+            }
+
+            .timeline-date {
+                left: 30px;
+                transform: none;
+                top: -20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header id="main-header">
+        <div class="logo-container">
+            <a href="index.html" id="logo-link">
+                <img src="paa-logo.png" alt="PAA Logo" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+                <li>
+                    <a href="volunteer.html">Volunteer</a>
+                </li>
+                <li>
+                    <a href="calendar.html">Calendar</a>
+                </li>
+                <li>
+                    <a href="cbl.html">CBL Hub</a>
+                </li>
+                <li>
+                    <a href="highlights.html">Past Highlights</a>
+                </li>
+                <li>
+                    <a href="partnership.html">Partnership</a>
+                </li>
+                <li>
+                    <a href="donate.html">Donate</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h1>Past Highlights</h1>
+            <p>Celebrating our journey and impact through the years</p>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our <span class="calligraphy">Journey</span></h2>
+                <p>Key milestones and events that have shaped our organization</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-center-line"></div>
+                
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2024</div>
+                    <div class="timeline-indicator"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-media">
+                            <img src="/api/placeholder/400/320" alt="Hospital Buddy Program Launch" class="timeline-image">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>Hospital Buddy Program Launch</h3>
+                            <p>We officially launched our Hospital Buddy Program in partnership with Children's Memorial Hospital. After months of planning and coordination, our first cohort of 12 volunteers began providing companionship and support to pediatric patients.</p>
+                            <p>The program was inspired by feedback from families who expressed the need for additional emotional support during extended hospital stays.</p>
+                            <a href="events/hospital-buddy-launch.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">December 2023</div>
+                    <div class="timeline-indicator"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-media">
+                            <img src="/api/placeholder/400/320" alt="Holiday Gift Drive" class="timeline-image">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>Holiday Gift Drive Success</h3>
+                            <p>Our annual Holiday Gift Drive exceeded expectations with over 200 gifts collected for children in the pediatric ward. This was our largest gift drive to date, with participation from multiple campus organizations and local businesses.</p>
+                            <p>The event culminated in a special delivery day where volunteers dressed as holiday characters distributed gifts and organized activities for patients and their families.</p>
+                            <a href="events/holiday-drive-2023.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">November 2023</div>
+                    <div class="timeline-indicator"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-media">
+                            <img src="/api/placeholder/400/320" alt="Community Health Fair" class="timeline-image">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>Community Health Fair</h3>
+                            <p>We organized our first Community Health Fair, bringing together healthcare providers, social service agencies, and families for a day of education and resources. More than 150 community members attended, and 25 organizations provided information and services.</p>
+                            <p>The event featured health screenings, interactive workshops, and a resource fair designed to connect families with pediatric health services.</p>
+                            <a href="events/health-fair-2023.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">October 2023</div>
+                    <div class="timeline-indicator"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-media">
+                            <img src="/api/placeholder/400/320" alt="Advocacy Workshop" class="timeline-image">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>Pediatric Advocacy Workshop</h3>
+                            <p>We hosted our inaugural Pediatric Advocacy Workshop featuring guest speakers from healthcare policy, social work, and family advocacy organizations. The workshop provided training on effective advocacy strategies and healthcare navigation for over 40 student participants.</p>
+                            <p>This event laid the foundation for our ongoing advocacy training program and established important connections with experienced advocates in our community.</p>
+                            <a href="events/advocacy-workshop-2023.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">September 2023</div>
+                    <div class="timeline-indicator"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-media">
+                            <img src="/api/placeholder/400/320" alt="PAA Official Launch" class="timeline-image">
+                        </div>
+                        <div class="timeline-text">
+                            <h3>PAA Official Launch</h3>
+                            <p>Pediatric Advocacy Alliance was officially recognized as a student organization after a successful petition and presentation to the university administration. Our founding members established our mission, vision, and core values during this pivotal moment.</p>
+                            <p>The launch event included a ceremony attended by faculty advisors, student leaders, and representatives from the Children's Memorial Hospital who expressed support for our mission.</p>
+                            <a href="events/official-launch.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Photo <span class="calligraphy">Gallery</span></h2>
+                <p>Capturing moments of impact, connection, and growth</p>
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="volunteers">Volunteers</button>
+                <button class="filter-btn" data-filter="outreach">Outreach</button>
+                <button class="filter-btn" data-filter="advocacy">Advocacy</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item" data-category="events">
+                    <img src="/api/placeholder/400/320" alt="Holiday Gift Drive" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Holiday Gift Drive</h3>
+                        <p>Volunteers organizing gifts during our annual holiday drive</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item" data-category="volunteers">
+                    <img src="/api/placeholder/400/320" alt="Volunteer Training" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Volunteer Training</h3>
+                        <p>New volunteers participating in Hospital Buddy orientation</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item" data-category="outreach">
+                    <img src="/api/placeholder/400/320" alt="Community Health Fair" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Community Health Fair</h3>
+                        <p>PAA information booth at the Community Health Fair</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item" data-category="advocacy">
+                    <img src="/api/placeholder/400/320" alt="Advocacy Workshop" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Advocacy Workshop</h3>
+                        <p>Students participating in breakout sessions during our advocacy training</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item" data-category="events">
+                    <img src="/api/placeholder/400/320" alt="Organization Launch" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Organization Launch</h3>
+                        <p>Founding members at our official organization launch ceremony</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item" data-category="volunteers">
+                    <img src="/api/placeholder/400/320" alt="Hospital Visit" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Hospital Visit</h3>
+                        <p>Hospital Buddy volunteers preparing activity kits for patients</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item" data-category="outreach">
+                    <img src="/api/placeholder/400/320" alt="Campus Outreach" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Campus Outreach</h3>
+                        <p>PAA representatives at the university activities fair</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item" data-category="advocacy">
+                    <img src="/api/placeholder/400/320" alt="Panel Discussion" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Panel Discussion</h3>
+                        <p>Healthcare professionals sharing insights during our advocacy panel</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 9 -->
+                <div class="gallery-item" data-category="events">
+                    <img src="/api/placeholder/400/320" alt="Fundraising Event" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Fundraising Event</h3>
+                        <p>Our first fundraising gala raised over $5,000 for programming</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 10 -->
+                <div class="gallery-item" data-category="volunteers">
+                    <img src="/api/placeholder/400/320" alt="Volunteer Recognition" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Volunteer Recognition</h3>
+                        <p>Celebrating our dedicated volunteers at the end-of-semester gathering</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 11 -->
+                <div class="gallery-item" data-category="outreach">
+                    <img src="/api/placeholder/400/320" alt="Resource Distribution" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Resource Distribution</h3>
+                        <p>Distributing educational materials about pediatric health resources</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 12 -->
+                <div class="gallery-item" data-category="advocacy">
+                    <img src="/api/placeholder/400/320" alt="Research Presentation" class="gallery-image">
+                    <div class="gallery-caption">
+                        <h3>Research Presentation</h3>
+                        <p>PAA members presenting research at the campus research symposium</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="" id="lightbox-image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <div class="lightbox-nav">
+            <span class="lightbox-prev"><i class="fas fa-chevron-left"></i></span>
+            <span class="lightbox-next"><i class="fas fa-chevron-right"></i></span>
+        </div>
+    </div>
+    
+    <!-- Press Coverage Section -->
+    <section class="press-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Press <span class="calligraphy">Coverage</span></h2>
+                <p>PAA in the news and community spotlight</p>
+            </div>
+            
+            <div class="press-grid">
+                <!-- Press Item 1 -->
+                <div class="press-card">
+                    <div class="press-content">
+                        <div class="press-date">February 15, 2024</div>
+                        <h3 class="press-title">Student Organization Makes Difference in Children's Lives</h3>
+                        <div class="press-excerpt">
+                            <p>The Daily Campus highlighted PAA's Hospital Buddy Program and its positive impact on pediatric patients. The article features interviews with volunteers and hospital staff about the program's success.</p>
+                        </div>
+                        <div class="press-source">
+                            <img src="/api/placeholder/400/320" alt="The Daily Campus Logo">
+                            <span>The Daily Campus</span>
+                        </div>
+                        <div class="press-link">
+                            <a href="#">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Press Item 2 -->
+                <div class="press-card">
+                    <div class="press-content">
+                        <div class="press-date">January 20, 2024</div>
+                        <h3 class="press-title">PAA Partners with Children's Hospital for New Volunteer Program</h3>
+                        <div class="press-excerpt">
+                            <p>The City Herald reported on the formal partnership between PAA and Children's Memorial Hospital. The collaboration was praised for creating meaningful volunteer opportunities for students while supporting young patients.</p>
+                        </div>
+                        <div class="press-source">
+                            <img src="/api/placeholder/400/320" alt="City Herald Logo">
+                            <span>City Herald</span>
+                        </div>
+                        <div class="press-link">
+                            <a href="#">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Press Item 3 -->
+                <div class="press-card">
+                    <div class="press-content">
+                        <div class="press-date">December 10, 2023</div>
+                        <h3 class="press-title">Holiday Gift Drive Brightens Spirits at Children's Hospital</h3>
+                        <div class="press-excerpt">
+                            <p>Local News 5 covered PAA's successful Holiday Gift Drive, showcasing the positive impact of the initiative on pediatric patients and their families during the holiday season.</p>
+                        </div>
+                        <div class="press-source">
+                            <img src="/api/placeholder/400/320" alt="Local News 5 Logo">
+                            <span>Local News 5</span>
+                        </div>
+                        <div class="press-link">
+                            <a href="#">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Press Item 4 -->
+                <div class="press-card">
+                    <div class="press-content">
+                        <div class="press-date">November 5, 2023</div>
+                        <h3 class="press-title">Community Health Fair Connects Families with Resources</h3>
+                        <div class="press-excerpt">
+                            <p>The Community Voice featured an in-depth look at PAA's first Community Health Fair, highlighting the importance of connecting underserved families with healthcare resources and education.</p>
+                        </div>
+                        <div class="press-source">
+                            <img src="/api/placeholder/400/320" alt="Community Voice Logo">
+                            <span>Community Voice</span>
+                        </div>
+                        <div class="press-link">
+                            <a href="#">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Press Item 5 -->
+                <div class="press-card">
+                    <div class="press-content">
+                        <div class="press-date">October 15, 2023</div>
+                        <h3 class="press-title">Student Advocates Champion Children's Health Issues</h3>
+                        <div class="press-excerpt">
+                            <p>University Today profiled the founding members of PAA and their mission to advocate for children's health needs through education, service, and community partnerships.</p>
+                        </div>
+                        <div class="press-source">
+                            <img src="/api/placeholder/400/320" alt="University Today Logo">
+                            <span>University Today</span>
+                        </div>
+                        <div class="press-link">
+                            <a href="#">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Press Item 6 -->
+                <div class="press-card">
+                    <div class="press-content">
+                        <div class="press-date">September 28, 2023</div>
+                        <h3 class="press-title">New Student Organization Focuses on Pediatric Health Advocacy</h3>
+                        <div class="press-excerpt">
+                            <p>The State Tribune announced the official establishment of Pediatric Advocacy Alliance as a recognized student organization, noting the group's unique interdisciplinary approach to children's healthcare issues.</p>
+                        </div>
+                        <div class="press-source">
+                            <img src="/api/placeholder/400/320" alt="State Tribune Logo">
+                            <span>State Tribune</span>
+                        </div>
+                        <div class="press-link">
+                            <a href="#">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Impact Numbers Section -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our <span class="calligraphy">Impact</span></h2>
+                <p>Making a difference through dedication and compassion</p>
+            </div>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number">300+</div>
+                    <div class="impact-label">Children Served</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-number">50+</div>
+                    <div class="impact-label">Active Volunteers</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-number">1,200+</div>
+                    <div class="impact-label">Volunteer Hours</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-number">8</div>
+                    <div class="impact-label">Community Partners</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-number">5</div>
+                    <div class="impact-label">Major Events</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter CTA Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-container">
+                <h2>Stay Connected</h2>
+                <p>Join our mailing list to receive updates about upcoming events, opportunities, and the latest news from PAA.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About PAA</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="mission.html">Mission & Vision</a></li>
+                        <li><a href="chapters.html">Find a Chapter</a></li>
+                        <li><a href="create-chapter.html">Start a Chapter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="volunteer.html">Volunteer Opportunities</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="events.html">Upcoming Events</a></li>
+                        <li><a href="partnership.html">Partner With Us</a></li>
+                        <li><a href="cbl.html">Community-Based Learning</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources.html">Educational Materials</a></li>
+                        <li><a href="advocacy.html">Advocacy Tools</a></li>
+                        <li><a href="calendar.html">Event Calendar</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.facebook.com/PediatricAdvocacyAlliance" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="https://www.instagram.com/paa_official" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.twitter.com/PAAofficial" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="https://www.linkedin.com/company/pediatric-advocacy-alliance" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        // Sticky Header Functionality
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            const logo = document.querySelector('.logo');
+            const logoContainer = document.querySelector('.logo-container');
+            
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+                logo.style.width = '80px';
+                logo.style.height = '80px';
+                logoContainer.style.padding = '5px 0';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                logo.style.width = '120px';
+                logo.style.height = '120px';
+                logoContainer.style.padding = '15px 0';
+            }
+        });
+
+        // Gallery Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        let currentImageIndex = 0;
+        let visibleItems = [];
+        
+        // Update visible items array based on current filter
+        function updateVisibleItems() {
+            visibleItems = [];
+            galleryItems.forEach(item => {
+                if (item.style.display !== 'none') {
+                    visibleItems.push(item);
+                }
+            });
+        }
+        
+        // Open lightbox when gallery item is clicked
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                updateVisibleItems();
+                
+                const imageUrl = this.querySelector('img').src;
+                const caption = this.querySelector('.gallery-caption h3').textContent;
+                const description = this.querySelector('.gallery-caption p').textContent;
+                
+                lightboxImage.src = imageUrl;
+                lightboxCaption.innerHTML = `<h3>${caption}</h3><p>${description}</p>`;
+                
+                currentImageIndex = visibleItems.indexOf(this);
+                lightbox.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close lightbox
+        lightboxClose.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Navigate to previous image
+        lightboxPrev.addEventListener('click', function() {
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+            } else {
+                currentImageIndex = visibleItems.length - 1;
+            }
+            
+            const prevItem = visibleItems[currentImageIndex];
+            const imageUrl = prevItem.querySelector('img').src;
+            const caption = prevItem.querySelector('.gallery-caption h3').textContent;
+            const description = prevItem.querySelector('.gallery-caption p').textContent;
+            
+            lightboxImage.src = imageUrl;
+            lightboxCaption.innerHTML = `<h3>${caption}</h3><p>${description}</p>`;
+        });
+        
+        // Navigate to next image
+        lightboxNext.addEventListener('click', function() {
+            if (currentImageIndex < visibleItems.length - 1) {
+                currentImageIndex++;
+            } else {
+                currentImageIndex = 0;
+            }
+            
+            const nextItem = visibleItems[currentImageIndex];
+            const imageUrl = nextItem.querySelector('img').src;
+            const caption = nextItem.querySelector('.gallery-caption h3').textContent;
+            const description = nextItem.querySelector('.gallery-caption p').textContent;
+            
+            lightboxImage.src = imageUrl;
+            lightboxCaption.innerHTML = `<h3>${caption}</h3><p>${description}</p>`;
+        });
+        
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === 'block') {
+                if (e.key === 'Escape') {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                } else if (e.key === 'ArrowLeft') {
+                    lightboxPrev.click();
+                } else if (e.key === 'ArrowRight') {
+                    lightboxNext.click();
+                }
+            }
+        });
+        
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = this.querySelector('.newsletter-input');
+            const email = emailInput.value;
+            
+            // Here you would typically send the email to a server
+            // For demonstration purposes, we'll just show a success message
+            alert(`Thank you for subscribing to our newsletter with email: ${email}`);
+            
+            // Reset the form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
