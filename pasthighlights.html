@@ -199,7 +199,27 @@
         /* Timeline */
         .timeline-section {
             background-color: white;
+            background-image: url('background4.jpg');
+            background-size: cover;
+            background-position: center;
             padding: 80px 0;
+            position: relative;
+        }
+
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+        }
+
+        .timeline-section .container {
+            position: relative;
+            z-index: 2;
         }
 
         .timeline-container {
@@ -301,7 +321,27 @@
         /* Gallery Section */
         .gallery-section {
             background-color: var(--cream);
+            background-image: url('background7.jpg');
+            background-size: cover;
+            background-position: center;
             padding: 80px 0;
+            position: relative;
+        }
+
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 252, 249, 0.85);
+            z-index: 1;
+        }
+
+        .gallery-section .container {
+            position: relative;
+            z-index: 2;
         }
 
         .filters {
@@ -452,7 +492,27 @@
         /* Press Coverage */
         .press-section {
             background-color: white;
+            background-image: url('background9.jpg');
+            background-size: cover;
+            background-position: center;
             padding: 80px 0;
+            position: relative;
+        }
+
+        .press-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 1;
+        }
+
+        .press-section .container {
+            position: relative;
+            z-index: 2;
         }
 
         .press-grid {
@@ -537,11 +597,28 @@
         /* Impact Numbers */
         .impact-section {
             background-color: var(--purple);
-            background-image: url('impact-bg.jpg');
+            background-image: url('background6.jpg');
             background-size: cover;
             background-position: center;
             padding: 100px 0;
             text-align: center;
+            position: relative;
+        }
+
+        .impact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(212, 193, 236, 0.85);
+            z-index: 1;
+        }
+
+        .impact-section .container {
+            position: relative;
+            z-index: 2;
         }
 
         .impact-grid {
@@ -572,8 +649,28 @@
         /* Newsletter CTA */
         .newsletter-section {
             background-color: var(--teal);
+            background-image: url('background10.jpg');
+            background-size: cover;
+            background-position: center;
             padding: 80px 0;
             text-align: center;
+            position: relative;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(194, 239, 233, 0.85);
+            z-index: 1;
+        }
+
+        .newsletter-section .container {
+            position: relative;
+            z-index: 2;
         }
 
         .newsletter-container {
