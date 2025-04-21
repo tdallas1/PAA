@@ -59,6 +59,9 @@
             justify-content: center;
             padding: 15px 0;
             background-color: var(--cream);
+            background-image: url('background23.jpg');
+            background-size: cover;
+            background-position: center;
             transition: var(--header-transition);
         }
 
@@ -197,6 +200,30 @@
         }
 
         /* About Content */
+        .about-section {
+            background-image: url('background20.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+
+        .about-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -347,6 +374,27 @@
         /* Team Section */
         .team-section {
             background-color: var(--cream);
+            background-image: url('background21.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+
+        .team-section .container {
+            position: relative;
+            z-index: 1;
         }
 
         .team-grid {
@@ -424,8 +472,29 @@
         /* CTA Section */
         .cta-section {
             background-color: var(--teal);
+            background-image: url('background22.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             text-align: center;
             padding: 100px 0;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-content {
@@ -672,7 +741,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">Fall 2024</div>
                         <h3>Official Founding</h3>
-                        <p>The Pediatric Advocacy Alliance officially launched in October 2024 at Dominican University, founded by Trinity Dallas and led by a team of student advocates committed to pediatric health and justice. The organization was recognized by Student Life and guided by founding mentors Dr. William Zic, Assistant Professor of Nursing and practicing pediatric nurse, and Dr. James, a senior professor of social work with decades of experience in child welfare. The inaugural board established PAA’s mission, branding, and first semester of programming.</p>
+                        <p>The Pediatric Advocacy Alliance officially launched in October 2024 at Dominican University, founded by Trinity Dallas and led by a team of student advocates committed to pediatric health and justice. The organization was recognized by Student Life and guided by founding mentors Dr. William Zic, Assistant Professor of Nursing and practicing pediatric nurse, and Dr. James, a senior professor of social work with decades of experience in child welfare. The inaugural board established PAA's mission, branding, and first semester of programming.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
@@ -707,14 +776,14 @@
                     <div class="timeline-content">
                         <div class="timeline-year">Winter 2025</div>
                         <h3>Academic Integration and Organizational Expansion</h3>
-                        <p>PAA officially partnered with Dominican University’s Community-Based Learning (CBL) program, becoming a designated volunteer site for nursing students completing civic engagement coursework. This milestone not only strengthened the organization’s academic ties but also accelerated its need for growth. In response, PAA began expanding its executive board, increasing event capacity, and laying the groundwork for signature annual programming to meet rising interest, demand, and impact.</p>
+                        <p>PAA officially partnered with Dominican University's Community-Based Learning (CBL) program, becoming a designated volunteer site for nursing students completing civic engagement coursework. This milestone not only strengthened the organization's academic ties but also accelerated its need for growth. In response, PAA began expanding its executive board, increasing event capacity, and laying the groundwork for signature annual programming to meet rising interest, demand, and impact.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <div class="timeline-year">Fall 2025</div>
-                        <h3>Rooted in Our Home, Focused on What’s Ahead</h3>
-                        <p>At our home, Dominican University, PAA will expand its efforts both on and off campus to empower the next generation of healthcare leaders, educators, social workers, and policymakers. Through awareness campaigns, signature events, and service-driven outreach, we’ll continue building community through service—while creating space for students to lead with purpose and advocate for change. Looking ahead, PAA will remain a driving force for pediatric justice at Dominican and beyond.</p>
+                        <h3>Rooted in Our Home, Focused on What's Ahead</h3>
+                        <p>At our home, Dominican University, PAA will expand its efforts both on and off campus to empower the next generation of healthcare leaders, educators, social workers, and policymakers. Through awareness campaigns, signature events, and service-driven outreach, we'll continue building community through service—while creating space for students to lead with purpose and advocate for change. Looking ahead, PAA will remain a driving force for pediatric justice at Dominican and beyond.</p>
                     </div>
                 </div>
             </div>
@@ -814,7 +883,7 @@
 
             <!-- Myles -->
             <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                    <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
                 <div class="team-info">
                     <div class="team-name">Myles Waters</div>
                     <div class="team-role">Treasurer</div>
@@ -931,7 +1000,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
