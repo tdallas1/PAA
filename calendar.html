@@ -334,55 +334,60 @@
             color: var(--text-color);
         }
 
-        .event-dot {
-            width: 10px;
-            height: 10px;
-            background-color: var(--pink);
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
-        }
-        
-        .events-list {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 2rem; /* optional spacing if more cards are added later */
-        }
+.event-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--pink);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
 
-        .event-item {
-            font-size: 0.8rem;
-            margin-bottom: 5px;
-            padding: 3px 5px;
-            background-color: var(--light-pink);
-            color: var(--text-color);
-            border-radius: 3px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+.events-list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 
-        .event-item:hover {
-            background-color: var(--pink);
-            color: white;
-        }
+.event-card {
+    max-width: 500px;
+    width: 100%;
+}
 
-        .calendar-day.current-day {
-            background-color: rgba(255, 111, 145, 0.1);
-        }
+.event-item {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    padding: 3px 5px;
+    background-color: var(--light-pink);
+    color: var(--text-color);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-        .calendar-day.other-month {
-            background-color: #f9f9f9;
-            color: #aaa;
-        }
+.event-item:hover {
+    background-color: var(--pink);
+    color: white;
+}
 
-        .more-events {
-            font-size: 0.7rem;
-            color: var(--pink);
-            text-align: center;
-            cursor: pointer;
-            font-weight: 500;
-        }
+.calendar-day.current-day {
+    background-color: rgba(255, 111, 145, 0.1);
+}
+
+.calendar-day.other-month {
+    background-color: #f9f9f9;
+    color: #aaa;
+}
+
+.more-events {
+    font-size: 0.7rem;
+    color: var(--pink);
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+}
 
         /* Event Detail Popup */
         .event-popup {
