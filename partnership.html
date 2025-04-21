@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership Program</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffffff;
+            color: #333;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header Section */
+        .hero {
+            height: 100vh;
+            background: url('background30.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 20px;
+            background: url('background31.jpg') center/cover no-repeat;
+            position: relative;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .benefits-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .benefits h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 100px 20px;
+            background: url('background32.jpg') center/cover no-repeat;
+            position: relative;
+        }
+
+        .partners::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .partners-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+
+        .partners h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .partner-logo {
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 100px 20px;
+            background: url('background33.jpg') center/cover no-repeat;
+            position: relative;
+        }
+
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .how-it-works-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .how-it-works h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* Join Section */
+        .join {
+            padding: 100px 20px;
+            background: url('background34.jpg') center/cover no-repeat;
+            position: relative;
+            text-align: center;
+        }
+
+        .join::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .join-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .join h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .join p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 auto 20px;
+            }
+            
+            .partner-logo {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Strategic Partnership Program</h1>
+            <p>Join forces with us to create innovative solutions and drive mutual growth. Our partnership program offers exclusive benefits and opportunities for businesses of all sizes.</p>
+            <a href="#join" class="btn">Become a Partner</a>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="benefits-content">
+            <h2>Partnership Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>Revenue Sharing</h3>
+                    <p>Earn competitive commissions on referrals and collaborative projects with our tiered revenue sharing model.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Co-Marketing</h3>
+                    <p>Gain exposure through joint marketing campaigns, content creation, and featured placement on our platforms.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Technical Support</h3>
+                    <p>Access dedicated technical resources, integration assistance, and priority support channels.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Strategic Resources</h3>
+                    <p>Leverage our market insights, research data, and strategic planning tools to accelerate your business growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="partners-content">
+            <h2>Our Trusted Partners</h2>
+            <p>Join the community of innovative companies we're proud to call partners</p>
+            <div class="partner-logos">
+                <div class="partner-logo">
+                    <img src="/api/placeholder/150/80" alt="Partner Logo 1">
+                </div>
+                <div class="partner-logo">
+                    <img src="/api/placeholder/150/80" alt="Partner Logo 2">
+                </div>
+                <div class="partner-logo">
+                    <img src="/api/placeholder/150/80" alt="Partner Logo 3">
+                </div>
+                <div class="partner-logo">
+                    <img src="/api/placeholder/150/80" alt="Partner Logo 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="how-it-works-content">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Apply</h3>
+                        <p>Fill out our partnership application form with details about your business and partnership goals.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Consultation</h3>
+                        <p>Have a strategic consultation with our partnership team to explore collaboration opportunities.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Onboarding</h3>
+                        <p>Complete our streamlined onboarding process and gain access to partnership resources and tools.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Growth & Success</h3>
+                        <p>Start collaborating, referring clients, and growing together with ongoing support from our team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join" id="join">
+        <div class="join-content">
+            <h2>Become a Partner Today</h2>
+            <p>Take the first step toward a mutually beneficial partnership</p>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Company Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="" disabled selected>Partnership Type</option>
+                        <option value="reseller">Reseller Partner</option>
+                        <option value="technology">Technology Partner</option>
+                        <option value="referral">Referral Partner</option>
+                        <option value="strategic">Strategic Alliance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Tell us about your company and partnership goals" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Company Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
