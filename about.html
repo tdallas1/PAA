@@ -59,6 +59,9 @@
             justify-content: center;
             padding: 15px 0;
             background-color: var(--cream);
+            background-image: url('background23.jpg');
+            background-size: cover;
+            background-position: center;
             transition: var(--header-transition);
         }
 
@@ -197,6 +200,30 @@
         }
 
         /* About Content */
+        .about-section {
+            background-image: url('background20.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+
+        .about-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -347,6 +374,27 @@
         /* Team Section */
         .team-section {
             background-color: var(--cream);
+            background-image: url('background21.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+
+        .team-section .container {
+            position: relative;
+            z-index: 1;
         }
 
         .team-grid {
@@ -424,8 +472,29 @@
         /* CTA Section */
         .cta-section {
             background-color: var(--teal);
+            background-image: url('background22.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             text-align: center;
             padding: 100px 0;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-content {
@@ -672,7 +741,7 @@
                     <div class="timeline-content">
                         <div class="timeline-year">Fall 2024</div>
                         <h3>Official Founding</h3>
-                        <p>The Pediatric Advocacy Alliance officially launched in October 2024 at Dominican University, founded by Trinity Dallas and led by a team of student advocates committed to pediatric health and justice. The organization was recognized by Student Life and guided by founding mentors Dr. William Zic, Assistant Professor of Nursing and practicing pediatric nurse, and Dr. James, a senior professor of social work with decades of experience in child welfare. The inaugural board established PAA’s mission, branding, and first semester of programming.</p>
+                        <p>The Pediatric Advocacy Alliance officially launched in October 2024 at Dominican University, founded by Trinity Dallas and led by a team of student advocates committed to pediatric health and justice. The organization was recognized by Student Life and guided by founding mentors Dr. William Zic, Assistant Professor of Nursing and practicing pediatric nurse, and Dr. James, a senior professor of social work with decades of experience in child welfare. The inaugural board established PAA's mission, branding, and first semester of programming.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
@@ -707,14 +776,14 @@
                     <div class="timeline-content">
                         <div class="timeline-year">Winter 2025</div>
                         <h3>Academic Integration and Organizational Expansion</h3>
-                        <p>PAA officially partnered with Dominican University’s Community-Based Learning (CBL) program, becoming a designated volunteer site for nursing students completing civic engagement coursework. This milestone not only strengthened the organization’s academic ties but also accelerated its need for growth. In response, PAA began expanding its executive board, increasing event capacity, and laying the groundwork for signature annual programming to meet rising interest, demand, and impact.</p>
+                        <p>PAA officially partnered with Dominican University's Community-Based Learning (CBL) program, becoming a designated volunteer site for nursing students completing civic engagement coursework. This milestone not only strengthened the organization's academic ties but also accelerated its need for growth. In response, PAA began expanding its executive board, increasing event capacity, and laying the groundwork for signature annual programming to meet rising interest, demand, and impact.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <div class="timeline-year">Fall 2025</div>
-                        <h3>Rooted in Our Home, Focused on What’s Ahead</h3>
-                        <p>At our home, Dominican University, PAA will expand its efforts both on and off campus to empower the next generation of healthcare leaders, educators, social workers, and policymakers. Through awareness campaigns, signature events, and service-driven outreach, we’ll continue building community through service—while creating space for students to lead with purpose and advocate for change. Looking ahead, PAA will remain a driving force for pediatric justice at Dominican and beyond.</p>
+                        <h3>Rooted in Our Home, Focused on What's Ahead</h3>
+                        <p>At our home, Dominican University, PAA will expand its efforts both on and off campus to empower the next generation of healthcare leaders, educators, social workers, and policymakers. Through awareness campaigns, signature events, and service-driven outreach, we'll continue building community through service—while creating space for students to lead with purpose and advocate for change. Looking ahead, PAA will remain a driving force for pediatric justice at Dominican and beyond.</p>
                     </div>
                 </div>
             </div>
@@ -788,127 +857,6 @@
             <div class="team-member">
                 <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
                 <div class="team-info">
-                    <div class="team-name">Trinity Dallas</div>
-                    <div class="team-role">President</div>
-                    <div class="team-bio">Trinity is a Junior nursing student with a passion for pediatric oncology. She founded PAA to create more opportunities for students to engage with and advocate for pediatric patients.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/trinity-dallas-662022220/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=tdallas@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Harmony -->
-            <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Harmony Perez</div>
-                    <div class="team-role">Vice President</div>
-                    <div class="team-bio">Harmony is a public health student focusing on maternal and child health. She leads our community outreach initiatives and manages our hospital volunteer program.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=hperez1@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Myles -->
-            <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Myles Waters</div>
-                    <div class="team-role">Treasurer</div>
-                    <div class="team-bio">Myles is an Informatics and Black World Studies Student.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/myleswaters/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=mwaters@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Elsy -->
-            <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Elsy Hernandez Lozano</div>
-                    <div class="team-role">Secretary</div>
-                    <div class="team-bio">Elsy is a social work student specializing in family and child welfare. She coordinates our meetings, manages communications, and helps develop our advocacy training curriculum.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/elsy-hernandez-lozano/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ehernandezlozano@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- New Members (Placeholder Info) -->
-            <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Daisy Tenemaza</div>
-                    <div class="team-role">Events Coordinator</div>
-                    <div class="team-bio">Daisy plans and executes community events that bring awareness to pediatric advocacy and wellness topics.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=dtenemaza@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Nataly Dominguez</div>
-                    <div class="team-role">Events Coordinator</div>
-                    <div class="team-bio">Nataly helps coordinate signature events and supports outreach planning efforts both on and off campus.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ndominguez3@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Samantha Acosta</div>
-                    <div class="team-role">Volunteer Coordinator</div>
-                    <div class="team-bio">Samantha connects students with service opportunities and ensures all volunteers are supported and appreciated.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=sacosta3@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Elizabeth John</div>
-                    <div class="team-role">Volunteer Coordinator</div>
-                    <div class="team-bio">Elizabeth ensures that our volunteer base stays engaged through organized communication and onboarding.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/elizabeth-john-812b23238/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ejohn@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Juliana Macias</div>
-                    <div class="team-role">Membership Engagement Chair</div>
-                    <div class="team-bio">Juliana builds a welcoming space for all members and fosters relationships through creative and inclusive initiatives.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=jmacias@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
-                <div class="team-info">
                     <div class="team-name">Lizbeth Lopez</div>
                     <div class="team-role">Community Engagement Chair</div>
                     <div class="team-bio">Lizbeth helps build partnerships with schools, clinics, and local organizations to expand PAA's community impact.</div>
@@ -931,12 +879,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
-    
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
@@ -1055,4 +1001,286 @@
         });
     </script>
 </body>
-</html>
+</html>-photo">
+                <div class="team-info">
+                    <div class="team-name">Samantha Acosta</div>
+                    <div class="team-role">Volunteer Coordinator</div>
+                    <div class="team-bio">Samantha connects students with service opportunities and ensures all volunteers are supported and appreciated.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=sacosta3@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Elizabeth John</div>
+                    <div class="team-role">Volunteer Coordinator</div>
+                    <div class="team-bio">Elizabeth ensures that our volunteer base stays engaged through organized communication and onboarding.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/elizabeth-john-812b23238/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ejohn@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Juliana Macias</div>
+                    <div class="team-role">Membership Engagement Chair</div>
+                    <div class="team-bio">Juliana builds a welcoming space for all members and fosters relationships through creative and inclusive initiatives.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=jmacias@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Daisy Tenemaza</div>
+                    <div class="team-role">Events Coordinator</div>
+                    <div class="team-bio">Daisy plans and executes community events that bring awareness to pediatric advocacy and wellness topics.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=dtenemaza@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Nataly Dominguez</div>
+                    <div class="team-role">Events Coordinator</div>
+                    <div class="team-bio">Nataly helps coordinate signature events and supports outreach planning efforts both on and off campus.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ndominguez3@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Trinity Dallas</div>
+                    <div class="team-role">President</div>
+                    <div class="team-bio">Trinity is a Junior nursing student with a passion for pediatric oncology. She founded PAA to create more opportunities for students to engage with and advocate for pediatric patients.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/trinity-dallas-662022220/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=tdallas@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Harmony -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Harmony Perez</div>
+                    <div class="team-role">Vice President</div>
+                    <div class="team-bio">Harmony is a public health student focusing on maternal and child health. She leads our community outreach initiatives and manages our hospital volunteer program.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=hperez1@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Myles -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Myles Waters</div>
+                    <div class="team-role">Treasurer</div>
+                    <div class="team-bio">Myles is an Informatics and Black World Studies Student.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/myleswaters/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=mwaters@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elsy -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Elsy Hernandez Lozano</div>
+                    <div class="team-role">Secretary</div>
+                    <div class="team-bio">Elsy is a social work student specializing in family and child welfare. She coordinates our meetings, manages communications, and helps develop our advocacy training curriculum.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/elsy-hernandez-lozano/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ehernandezlozano@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+<!-- Team Section -->
+<section class="team-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Leadership <span class="calligraphy">Team</span></h2>
+            <p>Meet the dedicated students behind PAA</p>
+        </div>
+        <div class="team-grid">
+            <!-- Trinity -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Trinity Dallas</div>
+                    <div class="team-role">President</div>
+                    <div class="team-bio">Trinity is a Junior nursing student with a passion for pediatric oncology. She founded PAA to create more opportunities for students to engage with and advocate for pediatric patients.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/trinity-dallas-662022220/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=tdallas@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Harmony -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Harmony Perez</div>
+                    <div class="team-role">Vice President</div>
+                    <div class="team-bio">Harmony is a public health student focusing on maternal and child health. She leads our community outreach initiatives and manages our hospital volunteer program.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=hperez1@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Myles -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Myles Waters</div>
+                    <div class="team-role">Treasurer</div>
+                    <div class="team-bio">Myles is an Informatics and Black World Studies Student.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/myleswaters/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=mwaters@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elsy -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Elsy Hernandez Lozano</div>
+                    <div class="team-role">Secretary</div>
+                    <div class="team-bio">Elsy is a social work student specializing in family and child welfare. She coordinates our meetings, manages communications, and helps develop our advocacy training curriculum.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/elsy-hernandez-lozano/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ehernandezlozano@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Samantha -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Samantha Acosta</div>
+                    <div class="team-role">Volunteer Coordinator</div>
+                    <div class="team-bio">Samantha connects students with service opportunities and ensures all volunteers are supported and appreciated.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=sacosta3@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elizabeth -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Elizabeth John</div>
+                    <div class="team-role">Volunteer Coordinator</div>
+                    <div class="team-bio">Elizabeth ensures that our volunteer base stays engaged through organized communication and onboarding.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/elizabeth-john-812b23238/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ejohn@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juliana -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Juliana Macias</div>
+                    <div class="team-role">Membership Engagement Chair</div>
+                    <div class="team-bio">Juliana builds a welcoming space for all members and fosters relationships through creative and inclusive initiatives.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=jmacias@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daisy -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Daisy Tenemaza</div>
+                    <div class="team-role">Events Coordinator</div>
+                    <div class="team-bio">Daisy plans and executes community events that bring awareness to pediatric advocacy and wellness topics.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=dtenemaza@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nataly -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Nataly Dominguez</div>
+                    <div class="team-role">Events Coordinator</div>
+                    <div class="team-bio">Nataly helps coordinate signature events and supports outreach planning efforts both on and off campus.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ndominguez3@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lizbeth -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Lizbeth Lopez</div>
+                    <div class="team-role">Community Engagement Chair</div>
+                    <div class="team-bio">Lizbeth helps build partnerships with schools, clinics, and local organizations to expand PAA's community impact.</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/lizbeth-lopez-04ab622b4/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=llopez13@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Open Position -->
+            <div class="team-member">
+                <img src="/api/placeholder/400/320" alt="Team Member" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Open Position</div>
+                    <div class="team-role">Marketing & Communications</div>
+                    <div class="team-bio">We're currently seeking a creative, organized leader to join the board and manage all things comms. Apply through our website!</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://outlook.office.com/mail/deeplink/compose?to=" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
