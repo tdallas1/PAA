@@ -1,1 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership - Pediatric Advocacy Alliance</title>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Castoro+Titling&display=swap" rel="stylesheet">
+    <style>
+        /* Updated Color Palette */
+        :root {
+            --pink: #ff6f91;
+            --green: #3e5f4a;
+            --light-pink: #ffc6d3;
+            --yellow: #ffe497;
+            --purple: #d4c1ec;
+            --teal: #c2efe9;
+            --cream: #FFFCF9;
+            --text-color: #333;
+            --header-transition: all 0.3s ease;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Font Styles */
+        .calligraphy {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+            font-size: 1.3em;
+        }
+
+        .castoro {
+            font-family: 'Castoro Titling', serif;
+        }
+
+        /* Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--header-transition);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: var(--cream);
+            transition: var(--header-transition);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--light-pink);
+            transition: var(--header-transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            border-top: 1px solid var(--light-pink);
+            border-bottom: 1px solid var(--light-pink);
+            transition: var(--header-transition);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--header-transition);
+        }
+
+        nav a:hover {
+            color: var(--pink);
+        }
+
+        nav li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 0 0 5px 5px;
+            border-top: 3px solid var(--light-pink);
+        }
+
+        .dropdown a {
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        /* Updated Hero Section */
+        .hero {
+            height: 50vh;
+            background-image: url('partnership-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 111, 145, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Welcome Section - Adapted for Partnership */
+        .welcome-section {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
+        }
+
+        .welcome-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .welcome-container h2 {
+            font-size: 3.5rem;
+            color: var(--pink);
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .welcome-container p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background-color: var(--green);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--pink);
+            color: var(--pink);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--pink);
+            color: white;
+        }
+
+        /* Values Banner with PAA Logo - Adapted */
+        .values-banner {
+            width: 100%;
+            padding: 30px 0;
+            background-color: white;
+            background-image: url('background3.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .values-container {
+            display: flex;
+            align-items: center;
+            animation: scrollLeft 30s linear infinite;
+            white-space: nowrap;
+            width: max-content;
+        }
+
+        .value-item {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 70px;
+        }
+
+        .value-item h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 80px;
+            color: var(--light-pink);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .paa-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 0px)); }
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5rem;
+            color: var(--pink);
+            margin-bottom: 15px;
+        }
+
+        /* Partnership Types Section */
+        .partnership-types {
+            background-color: var(--cream);
+            padding: 80px 0;
+        }
+
+        .partnership-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .partnership-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .partnership-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .partnership-card h3 {
+            color: var(--pink);
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-pink);
+        }
+
+        .partnership-card p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .partnership-icon {
+            font-size: 3rem;
+            color: var(--pink);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Partner Testimonials */
+        .partner-testimonials {
+            background-color: var(--purple);
+            background-image: url('background6.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            font-size: 80px;
+            color: var(--light-pink);
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .testimonial-author-info h4 {
+            margin-bottom: 3px;
+            color: var(--pink);
+        }
+
+        /* Current Partners Section */
+        .current-partners {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .partner-logo {
+            width: 150px;
+            height: 100px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .partner-logo img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        /* Partnership Form Section */
+        .partnership-form-section {
+            background-color: var(--light-pink);
+            background-image: url('background9.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--cream);
+            padding: 80px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: var(--teal);
+            color: var(--text-color);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle.active {
+            transform: rotate(180deg);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--pink);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top i {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            background-image: url('background11.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--light-pink);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-column h3 {
+            color: var(--pink);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--pink);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #f1f1f1;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .dropdown {
+                position: static;
+                width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .welcome-container h2 {
+                font-size: 2.5rem;
+            }
+
+            .section-heading h2 {
+                font-size: 2rem;
+            }
+
+            .value-item h3 {
+                font-size: 60px;
+            }
+
+            .logo-icon {
+                width: 80px;
+                height: 80px;
+                margin: 0 30px;
+            }
+
+            .paa-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .value-item h3 {
+                font-size: 40px;
+            }
+
+            .logo-icon {
+                width: 60px;
+                height: 60px;
+                margin: 0 20px;
+            }
+
+            .paa-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .btn-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header id="main-header">
+        <div class="logo-container">
+            <a href="index.html" id="logo-link">
+                <img src="paa-logo.png" alt="PAA Logo" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+                <li>
+                    <a href="volunteer.html">Volunteer</a>
+                </li>
+                <li>
+                    <a href="calendar.html">Calendar</a>
+                </li>
+                <li>
+                    <a href="cbl.html">CBL Hub</a>
+                </li>
+                <li>
+                    <a href="highlights.html">Past Highlights</a>
+                </li>
+                <li>
+                    <a href="partnership.html">Partnership</a>
+                </li>
+                <li>
+                    <a href="donate.html">Donate</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Partner With Us</h1>
+        </div>
+    </section>
+
+    <!-- Welcome Section - Adapted for Partnership -->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="welcome-container">
+                <h2>Creating Meaningful Change <span class="calligraphy">Together</span></h2>
+                <p>At Pediatric Advocacy Alliance, we believe that the most meaningful impact happens through collaboration. By partnering with organizations, businesses, healthcare facilities, and educational institutions, we amplify our collective ability to support children and families in need. Our partnerships are built on shared values, mutual respect, and a common goal of creating positive change in pediatric healthcare and advocacy.</p>
+                <div class="btn-container">
+                    <a href="#partnership-form" class="btn">Become a Partner</a>
+                    <a href="#current-partners" class="btn btn-secondary">View Current Partners</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Banner with PAA Logo -->
+    <section class="values-banner">
+        <div class="values-container">
+            <!-- First set of values -->
+            <div class="value-item">
+                <h3>PARTNERSHIP</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+                <h3>COLLABORATION</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+                <h3>IMPACT</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+                <h3>COMMUNITY</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+                <h3>GROWTH</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+            </div>
+            
+            <!-- Duplicate set for seamless scrolling -->
+            <div class="value-item">
+                <h3>PARTNERSHIP</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+                <h3>COLLABORATION</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+                <h3>IMPACT</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+                <h3>COMMUNITY</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+                <h3>GROWTH</h3>
+                <div class="logo-icon">
+                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Types Section -->
+    <section class="partnership-types">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Ways to <span class="calligraphy">Partner</span></h2>
+                <p>Discover how your organization can make a difference</p>
+            </div>
+            <div class="partnership-cards">
+                <div class="partnership-card">
+                    <div class="partnership-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>Healthcare Partners</h3>
+                    <p>Hospitals, clinics, and healthcare providers can partner with us to create meaningful volunteer opportunities, host educational workshops, and collaborate on community health initiatives. Together, we can bridge gaps in pediatric care and create more supportive environments for children and families navigating healthcare challenges.</p>
+                    <a href="#partnership-form" class="btn btn-outline">Partner as a Healthcare Organization</a>
+                </div>
+                <div class="partnership-card">
+                    <div class="partnership-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Educational Partners</h3>
+                    <p>Schools, universities, and educational programs can collaborate with PAA to develop community-based learning opportunities, research projects, and internships. These partnerships enrich student learning experiences while supporting our mission of pediatric advocacy and creating pathways for future healthcare professionals to engage with community needs.</p>
+                    <a href="#partnership-form" class="btn btn-outline">Partner as an Educational Institution</a>
+                </div>
+                <div class="partnership-card">
+                    <div class="partnership-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Corporate Partners</h3>
+                    <p>Businesses can support PAA through sponsorships, in-kind donations, employee volunteer programs, and cause marketing initiatives. Corporate partnerships provide essential resources for our programs while offering meaningful community engagement opportunities for companies and their employees that align with social responsibility goals.</p>
+                    <a href="#partnership-form" class="btn btn-outline">Partner as a Business</a>
+                </div>
+                <div class="partnership-card">
+                    <div class="partnership-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Partners</h3>
+                    <p>Community organizations, nonprofits, and service groups can join forces with PAA to maximize our collective impact. Through resource sharing, joint programming, and collaborative advocacy efforts, we can create stronger support networks for children and families in need while avoiding duplication of services.</p>
+                    <a href="#partnership-form" class="btn btn-outline">Partner as a Community Organization</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Testimonials -->
+    <section class="partner-testimonials">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Partner <span class="calligraphy">Testimonials</span></h2>
+                <p>Hear from our valued collaborators</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Partnering with the Pediatric Advocacy Alliance has been a highlight for our hospital's community engagement program. The PAA students bring such enthusiasm and fresh perspectives to our pediatric units. They've organized activities that truly brighten our patients' days and have even helped us develop family resource materials that better meet the needs of our diverse community.</p>
+                    <div class="testimonial-author">
+                        <img src="testimonial-1.jpg" alt="Testimonial Author">
+                        <div class="testimonial-author-info">
+                            <h4>Dr. Eleanor Ramirez</h4>
+                            <p>Community Outreach Director, Shriners Hospital</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As a university committed to community-engaged learning, our partnership with PAA has created invaluable opportunities for our students across multiple disciplines. The collaboration has strengthened our service-learning curriculum while addressing real community needs. The PAA leadership team is professional, organized, and truly dedicated to their mission of improving children's lives.</p>
+                    <div class="testimonial-author">
+                        <img src="testimonial-2.jpg" alt="Testimonial Author">
+                        <div class="testimonial-author-info">
+                            <h4>Professor Marcus Chen</h4>
+                            <p>Service Learning Coordinator, Dominican University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Partners Section -->
+    <section class="current-partners" id="current-partners">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Current <span class="calligraphy">Partners</span></h2>
+                <p>Together, we're making a greater impact</p>
+            </div>
+            <div class="partner-logos">
+                <div class="partner-logo">
+                    <img src="shriners.png" alt="Shriners Hospital">
+                </div>
+                <div class="partner-logo">
+                    <img src="dominicanuni.png" alt="Dominican University">
+                </div>
+                <div class="partner-logo">
+                    <img src="maryville.png" alt="Maryville Academy">
+                </div>
+                <div class="partner-logo">
+                    <img src="RiverForestUnitedMethodistChurch.png" alt="River Forest United Methodist Church">
+                </div>
+                <div class="partner-logo">
+                    <img src="FillaHeart4Kids.png" alt="Fill a Heart 4 Kids">
+                </div>
+                <div class="partner-logo">
+                    <img src="ErieNeighborhoodHouse.png" alt="Erie Neighborhood House">
+                </div>
+            </div>
+            <div class="section-heading" style="margin-top: 50px; margin-bottom: 30px;">
+                <h3>Interested in joining our community of partners?</h3>
+            </div>
+            <div style="text-align: center;">
+                <a href="#partnership-form" class="btn">Become a Partner</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (Replacement for the form) -->
+    <section class="contact-section" id="contact-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Interested in <span class="calligraphy">Partnering</span>?</h2>
+                <p>Contact us to discuss partnership opportunities</p>
+            </div>
+            <div class="contact-info" style="text-align: center; max-width: 600px; margin: 0 auto; padding: 40px; background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">If your organization is interested in partnering with the Pediatric Advocacy Alliance, please reach out to us through any of the following channels:</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; margin-bottom: 30px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <i class="fas fa-envelope" style="font-size: 1.5rem; color: var(--pink);"></i>
+                        <a href="mailto:partnership@pediatricadvocacyalliance.org" style="color: var(--text-color); text-decoration: none; font-weight: 500;">partnership@pediatricadvocacyalliance.org</a>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <i class="fas fa-phone" style="font-size: 1.5rem; color: var(--pink);"></i>
+                        <a href="tel:+13125551234" style="color: var(--text-color); text-decoration: none; font-weight: 500;">(312) 555-1234</a>
+                    </div>
+                </div>
+                
+                <p>Our Partnership Coordinator will respond to your inquiry within 2-3 business days to discuss how we can work together to make a positive impact for children and families.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Partnership <span class="calligraphy">FAQs</span></h2>
+                <p>Common questions about partnering with PAA</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the minimum commitment for a partnership?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We design partnerships to be flexible and mutually beneficial. There is no standard minimum commitment, as each partnership is customized based on shared goals and capacity. Some partners collaborate with us on single events, while others engage in ongoing initiatives throughout the academic year. We're happy to discuss what arrangement would work best for your organization.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can my organization financially support PAA?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Financial support can take many forms, including program sponsorships, event underwriting, material donations, or general operating support. As a student-led organization, we operate efficiently with low overhead, ensuring that financial contributions directly support our pediatric advocacy initiatives. We can provide detailed information about specific funding opportunities and recognition benefits for your organization.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can PAA students provide volunteer services at our facility?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Many of our partnerships involve PAA student volunteers supporting pediatric-focused initiatives at partner facilities. Our students come from diverse academic backgrounds and can assist with patient activities, health education, family support, and special events. We work closely with host organizations to ensure that volunteer activities meet both your needs and our educational objectives while always prioritizing the well-being of children and families.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What training do PAA student volunteers receive?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All PAA members receive foundational training in child advocacy principles, cultural competence, and professional conduct. Depending on their specific volunteer assignments, students may receive additional specialized training in areas such as patient interaction, child development, health education, or specific health conditions. We also work with partner organizations to incorporate any site-specific training requirements into our preparation process.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How does PAA handle confidentiality and privacy concerns?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We take confidentiality and privacy extremely seriously. All PAA members receive training on confidentiality practices, and we comply with HIPAA and other relevant privacy regulations when working in healthcare settings. We establish clear agreements with partner organizations regarding information sharing, photo/video permissions, and other privacy considerations. Our students understand the importance of maintaining the dignity and privacy of the children and families we serve.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can we partner with PAA for a one-time event?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! While we value long-term partnerships, we're always open to collaborating on meaningful one-time events that align with our mission. Whether it's a health fair, awareness campaign, fundraiser, or special program for pediatric patients, we can work with you to design and implement successful events that meet shared objectives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About PAA</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="mission.html">Mission & Vision</a></li>
+                        <li><a href="chapters.html">Find a Chapter</a></li>
+                        <li><a href="create-chapter.html">Start a Chapter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="volunteer.html">Volunteer Opportunities</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="events.html">Upcoming Events</a></li>
+                        <li><a href="partnership.html">Partner With Us</a></li>
+                        <li><a href="cbl.html">Community-Based Learning</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="resources.html">Educational Materials</a></li>
+                        <li><a href="advocacy.html">Advocacy Tools</a></li>
+                        <li><a href="calendar.html">Event Calendar</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/pediatricadvocacydu/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/in/paadu/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://outlook.office.com/mail/deeplink/compose?to=pediatricadvocacyalliance@mydomedu.onmicrosoft.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Email Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        // Sticky Header Functionality
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            const logo = document.querySelector('.logo');
+            const logoContainer = document.querySelector('.logo-container');
+            const backToTop = document.getElementById('back-to-top');
+            
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+                logo.style.width = '80px';
+                logo.style.height = '80px';
+                logoContainer.style.padding = '5px 0';
+                backToTop.classList.add('visible');
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                logo.style.width = '120px';
+                logo.style.height = '120px';
+                logoContainer.style.padding = '15px 0';
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // FAQ Accordion Functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    if (item !== answer) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                document.querySelectorAll('.faq-toggle').forEach(item => {
+                    if (item !== toggle) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current answer
+                answer.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+        });
+
+        // Back to Top Button Functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Submission Handling
+        const partnershipForm = document.getElementById('partnership-application-form');
+        
+        partnershipForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For demonstration, we'll just show an alert
+            alert('Thank you for your interest in partnering with the Pediatric Advocacy Alliance! We will review your information and contact you within 3-5 business days.');
+            
+            // Reset the form
+            partnershipForm.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
