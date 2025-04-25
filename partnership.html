@@ -3,1174 +3,1116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partnership - Pediatric Advocacy Alliance</title>
-    <script async src="https://tally.so/widgets/embed.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Castoro+Titling&display=swap" rel="stylesheet">
+    <title>Partnerships | Pediatric Advocacy Alliance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Pinyon+Script&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Updated Color Palette */
-        :root {
-            --pink: #ff6f91;
-            --green: #3e5f4a;
-            --light-pink: #ffc6d3;
-            --yellow: #ffe497;
-            --purple: #d4c1ec;
-            --teal: #c2efe9;
-            --cream: #FFFCF9;
-            --text-color: #333;
-            --header-transition: all 0.3s ease;
-        }
-
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            background-color: var(--cream);
-            color: var(--text-color);
+            font-family: 'Montserrat', 'Poppins', sans-serif;
             line-height: 1.6;
+            color: #333;
+            background-color: #fef9f0;
+            overflow-x: hidden;
         }
 
-        /* Font Styles */
-        .calligraphy {
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        .script-highlight {
             font-family: 'Pinyon Script', cursive;
-            font-weight: 400;
-            font-size: 1.3em;
+            font-size: 1.2em;
+            font-weight: normal;
         }
 
-        .castoro {
-            font-family: 'Castoro Titling', serif;
+        .text-center {
+            text-align: center;
         }
-
-        /* Navigation */
+        
+        /* Header & Navbar */
         header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 100;
-            transition: var(--header-transition);
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            background-color: var(--cream);
-            transition: var(--header-transition);
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--light-pink);
-            transition: var(--header-transition);
+            z-index: 1000;
         }
 
         nav {
             display: flex;
-            justify-content: center;
-            background-color: white;
-            border-top: 1px solid var(--light-pink);
-            border-bottom: 1px solid var(--light-pink);
-            transition: var(--header-transition);
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
         }
 
-        nav ul {
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-links {
             display: flex;
             list-style: none;
-            padding: 0;
+            gap: 2rem;
         }
 
-        nav li {
-            position: relative;
-        }
-
-        nav a {
-            display: block;
-            padding: 15px 25px;
+        .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: #333;
             font-weight: 500;
-            transition: var(--header-transition);
+            transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: var(--pink);
+        .nav-links a:hover {
+            color: #f9d1d9;
         }
 
-        nav li:hover .dropdown {
-            display: block;
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            z-index: 1;
-            border-radius: 0 0 5px 5px;
-            border-top: 3px solid var(--light-pink);
-        }
-
-        .dropdown a {
-            padding: 12px 20px;
-            display: block;
-            border-bottom: 1px solid #f1f1f1;
-        }
-
-        .dropdown a:last-child {
-            border-bottom: none;
-        }
-
-        /* Updated Hero Section */
-        .hero {
-            height: 50vh;
-            background-image: url('partnership-hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Hero Banner Section */
+        .hero-banner {
+            padding: 7rem 0;
+            background-color: rgba(255, 241, 179, 0.5);
             position: relative;
+            overflow: hidden;
+            text-align: center;
         }
 
-        .hero-overlay {
+        .hero-pattern {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 111, 145, 0.3);
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj4KPHBhdGggZD0iTTU0LjYyNyAyLjgwOEw1Ny44MDggNmwtMy4xODIgMy4xOEw1MSA2bDMuNjI3LTMuMTkybS0yLjcwOCAwTDU0LjYyNiAwbDIuNzA4IDIuODA4LTIuNzA4IDIuNzc0LTIuNzA3LTIuNzc0TTI0IDE1LjA0VjI0aC05di05aDl6bTAgMTd2OWgtOXYtOWg5em0xNy0xN3Y5aC05di05aDl6TTI0IDBoOXY5aC05VjB6TTAgMjR2LTloOXY5SDB6bTAgMTd2LTloOXY5SDB6bTE3IDB2LTloOXY5aC05em0wLTI2di05aDl2OWgtOXpNMCA0MXY5aDlWNTBIMFY0MXptMjQgMHY5aDlWNTBoLTlWNDF6bTE3IDB2OWgtOVY1MGgtOVY0MWg5di05aDlWNDF6Ii8+PC9zdmc+');
+            opacity: 0.05;
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            text-align: center;
             max-width: 800px;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Welcome Section - Adapted for Partnership */
-        .welcome-section {
-            padding: 80px 0;
-            background-color: white;
-            text-align: center;
-        }
-
-        .welcome-container {
-            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px;
         }
 
-        .welcome-container h2 {
+        .hero-title {
             font-size: 3.5rem;
-            color: var(--pink);
-            margin-bottom: 30px;
-            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: #333;
+            position: relative;
+            display: inline-block;
         }
 
-        .welcome-container p {
+        .hero-title .partnering {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            color: #f9d1d9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .hero-subtitle {
             font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            max-width: 800px;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #666;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--pink);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
-        .btn-secondary {
-            background-color: var(--green);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--pink);
-            color: var(--pink);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--pink);
-            color: white;
-        }
-
-        /* Values Banner with PAA Logo - Adapted */
-        .values-banner {
-            width: 100%;
-            padding: 30px 0;
-            background-color: white;
-            background-image: url('background3.jpg');
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
+        /* Partner Spotlight Carousel */
+        .partner-spotlight {
+            padding: 5rem 0;
+            background-color: #fef9f0;
             position: relative;
         }
 
-        .values-container {
-            display: flex;
-            align-items: center;
-            animation: scrollLeft 30s linear infinite;
-            white-space: nowrap;
-            width: max-content;
+        .spotlight-title {
+            margin-bottom: 3rem;
         }
 
-        .value-item {
-            display: inline-flex;
-            align-items: center;
-            margin: 0 70px;
-        }
-
-        .value-item h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 80px;
-            color: var(--light-pink);
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .logo-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .paa-logo {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-        }
-
-        @keyframes scrollLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 0px)); }
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-
-        .container {
-            max-width: 1200px;
+        .spotlight-carousel {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-heading h2 {
-            font-size: 2.5rem;
-            color: var(--pink);
-            margin-bottom: 15px;
-        }
-
-        /* Partnership Types Section */
-        .partnership-types {
-            background-color: var(--cream);
-            padding: 80px 0;
-        }
-
-        .partnership-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .partnership-card {
+            position: relative;
+            height: 300px;
             background-color: white;
-            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .spotlight-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        .partnership-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        .spotlight-slide.active {
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        .partnership-card h3 {
-            color: var(--pink);
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--light-pink);
-        }
-
-        .partnership-card p {
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .partnership-icon {
-            font-size: 3rem;
-            color: var(--pink);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        /* Partner Testimonials */
-        .partner-testimonials {
-            background-color: var(--purple);
-            background-image: url('background6.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 80px 0;
-        }
-
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background-color: white;
-            padding: 30px;
+        .spotlight-logo {
+            flex: 0 0 120px;
+            height: 120px;
+            background-color: #e6f0e4;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 2rem;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .spotlight-content {
+            flex: 1;
+        }
+
+        .spotlight-quote {
+            font-style: italic;
+            margin-bottom: 1rem;
             position: relative;
         }
 
-        .testimonial-card::before {
+        .spotlight-quote::before {
             content: """;
-            font-size: 80px;
-            color: var(--light-pink);
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            color: #f9d1d9;
             position: absolute;
-            top: -20px;
-            left: 20px;
+            top: -1.5rem;
+            left: -0.5rem;
             opacity: 0.2;
-            font-family: Georgia, serif;
         }
 
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
+        .spotlight-attribution {
+            font-weight: 600;
+            text-align: right;
         }
 
-        .testimonial-author {
+        .spotlight-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .spotlight-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #d1e0f6;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .spotlight-dot.active {
+            background-color: #f9d1d9;
+        }
+
+        /* Digital Scrapbook Row */
+        .scrapbook-row {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 3rem 0;
+            background-color: #e6f0e4;
+            position: relative;
+        }
+
+        .scrapbook-row::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scrapbook-row::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .scrapbook-row::-webkit-scrollbar-thumb {
+            background: #f9d1d9;
+            border-radius: 10px;
+        }
+
+        .scrapbook-row::-webkit-scrollbar-thumb:hover {
+            background: #fcf5d9;
+        }
+
+        .scrapbook-item {
+            flex: 0 0 250px;
+            position: relative;
+            transition: transform 0.3s ease;
+            margin: 1rem;
+        }
+
+        .scrapbook-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .polaroid {
+            background-color: white;
+            padding: 1rem 1rem 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: rotate(-3deg);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg);
+        }
+
+        .polaroid-img {
+            width: 100%;
+            height: 180px;
+            background-color: #d1e0f6;
             display: flex;
             align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 1rem;
         }
 
-        .testimonial-author img {
-            width: 50px;
+        .polaroid-caption {
+            text-align: center;
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+        }
+
+        .scrapbook-tape {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(5deg);
+            width: 80px;
+            height: 30px;
+            background-color: rgba(249, 209, 217, 0.7);
+            opacity: 0.7;
+        }
+
+        .scrapbook-paperclip {
+            position: absolute;
+            top: -15px;
+            right: -10px;
+            width: 30px;
             height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
+            border: 2px solid #999;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+            transform: rotate(45deg);
         }
 
-        .testimonial-author-info h4 {
-            margin-bottom: 3px;
-            color: var(--pink);
+        .scrapbook-sticky {
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: #fcf5d9;
+            transform: rotate(-10deg);
+            padding: 10px;
+            font-family: 'Caveat', cursive;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .new-partner-sticker {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 70px;
+            height: 70px;
+            background-color: #f9d1d9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            transform: rotate(15deg);
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+            font-size: 0.8rem;
+            z-index: 10;
+            text-align: center;
+        }
+
+        /* Quote Wall */
+        .quote-wall {
+            padding: 5rem 0;
+            background-color: #fef9f0;
+        }
+
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .quote-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .quote-card::before {
+            content: """;
+            font-size: 5rem;
+            font-family: 'Playfair Display', serif;
+            color: #f9d1d9;
+            position: absolute;
+            top: -0.5rem;
+            left: 1rem;
+            opacity: 0.2;
+        }
+
+        .quote-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-author {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: #333;
+        }
+
+        /* Chicagoland Map */
+        .map-section {
+            padding: 5rem 0;
+            background-color: #d1e0f6;
+        }
+
+        .map-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        .chicago-map {
+            width: 100%;
+            height: 450px;
+            background-color: #e6f0e4;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1.2rem;
+        }
+
+        .map-pin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #f9d1d9;
+            border-radius: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .map-pin::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(249, 209, 217, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite;
+        }
+
+        .map-pin:hover {
+            transform: translateX(-50%) translateY(-50%) scale(1.3);
+            background-color: #fcf5d9;
+        }
+
+        .map-tooltip {
+            position: absolute;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            z-index: 20;
+        }
+
+        .map-tooltip.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .tooltip-header {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .tooltip-content {
+            font-size: 0.9rem;
+        }
+
+        .tooltip-image {
+            width: 100%;
+            height: 60px;
+            background-color: #e6f0e4;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #999;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(3);
+                opacity: 0;
+            }
+        }
+
+        /* CTA Box */
+        .cta-section {
+            padding: 5rem 0;
+            background-color: #fef9f0;
+        }
+
+        .cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fcf5d9;
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, #f9d1d9, #d1e0f6, #e6f0e4);
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #f9d1d9;
+            color: #333;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(249, 209, 217, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(249, 209, 217, 0.4);
+            background-color: #fcc5cf;
+        }
+
+        /* Why Partner Section */
+        .why-partner {
+            padding: 5rem 0;
+            background-color: #fef9f0;
+            position: relative;
+        }
+
+        .why-partner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .scrapbook-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #fef9f0;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .partner-quote {
+            margin: 3rem auto;
+            padding: 2rem;
+            max-width: 700px;
+            background-color: #fff;
+            border-left: 5px solid #f9d1d9;
+            font-style: italic;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .partner-quote::before {
+            content: """;
+            font-size: 5rem;
+            font-family: 'Playfair Display', serif;
+            color: #f9d1d9;
+            position: absolute;
+            top: -1.5rem;
+            left: 0.5rem;
+            opacity: 0.2;
+        }
+
+        .quote-attribution {
+            display: block;
+            text-align: right;
+            font-weight: 600;
+            font-style: normal;
+            margin-top: 1rem;
         }
 
         /* Current Partners Section */
         .current-partners {
-            background-color: white;
-            padding: 80px 0;
+            padding: 5rem 0;
+            background-color: #d1e0f6;
         }
 
-        .partner-logos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin: 50px 0;
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .partner-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
 
         .partner-logo {
-            width: 150px;
-            height: 100px;
-            background-color: white;
+            width: 100%;
+            height: 200px;
+            background-color: #e6f0e4;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        .partner-info {
+            padding: 1.5rem;
+        }
+
+        .partner-summary {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover .partner-summary {
+            height: auto;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        .learn-more-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #f9d1d9;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .learn-more-btn:hover {
+            background-color: #fcf5d9;
+        }
+
+        .sticker {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #f9d1d9;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            font-weight: bold;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(15deg);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        /* Partnership Types Section */
+        .partnership-types {
+            padding: 5rem 0;
+            background-color: #e6f0e4;
+        }
+
+        .partnership-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .partnership-box {
+            background-color: white;
+            padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .partner-logo:hover {
+        .partnership-box:hover {
             transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
 
-        .partner-logo img {
-            max-width: 80%;
-            max-height: 80%;
-            object-fit: contain;
+        .partnership-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #fcf5d9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: #f9d1d9;
         }
 
-        /* Partnership Form Section */
-        .partnership-form-section {
-            background-color: var(--light-pink);
-            background-image: url('background9.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 80px 0;
-        }
-
-        .form-container {
+        /* Image Carousel */
+        .carousel-container {
             max-width: 800px;
+            margin: 3rem auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 300px;
+            background-color: #d1e0f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+
+        .carousel-control {
+            background-color: #f9d1d9;
+            border: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-control.active {
+            background-color: #333;
+        }
+
+        /* Contact Form Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: rgba(252, 245, 217, 0.4);
+            position: relative;
+        }
+
+        .contact-form {
+            max-width: 700px;
             margin: 0 auto;
             background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
 
-        .form-group label {
+        label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--text-color);
         }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        input,
+        textarea,
+        select {
             width: 100%;
-            padding: 10px;
+            padding: 0.8rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
+            border-radius: 4px;
+            font-family: inherit;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-top: 0.5rem;
         }
 
-        .form-group select {
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1em;
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        /* FAQ Section */
-        .faq-section {
-            background-color: var(--cream);
-            padding: 80px 0;
+        .checkbox-item input {
+            width: auto;
         }
 
-        .faq-container {
+        .submit-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #f9d1d9;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: #fcf5d9;
+            transform: translateY(-3px);
+        }
+
+        .disclaimer {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            color: #777;
+        }
+
+        /* Testimonials */
+        .testimonials {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 4rem auto;
+            position: relative;
         }
 
-        .faq-item {
+        .testimonial-carousel {
             background-color: white;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-        }
-
-        .faq-question {
-            padding: 20px;
-            background-color: var(--teal);
-            color: var(--text-color);
-            font-weight: 500;
-            cursor: pointer;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 200px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-answer {
-            padding: 20px;
-            display: none;
-        }
-
-        .faq-answer.active {
-            display: block;
-        }
-
-        .faq-toggle {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-toggle.active {
-            transform: rotate(180deg);
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--pink);
-            color: white;
-            border-radius: 50%;
-            display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 99;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        .back-to-top.visible {
+        .testimonial-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .testimonial-slide.active {
             opacity: 1;
         }
 
-        .back-to-top i {
-            font-size: 1.5rem;
+        .testimonial-content {
+            font-style: italic;
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-author {
+            margin-top: 1rem;
+            text-align: right;
+            font-weight: 600;
         }
 
         /* Footer */
         footer {
-            background-color: white;
-            background-image: url('background11.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 50px 0 20px;
-            border-top: 1px solid var(--light-pink);
+            background-color: #333;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
         }
 
         .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-column h3 {
-            color: var(--pink);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .footer-links {
+            display: flex;
+            justify-content: center;
             list-style: none;
-            padding: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
         .footer-links a {
+            color: white;
             text-decoration: none;
-            color: var(--text-color);
-            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--pink);
+            text-decoration: underline;
         }
 
-        .copyright {
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Counter Animation */
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .counter-item {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #f1f1f1;
-            font-size: 0.9rem;
         }
 
-        /* Media Queries */
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f9d1d9;
+            margin-bottom: 0.5rem;
+        }
+
+        .counter-label {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Decorative elements */
+        .decorative-sticker {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #fcf5d9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Caveat', cursive;
+            font-size: 1rem;
+            transform: rotate(-10deg);
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                width: 100%;
+            .partners-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
 
-            nav li {
-                width: 100%;
+            .partnership-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-quote {
+                padding: 1.5rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .spotlight-slide {
+                flex-direction: column;
                 text-align: center;
             }
 
-            .dropdown {
-                position: static;
-                width: 100%;
+            .spotlight-logo {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .spotlight-attribution {
+                text-align: center;
             }
 
-            .welcome-container h2 {
-                font-size: 2.5rem;
-            }
-
-            .section-heading h2 {
-                font-size: 2rem;
-            }
-
-            .value-item h3 {
-                font-size: 60px;
-            }
-
-            .logo-icon {
-                width: 80px;
-                height: 80px;
-                margin: 0 30px;
-            }
-
-            .paa-logo {
-                width: 80px;
-                height: 80px;
-            }
-
-            .testimonials-container {
-                grid-template-columns: 1fr;
+            .counter-container {
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            .value-item h3 {
-                font-size: 40px;
+            h1 {
+                font-size: 2rem;
             }
 
-            .logo-icon {
-                width: 60px;
-                height: 60px;
-                margin: 0 20px;
+            h2 {
+                font-size: 1.5rem;
             }
 
-            .paa-logo {
-                width: 60px;
-                height: 60px;
+            .container {
+                width: 95%;
             }
 
-            .btn-container {
-                flex-direction: column;
+            .partner-card {
+                margin: 0 auto;
+                max-width: 300px;
+            }
+
+            .quote-grid {
+                grid-template-columns: 1fr;
             }
         }
-    </style>
-</head>
-<body>
-    <!-- Header Navigation -->
-    <header id="main-header">
-        <div class="logo-container">
-            <a href="index.html" id="logo-link">
-                <img src="paa-logo.png" alt="PAA Logo" class="logo">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="about.html">About Us</a>
-                </li>
-                <li>
-                    <a href="volunteer.html">Volunteer</a>
-                </li>
-                <li>
-                    <a href="calendar.html">Calendar</a>
-                </li>
-                <li>
-                    <a href="cbl.html">CBL Hub</a>
-                </li>
-                <li>
-                    <a href="highlights.html">Past Highlights</a>
-                </li>
-                <li>
-                    <a href="partnership.html">Partnership</a>
-                </li>
-                <li>
-                    <a href="donate.html">Donate</a>
-                </li>
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Partner With Us</h1>
-        </div>
-    </section>
-
-    <!-- Welcome Section - Adapted for Partnership -->
-    <section class="welcome-section">
-        <div class="container">
-            <div class="welcome-container">
-                <h2>Creating Meaningful Change <span class="calligraphy">Together</span></h2>
-                <p>At Pediatric Advocacy Alliance, we believe that the most meaningful impact happens through collaboration. By partnering with organizations, businesses, healthcare facilities, and educational institutions, we amplify our collective ability to support children and families in need. Our partnerships are built on shared values, mutual respect, and a common goal of creating positive change in pediatric healthcare and advocacy.</p>
-                <div class="btn-container">
-                    <a href="#partnership-form" class="btn">Become a Partner</a>
-                    <a href="#current-partners" class="btn btn-secondary">View Current Partners</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Values Banner with PAA Logo -->
-    <section class="values-banner">
-        <div class="values-container">
-            <!-- First set of values -->
-            <div class="value-item">
-                <h3>PARTNERSHIP</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-                <h3>COLLABORATION</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-                <h3>IMPACT</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-                <h3>COMMUNITY</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-                <h3>GROWTH</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-            </div>
-            
-            <!-- Duplicate set for seamless scrolling -->
-            <div class="value-item">
-                <h3>PARTNERSHIP</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-                <h3>COLLABORATION</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-                <h3>IMPACT</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-                <h3>COMMUNITY</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-                <h3>GROWTH</h3>
-                <div class="logo-icon">
-                    <img src="paa-logo.png" alt="PAA Logo" class="paa-logo">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partnership Types Section -->
-    <section class="partnership-types">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Ways to <span class="calligraphy">Partner</span></h2>
-                <p>Discover how your organization can make a difference</p>
-            </div>
-            <div class="partnership-cards">
-                <div class="partnership-card">
-                    <div class="partnership-icon">
-                        <i class="fas fa-hospital"></i>
-                    </div>
-                    <h3>Healthcare Partners</h3>
-                    <p>Hospitals, clinics, and healthcare providers can partner with us to create meaningful volunteer opportunities, host educational workshops, and collaborate on community health initiatives. Together, we can bridge gaps in pediatric care and create more supportive environments for children and families navigating healthcare challenges.</p>
-                    <a href="#partnership-form" class="btn btn-outline">Partner as a Healthcare Organization</a>
-                </div>
-                <div class="partnership-card">
-                    <div class="partnership-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Educational Partners</h3>
-                    <p>Schools, universities, and educational programs can collaborate with PAA to develop community-based learning opportunities, research projects, and internships. These partnerships enrich student learning experiences while supporting our mission of pediatric advocacy and creating pathways for future healthcare professionals to engage with community needs.</p>
-                    <a href="#partnership-form" class="btn btn-outline">Partner as an Educational Institution</a>
-                </div>
-                <div class="partnership-card">
-                    <div class="partnership-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Corporate Partners</h3>
-                    <p>Businesses can support PAA through sponsorships, in-kind donations, employee volunteer programs, and cause marketing initiatives. Corporate partnerships provide essential resources for our programs while offering meaningful community engagement opportunities for companies and their employees that align with social responsibility goals.</p>
-                    <a href="#partnership-form" class="btn btn-outline">Partner as a Business</a>
-                </div>
-                <div class="partnership-card">
-                    <div class="partnership-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Community Partners</h3>
-                    <p>Community organizations, nonprofits, and service groups can join forces with PAA to maximize our collective impact. Through resource sharing, joint programming, and collaborative advocacy efforts, we can create stronger support networks for children and families in need while avoiding duplication of services.</p>
-                    <a href="#partnership-form" class="btn btn-outline">Partner as a Community Organization</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partner Testimonials -->
-    <section class="partner-testimonials">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Partner <span class="calligraphy">Testimonials</span></h2>
-                <p>Hear from our valued collaborators</p>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">Partnering with the Pediatric Advocacy Alliance has been a highlight for our hospital's community engagement program. The PAA students bring such enthusiasm and fresh perspectives to our pediatric units. They've organized activities that truly brighten our patients' days and have even helped us develop family resource materials that better meet the needs of our diverse community.</p>
-                    <div class="testimonial-author">
-                        <img src="testimonial-1.jpg" alt="Testimonial Author">
-                        <div class="testimonial-author-info">
-                            <h4>Dr. Eleanor Ramirez</h4>
-                            <p>Community Outreach Director, Shriners Hospital</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">As a university committed to community-engaged learning, our partnership with PAA has created invaluable opportunities for our students across multiple disciplines. The collaboration has strengthened our service-learning curriculum while addressing real community needs. The PAA leadership team is professional, organized, and truly dedicated to their mission of improving children's lives.</p>
-                    <div class="testimonial-author">
-                        <img src="testimonial-2.jpg" alt="Testimonial Author">
-                        <div class="testimonial-author-info">
-                            <h4>Professor Marcus Chen</h4>
-                            <p>Service Learning Coordinator, Dominican University</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Current Partners Section -->
-    <section class="current-partners" id="current-partners">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Our Current <span class="calligraphy">Partners</span></h2>
-                <p>Together, we're making a greater impact</p>
-            </div>
-            <div class="partner-logos">
-                <div class="partner-logo">
-                    <img src="shriners.png" alt="Shriners Hospital">
-                </div>
-                <div class="partner-logo">
-                    <img src="dominicanuni.png" alt="Dominican University">
-                </div>
-                <div class="partner-logo">
-                    <img src="maryville.png" alt="Maryville Academy">
-                </div>
-                <div class="partner-logo">
-                    <img src="RiverForestUnitedMethodistChurch.png" alt="River Forest United Methodist Church">
-                </div>
-                <div class="partner-logo">
-                    <img src="FillaHeart4Kids.png" alt="Fill a Heart 4 Kids">
-                </div>
-                <div class="partner-logo">
-                    <img src="ErieNeighborhoodHouse.png" alt="Erie Neighborhood House">
-                </div>
-            </div>
-            <div class="section-heading" style="margin-top: 50px; margin-bottom: 30px;">
-                <h3>Interested in joining our community of partners?</h3>
-            </div>
-            <div style="text-align: center;">
-                <a href="#partnership-form" class="btn">Become a Partner</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section (Replacement for the form) -->
-    <section class="contact-section" id="contact-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Interested in <span class="calligraphy">Partnering</span>?</h2>
-                <p>Contact us to discuss partnership opportunities</p>
-            </div>
-            <div class="contact-info" style="text-align: center; max-width: 600px; margin: 0 auto; padding: 40px; background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <p style="font-size: 1.2rem; margin-bottom: 30px;">If your organization is interested in partnering with the Pediatric Advocacy Alliance, please reach out to us through any of the following channels:</p>
-                
-                <div style="display: flex; flex-direction: column; gap: 20px; align-items: center; margin-bottom: 30px;">
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <i class="fas fa-envelope" style="font-size: 1.5rem; color: var(--pink);"></i>
-                        <a href="mailto:partnership@pediatricadvocacyalliance.org" style="color: var(--text-color); text-decoration: none; font-weight: 500;">partnership@pediatricadvocacyalliance.org</a>
-                    </div>
-                    
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <i class="fas fa-phone" style="font-size: 1.5rem; color: var(--pink);"></i>
-                        <a href="tel:+13125551234" style="color: var(--text-color); text-decoration: none; font-weight: 500;">(312) 555-1234</a>
-                    </div>
-                </div>
-                
-                <p>Our Partnership Coordinator will respond to your inquiry within 2-3 business days to discuss how we can work together to make a positive impact for children and families.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Partnership <span class="calligraphy">FAQs</span></h2>
-                <p>Common questions about partnering with PAA</p>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What is the minimum commitment for a partnership?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We design partnerships to be flexible and mutually beneficial. There is no standard minimum commitment, as each partnership is customized based on shared goals and capacity. Some partners collaborate with us on single events, while others engage in ongoing initiatives throughout the academic year. We're happy to discuss what arrangement would work best for your organization.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How can my organization financially support PAA?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Financial support can take many forms, including program sponsorships, event underwriting, material donations, or general operating support. As a student-led organization, we operate efficiently with low overhead, ensuring that financial contributions directly support our pediatric advocacy initiatives. We can provide detailed information about specific funding opportunities and recognition benefits for your organization.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Can PAA students provide volunteer services at our facility?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! Many of our partnerships involve PAA student volunteers supporting pediatric-focused initiatives at partner facilities. Our students come from diverse academic backgrounds and can assist with patient activities, health education, family support, and special events. We work closely with host organizations to ensure that volunteer activities meet both your needs and our educational objectives while always prioritizing the well-being of children and families.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What training do PAA student volunteers receive?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>All PAA members receive foundational training in child advocacy principles, cultural competence, and professional conduct. Depending on their specific volunteer assignments, students may receive additional specialized training in areas such as patient interaction, child development, health education, or specific health conditions. We also work with partner organizations to incorporate any site-specific training requirements into our preparation process.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How does PAA handle confidentiality and privacy concerns?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We take confidentiality and privacy extremely seriously. All PAA members receive training on confidentiality practices, and we comply with HIPAA and other relevant privacy regulations when working in healthcare settings. We establish clear agreements with partner organizations regarding information sharing, photo/video permissions, and other privacy considerations. Our students understand the importance of maintaining the dignity and privacy of the children and families we serve.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Can we partner with PAA for a one-time event?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely! While we value long-term partnerships, we're always open to collaborating on meaningful one-time events that align with our mission. Whether it's a health fair, awareness campaign, fundraiser, or special program for pediatric patients, we can work with you to design and implement successful events that meet shared objectives.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>About PAA</h3>
-                    <ul class="footer-links">
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="leadership.html">Leadership</a></li>
-                        <li><a href="mission.html">Mission & Vision</a></li>
-                        <li><a href="chapters.html">Find a Chapter</a></li>
-                        <li><a href="create-chapter.html">Start a Chapter</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Get Involved</h3>
-                    <ul class="footer-links">
-                        <li><a href="volunteer.html">Volunteer Opportunities</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="events.html">Upcoming Events</a></li>
-                        <li><a href="partnership.html">Partner With Us</a></li>
-                        <li><a href="cbl.html">Community-Based Learning</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="resources.html">Educational Materials</a></li>
-                        <li><a href="advocacy.html">Advocacy Tools</a></li>
-                        <li><a href="calendar.html">Event Calendar</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Connect With Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://www.instagram.com/pediatricadvocacydu/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="https://www.linkedin.com/in/paadu/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="https://outlook.office.com/mail/deeplink/compose?to=pediatricadvocacyalliance@mydomedu.onmicrosoft.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Email Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript for Interactive Elements -->
-    <script>
-        // Sticky Header Functionality
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('main-header');
-            const logo = document.querySelector('.logo');
-            const logoContainer = document.querySelector('.logo-container');
-            const backToTop = document.getElementById('back-to-top');
-            
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-                logo.style.width = '80px';
-                logo.style.height = '80px';
-                logoContainer.style.padding = '5px 0';
-                backToTop.classList.add('visible');
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                logo.style.width = '120px';
-                logo.style.height = '120px';
-                logoContainer.style.padding = '15px 0';
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        // FAQ Accordion Functionality
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const toggle = question.querySelector('.faq-toggle');
-                
-                // Close all other answers
-                document.querySelectorAll('.faq-answer').forEach(item => {
-                    if (item !== answer) {
-                        item.classList.remove('active');
-                    }
-                });
-                
-                document.querySelectorAll('.faq-toggle').forEach(item => {
-                    if (item !== toggle) {
-                        item.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current answer
-                answer.classList.toggle('active');
-                toggle.classList.toggle('active');
-            });
-        });
-
-        // Back to Top Button Functionality
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Form Submission Handling
-        const partnershipForm = document.getElementById('partnership-application-form');
-        
-        partnershipForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Here you would typically send the form data to a server
-            // For demonstration, we'll just show an alert
-            alert('Thank you for your interest in partnering with the Pediatric Advocacy Alliance! We will review your information and contact you within 3-5 business days.');
-            
-            // Reset the form
-            partnershipForm.reset();
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
