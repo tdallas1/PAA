@@ -203,12 +203,19 @@
             z-index: 1;
         }
 
-        .crayon-word {
-            font-family: 'Gloria Hallelujah', cursive;
-            font-size: 3rem;
-            position: absolute;
-            opacity: 0;
-            transform-origin: center;
+   .crayon-word {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 3rem;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.crayon-word.show {
+  opacity: 1;
+  transform: scale(1);
+}
         }
 
         /* Story Section */
@@ -1274,90 +1281,90 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animated Crayon Words with handwriting effect
-            const crayonWords = ['Health', 'Rights', 'Access', 'Equity', 'Dignity', 'Safety', 'Futures', 'Hope'];
-            const colors = ['#ff6f91', '#c2efe9', '#ffe497', '#d4c1ec', '#ffc6d3', '#c2efe9', '#ff6f91', '#ffe497'];
-            const container = document.getElementById('crayonWordContainer');
-            let currentWordIndex = 0;
-            
-            function createWord() {
-                // Clear existing words
-                container.innerHTML = '';
-                
-                // Create new word element
-                const wordElement = document.createElement('div');
-                wordElement.className = 'crayon-word';
-                wordElement.style.color = colors[currentWordIndex];
-                container.appendChild(wordElement);
-                
-                const word = crayonWords[currentWordIndex];
-                const wordLength = word.length;
-                
-                // Set initial scale to 0
-                wordElement.style.transform = 'scale(0)';
-                wordElement.style.opacity = '0';
-                
-                // Animate the word appearing with a handwriting effect
+   <!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Crayon Word Animation
+    const crayonWords = [
+        { text: 'Health', color: '#ff6f91' },
+        { text: 'Rights', color: '#c2efe9' },
+        { text: 'Access', color: '#ffe497' },
+        { text: 'Equity', color: '#d4c1ec' },
+        { text: 'Dignity', color: '#ffc6d3' },
+        { text: 'Safety', color: '#c2efe9' },
+        { text: 'Futures', color: '#ff6f91' },
+        { text: 'Hope', color: '#ffe497' }
+    ];
+
+    const container = document.getElementById('crayonWordContainer');
+    let currentWordIndex = 0;
+    let wordElement = null;
+
+    function showNextWord() {
+        if (wordElement) {
+            wordElement.classList.remove('show');
+            setTimeout(() => {
+                if (wordElement) container.removeChild(wordElement);
+                addNewWord();
+            }, 800);
+        } else {
+            addNewWord();
+        }
+    }
+
+    function addNewWord() {
+        const wordData = crayonWords[currentWordIndex];
+        wordElement = document.createElement('div');
+        wordElement.className = 'crayon-word';
+        wordElement.textContent = wordData.text;
+        wordElement.style.color = wordData.color;
+        container.appendChild(wordElement);
+
+        setTimeout(() => {
+            wordElement.classList.add('show');
+        }, 100);
+
+        currentWordIndex = (currentWordIndex + 1) % crayonWords.length;
+
+        setTimeout(showNextWord, 2500);
+    }
+
+    // Start the crayon words
+    showNextWord();
+
+    // Scroll Animations
+    const storyContent = document.getElementById('storyContent');
+    const missionBox = document.getElementById('missionBox');
+    const pillars = document.querySelectorAll('.pillar');
+
+    function checkScroll() {
+        const elements = [
+            { el: storyContent, className: 'visible' },
+            { el: missionBox, className: 'visible' }
+        ];
+
+        elements.forEach(item => {
+            if (isInViewport(item.el)) {
+                item.el.classList.add(item.className);
+            }
+        });
+
+        pillars.forEach((pillar, index) => {
+            if (isInViewport(pillar)) {
                 setTimeout(() => {
-                    wordElement.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
-                    wordElement.style.transform = 'scale(1)';
-                    wordElement.style.opacity = '1';
-                    wordElement.textContent = word;
-                    
-                    // Fade out after display time
-                    setTimeout(() => {
-                        wordElement.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
-                        wordElement.style.transform = 'scale(0.8)';
-                        wordElement.style.opacity = '0';
-                        
-                        // Move to next word
-                        setTimeout(() => {
-                            currentWordIndex = (currentWordIndex + 1) % crayonWords.length;
-                            createWord();
-                        }, 800);
-                    }, 2000);
-                }, 100);
+                    pillar.classList.add('visible');
+                }, index * 200);
             }
-            
-            // Start the animation
-            createWord();
-            
-            // Scroll Animation
-            const storyContent = document.getElementById('storyContent');
-            const missionBox = document.getElementById('missionBox');
-            const pillars = document.querySelectorAll('.pillar');
-            
-            function checkScroll() {
-                const elements = [
-                    { el: storyContent, className: 'visible' },
-                    { el: missionBox, className: 'visible' }
-                ];
-                
-                elements.forEach(item => {
-                    if (isInViewport(item.el)) {
-                        item.el.classList.add(item.className);
-                    }
-                });
-                
-                pillars.forEach((pillar, index) => {
-                    if (isInViewport(pillar)) {
-                        setTimeout(() => {
-                            pillar.classList.add('visible');
-                        }, index * 200);
-                    }
-                });
-            }
-            
-            function isInViewport(element) {
-                const rect = element.getBoundingClientRect();
-                return (
-                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
-                    rect.bottom >= 0
-                );
-            }
+        });
+    }
+
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+            rect.bottom >= 0
+        );
+    }
             
             // Check on scroll
             window.addEventListener('scroll', checkScroll);
