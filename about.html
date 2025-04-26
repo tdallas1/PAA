@@ -203,37 +203,20 @@
             z-index: 1;
         }
 
-  /* Fix the closing bracket issue in the existing CSS and add title-svg styles */
-.crayon-word-container {
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+   .crayon-word {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 3rem;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.title-svg {
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 3rem;
-    position: absolute;
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+.crayon-word.show {
+  opacity: 1;
+  transform: scale(1);
 }
-
-.title-svg:nth-child(1) { color: #ff6f91; }
-.title-svg:nth-child(2) { color: #c2efe9; }
-.title-svg:nth-child(3) { color: #ffe497; }
-.title-svg:nth-child(4) { color: #d4c1ec; }
-.title-svg:nth-child(5) { color: #ffc6d3; }
-.title-svg:nth-child(6) { color: #c2efe9; }
-.title-svg:nth-child(7) { color: #ff6f91; }
-.title-svg:nth-child(8) { color: #ffe497; }
-
-.title-svg.active {
-    opacity: 1;
-    transform: scale(1);
-}
+        }
 
         /* Story Section */
         .story-section {
@@ -1080,38 +1063,30 @@
     </header>
 
     <!-- Hero Section -->
-  <!-- Hero Section -->
-<section class="hero-section">
-    <div class="hero-gradient"></div>
-    <div class="doodle-container">
-        <div class="doodle" style="top: 15%; left: 10%;">
-            <img src="/api/placeholder/50/50" alt="doodle-placeholder">
+    <section class="hero-section">
+        <div class="hero-gradient"></div>
+        <div class="doodle-container">
+            <div class="doodle" style="top: 15%; left: 10%;">
+                <img src="/api/placeholder/50/50" alt="doodle-placeholder">
+            </div>
+            <div class="doodle" style="top: 30%; left: 85%;">
+                <img src="/api/placeholder/40/40" alt="doodle-placeholder">
+            </div>
+            <div class="doodle" style="top: 65%; left: 20%;">
+                <img src="/api/placeholder/60/60" alt="doodle-placeholder">
+            </div>
+            <div class="doodle" style="top: 50%; left: 75%;">
+                <img src="/api/placeholder/45/45" alt="doodle-placeholder">
+            </div>
+            <div class="doodle" style="top: 80%; left: 50%;">
+                <img src="/api/placeholder/35/35" alt="doodle-placeholder">
+            </div>
         </div>
-        <div class="doodle" style="top: 30%; left: 85%;">
-            <img src="/api/placeholder/40/40" alt="doodle-placeholder">
+        <h1 class="hero-heading">We advocate for</h1>
+        <div class="crayon-word-container" id="crayonWordContainer">
+            <!-- Words will be added by JavaScript -->
         </div>
-        <div class="doodle" style="top: 65%; left: 20%;">
-            <img src="/api/placeholder/60/60" alt="doodle-placeholder">
-        </div>
-        <div class="doodle" style="top: 50%; left: 75%;">
-            <img src="/api/placeholder/45/45" alt="doodle-placeholder">
-        </div>
-        <div class="doodle" style="top: 80%; left: 50%;">
-            <img src="/api/placeholder/35/35" alt="doodle-placeholder">
-        </div>
-    </div>
-    <h1 class="hero-heading">We advocate for</h1>
-    <div class="crayon-word-container" id="crayonWordContainer">
-        <div class="title-svg active" data-word="Health">Health</div>
-        <div class="title-svg" data-word="Rights">Rights</div>
-        <div class="title-svg" data-word="Access">Access</div>
-        <div class="title-svg" data-word="Equity">Equity</div>
-        <div class="title-svg" data-word="Dignity">Dignity</div>
-        <div class="title-svg" data-word="Safety">Safety</div>
-        <div class="title-svg" data-word="Futures">Futures</div>
-        <div class="title-svg" data-word="Hope">Hope</div>
-    </div>
-</section>
+    </section>
 
     <!-- Story Section -->
     <section class="story-section">
@@ -1309,24 +1284,53 @@
    <!-- JavaScript -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Crayon Word Rotation Animation
-    const crayonWords = document.querySelectorAll('.title-svg');
-    let currentIndex = 0; // Start with the first word (which should already have 'active' class)
+    // Crayon Word Animation
+    const crayonWords = [
+        { text: 'Health', color: '#ff6f91' },
+        { text: 'Rights', color: '#c2efe9' },
+        { text: 'Access', color: '#ffe497' },
+        { text: 'Equity', color: '#d4c1ec' },
+        { text: 'Dignity', color: '#ffc6d3' },
+        { text: 'Safety', color: '#c2efe9' },
+        { text: 'Futures', color: '#ff6f91' },
+        { text: 'Hope', color: '#ffe497' }
+    ];
 
-    // Function to rotate to the next word
-    function rotateWords() {
-        // Remove active class from current word
-        crayonWords[currentIndex].classList.remove('active');
-        
-        // Move to next word (loop back to first if at the end)
-        currentIndex = (currentIndex + 1) % crayonWords.length;
-        
-        // Add active class to next word
-        crayonWords[currentIndex].classList.add('active');
+    const container = document.getElementById('crayonWordContainer');
+    let currentWordIndex = 0;
+    let wordElement = null;
+
+    function showNextWord() {
+        if (wordElement) {
+            wordElement.classList.remove('show');
+            setTimeout(() => {
+                if (wordElement) container.removeChild(wordElement);
+                addNewWord();
+            }, 800);
+        } else {
+            addNewWord();
+        }
     }
-}
-    // Set interval to rotate words every 3 seconds
-    setInterval(rotateWords, 3000);
+
+    function addNewWord() {
+        const wordData = crayonWords[currentWordIndex];
+        wordElement = document.createElement('div');
+        wordElement.className = 'crayon-word';
+        wordElement.textContent = wordData.text;
+        wordElement.style.color = wordData.color;
+        container.appendChild(wordElement);
+
+        setTimeout(() => {
+            wordElement.classList.add('show');
+        }, 100);
+
+        currentWordIndex = (currentWordIndex + 1) % crayonWords.length;
+
+        setTimeout(showNextWord, 2500);
+    }
+
+    // Start the crayon words
+    showNextWord();
 
     // Scroll Animations
     const storyContent = document.getElementById('storyContent');
