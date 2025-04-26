@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAA - CBL Student Info Hub</title>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Castoro+Titling&display=swap" rel="stylesheet">
+    <style>
+        /* Updated Color Palette */
+        :root {
+            --blush-pink: #f9d1d9;
+            --baby-blue: #d1e0f6;
+            --pastel-yellow: #fcf5d9;
+            --cream: #fef9f0;
+            --soft-mint: #e6f0e4;
+            --pink: #ff6f91;
+            --green: #3e5f4a;
+            --light-pink: #ffc6d3;
+            --text-color: #333;
+            --header-transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Font Styles */
+        .calligraphy {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+            font-size: 1.3em;
+        }
+
+        .castoro {
+            font-family: 'Castoro Titling', serif;
+        }
+
+        /* Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--header-transition);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background-color: var(--cream);
+            transition: var(--header-transition);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--light-pink);
+            transition: var(--header-transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            border-top: 1px solid var(--light-pink);
+            border-bottom: 1px solid var(--light-pink);
+            transition: var(--header-transition);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--header-transition);
+        }
+
+        nav a:hover {
+            color: var(--pink);
+        }
+
+        nav li:hover .dropdown {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background-color: var(--pastel-yellow);
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(252, 245, 217, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--green);
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Quick Navigation */
+        .quick-nav {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .quick-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .quick-nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .quick-nav-link:hover {
+            background-color: var(--blush-pink);
+            color: var(--text-color);
+            border-color: var(--light-pink);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* Section Styling */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--pink);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--light-pink);
+        }
+
+        .section-heading p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Approved Events Section */
+        .events-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .event-card {
+            background-color: var(--cream);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .event-image {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 20px;
+        }
+
+        .event-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--pink);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .event-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: var(--green);
+        }
+
+        .event-date {
+            font-size: 0.9rem;
+            color: var(--pink);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .event-description {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--pink);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--green);
+            transform: translateY(-3px);
+        }
+
+        /* How to Sign Up Section */
+        .signup-section {
+            background-color: var(--pastel-yellow);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signup-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .signup-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            flex: 1;
+            min-width: 220px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            background-color: var(--pink);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            margin: 0 auto 15px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--green);
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+        }
+
+        .progress-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--pink);
+            border-radius: 5px;
+            width: 0;
+            transition: width 0.8s ease;
+        }
+
+        /* DU Impact Section */
+        .impact-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .impact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .impact-steps {
+            background-color: var(--cream);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 40px;
+        }
+
+        .impact-step {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--light-pink);
+            position: relative;
+        }
+
+        .impact-step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .impact-step-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--green);
+            display: flex;
+            align-items: center;
+        }
+
+        .impact-step-title i {
+            color: var(--pink);
+            margin-right: 10px;
+        }
+
+        .impact-step-content {
+            padding-left: 30px;
+        }
+
+        .impact-step-content p {
+            margin-bottom: 10px;
+        }
+
+        .impact-step-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .impact-step-content li {
+            margin-bottom: 5px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: transparent;
+            color: var(--pink);
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--pink);
+            margin-top: 30px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--pink);
+            color: white;
+        }
+
+        .btn-center {
+            display: block;
+            text-align: center;
+        }
+
+        /* Important Dates Section */
+        .dates-section {
+            background-color: var(--baby-blue);
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .dates-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background-color: var(--pink);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            float: left;
+            text-align: right;
+            padding-right: 30px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            float: right;
+            text-align: left;
+            padding-left: 30px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .timeline-content {
+            position: relative;
+            width: 45%;
+        }
+
+        .timeline-date {
+            display: block;
+            font-weight: 600;
+            color: var(--pink);
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: var(--green);
+            margin-bottom: 5px;
+        }
+
+        .timeline-description {
+            font-size: 0.9rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid var(--pink);
+            z-index: 1;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .accordion {
+            margin-top: 40px;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .accordion-header {
+            background-color: var(--cream);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--blush-pink);
+        }
+
+        .accordion-title {
+            font-weight: 600;
+            color: var(--green);
+        }
+
+        .accordion-icon {
+            color: var(--pink);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-content {
+            background-color: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-content-inner {
+            padding: 20px;
+        }
+
+        .accordion-item.active .accordion-header {
+            background-color: var(--light-pink);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--pastel-yellow);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 40%;
+            height: 20px;
+            background-color: var(--light-pink);
+            transform: rotate(-1deg);
+            z-index: -1;
+        }
+
+        .contact-container::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            width: 40%;
+            height: 20px;
+            background-color: var(--soft-mint);
+            transform: rotate(1deg);
+            z-index: -1;
+        }
+
+        .contact-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--green);
+            margin-bottom: 20px;
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-leaders {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .leader-item {
+            text-align: center;
+        }
+
+        .leader-name {
+            font-weight: 600;
+            color: var(--pink);
+            margin-bottom: 5px;
+        }
+
+        .leader-role {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--light-pink);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--pink);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--pink);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--green);
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                float: right;
+                text-align: left;
+                padding-left: 50px;
+                width: calc(100% - 50px);
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .quick-nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .quick-nav-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .steps-container {
+                flex-direction: column;
+            }
+
+            .step-item {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-heading h2 {
+                font-size: 2rem;
+            }
+
+            .contact-container::before, 
+            .contact-container::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header id="main-header">
+        <div class="logo-container">
+            <a href="index.html" id="logo-link">
+                <img src="/api/placeholder/240/240" alt="PAA Logo" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+                <li>
+                    <a href="volunteer.html">Volunteer</a>
+                </li>
+                <li>
+                    <a href="calendar.html">Calendar</a>
+                </li>
+                <li>
+                    <a href="cbl-hub.html">CBL Hub</a>
+                </li>
+                <li>
+                    <a href="highlights.html">Past Highlights</a>
+                </li>
+                <li>
+                    <a href="partnership.html">Partnership</a>
+                </li>
+                <li>
+                    <a href="donate.html">Donate</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Welcome to the CBL Info Hub!</h1>
+                <p>Your go-to space for everything about PAA's service-learning partnership with Dominican University Nursing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <div class="quick-nav" id="quick-nav">
+        <div class="quick-nav-container">
+            <a href="#events" class="quick-nav-link">Approved Events</a>
+            <a href="#signup" class="quick-nav-link">How to Sign Up</a>
+            <a href="#impact" class="quick-nav-link">DU Impact Instructions</a>
+            <a href="#dates" class="quick-nav-link">Important Dates</a>
+            <a href="#faq" class="quick-nav-link">FAQs</a>
+            <a href="#contact" class="quick-nav-link">Contact Support</a>
+        </div>
+    </div>
+
+    <!-- Approved Volunteer Events Section -->
+    <section class="events-section" id="events">
+        <div class="container">
+            <div class="section-heading" data-aos="fade-up">
+                <h2>Approved <span class="calligraphy">Events</span></h2>
+                <p>Browse our selection of CBL-approved volunteer opportunities that count toward your service-learning requirements.</p>
+            </div>
+            <div class="events-grid">
+                <!-- Event Card 1 -->
+                <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="/api/placeholder/400/200" alt="Family Resource Fair" class="event-image">
+                    <div class="event-badge">CBL Approved</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Family Resource Fair</h3>
+                        <span class="event-date">May 15, 2025 • 10:00 AM - 2:00 PM</span>
+                        <p class="event-description">Help families connect with essential resources at our community fair. Perfect for nursing students interested in public health education and community outreach.</p>
+                        <a href="#" class="btn">Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="/api/placeholder/400/200" alt="Pediatric Health Screening" class="event-image">
+                    <div class="event-badge">CBL Approved</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Pediatric Health Screening</h3>
+                        <span class="event-date">May 22, 2025 • 9:00 AM - 12:00 PM</span>
+                        <p class="event-description">Assist healthcare professionals with basic screenings at a local elementary school. Gain hands-on experience while serving children in need.</p>
+                        <a href="#" class="btn">Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="event-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="/api/placeholder/400/200" alt="Health Education Workshop" class="event-image">
+                    <div class="event-badge">CBL Approved</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Health Education Workshop</h3>
+                        <span class="event-date">June 5, 2025 • 1:00 PM - 3:00 PM</span>
+                        <p class="event-description">Lead interactive health education activities for children at our partnering community center. Great opportunity to develop teaching and communication skills.</p>
+                        <a href="#" class="btn">Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Event Card 4 -->
+                <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="/api/placeholder/400/200" alt="Care Package Assembly" class="event-image">
+                    <div class="event-badge">CBL Approved</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Care Package Assembly</h3>
+                        <span class="event-date">June 12, 2025 • 4:00 PM - 6:00 PM</span>
+                        <p class="event-description">Help assemble comfort kits for pediatric patients at local hospitals. Learn about the non-medical aspects of holistic patient care.</p>
+                        <a href="#" class="btn">Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Event Card 5 -->
+                <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="/api/placeholder/400/200" alt="Pediatric Nutrition Fair" class="event-image">
+                    <div class="event-badge">CBL Approved</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Pediatric Nutrition Fair</h3>
+                        <span class="event-date">June 18, 2025 • 11:00 AM - 3:00 PM</span>
+                        <p class="event-description">Participate in our nutrition education fair designed for children and families. Help promote healthy eating habits through fun, interactive stations.</p>
+                        <a href="#" class="btn">Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Event Card 6 -->
+                <div class="event-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="/api/placeholder/400/200" alt="Family Support Group" class="event-image">
+                    <div class="event-badge">CBL Approved</div>
+                    <div class="event-content">
+                        <h3 class="event-title">Family Support Group</h3>
+                        <span class="event-date">June 25, 2025 • 5:30 PM - 7:30 PM</span>
+                        <p class="event-description">Assist with our support group for families of children with chronic illnesses. Develop empathy and communication skills essential for nursing practice.</p>
+                        <a href="#" class="btn">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Sign Up Section -->
+    <section class="signup-section" id="signup">
+        <div class="signup-container">
+            <div class="section-heading" data-aos="fade-up">
+                <h2>How to <span class="calligraphy">Sign Up</span></h2>
+                <p>Follow these simple steps to register for CBL-approved events and start logging your valuable experience hours.</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Find an Event</h3>
+                    <p class="step-description">Browse our approved events calendar and select opportunities that align with your schedule and interests.</p>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Complete the Form</h3>
+                    <p class="step-description">Fill out the registration form by clicking the "Sign Up" button on any event card.</p>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Join the Group Chat</h3>
+                    <p class="step-description">Receive a confirmation email with details and an optional link to join the event group chat.</p>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Attend the Event</h3>
+                    <p class="step-description">Show up, participate, and make a difference! Don't forget to get your attendance verified.</p>
+                </div>
+            </div>
+            <div class="progress-container" data-aos="fade-up" data-aos-delay="500">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DU Impact Instructions -->
+    <section class="impact-section" id="impact">
+        <div class="impact-container">
+            <div class="section-heading" data-aos="fade-up">
+                <h2>DU Impact <span class="calligraphy">Instructions</span></h2>
+                <p>Everything you need to know about properly logging your community-based learning hours and reflections in the DU Impact system.</p>
+            </div>
+            <div class="impact-steps" data-aos="fade-up" data-aos-delay="100">
+                <div class="impact-step">
+                    <h3 class="impact-step-title"><i class="fas fa-sign-in-alt"></i> Logging Your Hours</h3>
+                    <div class="impact-step-content">
+                        <p>After attending an approved event, you must log your hours within 7 days. Follow these steps:</p>
+                        <ul>
+                            <li>Log in to DU Impact using your university credentials</li>
+                            <li>Navigate to "My CBL Hours" on the dashboard</li>
+                            <li>Click "Add New Hours" and select PAA from the organization dropdown</li>
+                            <li>Enter the date, event name, and number of hours</li>
+                            <li>Upload your event verification form signed by a PAA board member</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="impact-step">
+                    <h3 class="impact-step-title"><i class="fas fa-pen-fancy"></i> Submitting Reflections</h3>
+                    <div class="impact-step-content">
+                        <p>For each CBL event, you must submit a thoughtful reflection addressing:</p>
+                        <ul>
+                            <li>What you observed and experienced during the event</li>
+                            <li>How this connects to your nursing studies and future career</li>
+                            <li>What you learned about working with pediatric populations</li>
+                            <li>How this experience shaped your understanding of community health</li>
+                        </ul>
+                        <p>Reflections should be 400-500 words and submitted within 10 days of the event.</p>
+                    </div>
+                </div>
+                <div class="impact-step">
+                    <h3 class="impact-step-title"><i class="fas fa-exclamation-circle"></i> Important Reminders</h3>
+                    <div class="impact-step-content">
+                        <ul>
+                            <li>You must complete a minimum of 20 CBL hours per semester</li>
+                            <li>Hours must be approved by your faculty advisor before they count toward your requirement</li>
+                            <li>Late submissions may not be accepted without prior approval</li>
+                            <li>If you have technical issues with DU Impact, contact the IT helpdesk immediately</li>
+                            <li>Keep copies of all your verification forms and submission confirmations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn-outline btn-center" data-aos="fade-up" data-aos-delay="200">Download Full DU Impact Guide</a>
+        </div>
+    </section>
+
+    <!-- Important Dates Section -->
+    <section class="dates-section" id="dates">
+        <div class="dates-container">
+            <div class="section-heading" data-aos="fade-up">
+                <h2>Important <span class="calligraphy">Dates</span></h2>
+                <p>Keep track of critical deadlines and upcoming events throughout the semester to stay on schedule with your CBL requirements.</p>
+            </div>
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">May 1, 2025</span>
+                        <h3 class="timeline-title">Summer CBL Registration Opens</h3>
+                        <p class="timeline-description">First day to register for summer semester CBL events and opportunities.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">May 15, 2025</span>
+                        <h3 class="timeline-title">Family Resource Fair</h3>
+                        <p class="timeline-description">Major CBL opportunity with multiple shifts available.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">May 22, 2025</span>
+                        <h3 class="timeline-title">Pediatric Health Screening</h3>
+                        <p class="timeline-description">Clinical skills application opportunity at local elementary school.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">June 5, 2025</span>
+                        <h3 class="timeline-title">Health Education Workshop</h3>
+                        <p class="timeline-description">Teaching and community engagement opportunity.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">June 30, 2025</span>
+                        <h3 class="timeline-title">CBL Hour Submission Deadline</h3>
+                        <p class="timeline-description">Final day to submit hours and reflections for early summer events.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 6 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 15, 2025</span>
+                        <h3 class="timeline-title">Fall CBL Registration Opens</h3>
+                        <p class="timeline-description">First day to sign up for fall semester opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <div class="section-heading" data-aos="fade-up">
+                <h2>Frequently Asked <span class="calligraphy">Questions</span></h2>
+                <p>Find answers to common questions about the Community-Based Learning program and PAA's role in your service-learning journey.</p>
+            </div>
+            <div class="accordion" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">What events count toward CBL hours?</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Only events specifically marked with "CBL Approved" on our calendar count toward your official Dominican University nursing CBL hours. These events have been pre-approved by faculty to meet the learning objectives of your program. All PAA events on this hub are CBL approved, but general PAA events on our main calendar may not be unless specified.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">What happens if I miss an event I signed up for?</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>We understand emergencies happen, but reliability is crucial in healthcare settings. If you need to cancel, please notify us at least 24 hours in advance by emailing the CBL coordinator. No-shows without notice will be documented, and three unexcused absences may affect your ability to register for future high-demand events. Always communicate with us if your plans change!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">How do I complete DU Impact reflections effectively?</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Effective reflections demonstrate critical thinking about your experience and its connection to your coursework and future practice. Use the DEAL model (Describe, Examine, Articulate Learning) to structure your reflection. Be specific about what you observed, how it connects to nursing concepts, and what you learned about yourself and the community. Avoid vague generalizations and focus on personal insights and professional growth.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">Who do I talk to if I have questions?</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>For questions about specific events, contact the PAA CBL Coordinator at cbl@pediatricadvocacy.org. For questions about how CBL hours apply to your program requirements, speak with your nursing faculty advisor. For technical issues with DU Impact, contact the IT Help Desk. Our student CBL team is also available during weekly office hours (Tuesdays and Thursdays, 2-4pm in the Student Center, Room 203).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">Can I suggest new CBL opportunities?</h3>
+                        <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Absolutely! We welcome student input and initiative. If you have connections to pediatric-focused organizations or ideas for meaningful service opportunities, please submit a CBL Event Proposal Form (available in the "Resources" section). Proposals are reviewed monthly by our faculty advisory committee. Keep in mind that new opportunities must align with program learning objectives and provide meaningful engagement with pediatric populations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-container" data-aos="fade-up">
+                <h2 class="contact-heading">Contact the PAA CBL Team</h2>
+                <p class="contact-text">Need help or advice? We're here for you!</p>
+                <a href="mailto:cbl@pediatricadvocacy.org" class="btn">Email the CBL Team</a>
+                
+                <div class="contact-leaders">
+                    <div class="leader-item">
+                        <h4 class="leader-name">Maya Patel</h4>
+                        <p class="leader-role">CBL Student Coordinator</p>
+                    </div>
+                    <div class="leader-item">
+                        <h4 class="leader-name">Jordan Washington</h4>
+                        <p class="leader-role">DU Nursing Liaison</p>
+                    </div>
+                    <div class="leader-item">
+                        <h4 class="leader-name">Dr. Rebecca Chen</h4>
+                        <p class="leader-role">Faculty Advisor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About Us</a>
+                <a href="volunteer.html" class="footer-link">Volunteer</a>
+                <a href="calendar.html" class="footer-link">Calendar</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Progress Bar Animation for Steps
+            const progressBar = document.getElementById('progress-bar');
+            const stepItems = document.querySelectorAll('.step-item');
+            
+            let currentStep = 0;
+            const interval = setInterval(() => {
+                if (currentStep < stepItems.length) {
+                    const progress = (currentStep + 1) / stepItems.length * 100;
+                    progressBar.style.width = `${progress}%`;
+                    
+                    // Add active class to the current step
+                    stepItems.forEach((item, index) => {
+                        if (index <= currentStep) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+                    
+                    currentStep++;
+                } else {
+                    currentStep = 0;
+                }
+            }, 2000);
+            
+            // FAQ Accordion
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                header.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Back to Top Button
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Sticky Header
+            const header = document.getElementById('main-header');
+            const quickNav = document.getElementById('quick-nav');
+            const heroHeight = document.getElementById('hero').offsetHeight;
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                if (window.pageYOffset > heroHeight) {
+                    quickNav.classList.add('visible');
+                } else {
+                    quickNav.classList.remove('visible');
+                }
+            });
+            
+            // Smooth Scrolling for Nav Links
+            const navLinks = document.querySelectorAll('.quick-nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    const offsetTop = targetElement.offsetTop - 100;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
