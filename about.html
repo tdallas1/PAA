@@ -1,14 +1,11 @@
-<!DOCTYPE html>
+is there anything wrong with this code?: <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Pediatric Advocacy Alliance</title>
-    
-    <!-- External Fonts and Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Permanent+Marker&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
     <style>
         /* Base Styles */
         :root {
@@ -23,419 +20,6 @@
             --text-color: #333;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            background-color: white;
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* HEADER Styles */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            background-color: var(--cream);
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--light-pink);
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: white;
-            border-top: 1px solid var(--light-pink);
-            border-bottom: 1px solid var(--light-pink);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav li {
-            position: relative;
-        }
-
-        nav a {
-            display: block;
-            padding: 15px 25px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--pink);
-        }
-
-        /* HERO Section */
-        .hero {
-            min-height: 100vh;
-            padding: 100px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .gradient-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--light-pink), var(--cream), var(--mint), var(--blue));
-            background-size: 400% 400%;
-            animation: gradientAnimation 60s ease infinite;
-            z-index: -1;
-        }
-
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .doodle {
-            position: absolute;
-            opacity: 0.4;
-            z-index: -1;
-            font-size: 20px;
-            animation: floatDoodle 20s linear infinite;
-        }
-
-        @keyframes floatDoodle {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(10px, 10px) rotate(5deg); }
-            50% { transform: translate(0, 20px) rotate(0deg); }
-            75% { transform: translate(-10px, 10px) rotate(-5deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            z-index: 1;
-        }
-
-        .static-text {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .crayon-text-container {
-            height: 100px;
-            font-size: 3.5rem;
-            margin-top: 10px;
-            position: relative;
-        }
-
-        .crayon-text {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            opacity: 0;
-            font-family: 'Gloria Hallelujah', cursive;
-            text-align: center;
-        }Section Styles */
-        
-.leadership-section {
-    padding: 80px 0;
-    background-color: white;
-    position: relative;
-    overflow: hidden;
-}
-.leadership-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/api/placeholder/1600/900');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.1;
-    z-index: 0;
-}
-.leadership-section .container {
-    position: relative;
-    z-index: 1;
-}
-.doodle {
-    position: absolute;
-    z-index: 0;
-    font-size: 20px;
-    opacity: 0.2;
-    animation: floatDoodle 15s infinite ease-in-out;
-}
-@keyframes floatDoodle {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
-    100% { transform: translateY(0) rotate(0deg); }
-}
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-}
-.team-card {
-    position: relative;
-    padding: 30px 20px;
-    border-radius: 10px;
-    background-color: #f9d1d9;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.team-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    background-color: #fef9f0;
-    transform: rotate(45deg) translate(20px, -20px);
-}
-.team-card::after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.5);
-    opacity: 0.7;
-}
-.team-card:hover {
-    transform: translateY(-5px) rotate(2deg);
-}
-.team-photo-container {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
-    border: 8px solid white;
-    transform: rotate(-2deg);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-}
-.team-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.3s ease;
-}
-.team-photo:hover {
-    transform: scale(1.05);
-}
-.team-name-container {
-    position: relative;
-    height: 40px;
-    margin-bottom: 5px;
-}
-.team-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: 'Gloria Hallelujah', cursive;
-    margin-bottom: 5px;
-    text-align: center;
-    opacity: 0;
-    position: relative;
-    width: 0;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.team-name.typing {
-    opacity: 1;
-    animation: typing 1.5s steps(30, end) forwards;
-}
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-.team-title {
-    font-size: 1rem;
-    color: #3e5f4a;
-    margin-bottom: 15px;
-    text-align: center;
-    font-style: italic;
-}
-.team-quote {
-    font-size: 0.9rem;
-    text-align: center;
-    margin-bottom: 20px;
-    font-style: italic;
-    color: #555;
-    padding: 0 10px;
-}
-.team-fact {
-    position: absolute;
-    bottom: -80px;
-    left: 0;
-    width: 100%;
-    padding: 15px;
-    background-color: #ffe497;
-    text-align: center;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    transform: rotate(-3deg);
-    z-index: 5;
-}
-.team-card:hover .team-fact {
-    bottom: 20px;
-}
-.team-social {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-.team-social a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: white;
-    color: #ff6f91;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    z-index: 10;
-}
-.team-social a:hover {
-    background-color: #ff6f91;
-    color: white;
-    transform: translateY(-3px);
-}
-
-/* Timeline Specific Styles */
-.journey-section {
-    padding: 80px 0;
-    background-color: var(--cream);
-    position: relative;
-    overflow: hidden;
-}
-.journey-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/api/placeholder/1600/900');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.1;
-    z-index: 0;
-}
-.journey-timeline {
-    position: relative;
-    min-height: 600px;
-    margin-top: 50px;
-}
-.timeline-path-container {
-    position: relative;
-    width: 100%;
-    height: 500px;
-}
-.timeline-path {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.timeline-road {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: drawRoad 3s forwards ease-out;
-}
-@keyframes drawRoad {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-.timeline-event {
-    position: absolute;
-    width: 280px;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.6s ease;
-    z-index: 5;
-}
-.timeline-event.visible {
-    transform: translateY(0);
-    opacity: 1;
-}
-.event-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transform: rotate(-2deg);
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 5;
-}
-.event-card::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 100%;
-    height: 100%;
-    background-color: var(--light-pink);
-    border-radius: 10px;
-    z-index: -1;
-    transition: all 0.3s ease;
-}
-.event-card:hover {
-    transform: rotate(0deg) translateY(-5px);
-}
-.event-card:hover::before {
-    top: -8px;
-    right: -8px;
-}
         * {
             margin: 0;
             padding: 0;
@@ -922,7 +506,365 @@
             background-color: var(--mint);
             color: var(--text-color);
         }
+<!-- CSS for Leadership Section -->
+    /* Team Section Styles */
+    .leadership-section {
+        padding: 80px 0;
+        background-color: white;
+    }
+    
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
+    }
+    
+    .team-card {
+        position: relative;
+        padding: 30px 20px;
+        border-radius: 10px;
+        background-color: #f9d1d9; /* Light pink background */
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    /* Torn paper effect */
+    .team-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background-color: #fef9f0; /* Cream color */
+        transform: rotate(45deg) translate(20px, -20px);
+    }
+    
+    /* Tape effect */
+    .team-card::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.5);
+        opacity: 0.7;
+    }
+    
+    .team-card:hover {
+        transform: translateY(-5px) rotate(2deg);
+    }
+    
+    .team-photo-container {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        border: 8px solid white;
+        transform: rotate(-2deg);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    .team-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .team-name-container {
+        position: relative;
+        height: 40px;
+        margin-bottom: 5px;
+    }
+    
+    .team-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: 'Gloria Hallelujah', cursive;
+        margin-bottom: 5px;
+        text-align: center;
+        opacity: 0;
+    }
+    
+    .team-title {
+        font-size: 1rem;
+        color: #3e5f4a; /* Green color */
+        margin-bottom: 15px;
+        text-align: center;
+        font-style: italic;
+    }
+    
+    .team-quote {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+    
+    .team-fact {
+        position: absolute;
+        bottom: -80px;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background-color: #ffe497; /* Yellow color */
+        text-align: center;
+        font-family: 'Gloria Hallelujah', cursive;
+        font-size: 0.9rem;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        transform: rotate(-3deg);
+    }
+    
+    .team-card:hover .team-fact {
+        bottom: 20px;
+    }
+    
+    .team-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .team-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        color: #ff6f91; /* Pink color */
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .team-social a:hover {
+        background-color: #ff6f91;
+        color: white;
+        transform: translateY(-3px);
+    }
 
+    /* Animation for writing names */
+    @keyframes writeName {
+        to {
+            width: 100%;
+        }
+    }
+
+    /* Media queries for responsive layout */
+    @media (max-width: 768px) {
+        .team-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+    }
+</style>
+
+<!-- HTML for Leadership Section -->
+<section class="leadership-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Meet Our <span class="calligraphy">Leaders</span></h2>
+            <p>The dedicated students behind PAA</p>
+        </div>
+        
+        <div class="team-grid">
+            <!-- Trinity -->
+            <div class="team-card">
+                <div class="team-photo-container">
+                    <img src="TeamMember.png" alt="Trinity Dallas" class="team-photo">
+                </div>
+                <div class="team-name-container">
+                    <div class="team-name" data-name="Trinity Dallas">Trinity Dallas</div>
+                </div>
+                <div class="team-title">President</div>
+                <div class="team-quote">"I lead because every child deserves a voice in their healthcare journey."</div>
+                <div class="team-fact">Future Pediatric Nurse & Healthcare Administrator!</div>
+                <div class="team-social">
+                    <a href="https://www.linkedin.com/in/trinity-dallas-662022220/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:tdallas@my.dom.edu"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <!-- Elsy Hernandez Lozano -->
+            <div class="team-card">
+                <div class="team-photo-container">
+                    <img src="TeamMember.png" alt="Harmony Perez" class="team-photo">
+                </div>
+                <div class="team-name-container">
+                    <div class="team-name" data-name="Elsy Hernandez Lozano">Elsy Hernandez Lozano</div>
+                </div>
+                <div class="team-title">Vice President</div>
+                <div class="team-quote">"I lead because children deserve champions in healthcare and beyond."</div>
+                <div class="team-fact">Neuroscience research enthusiast & future PA!</div>
+                <div class="team-social">
+                    <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:hperez1@my.dom.edu"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+             <!-- Lizbeth Lopez -->
+            <div class="team-card">
+                <div class="team-photo-container">
+                    <img src="TeamMember.png" alt="Lizbeth Lopez" class="team-photo">
+                </div>
+                <div class="team-name-container">
+                    <div class="team-name" data-name="Lizbeth Lopez">Lizbeth Lopez</div>
+                </div>
+                <div class="team-title">Vice President</div>
+                <div class="team-quote">"I lead because children deserve champions in healthcare and beyond."</div>
+                <div class="team-fact">Neuroscience research enthusiast & future PA!</div>
+                <div class="team-social">
+                    <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:hperez1@my.dom.edu"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+             <!-- Myles Waters -->
+            <div class="team-card">
+                <div class="team-photo-container">
+                    <img src="TeamMember.png" alt="Myles Waters" class="team-photo">
+                </div>
+                <div class="team-name-container">
+                    <div class="team-name" data-name="Myles Waters">Myles Waters</div>
+                </div>
+                <div class="team-title">Vice President</div>
+                <div class="team-quote">"I lead because children deserve champions in healthcare and beyond."</div>
+                <div class="team-fact">Neuroscience research enthusiast & future PA!</div>
+                <div class="team-social">
+                    <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:hperez1@my.dom.edu"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+             <!-- Harmony -->
+            <div class="team-card">
+                <div class="team-photo-container">
+                    <img src="TeamMember.png" alt="Harmony Perez" class="team-photo">
+                </div>
+                <div class="team-name-container">
+                    <div class="team-name" data-name="Harmony Perez">Harmony Perez</div>
+                </div>
+                <div class="team-title">Vice President</div>
+                <div class="team-quote">"I lead because children deserve champions in healthcare and beyond."</div>
+                <div class="team-fact">Neuroscience research enthusiast & future PA!</div>
+                <div class="team-social">
+                    <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:hperez1@my.dom.edu"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+             <!-- Harmony -->
+            <div class="team-card">
+                <div class="team-photo-container">
+                    <img src="TeamMember.png" alt="Harmony Perez" class="team-photo">
+                </div>
+                <div class="team-name-container">
+                    <div class="team-name" data-name="Harmony Perez">Harmony Perez</div>
+                </div>
+                <div class="team-title">Vice President</div>
+                <div class="team-quote">"I lead because children deserve champions in healthcare and beyond."</div>
+                <div class="team-fact">Neuroscience research enthusiast & future PA!</div>
+                <div class="team-social">
+                    <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:hperez1@my.dom.edu"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+             <!-- Harmony -->
+            <div class="team-card">
+                <div class="team-photo-container">
+                    <img src="TeamMember.png" alt="Harmony Perez" class="team-photo">
+                </div>
+                <div class="team-name-container">
+                    <div class="team-name" data-name="Harmony Perez">Harmony Perez</div>
+                </div>
+                <div class="team-title">Vice President</div>
+                <div class="team-quote">"I lead because children deserve champions in healthcare and beyond."</div>
+                <div class="team-fact">Neuroscience research enthusiast & future PA!</div>
+                <div class="team-social">
+                    <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:hperez1@my.dom.edu"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+             <!-- Harmony -->
+            <div class="team-card">
+                <div class="team-photo-container">
+                    <img src="TeamMember.png" alt="Harmony Perez" class="team-photo">
+                </div>
+                <div class="team-name-container">
+                    <div class="team-name" data-name="Harmony Perez">Harmony Perez</div>
+                </div>
+                <div class="team-title">Vice President</div>
+                <div class="team-quote">"I lead because children deserve champions in healthcare and beyond."</div>
+                <div class="team-fact">Neuroscience research enthusiast & future PA!</div>
+                <div class="team-social">
+                    <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:hperez1@my.dom.edu"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <!-- Add more team members as needed following the same pattern -->
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Name Animation -->
+<script>
+    // Team Name Animation
+    function animateTeamName(nameElement) {
+        const name = nameElement.getAttribute('data-name');
+        nameElement.textContent = '';
+        nameElement.style.opacity = '1';
+        
+        let charIndex = 0;
+        const nameLength = name.length;
+        
+        function typeNameChar() {
+            if (charIndex < nameLength) {
+                nameElement.textContent += name.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeNameChar, 80); // Speed of typing
+            }
+        }
+        
+        // Start typing with a random delay to make it look more natural
+        setTimeout(typeNameChar, Math.random() * 1000);
+    }
+
+    // Animation trigger on scroll
+    function checkVisibility() {
+        const teamCards = document.querySelectorAll('.team-card');
+        
+        teamCards.forEach(card => {
+            const position = card.getBoundingClientRect();
+            
+            // If card is in viewport
+            if (position.top < window.innerHeight * 0.9) {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+                
+                // Animate the name
+                const nameElement = card.querySelector('.team-name');
+                if (nameElement && !nameElement.classList.contains('animated')) {
+                    animateTeamName(nameElement);
+                    nameElement.classList.add('animated');
+                }
+            }
+        });
+    }
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkVisibility);
+    
+    // Initial check on page load
+    window.addEventListener('load', checkVisibility);
+</script>
+    
         /* Footer (from original site for consistency) */
         footer {
             background-color: white;
@@ -1136,111 +1078,6 @@
             </div>
         </div>
     </section>
-
-     <section class="journey-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Our <span class="calligraphy">Journey</span></h2>
-                <p>The path we've traveled together so far</p>
-            </div>
-            
-            <div class="journey-timeline">
-                <div class="timeline-path-container">
-                    <!-- Curved path SVG -->
-                    <svg viewBox="0 0 1000 500" class="timeline-path">
-                        <path class="timeline-road" d="M0,250 C200,150 350,350 500,250 C650,150 800,350 1000,250" stroke="#ffc6d3" stroke-width="15" fill="transparent" stroke-linecap="round"/>
-                        <path d="M0,250 C200,150 350,350 500,250 C650,150 800,350 1000,250" stroke="#fff" stroke-width="5" fill="transparent" stroke-linecap="round" stroke-dasharray="10,10"/>
-                    </svg>
-                    
-                    <!-- Journey stickers -->
-                    <div class="journey-sticker sticker-1">✨</div>
-                    <div class="journey-sticker sticker-2">🎨</div>
-                    <div class="journey-sticker sticker-3">📝</div>
-                    <div class="journey-sticker sticker-4">🩺</div>
-                    <div class="journey-sticker sticker-5">🌟</div>
-                    
-                    <!-- Timeline Events -->
-                    <div class="timeline-event event-1">
-                        <div class="event-card">
-                            <div class="event-photo-container">
-                                <img src="/api/placeholder/300/180" alt="PAA founding" class="event-photo">
-                                <div class="photo-tape"></div>
-                            </div>
-                            <div class="event-icon">📝</div>
-                            <div class="event-date">Fall 2024</div>
-                            <div class="event-title">Official Founding</div>
-                            <div class="event-description">Launched at Dominican University, founded by Trinity Dallas with student advocates passionate about pediatric health. Guided by faculty mentors Dr. William Zic and Dr. James.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-event event-2">
-                        <div class="event-card">
-                            <div class="event-photo-container">
-                                <img src="/api/placeholder/300/180" alt="PAA community building" class="event-photo">
-                                <div class="photo-tape"></div>
-                            </div>
-                            <div class="event-icon">🏆</div>
-                            <div class="event-date">Fall 2024</div>
-                            <div class="event-title">Building Identity</div>
-                            <div class="event-description">Growing to 30+ members from diverse academic backgrounds including nursing, social work, business, and biology. Creating early partnerships across campus.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-event event-3">
-                        <div class="event-card">
-                            <div class="event-photo-container">
-                                <img src="/api/placeholder/300/180" alt="PAA growth" class="event-photo">
-                                <div class="photo-tape"></div>
-                            </div>
-                            <div class="event-icon">📈</div>
-                            <div class="event-date">Winter 2025</div>
-                            <div class="event-title">Turning Point</div>
-                            <div class="event-description">Restructured our executive board and formalized systems for volunteer tracking and programming. Expanded our reach with new partnerships and campus recognition.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-event event-4">
-                        <div class="event-card">
-                            <div class="event-photo-container">
-                                <img src="/api/placeholder/300/180" alt="PAA advocacy training" class="event-photo">
-                                <div class="photo-tape"></div>
-                            </div>
-                            <div class="event-icon">📣</div>
-                            <div class="event-date">Winter 2025</div>
-                            <div class="event-title">Advocacy Training</div>
-                            <div class="event-description">Launched our first advocacy training sessions, equipping members with knowledge in pediatric justice, health policy, and service-based leadership.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-event event-5">
-                        <div class="event-card">
-                            <div class="event-photo-container">
-                                <img src="/api/placeholder/300/180" alt="PAA community presence" class="event-photo">
-                                <div class="photo-tape"></div>
-                            </div>
-                            <div class="event-icon">🌈</div>
-                            <div class="event-date">Winter 2025</div>
-                            <div class="event-title">Academic Integration</div>
-                            <div class="event-description">Partnered with Dominican's Community-Based Learning program, becoming a designated volunteer site for nursing students completing civic engagement coursework.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-event event-6">
-                        <div class="event-card">
-                            <div class="event-photo-container">
-                                <img src="/api/placeholder/300/180" alt="PAA future vision" class="event-photo">
-                                <div class="photo-tape"></div>
-                            </div>
-                            <div class="event-icon">🌎</div>
-                            <div class="event-date">Fall 2025</div>
-                            <div class="event-title">Future Vision</div>
-                            <div class="event-description">Expanding our efforts to empower the next generation of healthcare leaders through awareness campaigns, events, and service-driven outreach.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     
     <!-- Sticker Section -->
     <section class="sticker-section">
@@ -1278,93 +1115,7 @@
             <p><strong>Our Mission:</strong> To advance the health, rights, and well-being of children through service, advocacy, education, and systemic action.</p>
         </div>
     </div>
-
-     <section class="leadership-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Meet Our <span class="calligraphy">Leaders</span></h2>
-                <p>The dedicated students behind PAA</p>
-            </div>
-            
-            <!-- Background doodles -->
-            <div class="doodle">✏️</div>
-            <div class="doodle">📝</div>
-            <div class="doodle">🌟</div>
-            <div class="doodle">✨</div>
-            <div class="doodle">🎨</div>
-            
-            <div class="team-grid">
-                <!-- Trinity -->
-                <div class="team-card">
-                    <div class="team-photo-container">
-                        <img src="/api/placeholder/300/280" alt="Trinity Dallas" class="team-photo">
-                    </div>
-                    <div class="team-name-container">
-                        <div class="team-name" data-name="Trinity Dallas">Trinity Dallas</div>
-                    </div>
-                    <div class="team-title">President</div>
-                    <div class="team-quote">"I lead because every child deserves a voice in their healthcare journey."</div>
-                    <div class="team-fact">Future Pediatric Nurse & Healthcare Administrator!</div>
-                    <div class="team-social">
-                        <a href="https://www.linkedin.com/in/trinity-dallas-662022220/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:tdallas@my.dom.edu"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Harmony -->
-                <div class="team-card">
-                    <div class="team-photo-container">
-                        <img src="/api/placeholder/300/280" alt="Harmony Perez" class="team-photo">
-                    </div>
-                    <div class="team-name-container">
-                        <div class="team-name" data-name="Harmony Perez">Harmony Perez</div>
-                    </div>
-                    <div class="team-title">Vice President</div>
-                    <div class="team-quote">"I lead because children deserve champions in healthcare and beyond."</div>
-                    <div class="team-fact">Neuroscience research enthusiast & future PA!</div>
-                    <div class="team-social">
-                        <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:hperez1@my.dom.edu"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Myles -->
-                <div class="team-card">
-                    <div class="team-photo-container">
-                        <img src="/api/placeholder/300/280" alt="Myles Waters" class="team-photo">
-                    </div>
-                    <div class="team-name-container">
-                        <div class="team-name" data-name="Myles Waters">Myles Waters</div>
-                    </div>
-                    <div class="team-title">Treasurer</div>
-                    <div class="team-quote">"I lead because data-driven advocacy creates real impact for children."</div>
-                    <div class="team-fact">Computer Information Systems & Black World Studies double major!</div>
-                    <div class="team-social">
-                        <a href="https://www.linkedin.com/in/myleswaters/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:mwaters@my.dom.edu"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Elsy -->
-                <div class="team-card">
-                    <div class="team-photo-container">
-                        <img src="/api/placeholder/300/280" alt="Elsy Hernandez Lozano" class="team-photo">
-                    </div>
-                    <div class="team-name-container">
-                        <div class="team-name" data-name="Elsy Hernandez Lozano">Elsy Hernandez Lozano</div>
-                    </div>
-                    <div class="team-title">Secretary</div>
-                    <div class="team-quote">"I lead because equitable healthcare starts with inclusive leadership."</div>
-                    <div class="team-fact">Biology major with passion for cancer equity research!</div>
-                    <div class="team-social">
-                        <a href="https://www.linkedin.com/in/elsy-hernandez-lozano/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:ehernandezlozano@my.dom.edu"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
@@ -1428,133 +1179,125 @@
     </footer>
 
     <!-- JavaScript for Animations -->
-<script>
-    // Animate Crayon Text (hero section words)
-    const crayonTexts = document.querySelectorAll('.crayon-text');
-    const totalWords = crayonTexts.length;
-    let currentIndex = 0;
-    let animationInProgress = false;
-
-    function typeWord(wordElement) {
-        const text = wordElement.textContent;
-        wordElement.textContent = '';
-        wordElement.style.opacity = '1';
-
-        let charIndex = 0;
-        const textLength = text.length;
-
-        if (window.typeTimeout) {
-            clearTimeout(window.typeTimeout);
-        }
-
-        function typeChar() {
-            if (charIndex < textLength) {
-                wordElement.textContent += text.charAt(charIndex);
-                charIndex++;
-                window.typeTimeout = setTimeout(typeChar, 100);
-            } else {
-                setTimeout(() => {
-                    wordElement.style.opacity = '0';
-                    setTimeout(() => {
-                        currentIndex = (currentIndex + 1) % totalWords;
-                        animationInProgress = false;
-                        animateCrayonText();
-                    }, 600);
-                }, 1500);
-            }
-        }
-
-        window.typeTimeout = setTimeout(typeChar, 100);
-    }
-
-    function animateCrayonText() {
-        if (!animationInProgress) {
-            animationInProgress = true;
-            const wordElement = crayonTexts[currentIndex];
-            typeWord(wordElement);
-        }
-    }
-
-    window.addEventListener('load', animateCrayonText);
-
-    // Animate elements when scrolling
-    function checkScroll() {
-        const elements = document.querySelectorAll('.section-heading, .story-paragraph, .pillar, .mission-box, .cta-box, .sticker, .team-card, .timeline-event');
+    <script>
+        // Crayon Text Animation Function
+        const crayonTexts = document.querySelectorAll('.crayon-text');
+        const totalWords = crayonTexts.length;
+        let currentIndex = 0;
+        let animationInProgress = false;
         
-        elements.forEach(element => {
-            const position = element.getBoundingClientRect();
-            if (position.top < window.innerHeight * 0.9) {
-                if (element.classList.contains('section-heading')) {
-                    element.classList.add('story-visible');
+        // Function to animate a word by typing effect
+        function typeWord(wordElement) {
+            const text = wordElement.textContent;
+            wordElement.textContent = '';
+            wordElement.style.opacity = '1';
+            
+            let charIndex = 0;
+            const textLength = text.length;
+            
+            // Clear any existing timeouts
+            if (window.typeTimeout) {
+                clearTimeout(window.typeTimeout);
+            }
+            
+            function typeChar() {
+                if (charIndex < textLength) {
+                    wordElement.textContent += text.charAt(charIndex);
+                    charIndex++;
+                    window.typeTimeout = setTimeout(typeChar, 100); // Speed of typing
                 } else {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                    // Typing complete, show for 1.5 seconds, then fade out
+                    setTimeout(() => {
+                        wordElement.style.opacity = '0';
+                        
+                        // Wait for fade out, then move to next word
+                        setTimeout(() => {
+                            // Move to next word
+                            currentIndex = (currentIndex + 1) % totalWords;
+                            animationInProgress = false;
+                            animateCrayonText();
+                        }, 600); // Fade out duration
+                    }, 1500); // Word display duration
                 }
             }
-        });
-    }
-
-    window.addEventListener('scroll', checkScroll);
-    window.addEventListener('load', checkScroll);
-
-    // Leadership Name Typing Animation
-    function animateTeamName(nameElement) {
-        const name = nameElement.getAttribute('data-name');
-        nameElement.textContent = '';
-        nameElement.style.opacity = '1';
-
-
-
-function animateTeamName(nameElement) {
-    const name = nameElement.getAttribute('data-name');
-    nameElement.textContent = name;
-    nameElement.style.width = '0';
-    nameElement.style.opacity = '1';
-    setTimeout(() => {
-        nameElement.classList.add('typing');
-    }, 100);
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate events and stickers
-function animateElements() {
-    // Timeline events
-    const timelineEvents = document.querySelectorAll('.timeline-event');
-    timelineEvents.forEach((event, index) => {
-        setTimeout(() => {
-            event.classList.add('visible');
-        }, 300 * index); // Stagger the animations
-    });
-
-    // Journey stickers
-    const journeyStickers = document.querySelectorAll('.journey-sticker');
-    journeyStickers.forEach((sticker, index) => {
-        setTimeout(() => {
-            sticker.classList.add('visible');
-        }, 500 + 200 * index); // Stagger the animations
-    });
-}
-
-// Initialize timeline animation
-animateElements();
-
-// Check visibility on scroll
-window.addEventListener('scroll', function() {
-    const journeySection = document.querySelector('.journey-section');
-    const rect = journeySection.getBoundingClientRect();
-    
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const timelineEvents = document.querySelectorAll('.timeline-event:not(.visible)');
-        const journeyStickers = document.querySelectorAll('.journey-sticker:not(.visible)');
+            
+            // Start typing
+            window.typeTimeout = setTimeout(typeChar, 100);
+        }
         
-        timelineEvents.forEach((event) => {
-            event.classList.add('visible');
+        // Main animation function to start the process
+        function animateCrayonText() {
+            if (!animationInProgress) {
+                animationInProgress = true;
+                const wordElement = crayonTexts[currentIndex];
+                typeWord(wordElement);
+            }
+        }
+        
+        // Start animation
+        window.addEventListener('load', animateCrayonText);
+        
+        // Scroll Animation for Fade-In Effects
+        function checkScroll() {
+            const elements = document.querySelectorAll('.section-heading, .story-paragraph, .pillar, .mission-box, .cta-box, .sticker');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                // If element is in viewport
+                if (position.top < window.innerHeight * 0.9) {
+                    if (element.classList.contains('section-heading')) {
+                        element.classList.add('story-visible');
+                    } else if (element.classList.contains('story-paragraph') || 
+                              element.classList.contains('mission-box') || 
+                              element.classList.contains('cta-box')) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    } else if (element.classList.contains('pillar')) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    } else if (element.classList.contains('sticker')) {
+                        element.style.opacity = '1';
+                    }
+                }
+            });
+        }
+        
+        // Initial check on page load
+        window.addEventListener('load', checkScroll);
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkScroll);
+        
+        // Pillar click functionality (optional)
+        const pillars = document.querySelectorAll('.pillar');
+        pillars.forEach(pillar => {
+            pillar.addEventListener('click', function() {
+                const tooltip = this.querySelector('.pillar-tooltip');
+                if (tooltip.style.visibility === 'visible') {
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.opacity = '0';
+                } else {
+                    tooltip.style.visibility = 'visible';
+                    tooltip.style.opacity = '1';
+                }
+            });
         });
         
-        journeyStickers.forEach((sticker) => {
-            sticker.classList.add('visible');
+        // Sticker click functionality (optional)
+        const stickers = document.querySelectorAll('.sticker');
+        stickers.forEach(sticker => {
+            sticker.addEventListener('click', function() {
+                const tooltip = this.querySelector('.sticker-tooltip');
+                if (tooltip.style.visibility === 'visible') {
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.opacity = '0';
+                } else {
+                    tooltip.style.visibility = 'visible';
+                    tooltip.style.opacity = '1';
+                }
+            });
         });
-    }
-});
-<script>
+    </script>
 </body>
 </html>
