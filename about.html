@@ -203,20 +203,37 @@
             z-index: 1;
         }
 
-   .crayon-word {
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 3rem;
-  position: absolute;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  /* Fix the closing bracket issue in the existing CSS and add title-svg styles */
+.crayon-word-container {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
-.crayon-word.show {
-  opacity: 1;
-  transform: scale(1);
+.title-svg {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 3rem;
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
-        }
+
+.title-svg:nth-child(1) { color: #ff6f91; }
+.title-svg:nth-child(2) { color: #c2efe9; }
+.title-svg:nth-child(3) { color: #ffe497; }
+.title-svg:nth-child(4) { color: #d4c1ec; }
+.title-svg:nth-child(5) { color: #ffc6d3; }
+.title-svg:nth-child(6) { color: #c2efe9; }
+.title-svg:nth-child(7) { color: #ff6f91; }
+.title-svg:nth-child(8) { color: #ffe497; }
+
+.title-svg.active {
+    opacity: 1;
+    transform: scale(1);
+}
 
         /* Story Section */
         .story-section {
@@ -1063,30 +1080,38 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-gradient"></div>
-        <div class="doodle-container">
-            <div class="doodle" style="top: 15%; left: 10%;">
-                <img src="/api/placeholder/50/50" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 30%; left: 85%;">
-                <img src="/api/placeholder/40/40" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 65%; left: 20%;">
-                <img src="/api/placeholder/60/60" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 50%; left: 75%;">
-                <img src="/api/placeholder/45/45" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 80%; left: 50%;">
-                <img src="/api/placeholder/35/35" alt="doodle-placeholder">
-            </div>
+  <!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-gradient"></div>
+    <div class="doodle-container">
+        <div class="doodle" style="top: 15%; left: 10%;">
+            <img src="/api/placeholder/50/50" alt="doodle-placeholder">
         </div>
-        <h1 class="hero-heading">We advocate for</h1>
-        <div class="crayon-word-container" id="crayonWordContainer">
-            <!-- Words will be added by JavaScript -->
+        <div class="doodle" style="top: 30%; left: 85%;">
+            <img src="/api/placeholder/40/40" alt="doodle-placeholder">
         </div>
-    </section>
+        <div class="doodle" style="top: 65%; left: 20%;">
+            <img src="/api/placeholder/60/60" alt="doodle-placeholder">
+        </div>
+        <div class="doodle" style="top: 50%; left: 75%;">
+            <img src="/api/placeholder/45/45" alt="doodle-placeholder">
+        </div>
+        <div class="doodle" style="top: 80%; left: 50%;">
+            <img src="/api/placeholder/35/35" alt="doodle-placeholder">
+        </div>
+    </div>
+    <h1 class="hero-heading">We advocate for</h1>
+    <div class="crayon-word-container" id="crayonWordContainer">
+        <div class="title-svg active" data-word="Health">Health</div>
+        <div class="title-svg" data-word="Rights">Rights</div>
+        <div class="title-svg" data-word="Access">Access</div>
+        <div class="title-svg" data-word="Equity">Equity</div>
+        <div class="title-svg" data-word="Dignity">Dignity</div>
+        <div class="title-svg" data-word="Safety">Safety</div>
+        <div class="title-svg" data-word="Futures">Futures</div>
+        <div class="title-svg" data-word="Hope">Hope</div>
+    </div>
+</section>
 
     <!-- Story Section -->
     <section class="story-section">
@@ -1283,28 +1308,26 @@
 
    <!-- JavaScript -->
 <script>
-// Crayon Word Rotation Animation
 document.addEventListener('DOMContentLoaded', function() {
-  // Select all title-svg elements
-  const crayonWords = document.querySelectorAll('.title-svg');
-  let currentIndex = 0; // Start with the first word (which should already have 'active' class)
+    // Crayon Word Rotation Animation
+    const crayonWords = document.querySelectorAll('.title-svg');
+    let currentIndex = 0; // Start with the first word (which should already have 'active' class)
 
-  // Function to rotate to the next word
-  function rotateWords() {
-    // Remove active class from current word
-    crayonWords[currentIndex].classList.remove('active');
-    
-    // Move to next word (loop back to first if at the end)
-    currentIndex = (currentIndex + 1) % crayonWords.length;
-    
-    // Add active class to next word
-    crayonWords[currentIndex].classList.add('active');
-  }
+    // Function to rotate to the next word
+    function rotateWords() {
+        // Remove active class from current word
+        crayonWords[currentIndex].classList.remove('active');
+        
+        // Move to next word (loop back to first if at the end)
+        currentIndex = (currentIndex + 1) % crayonWords.length;
+        
+        // Add active class to next word
+        crayonWords[currentIndex].classList.add('active');
+    }
+}
+    // Set interval to rotate words every 3 seconds
+    setInterval(rotateWords, 3000);
 
-  // Set interval to rotate words every 3 seconds
-  setInterval(rotateWords, 3000);
-});
-    
     // Scroll Animations
     const storyContent = document.getElementById('storyContent');
     const missionBox = document.getElementById('missionBox');
