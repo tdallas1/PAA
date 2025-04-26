@@ -142,16 +142,44 @@
 
         .doodle {
             position: absolute;
-            opacity: 0.2;
-            animation: float 20s ease-in-out infinite;
+            opacity: 0.4;
+            animation: softfloat 20s ease-in-out infinite;
         }
 
-        @keyframes float {
+        .doodle:nth-child(1) {
+            animation-delay: 0s;
+            opacity: 0.2;
+        }
+
+        .doodle:nth-child(2) {
+            animation-delay: -5s;
+            opacity: 0.3;
+        }
+
+        .doodle:nth-child(3) {
+            animation-delay: -10s;
+            opacity: 0.25;
+        }
+
+        .doodle:nth-child(4) {
+            animation-delay: -15s;
+            opacity: 0.35;
+        }
+
+        .doodle:nth-child(5) {
+            animation-delay: -2s;
+            opacity: 0.15;
+        }
+
+        @keyframes softfloat {
             0% {
                 transform: translate(0, 0) rotate(0deg);
             }
-            50% {
-                transform: translate(20px, 20px) rotate(5deg);
+            33% {
+                transform: translate(15px, 10px) rotate(2deg);
+            }
+            66% {
+                transform: translate(-10px, 15px) rotate(-2deg);
             }
             100% {
                 transform: translate(0, 0) rotate(0deg);
@@ -180,6 +208,7 @@
             font-size: 3rem;
             position: absolute;
             opacity: 0;
+            transform-origin: center;
         }
 
         /* Story Section */
@@ -271,6 +300,8 @@
             padding: 5rem 0;
             position: relative;
             background-color: var(--cream);
+            overflow: hidden;
+            margin-bottom: 3rem;
         }
 
         .pillars-bg {
@@ -279,28 +310,39 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.1;
             object-fit: cover;
-            z-index: -1;
+            z-index: 0;
+            opacity: 0.7;
         }
 
         .pillars-container {
+            position: relative;
+            z-index: 2;
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding: 0 2rem;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 400px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 50px;
         }
 
         .pillar {
+            width: 120px;
+            height: 300px;
+            background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+            border-radius: 15px 15px 0 0;
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(50px);
+            animation-fill-mode: forwards;
         }
 
         .pillar.visible {
@@ -309,43 +351,72 @@
         }
 
         .pillar:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15), 0 0 20px rgba(255, 111, 145, 0.3);
+        }
+
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            height: 40px;
+            background: linear-gradient(to bottom, #e6e6e6, #d0d0d0);
+            border-radius: 10px 10px 0 0;
+            z-index: -1;
+        }
+
+        .pillar::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            right: -10px;
+            height: 20px;
+            background: linear-gradient(to bottom, #d6d6d6, #c0c0c0);
+            border-radius: 0 0 10px 10px;
+            z-index: -1;
         }
 
         .pillar-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             background-color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .pillar:hover .pillar-icon {
+            transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 0 20px rgba(255, 111, 145, 0.3);
         }
 
         .pillar-title {
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-top: 10px;
+            color: var(--green);
+            text-align: center;
         }
 
         .pillar-tooltip {
             position: absolute;
-            top: 100%;
+            top: 40%;
             left: 50%;
-            transform: translateX(-50%) translateY(10px);
+            transform: translateX(-50%) translateY(-150px);
             background-color: white;
             padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             width: 200px;
             text-align: center;
-            z-index: 10;
+            z-index: 20;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
@@ -354,7 +425,17 @@
         .pillar.active .pillar-tooltip {
             opacity: 1;
             visibility: visible;
-            transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(-50px);
+        }
+
+        .house-base {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, #d6d6d6, #c0c0c0);
+            z-index: 1;
         }
 
         /* Timeline Section */
@@ -362,6 +443,7 @@
             padding: 5rem 0;
             background-color: white;
             overflow: hidden;
+            position: relative;
         }
 
         .timeline-container {
@@ -373,29 +455,44 @@
 
         .timeline-path {
             position: absolute;
-            top: 50%;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
-            background-color: var(--light-pink);
-            transform: translateY(-50%);
+            height: 100%;
             z-index: 0;
         }
 
+        .timeline-path svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .timeline-path path {
+            fill: none;
+            stroke: var(--light-pink);
+            stroke-width: 20;
+            stroke-linecap: round;
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            animation: drawPath 2s ease forwards;
+        }
+
+        @keyframes drawPath {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
         .timeline-events {
-            display: flex;
-            justify-content: space-between;
             position: relative;
             z-index: 1;
-            flex-wrap: wrap;
+            width: 100%;
+            height: 500px;
         }
 
         .timeline-event {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 180px;
-            margin: 0 10px 30px;
+            position: absolute;
+            width: 220px;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease, transform 0.8s ease;
@@ -406,21 +503,9 @@
             transform: translateY(0);
         }
 
-        .timeline-pin {
-            width: 30px;
-            height: 30px;
-            background-color: white;
-            border: 3px solid var(--pink);
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .timeline-event:hover .timeline-pin {
-            transform: scale(1.2);
-            box-shadow: 0 0 15px rgba(255, 111, 145, 0.5);
+        .timeline-event:hover {
+            transform: translateY(-10px) scale(1.03);
+            z-index: 10;
         }
 
         .timeline-card {
@@ -430,17 +515,41 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
             position: relative;
-            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-event:hover .timeline-card {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15), 0 0 20px rgba(255, 111, 145, 0.2);
         }
 
         .timeline-tape {
             position: absolute;
-            top: -10px;
-            right: 20px;
             width: 40px;
             height: 20px;
             background-color: rgba(255, 111, 145, 0.3);
+            z-index: 2;
+        }
+
+        .timeline-tape-left {
+            top: -5px;
+            left: 20px;
+            transform: rotate(-10deg);
+        }
+
+        .timeline-tape-right {
+            top: -5px;
+            right: 20px;
             transform: rotate(10deg);
+        }
+
+        .timeline-pin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--pink);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
         }
 
         .timeline-year {
@@ -454,21 +563,27 @@
             margin-bottom: 0.5rem;
         }
 
-        .timeline-icon {
-            margin-top: 1rem;
-            font-size: 1.5rem;
-            color: var(--green);
+        .timeline-doodle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #f0f0f0;
+            border: 2px solid white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 3;
         }
 
         /* Leaders Section */
         .leaders-section {
             padding: 5rem 0;
             background-color: var(--cream);
+            overflow: hidden;
         }
 
         .book-container {
-            max-width: 800px;
-            height: 500px;
+            max-width: 900px;
+            height: 600px;
             margin: 0 auto;
             position: relative;
             perspective: 1500px;
@@ -479,7 +594,7 @@
             width: 100%;
             height: 100%;
             transform-style: preserve-3d;
-            transition: transform 0.5s ease;
+            transform: rotateX(10deg);
         }
 
         .page {
@@ -488,64 +603,117 @@
             height: 100%;
             background-color: white;
             border-radius: 5px;
-            overflow: hidden;
-            backface-visibility: hidden;
             transform-origin: left center;
-            transition: transform 0.5s ease;
-            padding: 2rem;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100%" height="100%" fill="white"/><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23f0f0f0" stroke-width="2"/></svg>');
+            background-size: 20px 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 3rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .page-content {
-            max-width: 400px;
-            text-align: center;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .leader-polaroid {
+            width: 250px;
+            height: 300px;
+            background-color: white;
+            border: 15px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transform: rotate(-3deg);
+            margin-bottom: 2rem;
         }
 
         .leader-photo {
-            width: 200px;
-            height: 200px;
+            width: 100%;
+            height: 100%;
             background-color: #f0f0f0;
-            margin-bottom: 2rem;
-            border: 10px solid white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .leader-name-container {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            margin-bottom: 1.5rem;
         }
 
         .leader-name {
             font-family: 'Gloria Hallelujah', cursive;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
             color: var(--pink);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
         }
 
         .leader-title {
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--green);
+            text-align: center;
+        }
+
+        .leader-fact-container {
+            background-color: var(--yellow);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transform: rotate(2deg);
+            margin-bottom: 2rem;
+            max-width: 300px;
+            position: relative;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
         .leader-fact {
             font-family: 'Gloria Hallelujah', cursive;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background-color: var(--yellow);
-            border-radius: 8px;
-            transform: rotate(-2deg);
+            font-size: 1rem;
+        }
+
+        .leader-fact-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 20px;
+            width: 30px;
+            height: 15px;
+            background-color: rgba(255, 111, 145, 0.3);
+            transform: rotate(-5deg);
+        }
+
+        .leader-fact-container::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 30px;
+            width: 40px;
+            height: 15px;
+            background-color: rgba(194, 239, 233, 0.5);
+            transform: rotate(5deg);
         }
 
         .leader-links {
             display: flex;
-            gap: 1rem;
-            justify-content: center;
+            gap: 1.5rem;
+            position: absolute;
+            bottom: 2rem;
         }
 
         .leader-link {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background-color: var(--light-pink);
             color: var(--text-color);
             border-radius: 50%;
@@ -553,35 +721,42 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
         .leader-link:hover {
             background-color: var(--pink);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
 
         .book-nav {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .book-btn {
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 2rem;
             background-color: var(--light-pink);
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
         .book-btn:hover {
             background-color: var(--pink);
             color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
 
         /* Build Member Section */
@@ -591,7 +766,7 @@
         }
 
         .build-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -601,38 +776,72 @@
         .silhouette-container {
             width: 300px;
             height: 500px;
-            background-color: #f0f0f0;
+            background-color: #f5f5f5;
             border-radius: 10px;
-            margin-bottom: 2rem;
             position: relative;
+            margin-bottom: 3rem;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="500" viewBox="0 0 300 500"><path d="M150,60 C180,60 200,80 200,110 C200,140 180,170 150,170 C120,170 100,140 100,110 C100,80 120,60 150,60 Z M100,180 L200,180 L200,320 C200,390 170,450 150,450 C130,450 100,390 100,320 Z" fill="%23e6e6e6"/></svg>');
+            background-repeat: no-repeat;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .dragables-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             margin-bottom: 2rem;
+            width: 100%;
         }
 
         .dragable {
-            padding: 0.5rem 1rem;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             cursor: grab;
             transition: all 0.3s ease;
             user-select: none;
+            position: relative;
+        }
+
+        .dragable-image {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            font-size: 0.8rem;
+            text-align: center;
+            color: #999;
+        }
+
+        .dragable-value {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--light-pink);
+            border-radius: 30px;
+            color: var(--text-color);
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
         .dragable:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .dragable-image:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .dragable-value:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            background-color: var(--pink);
+            color: white;
         }
 
         .dragable.dragging {
             opacity: 0.8;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transform: scale(1.05);
+            z-index: 100;
         }
 
         /* CTA Section */
@@ -640,28 +849,63 @@
             padding: 5rem 2rem;
             background-color: var(--yellow);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sticker {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            animation: stickerFloat 20s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes stickerFloat {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(30px, 20px) rotate(10deg);
+            }
+            66% {
+                transform: translate(-20px, 30px) rotate(-10deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
         }
 
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .cta-text {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
             line-height: 1.8;
+            font-family: 'Gloria Hallelujah', cursive;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .cta-btn {
-            padding: 1rem 2rem;
+            padding: 1.2rem 2.5rem;
             background-color: white;
             color: var(--text-color);
             border: none;
@@ -670,11 +914,14 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-size: 1.1rem;
         }
 
         .cta-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 0 30px rgba(255, 111, 145, 0.3);
+            background-color: var(--pink);
+            color: white;
         }
 
         /* Footer */
@@ -698,9 +945,9 @@
 
         .footer-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
 
@@ -720,41 +967,65 @@
         }
 
         /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .pillars-container {
+                height: 300px;
+            }
+
+            .pillar {
+                width: 100px;
+                height: 250px;
+            }
+
+            .timeline-event {
+                width: 180px;
+            }
+            
+            .book-container {
+                height: 500px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero-heading {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             .crayon-word {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
-
+            
             .pillars-container {
                 flex-direction: column;
-                align-items: center;
+                height: auto;
+                padding-bottom: 100px;
             }
-
+            
+            .pillar {
+                margin-bottom: 30px;
+            }
+            
             .timeline-events {
-                flex-direction: column;
-                align-items: center;
+                height: 900px;
             }
-
-            .timeline-path {
-                height: 100%;
-                width: 6px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .book-container {
-                height: 600px;
-            }
-
-            .leader-photo {
+            
+            .timeline-event {
                 width: 150px;
-                height: 150px;
             }
-
+            
+            .leader-polaroid {
+                width: 220px;
+                height: 260px;
+            }
+            
+            .leader-name {
+                font-size: 1.8rem;
+            }
+            
+            .cta-text {
+                font-size: 1.5rem;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
             }
@@ -788,20 +1059,20 @@
     <section class="hero-section">
         <div class="hero-gradient"></div>
         <div class="doodle-container">
-            <div class="doodle" style="top: 20%; left: 10%;">
+            <div class="doodle" style="top: 15%; left: 10%;">
+                <img src="/api/placeholder/50/50" alt="doodle-placeholder">
+            </div>
+            <div class="doodle" style="top: 30%; left: 85%;">
                 <img src="/api/placeholder/40/40" alt="doodle-placeholder">
             </div>
-            <div class="doodle" style="top: 30%; left: 80%;">
-                <img src="/api/placeholder/30/30" alt="doodle-placeholder">
+            <div class="doodle" style="top: 65%; left: 20%;">
+                <img src="/api/placeholder/60/60" alt="doodle-placeholder">
             </div>
-            <div class="doodle" style="top: 70%; left: 30%;">
+            <div class="doodle" style="top: 50%; left: 75%;">
+                <img src="/api/placeholder/45/45" alt="doodle-placeholder">
+            </div>
+            <div class="doodle" style="top: 80%; left: 50%;">
                 <img src="/api/placeholder/35/35" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 50%; left: 60%;">
-                <img src="/api/placeholder/25/25" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 80%; left: 75%;">
-                <img src="/api/placeholder/40/40" alt="doodle-placeholder">
             </div>
         </div>
         <h1 class="hero-heading">We advocate for</h1>
@@ -834,7 +1105,8 @@
 
     <!-- Pillars Section -->
     <section class="pillars-section">
-        <img src="/api/placeholder/1200/600" alt="Background" class="pillars-bg">
+        <img src="/api/placeholder/1200/600" alt="Sorority House" class="pillars-bg">
+        <div class="house-base"></div>
         <div class="container">
             <h2 class="section-heading">Our Pillars</h2>
             <div class="pillars-container">
@@ -875,63 +1147,13 @@
         <div class="container">
             <h2 class="section-heading">Our Journey</h2>
             <div class="timeline-container">
-                <div class="timeline-path"></div>
-                <div class="timeline-events">
-                    <div class="timeline-event" id="event1">
-                        <div class="timeline-pin"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-tape"></div>
-                            <div class="timeline-year">Fall 2024</div>
-                            <div class="timeline-title">Founded Pediatric Advocacy Alliance</div>
-                            <div class="timeline-icon">
-                                <img src="/api/placeholder/30/30" alt="Icon">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-event" id="event2">
-                        <div class="timeline-pin"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-tape"></div>
-                            <div class="timeline-year">Winter 2025</div>
-                            <div class="timeline-title">Advocacy Training and Skill Building</div>
-                            <div class="timeline-icon">
-                                <img src="/api/placeholder/30/30" alt="Icon">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-event" id="event3">
-                        <div class="timeline-pin"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-tape"></div>
-                            <div class="timeline-year">Winter 2025</div>
-                            <div class="timeline-title">Expanding Presence and Recognition</div>
-                            <div class="timeline-icon">
-                                <img src="/api/placeholder/30/30" alt="Icon">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-event" id="event4">
-                        <div class="timeline-pin"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-tape"></div>
-                            <div class="timeline-year">Winter 2025</div>
-                            <div class="timeline-title">Academic Integration and CBL</div>
-                            <div class="timeline-icon">
-                                <img src="/api/placeholder/30/30" alt="Icon">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-event" id="event5">
-                        <div class="timeline-pin"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-tape"></div>
-                            <div class="timeline-year">Fall 2025</div>
-                            <div class="timeline-title">Expanding Efforts On and Off Campus</div>
-                            <div class="timeline-icon">
-                                <img src="/api/placeholder/30/30" alt="Icon">
-                            </div>
-                        </div>
-                    </div>
+                <div class="timeline-path">
+                    <svg viewBox="0 0 1000 500" preserveAspectRatio="none">
+                        <path d="M0,250 C200,100 300,400 500,250 C700,100 800,400 1000,250" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div class="timeline-events" id="timelineEvents">
+                    <!-- Timeline events will be added by JavaScript -->
                 </div>
             </div>
         </div>
@@ -947,8 +1169,8 @@
                 </div>
             </div>
             <div class="book-nav">
-                <button class="book-btn" id="prevBtn">Previous</button>
-                <button class="book-btn" id="nextBtn">Next</button>
+                <button class="book-btn" id="prevBtn">Previous Page</button>
+                <button class="book-btn" id="nextBtn">Next Page</button>
             </div>
         </div>
     </section>
@@ -962,16 +1184,46 @@
                     <!-- Dragged items will appear here -->
                 </div>
                 <div class="dragables-container">
-                    <div class="dragable" draggable="true" data-type="clothing">PAA Sweater</div>
-                    <div class="dragable" draggable="true" data-type="clothing">Backpack</div>
-                    <div class="dragable" draggable="true" data-type="clothing">PAA Badge</div>
-                    <div class="dragable" draggable="true" data-type="clothing">PAA Baseball Cap</div>
-                    <div class="dragable" draggable="true" data-type="clothing">Clipboard</div>
-                    <div class="dragable" draggable="true" data-type="value">Compassionate</div>
-                    <div class="dragable" draggable="true" data-type="value">Reliable</div>
-                    <div class="dragable" draggable="true" data-type="value">Passionate</div>
-                    <div class="dragable" draggable="true" data-type="value">Creative</div>
-                    <div class="dragable" draggable="true" data-type="value">Empathetic</div>
+                    <div class="dragable" draggable="true" data-type="clothing">
+                        <div class="dragable-image">
+                            <img src="/api/placeholder/80/80" alt="PAA Sweater">
+                        </div>
+                    </div>
+                    <div class="dragable" draggable="true" data-type="clothing">
+                        <div class="dragable-image">
+                            <img src="/api/placeholder/80/80" alt="Backpack">
+                        </div>
+                    </div>
+                    <div class="dragable" draggable="true" data-type="clothing">
+                        <div class="dragable-image">
+                            <img src="/api/placeholder/80/80" alt="PAA Badge">
+                        </div>
+                    </div>
+                    <div class="dragable" draggable="true" data-type="clothing">
+                        <div class="dragable-image">
+                            <img src="/api/placeholder/80/80" alt="PAA Baseball Cap">
+                        </div>
+                    </div>
+                    <div class="dragable" draggable="true" data-type="clothing">
+                        <div class="dragable-image">
+                            <img src="/api/placeholder/80/80" alt="Clipboard">
+                        </div>
+                    </div>
+                    <div class="dragable" draggable="true" data-type="value">
+                        <div class="dragable-value">Compassionate</div>
+                    </div>
+                    <div class="dragable" draggable="true" data-type="value">
+                        <div class="dragable-value">Reliable</div>
+                    </div>
+                    <div class="dragable" draggable="true" data-type="value">
+                        <div class="dragable-value">Passionate</div>
+                    </div>
+                    <div class="dragable" draggable="true" data-type="value">
+                        <div class="dragable-value">Creative</div>
+                    </div>
+                    <div class="dragable" draggable="true" data-type="value">
+                        <div class="dragable-value">Empathetic</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -979,6 +1231,18 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
+        <div class="sticker" style="top: 10%; left: 10%;">
+            <img src="/api/placeholder/40/40" alt="Sticker">
+        </div>
+        <div class="sticker" style="top: 20%; right: 15%;">
+            <img src="/api/placeholder/30/30" alt="Sticker">
+        </div>
+        <div class="sticker" style="bottom: 15%; left: 20%;">
+            <img src="/api/placeholder/35/35" alt="Sticker">
+        </div>
+        <div class="sticker" style="bottom: 30%; right: 10%;">
+            <img src="/api/placeholder/45/45" alt="Sticker">
+        </div>
         <div class="container">
             <div class="cta-content">
                 <div class="cta-text">
@@ -1012,11 +1276,11 @@
 
     <!-- JavaScript -->
     <script>
-        // Animated Crayon Words
         document.addEventListener('DOMContentLoaded', function() {
+            // Animated Crayon Words with handwriting effect
             const crayonWords = ['Health', 'Rights', 'Access', 'Equity', 'Dignity', 'Safety', 'Futures', 'Hope'];
-            const container = document.getElementById('crayonWordContainer');
             const colors = ['#ff6f91', '#c2efe9', '#ffe497', '#d4c1ec', '#ffc6d3', '#c2efe9', '#ff6f91', '#ffe497'];
+            const container = document.getElementById('crayonWordContainer');
             let currentWordIndex = 0;
             
             function createWord() {
@@ -1030,34 +1294,31 @@
                 container.appendChild(wordElement);
                 
                 const word = crayonWords[currentWordIndex];
-                let charIndex = 0;
+                const wordLength = word.length;
                 
-                // Animate letters appearing one by one
-                const letterInterval = setInterval(() => {
-                    if (charIndex < word.length) {
-                        wordElement.textContent += word[charIndex];
-                        charIndex++;
-                    } else {
-                        clearInterval(letterInterval);
-                        
-                        // Fade out after 1.5 seconds
-                        setTimeout(() => {
-                            wordElement.style.opacity = '1';
-                            wordElement.style.transition = 'opacity 0.8s ease';
-                            wordElement.style.opacity = '0';
-                            
-                            // Move to next word
-                            setTimeout(() => {
-                                currentWordIndex = (currentWordIndex + 1) % crayonWords.length;
-                                createWord();
-                            }, 800);
-                        }, 1500);
-                    }
-                }, 150);
+                // Set initial scale to 0
+                wordElement.style.transform = 'scale(0)';
+                wordElement.style.opacity = '0';
                 
-                // Make the word visible (it starts with opacity 0)
+                // Animate the word appearing with a handwriting effect
                 setTimeout(() => {
+                    wordElement.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+                    wordElement.style.transform = 'scale(1)';
                     wordElement.style.opacity = '1';
+                    wordElement.textContent = word;
+                    
+                    // Fade out after display time
+                    setTimeout(() => {
+                        wordElement.style.transition = 'transform 0.8s ease, opacity 0.8s ease';
+                        wordElement.style.transform = 'scale(0.8)';
+                        wordElement.style.opacity = '0';
+                        
+                        // Move to next word
+                        setTimeout(() => {
+                            currentWordIndex = (currentWordIndex + 1) % crayonWords.length;
+                            createWord();
+                        }, 800);
+                    }, 2000);
                 }, 100);
             }
             
@@ -1068,7 +1329,6 @@
             const storyContent = document.getElementById('storyContent');
             const missionBox = document.getElementById('missionBox');
             const pillars = document.querySelectorAll('.pillar');
-            const timelineEvents = document.querySelectorAll('.timeline-event');
             
             function checkScroll() {
                 const elements = [
@@ -1082,15 +1342,11 @@
                     }
                 });
                 
-                pillars.forEach(pillar => {
+                pillars.forEach((pillar, index) => {
                     if (isInViewport(pillar)) {
-                        pillar.classList.add('visible');
-                    }
-                });
-                
-                timelineEvents.forEach(event => {
-                    if (isInViewport(event)) {
-                        event.classList.add('visible');
+                        setTimeout(() => {
+                            pillar.classList.add('visible');
+                        }, index * 200);
                     }
                 });
             }
@@ -1122,6 +1378,77 @@
                     }
                 });
             });
+            
+            // Timeline Events
+            const timelineEvents = document.getElementById('timelineEvents');
+            const events = [
+                { 
+                    year: 'Fall 2024',
+                    title: 'Founded Pediatric Advocacy Alliance',
+                    position: { top: '20%', left: '5%' }
+                },
+                { 
+                    year: 'Winter 2025',
+                    title: 'Advocacy Training and Skill Building',
+                    position: { top: '40%', left: '23%' }
+                },
+                { 
+                    year: 'Winter 2025',
+                    title: 'Expanding Presence and Recognition',
+                    position: { top: '15%', left: '42%' }
+                },
+                { 
+                    year: 'Winter 2025',
+                    title: 'Partnered with Dominican Nursing for CBL',
+                    position: { top: '45%', left: '60%' }
+                },
+                { 
+                    year: 'Fall 2025',
+                    title: 'Expanding Efforts On and Off Campus',
+                    position: { top: '20%', left: '80%' }
+                }
+            ];
+            
+            events.forEach((event, index) => {
+                const eventElement = document.createElement('div');
+                eventElement.className = 'timeline-event';
+                eventElement.style.top = event.position.top;
+                eventElement.style.left = event.position.left;
+                eventElement.id = `event${index + 1}`;
+                
+                const pinPosition = index % 2 === 0 ? { bottom: '-10px', left: '50%' } : { top: '-10px', left: '50%' };
+                const doodlePosition = index % 2 === 0 ? { top: '-40px', right: '-20px' } : { bottom: '-40px', left: '-20px' };
+                
+                eventElement.innerHTML = `
+                    <div class="timeline-pin" style="transform: translate(-50%, 50%); ${Object.entries(pinPosition).map(([key, value]) => `${key}: ${value}`).join('; ')}"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-tape timeline-tape-left"></div>
+                        <div class="timeline-tape timeline-tape-right"></div>
+                        <div class="timeline-year">${event.year}</div>
+                        <div class="timeline-title">${event.title}</div>
+                    </div>
+                    <div class="timeline-doodle" style="${Object.entries(doodlePosition).map(([key, value]) => `${key}: ${value}`).join('; ')}">
+                        <img src="/api/placeholder/50/50" alt="Timeline Doodle">
+                    </div>
+                `;
+                
+                timelineEvents.appendChild(eventElement);
+            });
+            
+            // Check timeline events visibility
+            const timelineEventElements = document.querySelectorAll('.timeline-event');
+            function checkTimelineScroll() {
+                timelineEventElements.forEach((event, index) => {
+                    if (isInViewport(event)) {
+                        setTimeout(() => {
+                            event.classList.add('visible');
+                        }, index * 300);
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkTimelineScroll);
+            checkTimelineScroll();
             
             // Leaders Scrapbook
             const leaderData = [
@@ -1213,16 +1540,23 @@
             leaderData.forEach((leader, index) => {
                 const page = document.createElement('div');
                 page.className = 'page';
-                page.style.transform = `rotateY(${index * 180}deg)`;
+                page.style.zIndex = 100 - index;
+                page.style.transform = `rotateY(0deg)`;
                 
                 const pageContent = document.createElement('div');
                 pageContent.className = 'page-content';
                 
                 pageContent.innerHTML = `
-                    <div class="leader-photo"></div>
-                    <div class="leader-name">${leader.name}</div>
+                    <div class="leader-polaroid">
+                        <div class="leader-photo"></div>
+                    </div>
+                    <div class="leader-name-container">
+                        <div class="leader-name" id="leaderName${index}">${leader.name}</div>
+                    </div>
                     <div class="leader-title">${leader.title}</div>
-                    <div class="leader-fact">${leader.fact}</div>
+                    <div class="leader-fact-container">
+                        <div class="leader-fact">${leader.fact}</div>
+                    </div>
                     <div class="leader-links">
                         ${leader.email ? `<a href="mailto:${leader.email}" class="leader-link"><i class="fas fa-envelope"></i></a>` : ''}
                         ${leader.linkedin ? `<a href="${leader.linkedin}" target="_blank" class="leader-link"><i class="fab fa-linkedin-in"></i></a>` : ''}
@@ -1233,14 +1567,40 @@
                 leaderBook.appendChild(page);
             });
             
+            // Get all pages
+            const pages = document.querySelectorAll('.page');
+            
             // Update book display
             function updateBook() {
-                leaderBook.style.transform = `rotateY(${-currentPage * 180}deg)`;
+                pages.forEach((page, index) => {
+                    if (index < currentPage) {
+                        // Pages before current are turned to the left
+                        page.style.transform = 'rotateY(-180deg)';
+                    } else if (index === currentPage) {
+                        // Current page is in the process of turning
+                        page.style.transform = 'rotateY(0deg)';
+                        page.style.zIndex = 100 - index;
+                        
+                        // Animate name with handwriting effect
+                        const nameElement = document.getElementById(`leaderName${index}`);
+                        if (nameElement) {
+                            nameElement.style.opacity = '0';
+                            setTimeout(() => {
+                                nameElement.style.transition = 'opacity 0.8s ease';
+                                nameElement.style.opacity = '1';
+                            }, 500);
+                        }
+                    } else {
+                        // Pages after current are flat
+                        page.style.transform = 'rotateY(0deg)';
+                        page.style.zIndex = 100 - index;
+                    }
+                });
             }
             
             // Next button
             nextBtn.addEventListener('click', () => {
-                if (currentPage < leaderData.length - 1) {
+                if (currentPage < pages.length - 1) {
                     currentPage++;
                     updateBook();
                 }
@@ -1257,6 +1617,15 @@
             // Initialize book
             updateBook();
             
+            // Animate first leader name
+            const firstNameElement = document.getElementById('leaderName0');
+            if (firstNameElement) {
+                setTimeout(() => {
+                    firstNameElement.style.transition = 'opacity 0.8s ease';
+                    firstNameElement.style.opacity = '1';
+                }, 1000);
+            }
+            
             // Drag and Drop Functionality
             const dragables = document.querySelectorAll('.dragable');
             const silhouette = document.getElementById('silhouette');
@@ -1264,7 +1633,7 @@
             dragables.forEach(dragable => {
                 dragable.addEventListener('dragstart', (e) => {
                     dragable.classList.add('dragging');
-                    e.dataTransfer.setData('text/plain', dragable.textContent);
+                    e.dataTransfer.setData('text/plain', dragable.innerHTML);
                     e.dataTransfer.setData('data-type', dragable.getAttribute('data-type'));
                 });
                 
@@ -1280,26 +1649,24 @@
             silhouette.addEventListener('drop', (e) => {
                 e.preventDefault();
                 
-                const text = e.dataTransfer.getData('text/plain');
+                const html = e.dataTransfer.getData('text/plain');
                 const type = e.dataTransfer.getData('data-type');
                 
                 const x = e.clientX - silhouette.getBoundingClientRect().left;
                 const y = e.clientY - silhouette.getBoundingClientRect().top;
                 
                 const item = document.createElement('div');
-                item.textContent = text;
+                item.innerHTML = html;
                 item.style.position = 'absolute';
-                item.style.left = `${x - 30}px`;
-                item.style.top = `${y - 15}px`;
+                item.style.left = `${x - 40}px`;
+                item.style.top = `${y - 40}px`;
+                item.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
+                item.style.zIndex = '10';
                 
                 if (type === 'value') {
-                    item.style.backgroundColor = '#ffc6d3';
-                    item.style.padding = '0.5rem 1rem';
-                    item.style.borderRadius = '5px';
+                    item.querySelector('.dragable-value').style.boxShadow = '0 3px 8px rgba(0,0,0,0.2)';
                 } else {
-                    item.style.backgroundColor = '#c2efe9';
-                    item.style.padding = '0.5rem 1rem';
-                    item.style.borderRadius = '5px';
+                    item.querySelector('.dragable-image').style.boxShadow = '0 3px 8px rgba(0,0,0,0.2)';
                 }
                 
                 silhouette.appendChild(item);
