@@ -195,47 +195,27 @@
             font-family: 'Playfair Display', serif;
         }
 
-      .title-svgs {
-  position: relative;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        .crayon-word-container {
+            height: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
 
-.title-svg {
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 3rem;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--pink);
-  position: absolute;
-  white-space: nowrap;
-  overflow: hidden;
-}
+        .crayon-word {
+            font-family: 'Gloria Hallelujah', cursive;
+            font-size: 3rem;
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
 
-.title-svg::before {
-  content: attr(data-word);
-  position: absolute;
-  color: var(--pink);
-  width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  animation: handwriting 2s ease forwards;
-}
-
-@keyframes handwriting {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-.title-svg:not(.active)::before {
-  animation: none;
-  width: 0;
-}
+        .crayon-word.show {
+            opacity: 1;
+            transform: scale(1);
+        }
 
         /* Story Section */
         .story-section {
@@ -319,6 +299,72 @@
             font-family: 'Gloria Hallelujah', cursive;
             text-align: center;
             font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .pillars-container {
+                height: 300px;
+            }
+
+            .pillar {
+                width: 100px;
+                height: 250px;
+            }
+
+            .timeline-event {
+                width: 180px;
+            }
+            
+            .book-container {
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-heading {
+                font-size: 3rem;
+            }
+
+            .crayon-word {
+                font-size: 2.5rem;
+            }
+            
+            .pillars-container {
+                flex-direction: column;
+                height: auto;
+                padding-bottom: 100px;
+            }
+            
+            .pillar {
+                margin-bottom: 30px;
+            }
+            
+            .timeline-events {
+                height: 900px;
+            }
+            
+            .timeline-event {
+                width: 150px;
+            }
+            
+            .leader-polaroid {
+                width: 220px;
+                height: 260px;
+            }
+            
+            .leader-name {
+                font-size: 1.8rem;
+            }
+            
+            .cta-text {
+                font-size: 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }.9rem;
         }
 
         /* Pillars Section */
@@ -988,690 +1034,8 @@
         }
 
         .copyright {
-            font-size: 0.9rem;
-            color: #777;
-        }
+            font-size: 0
+        </footer>
 
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .pillars-container {
-                height: 300px;
-            }
-
-            .pillar {
-                width: 100px;
-                height: 250px;
-            }
-
-            .timeline-event {
-                width: 180px;
-            }
-            
-            .book-container {
-                height: 500px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-heading {
-                font-size: 3rem;
-            }
-
-            .crayon-word {
-                font-size: 2.5rem;
-            }
-            
-            .pillars-container {
-                flex-direction: column;
-                height: auto;
-                padding-bottom: 100px;
-            }
-            
-            .pillar {
-                margin-bottom: 30px;
-            }
-            
-            .timeline-events {
-                height: 900px;
-            }
-            
-            .timeline-event {
-                width: 150px;
-            }
-            
-            .leader-polaroid {
-                width: 220px;
-                height: 260px;
-            }
-            
-            .leader-name {
-                font-size: 1.8rem;
-            }
-            
-            .cta-text {
-                font-size: 1.5rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header Navigation -->
-    <header id="main-header">
-        <div class="logo-container">
-            <a href="index.html">
-                <img src="/api/placeholder/120/120" alt="PAA Logo" class="logo">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="volunteer.html">Volunteer</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="cbl.html">CBL Hub</a></li>
-                <li><a href="highlights.html">Past Highlights</a></li>
-                <li><a href="partnership.html">Partnership</a></li>
-                <li><a href="donate.html">Donate</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-gradient"></div>
-        <div class="doodle-container">
-            <div class="doodle" style="top: 15%; left: 10%;">
-                <img src="/api/placeholder/50/50" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 30%; left: 85%;">
-                <img src="/api/placeholder/40/40" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 65%; left: 20%;">
-                <img src="/api/placeholder/60/60" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 50%; left: 75%;">
-                <img src="/api/placeholder/45/45" alt="doodle-placeholder">
-            </div>
-            <div class="doodle" style="top: 80%; left: 50%;">
-                <img src="/api/placeholder/35/35" alt="doodle-placeholder">
-            </div>
-        </div>
-        <h1 class="hero-heading">We advocate for</h1>
-        <div class="crayon-word-container" id="crayonWordContainer">
-            <div class="title-svgs">
-  <div class="title-svg active" data-word="Health"></div>
-  <div class="title-svg" data-word="Rights"></div>
-  <div class="title-svg" data-word="Access"></div>
-  <div class="title-svg" data-word="Equity"></div>
-  <div class="title-svg" data-word="Dignity"></div>
-  <div class="title-svg" data-word="Safety"></div>
-  <div class="title-svg" data-word="Futures"></div>
-  <div class="title-svg" data-word="Hope"></div>
-        </div>
-    </section>
-
-    <!-- Story Section -->
-    <section class="story-section">
-        <div class="container">
-            <h2 class="section-heading">Why We Exist</h2>
-            <div class="story-content" id="storyContent">
-                <p class="story-paragraph">Pediatric Advocacy Alliance was founded on a simple but urgent truth: too many children are left out of conversations about health, safety, and dignity.</p>
-                <p class="story-paragraph">We are a student-driven movement working to change that — through service, education, advocacy, and action.</p>
-                <p class="story-paragraph">We believe advocacy belongs to everyone. We believe kids deserve systems that protect them, not fail them. And we believe change happens when people show up.</p>
-            </div>
-
-            <div class="mission-box" id="missionBox">
-                <h3 class="mission-heading">Our Mission:</h3>
-                <p>To advance the health, rights, and well-being of children through service, advocacy, education, and systemic action.</p>
-            </div>
-
-            <div class="polaroid">
-                <div class="polaroid-img"></div>
-                <p class="polaroid-caption">Advocating from the heart, 2024.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pillars Section -->
-    <section class="pillars-section">
-        <img src="/api/placeholder/1200/600" alt="Sorority House" class="pillars-bg">
-        <div class="house-base"></div>
-        <div class="container">
-            <h2 class="section-heading">Our Pillars</h2>
-            <div class="pillars-container">
-                <div class="pillar" id="pillar1">
-                    <div class="pillar-icon">
-                        <img src="/api/placeholder/40/40" alt="Health Icon">
-                    </div>
-                    <h3 class="pillar-title">Health</h3>
-                    <div class="pillar-tooltip">Every child deserves safe, accessible healthcare.</div>
-                </div>
-                <div class="pillar" id="pillar2">
-                    <div class="pillar-icon">
-                        <img src="/api/placeholder/40/40" alt="Voice Icon">
-                    </div>
-                    <h3 class="pillar-title">Voice</h3>
-                    <div class="pillar-tooltip">We amplify young voices that too often go unheard.</div>
-                </div>
-                <div class="pillar" id="pillar3">
-                    <div class="pillar-icon">
-                        <img src="/api/placeholder/40/40" alt="Equity Icon">
-                    </div>
-                    <h3 class="pillar-title">Equity</h3>
-                    <div class="pillar-tooltip">We fight for fairness, dignity, and opportunity.</div>
-                </div>
-                <div class="pillar" id="pillar4">
-                    <div class="pillar-icon">
-                        <img src="/api/placeholder/40/40" alt="Action Icon">
-                    </div>
-                    <h3 class="pillar-title">Action</h3>
-                    <div class="pillar-tooltip">Advocacy is creative, direct, and hands-on.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-        <div class="container">
-            <h2 class="section-heading">Our Journey</h2>
-            <div class="timeline-container">
-                <div class="timeline-path">
-                    <svg viewBox="0 0 1000 500" preserveAspectRatio="none">
-                        <path d="M0,250 C200,100 300,400 500,250 C700,100 800,400 1000,250" stroke-linecap="round" />
-                    </svg>
-                </div>
-                <div class="timeline-events" id="timelineEvents">
-                    <!-- Timeline events will be added by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leaders Section -->
-    <section class="leaders-section">
-        <div class="container">
-            <h2 class="section-heading">Meet Our Leaders</h2>
-            <div class="book-container">
-                <div class="book" id="leaderBook">
-                    <!-- Pages will be added by JavaScript -->
-                </div>
-            </div>
-            <div class="book-nav">
-                <button class="book-btn" id="prevBtn">Previous Page</button>
-                <button class="book-btn" id="nextBtn">Next Page</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Build Member Section -->
-    <section class="build-section">
-        <div class="container">
-            <h2 class="section-heading">Design the Perfect Board Member</h2>
-            <div class="build-container">
-                <div class="silhouette-container" id="silhouette">
-                    <!-- Dragged items will appear here -->
-                </div>
-                <div class="dragables-container">
-                    <div class="dragable" draggable="true" data-type="clothing">
-                        <div class="dragable-image">
-                            <img src="/api/placeholder/80/80" alt="PAA Sweater">
-                        </div>
-                    </div>
-                    <div class="dragable" draggable="true" data-type="clothing">
-                        <div class="dragable-image">
-                            <img src="/api/placeholder/80/80" alt="Backpack">
-                        </div>
-                    </div>
-                    <div class="dragable" draggable="true" data-type="clothing">
-                        <div class="dragable-image">
-                            <img src="/api/placeholder/80/80" alt="PAA Badge">
-                        </div>
-                    </div>
-                    <div class="dragable" draggable="true" data-type="clothing">
-                        <div class="dragable-image">
-                            <img src="/api/placeholder/80/80" alt="PAA Baseball Cap">
-                        </div>
-                    </div>
-                    <div class="dragable" draggable="true" data-type="clothing">
-                        <div class="dragable-image">
-                            <img src="/api/placeholder/80/80" alt="Clipboard">
-                        </div>
-                    </div>
-                    <div class="dragable" draggable="true" data-type="value">
-                        <div class="dragable-value">Compassionate</div>
-                    </div>
-                    <div class="dragable" draggable="true" data-type="value">
-                        <div class="dragable-value">Reliable</div>
-                    </div>
-                    <div class="dragable" draggable="true" data-type="value">
-                        <div class="dragable-value">Passionate</div>
-                    </div>
-                    <div class="dragable" draggable="true" data-type="value">
-                        <div class="dragable-value">Creative</div>
-                    </div>
-                    <div class="dragable" draggable="true" data-type="value">
-                        <div class="dragable-value">Empathetic</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="sticker" style="top: 10%; left: 10%;">
-            <img src="/api/placeholder/40/40" alt="Sticker">
-        </div>
-        <div class="sticker" style="top: 20%; right: 15%;">
-            <img src="/api/placeholder/30/30" alt="Sticker">
-        </div>
-        <div class="sticker" style="bottom: 15%; left: 20%;">
-            <img src="/api/placeholder/35/35" alt="Sticker">
-        </div>
-        <div class="sticker" style="bottom: 30%; right: 10%;">
-            <img src="/api/placeholder/45/45" alt="Sticker">
-        </div>
-        <div class="container">
-            <div class="cta-content">
-                <div class="cta-text">
-                    <p>You don't need to be perfect.</p>
-                    <p>You don't need to have it all figured out.</p>
-                    <p>You just have to care.</p>
-                </div>
-                <div class="cta-buttons">
-                    <a href="volunteer.html" class="cta-btn">Volunteer With PAA</a>
-                    <a href="membership.html" class="cta-btn">Become a Member</a>
-                    <a href="partnership.html" class="cta-btn">Partner With Us</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <img src="/api/placeholder/80/80" alt="PAA Logo" class="footer-logo">
-            <div class="footer-links">
-                <a href="index.html" class="footer-link">Home</a>
-                <a href="about.html" class="footer-link">About Us</a>
-                <a href="volunteer.html" class="footer-link">Volunteer</a>
-                <a href="calendar.html" class="footer-link">Calendar</a>
-                <a href="contact.html" class="footer-link">Contact</a>
-            </div>
-            <p class="copyright">&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
-        </div>
-    </footer>
-
-   <!-- JavaScript -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const words = document.querySelectorAll('.title-svg');
-  let currentIndex = 0;
-
-  function showNextWord() {
-    words[currentIndex].classList.remove('active');
-
-    currentIndex = (currentIndex + 1) % words.length;
-
-    words[currentIndex].classList.add('active');
-  }
-
-  setInterval(showNextWord, 3000); // Change word every 3 seconds
-});
-
-    // Scroll Animations
-    const storyContent = document.getElementById('storyContent');
-    const missionBox = document.getElementById('missionBox');
-    const pillars = document.querySelectorAll('.pillar');
-
-    function checkScroll() {
-        const elements = [
-            { el: storyContent, className: 'visible' },
-            { el: missionBox, className: 'visible' }
-        ];
-
-        elements.forEach(item => {
-            if (isInViewport(item.el)) {
-                item.el.classList.add(item.className);
-            }
-        });
-
-        pillars.forEach((pillar, index) => {
-            if (isInViewport(pillar)) {
-                setTimeout(() => {
-                    pillar.classList.add('visible');
-                }, index * 200);
-            }
-        });
-    }
-
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
-            rect.bottom >= 0
-        );
-    }
-            
-            // Check on scroll
-            window.addEventListener('scroll', checkScroll);
-            
-            // Initial check
-            checkScroll();
-            
-            // Pillar Tooltips
-            pillars.forEach(pillar => {
-                pillar.addEventListener('click', () => {
-                    if (pillar.classList.contains('active')) {
-                        pillar.classList.remove('active');
-                    } else {
-                        // Remove active class from all pillars
-                        pillars.forEach(p => p.classList.remove('active'));
-                        // Add active class to clicked pillar
-                        pillar.classList.add('active');
-                    }
-                });
-            });
-            
-            // Timeline Events
-            const timelineEvents = document.getElementById('timelineEvents');
-            const events = [
-                { 
-                    year: 'Fall 2024',
-                    title: 'Founded Pediatric Advocacy Alliance',
-                    position: { top: '20%', left: '5%' }
-                },
-                { 
-                    year: 'Winter 2025',
-                    title: 'Advocacy Training and Skill Building',
-                    position: { top: '40%', left: '23%' }
-                },
-                { 
-                    year: 'Winter 2025',
-                    title: 'Expanding Presence and Recognition',
-                    position: { top: '15%', left: '42%' }
-                },
-                { 
-                    year: 'Winter 2025',
-                    title: 'Partnered with Dominican Nursing for CBL',
-                    position: { top: '45%', left: '60%' }
-                },
-                { 
-                    year: 'Fall 2025',
-                    title: 'Expanding Efforts On and Off Campus',
-                    position: { top: '20%', left: '80%' }
-                }
-            ];
-            
-            events.forEach((event, index) => {
-                const eventElement = document.createElement('div');
-                eventElement.className = 'timeline-event';
-                eventElement.style.top = event.position.top;
-                eventElement.style.left = event.position.left;
-                eventElement.id = `event${index + 1}`;
-                
-                const pinPosition = index % 2 === 0 ? { bottom: '-10px', left: '50%' } : { top: '-10px', left: '50%' };
-                const doodlePosition = index % 2 === 0 ? { top: '-40px', right: '-20px' } : { bottom: '-40px', left: '-20px' };
-                
-                eventElement.innerHTML = `
-                    <div class="timeline-pin" style="transform: translate(-50%, 50%); ${Object.entries(pinPosition).map(([key, value]) => `${key}: ${value}`).join('; ')}"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-tape timeline-tape-left"></div>
-                        <div class="timeline-tape timeline-tape-right"></div>
-                        <div class="timeline-year">${event.year}</div>
-                        <div class="timeline-title">${event.title}</div>
-                    </div>
-                    <div class="timeline-doodle" style="${Object.entries(doodlePosition).map(([key, value]) => `${key}: ${value}`).join('; ')}">
-                        <img src="/api/placeholder/50/50" alt="Timeline Doodle">
-                    </div>
-                `;
-                
-                timelineEvents.appendChild(eventElement);
-            });
-            
-            // Check timeline events visibility
-            const timelineEventElements = document.querySelectorAll('.timeline-event');
-            function checkTimelineScroll() {
-                timelineEventElements.forEach((event, index) => {
-                    if (isInViewport(event)) {
-                        setTimeout(() => {
-                            event.classList.add('visible');
-                        }, index * 300);
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', checkTimelineScroll);
-            checkTimelineScroll();
-            
-            // Leaders Scrapbook
-            const leaderData = [
-                {
-                    name: 'Trinity Dallas',
-                    title: 'President',
-                    fact: 'Double majoring in Nursing and Business Management.',
-                    email: 'tdallas@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/trinity-dallas-662022220/'
-                },
-                {
-                    name: 'Harmony Perez',
-                    title: 'Vice President',
-                    fact: 'Experience in behavioral and molecular neuroscience research.',
-                    email: 'hperez1@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/harmony-perez-5a2373280/'
-                },
-                {
-                    name: 'Myles Waters',
-                    title: 'Treasurer',
-                    fact: 'Double majoring in Computer Information Systems and Black World Studies.',
-                    email: 'mwaters@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/myleswaters/'
-                },
-                {
-                    name: 'Elsy Hernandez Lozano',
-                    title: 'Secretary',
-                    fact: 'Biology major with minors in Chemistry and Sociology of Health.',
-                    email: 'ehernandezlozano@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/elsy-hernandez-lozano/'
-                },
-                {
-                    name: 'Daisy Tenemaza',
-                    title: 'Events Coordinator',
-                    fact: 'Double majoring in Biochemistry and Spanish.',
-                    email: 'dtenemaza@my.dom.edu',
-                    linkedin: ''
-                },
-                {
-                    name: 'Nataly Dominguez',
-                    title: 'Events Coordinator',
-                    fact: 'Nursing major with a passion for child health.',
-                    email: 'ndominguez3@my.dom.edu',
-                    linkedin: ''
-                },
-                {
-                    name: 'Samantha Acosta',
-                    title: 'Volunteer Coordinator',
-                    fact: 'Biochemistry major with experience as Patient Care Technician.',
-                    email: 'sacosta3@my.dom.edu',
-                    linkedin: ''
-                },
-                {
-                    name: 'Elizabeth John',
-                    title: 'Volunteer Coordinator',
-                    fact: 'Biology major with minors in Chemistry and Health Communication.',
-                    email: 'ejohn@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/elizabeth-john-812b23238/'
-                },
-                {
-                    name: 'Juliana Macias',
-                    title: 'Membership Engagement Chair',
-                    fact: 'Double majoring in Psychology and Social Work.',
-                    email: 'jmacias@my.dom.edu',
-                    linkedin: ''
-                },
-                {
-                    name: 'Lizbeth Lopez',
-                    title: 'Community Engagement Chair',
-                    fact: 'Junior Biochemistry Honors student on the Pre-Dental track.',
-                    email: 'llopez13@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/lizbeth-lopez-04ab622b4/'
-                },
-                {
-                    name: 'Open Position',
-                    title: 'Marketing & Communications',
-                    fact: 'We\'re looking for a creative, organized leader to join our team!',
-                    email: '',
-                    linkedin: ''
-                }
-            ];
-            
-            const leaderBook = document.getElementById('leaderBook');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            let currentPage = 0;
-            
-            // Create pages
-            leaderData.forEach((leader, index) => {
-                const page = document.createElement('div');
-                page.className = 'page';
-                page.style.zIndex = 100 - index;
-                page.style.transform = `rotateY(0deg)`;
-                
-                const pageContent = document.createElement('div');
-                pageContent.className = 'page-content';
-                
-                pageContent.innerHTML = `
-                    <div class="leader-polaroid">
-                        <div class="leader-photo"></div>
-                    </div>
-                    <div class="leader-name-container">
-                        <div class="leader-name" id="leaderName${index}">${leader.name}</div>
-                    </div>
-                    <div class="leader-title">${leader.title}</div>
-                    <div class="leader-fact-container">
-                        <div class="leader-fact">${leader.fact}</div>
-                    </div>
-                    <div class="leader-links">
-                        ${leader.email ? `<a href="mailto:${leader.email}" class="leader-link"><i class="fas fa-envelope"></i></a>` : ''}
-                        ${leader.linkedin ? `<a href="${leader.linkedin}" target="_blank" class="leader-link"><i class="fab fa-linkedin-in"></i></a>` : ''}
-                    </div>
-                `;
-                
-                page.appendChild(pageContent);
-                leaderBook.appendChild(page);
-            });
-            
-            // Get all pages
-            const pages = document.querySelectorAll('.page');
-            
-            // Update book display
-            function updateBook() {
-                pages.forEach((page, index) => {
-                    if (index < currentPage) {
-                        // Pages before current are turned to the left
-                        page.style.transform = 'rotateY(-180deg)';
-                    } else if (index === currentPage) {
-                        // Current page is in the process of turning
-                        page.style.transform = 'rotateY(0deg)';
-                        page.style.zIndex = 100 - index;
-                        
-                        // Animate name with handwriting effect
-                        const nameElement = document.getElementById(`leaderName${index}`);
-                        if (nameElement) {
-                            nameElement.style.opacity = '0';
-                            setTimeout(() => {
-                                nameElement.style.transition = 'opacity 0.8s ease';
-                                nameElement.style.opacity = '1';
-                            }, 500);
-                        }
-                    } else {
-                        // Pages after current are flat
-                        page.style.transform = 'rotateY(0deg)';
-                        page.style.zIndex = 100 - index;
-                    }
-                });
-            }
-            
-            // Next button
-            nextBtn.addEventListener('click', () => {
-                if (currentPage < pages.length - 1) {
-                    currentPage++;
-                    updateBook();
-                }
-            });
-            
-            // Previous button
-            prevBtn.addEventListener('click', () => {
-                if (currentPage > 0) {
-                    currentPage--;
-                    updateBook();
-                }
-            });
-            
-            // Initialize book
-            updateBook();
-            
-            // Animate first leader name
-            const firstNameElement = document.getElementById('leaderName0');
-            if (firstNameElement) {
-                setTimeout(() => {
-                    firstNameElement.style.transition = 'opacity 0.8s ease';
-                    firstNameElement.style.opacity = '1';
-                }, 1000);
-            }
-            
-            // Drag and Drop Functionality
-            const dragables = document.querySelectorAll('.dragable');
-            const silhouette = document.getElementById('silhouette');
-            
-            dragables.forEach(dragable => {
-                dragable.addEventListener('dragstart', (e) => {
-                    dragable.classList.add('dragging');
-                    e.dataTransfer.setData('text/plain', dragable.innerHTML);
-                    e.dataTransfer.setData('data-type', dragable.getAttribute('data-type'));
-                });
-                
-                dragable.addEventListener('dragend', () => {
-                    dragable.classList.remove('dragging');
-                });
-            });
-            
-            silhouette.addEventListener('dragover', (e) => {
-                e.preventDefault();
-            });
-            
-            silhouette.addEventListener('drop', (e) => {
-                e.preventDefault();
-                
-                const html = e.dataTransfer.getData('text/plain');
-                const type = e.dataTransfer.getData('data-type');
-                
-                const x = e.clientX - silhouette.getBoundingClientRect().left;
-                const y = e.clientY - silhouette.getBoundingClientRect().top;
-                
-                const item = document.createElement('div');
-                item.innerHTML = html;
-                item.style.position = 'absolute';
-                item.style.left = `${x - 40}px`;
-                item.style.top = `${y - 40}px`;
-                item.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
-                item.style.zIndex = '10';
-                
-                if (type === 'value') {
-                    item.querySelector('.dragable-value').style.boxShadow = '0 3px 8px rgba(0,0,0,0.2)';
-                } else {
-                    item.querySelector('.dragable-image').style.boxShadow = '0 3px 8px rgba(0,0,0,0.2)';
-                }
-                
-                silhouette.appendChild(item);
-            });
-        });
-    </script>
 </body>
 </html>
