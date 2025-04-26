@@ -1374,6 +1374,50 @@ function animateTeamName(nameElement) {
     setTimeout(() => {
         nameElement.classList.add('typing');
     }, 100);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate events and stickers
+            function animateElements() {
+                // Timeline events
+                const timelineEvents = document.querySelectorAll('.timeline-event');
+                timelineEvents.forEach((event, index) => {
+                    setTimeout(() => {
+                        event.classList.add('visible');
+                    }, 300 * index); // Stagger the animations
+                });
+                
+                // Journey stickers
+                const journeyStickers = document.querySelectorAll('.journey-sticker');
+                journeyStickers.forEach((sticker, index) => {
+                    setTimeout(() => {
+                        sticker.classList.add('visible');
+                    }, 500 + 200 * index); // Stagger the animations
+                });
+            }
+            
+            // Initialize animation
+            animateElements();
+            
+            // Check visibility on scroll
+            window.addEventListener('scroll', function() {
+                const journeySection = document.querySelector('.journey-section');
+                const rect = journeySection.getBoundingClientRect();
+                
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    // Section is visible
+                    const timelineEvents = document.querySelectorAll('.timeline-event:not(.visible)');
+                    const journeyStickers = document.querySelectorAll('.journey-sticker:not(.visible)');
+                    
+                    timelineEvents.forEach((event) => {
+                        event.classList.add('visible');
+                    });
+                    
+                    journeyStickers.forEach((sticker) => {
+                        sticker.classList.add('visible');
+                    });
+                }
+            });
+        });
 }
 
 // Pillar Click Tooltip
