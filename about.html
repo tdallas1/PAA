@@ -1377,91 +1377,45 @@ function animateTeamName(nameElement) {
 
         document.addEventListener('DOMContentLoaded', function() {
             // Animate events and stickers
-            function animateElements() {
-                // Timeline events
-                const timelineEvents = document.querySelectorAll('.timeline-event');
-                timelineEvents.forEach((event, index) => {
-                    setTimeout(() => {
-                        event.classList.add('visible');
-                    }, 300 * index); // Stagger the animations
-                });
-                
-                // Journey stickers
-                const journeyStickers = document.querySelectorAll('.journey-sticker');
-                journeyStickers.forEach((sticker, index) => {
-                    setTimeout(() => {
-                        sticker.classList.add('visible');
-                    }, 500 + 200 * index); // Stagger the animations
-                });
-            }
-            
-            // Initialize animation
-            animateElements();
-            
-            // Check visibility on scroll
-            window.addEventListener('scroll', function() {
-                const journeySection = document.querySelector('.journey-section');
-                const rect = journeySection.getBoundingClientRect();
-                
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    // Section is visible
-                    const timelineEvents = document.querySelectorAll('.timeline-event:not(.visible)');
-                    const journeyStickers = document.querySelectorAll('.journey-sticker:not(.visible)');
-                    
-                    timelineEvents.forEach((event) => {
-                        event.classList.add('visible');
-                    });
-                    
-                    journeyStickers.forEach((sticker) => {
-                        sticker.classList.add('visible');
-                    });
-                }
-            });
-        });
+function animateElements() {
+    // Timeline events
+    const timelineEvents = document.querySelectorAll('.timeline-event');
+    timelineEvents.forEach((event, index) => {
+        setTimeout(() => {
+            event.classList.add('visible');
+        }, 300 * index); // Stagger the animations
+    });
+
+    // Journey stickers
+    const journeyStickers = document.querySelectorAll('.journey-sticker');
+    journeyStickers.forEach((sticker, index) => {
+        setTimeout(() => {
+            sticker.classList.add('visible');
+        }, 500 + 200 * index); // Stagger the animations
+    });
 }
 
-// Pillar Click Tooltip
-const pillars = document.querySelectorAll('.pillar');
-pillars.forEach(pillar => {
-    pillar.addEventListener('click', function() {
-        const tooltip = this.querySelector('.pillar-tooltip');
-        if (tooltip.style.visibility === 'visible') {
-            tooltip.style.visibility = 'hidden';
-            tooltip.style.opacity = '0';
-        } else {
-            tooltip.style.visibility = 'visible';
-            tooltip.style.opacity = '1';
-        }
-    });
-});
+// Initialize timeline animation
+animateElements();
 
-// Sticker Click Tooltip
-const stickers = document.querySelectorAll('.sticker');
-stickers.forEach(sticker => {
-    sticker.addEventListener('click', function() {
-        const tooltip = this.querySelector('.sticker-tooltip');
-        if (tooltip.style.visibility === 'visible') {
-            tooltip.style.visibility = 'hidden';
-            tooltip.style.opacity = '0';
-        } else {
-            tooltip.style.visibility = 'visible';
-            tooltip.style.opacity = '1';
-        }
-    });
-});
-
-// When page loads
-window.addEventListener('load', function() {
-    animateCrayonText();
-    checkScroll();
-    checkLeadershipVisibility();
-});
-
-// When scrolling
+// Check visibility on scroll
 window.addEventListener('scroll', function() {
-    checkScroll();
-    checkLeadershipVisibility();
+    const journeySection = document.querySelector('.journey-section');
+    const rect = journeySection.getBoundingClientRect();
+    
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const timelineEvents = document.querySelectorAll('.timeline-event:not(.visible)');
+        const journeyStickers = document.querySelectorAll('.journey-sticker:not(.visible)');
+        
+        timelineEvents.forEach((event) => {
+            event.classList.add('visible');
+        });
+        
+        journeyStickers.forEach((sticker) => {
+            sticker.classList.add('visible');
+        });
+    }
 });
-</script>
+<script>
 </body>
 </html>
