@@ -1283,55 +1283,28 @@
 
    <!-- JavaScript -->
 <script>
+// Crayon Word Rotation Animation
 document.addEventListener('DOMContentLoaded', function() {
-    // Crayon Word Animation
-    const crayonWords = [
-        { text: 'Health', color: '#ff6f91' },
-        { text: 'Rights', color: '#c2efe9' },
-        { text: 'Access', color: '#ffe497' },
-        { text: 'Equity', color: '#d4c1ec' },
-        { text: 'Dignity', color: '#ffc6d3' },
-        { text: 'Safety', color: '#c2efe9' },
-        { text: 'Futures', color: '#ff6f91' },
-        { text: 'Hope', color: '#ffe497' }
-    ];
+  // Select all title-svg elements
+  const crayonWords = document.querySelectorAll('.title-svg');
+  let currentIndex = 0; // Start with the first word (which should already have 'active' class)
 
-    const container = document.getElementById('crayonWordContainer');
-    let currentWordIndex = 0;
-    let wordElement = null;
+  // Function to rotate to the next word
+  function rotateWords() {
+    // Remove active class from current word
+    crayonWords[currentIndex].classList.remove('active');
+    
+    // Move to next word (loop back to first if at the end)
+    currentIndex = (currentIndex + 1) % crayonWords.length;
+    
+    // Add active class to next word
+    crayonWords[currentIndex].classList.add('active');
+  }
 
-    function showNextWord() {
-        if (wordElement) {
-            wordElement.classList.remove('show');
-            setTimeout(() => {
-                if (wordElement) container.removeChild(wordElement);
-                addNewWord();
-            }, 800);
-        } else {
-            addNewWord();
-        }
-    }
-
-    function addNewWord() {
-        const wordData = crayonWords[currentWordIndex];
-        wordElement = document.createElement('div');
-        wordElement.className = 'crayon-word';
-        wordElement.textContent = wordData.text;
-        wordElement.style.color = wordData.color;
-        container.appendChild(wordElement);
-
-        setTimeout(() => {
-            wordElement.classList.add('show');
-        }, 100);
-
-        currentWordIndex = (currentWordIndex + 1) % crayonWords.length;
-
-        setTimeout(showNextWord, 2500);
-    }
-
-    // Start the crayon words
-    showNextWord();
-
+  // Set interval to rotate words every 3 seconds
+  setInterval(rotateWords, 3000);
+});
+    
     // Scroll Animations
     const storyContent = document.getElementById('storyContent');
     const missionBox = document.getElementById('missionBox');
