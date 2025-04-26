@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Pediatric Advocacy Alliance</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Castoro+Titling&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Permanent+Marker&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Updated Color Palette */
+        /* Base Styles */
         :root {
             --pink: #ff6f91;
-            --green: #3e5f4a;
-            --light-pink: #ffc6d3;
+            --light-pink: #f9d1d9;
+            --cream: #fef9f0;
+            --mint: #c2efe9;
             --yellow: #ffe497;
             --purple: #d4c1ec;
-            --teal: #c2efe9;
-            --cream: #FFFCF9;
+            --blue: #a6d1fa;
+            --coral: #ffb19a;
             --text-color: #333;
-            --header-transition: all 0.3s ease;
         }
 
         * {
@@ -28,30 +28,20 @@
         }
 
         body {
-            background-color: var(--cream);
+            background-color: white;
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Font Styles */
-        .calligraphy {
-            font-family: 'Pinyon Script', cursive;
-            font-weight: 400;
-            font-size: 1.3em;
-        }
-
-        .castoro {
-            font-family: 'Castoro Titling', serif;
-        }
-
-        /* Navigation */
+        /* Header from original site (keeping for consistency) */
         header {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: var(--header-transition);
+            transition: all 0.3s ease;
         }
 
         .logo-container {
@@ -59,10 +49,7 @@
             justify-content: center;
             padding: 15px 0;
             background-color: var(--cream);
-            background-image: url('background23.jpg');
-            background-size: cover;
-            background-position: center;
-            transition: var(--header-transition);
+            transition: all 0.3s ease;
         }
 
         .logo {
@@ -71,7 +58,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--light-pink);
-            transition: var(--header-transition);
+            transition: all 0.3s ease;
         }
 
         nav {
@@ -80,7 +67,6 @@
             background-color: white;
             border-top: 1px solid var(--light-pink);
             border-bottom: 1px solid var(--light-pink);
-            transition: var(--header-transition);
         }
 
         nav ul {
@@ -99,85 +85,130 @@
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            transition: var(--header-transition);
+            transition: all 0.3s ease;
         }
 
         nav a:hover {
             color: var(--pink);
         }
 
-        nav li:hover .dropdown {
-            display: block;
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .dropdown {
-            display: none;
+        .gradient-bg {
             position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--light-pink), var(--cream), var(--mint), var(--blue));
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: gradientAnimation 60s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Doodles for hero background */
+        .doodle {
+            position: absolute;
+            opacity: 0.4;
+            z-index: -1;
+            font-size: 20px;
+            animation: floatDoodle 20s linear infinite;
+        }
+
+        @keyframes floatDoodle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(10px, 10px) rotate(5deg);
+            }
+            50% {
+                transform: translate(0, 20px) rotate(0deg);
+            }
+            75% {
+                transform: translate(-10px, 10px) rotate(-5deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
             z-index: 1;
-            border-radius: 0 0 5px 5px;
-            border-top: 3px solid var(--light-pink);
         }
 
-        .dropdown a {
-            padding: 12px 20px;
-            display: block;
-            border-bottom: 1px solid #f1f1f1;
+        .static-text {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-weight: 600;
         }
 
-        .dropdown a:last-child {
-            border-bottom: none;
+        .crayon-text-container {
+            height: 100px;
+            font-size: 3.5rem;
+            margin-top: 10px;
+            position: relative;
         }
 
-        /* Page Banner */
-       .about-video-section {
-  position: relative;
-  width: 100%;
-  height: 300px; /* adjust height as needed */
-  overflow: hidden;
-}
-
-.about-bg-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: 1;
-  opacity: 0.5; /* optional for readability */
-}
-
-.about-overlay {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  color: white;
-  font-size: 2.5rem;
-  font-family: 'Playfair Display', serif;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-}
-
-        /* Sections */
-        section {
-            padding: 80px 0;
+        .crayon-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            font-family: 'Gloria Hallelujah', cursive;
+            text-align: center;
         }
 
+        /* Container styles */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 80px 20px;
+        }
+
+        /* Our Story Section */
+        .our-story {
+            background-color: white;
+            padding: 80px 0;
         }
 
         .section-heading {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .story-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-heading h2 {
@@ -187,368 +218,298 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* About Content */
-        .about-section {
-            background-image: url('background20.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-        }
-
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.85);
-            z-index: 0;
-        }
-
-        .about-section .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-image {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            color: var(--green);
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-        }
-
-        /* Timeline */
-        .timeline-section {
-            background-color: white;
-            background-image: url('background27.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--light-pink);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: white;
-            border: 4px solid var(--pink);
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-
-        .left {
-            left: 0;
-            text-align: right;
-        }
-
-        .right {
-            left: 50%;
-            text-align: left;
-        }
-
-        .left::after {
-            right: -17px;
-        }
-
-        .right::after {
-            left: -17px;
-        }
-
-        .timeline-content {
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .timeline-year {
-            font-weight: 700;
-            color: var(--pink);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        /* Values */
-        .values-section {
-            background-color: var(--purple);
-            background-image: url('background21.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .value-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .value-icon {
-            font-size: 2.5rem;
-            color: var(--pink);
-            margin-bottom: 20px;
-        }
-
-        .value-card h3 {
-            color: var(--green);
-            margin-bottom: 15px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Team Section */
-        .team-section {
-            background-color: var(--cream);
-            background-image: url('background25.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-        }
-
-        .team-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.85);
-            z-index: 0;
-        }
-
-        .team-section .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .team-member {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .team-photo {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .team-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .team-name {
-            font-size: 1.2rem;
-            color: var(--pink);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .team-role {
-            color: var(--green);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .team-bio {
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            background-color: var(--light-pink);
-            color: var(--text-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--pink);
-            color: white;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background-color: var(--teal);
-            background-image: url('background22.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            text-align: center;
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.85);
-            z-index: 0;
-        }
-
-        .cta-section .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-content {
+        .story-content {
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .cta-content h2 {
-            font-size: 2.5rem;
-            color: var(--green);
+        .story-paragraph {
             margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .cta-content p {
-            margin-bottom: 30px;
-            font-size: 1.2rem;
+        /* Pillars Section */
+        .our-pillars {
+            background-color: var(--cream);
+            padding: 80px 0;
         }
 
-        .btn-container {
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pillar {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--pink);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             cursor: pointer;
-            border: none;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease, opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        .pillar:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 111, 145, 0.2);
         }
 
-        .btn-secondary {
-            background-color: var(--green);
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
 
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--pink);
+        .pillar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             color: var(--pink);
         }
 
-        .btn-outline:hover {
-            background-color: var(--pink);
-            color: white;
+        .pillar-tooltip {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            width: 220px;
+            z-index: 10;
         }
 
-        /* Footer */
+        .pillar:hover .pillar-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Sticker Section */
+        .sticker-section {
+            position: relative;
+            min-height: 200px;
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sticker-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sticker {
+            position: absolute;
+            background-color: var(--cream);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            font-family: 'Gloria Hallelujah', cursive;
+            font-weight: bold;
+            cursor: pointer;
+            transform-origin: center;
+            animation: floatSticker 15s infinite ease-in-out;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        @keyframes floatSticker {
+            0% {
+                transform: translate(0, 0) rotate(-3deg);
+            }
+            25% {
+                transform: translate(5px, -10px) rotate(2deg);
+            }
+            50% {
+                transform: translate(10px, 5px) rotate(-2deg);
+            }
+            75% {
+                transform: translate(-5px, 10px) rotate(3deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(-3deg);
+            }
+        }
+
+        .sticker:nth-child(1) {
+            background-color: var(--light-pink);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .sticker:nth-child(2) {
+            background-color: var(--yellow);
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .sticker:nth-child(3) {
+            background-color: var(--mint);
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .sticker:nth-child(4) {
+            background-color: var(--purple);
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 6s;
+        }
+
+        .sticker:nth-child(5) {
+            background-color: var(--blue);
+            top: 40%;
+            left: 40%;
+            animation-delay: 8s;
+        }
+
+        .sticker:nth-child(6) {
+            background-color: var(--coral);
+            bottom: 10%;
+            left: 35%;
+            animation-delay: 10s;
+        }
+
+        .sticker-tooltip {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            width: 200px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 20;
+            text-align: center;
+        }
+
+        .sticker:hover .sticker-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Mission Section */
+        .mission-box {
+            background-color: var(--light-pink);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 80px 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .mission-box p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .mission-box strong {
+            color: var(--pink);
+            font-weight: 700;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background-color: var(--yellow);
+            padding: 60px 0;
+        }
+
+        .cta-box {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .cta-text {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .cta-btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transform: rotate(30deg);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .cta-btn:hover::after {
+            transform: rotate(30deg) translate(50%, 50%);
+            opacity: 1;
+        }
+
+        .btn-pink {
+            background-color: var(--pink);
+        }
+
+        .btn-blue {
+            background-color: var(--blue);
+        }
+
+        .btn-mint {
+            background-color: var(--mint);
+            color: var(--text-color);
+        }
+
+        /* Footer (from original site for consistency) */
         footer {
             background-color: white;
-            background-image: url('background11.jpg');
-            background-size: cover;
-            background-position: center;
             padding: 50px 0 20px;
             border-top: 1px solid var(--light-pink);
         }
@@ -597,57 +558,57 @@
             font-size: 0.9rem;
         }
 
-        /* Media Queries */
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                width: 100%;
+            .static-text {
+                font-size: 2rem;
             }
-
-            nav li {
-                width: 100%;
-                text-align: center;
-            }
-
-            .dropdown {
-                position: static;
-                width: 100%;
-            }
-
-            .banner-content h1 {
+            
+            .crayon-text-container {
+                height: 70px;
                 font-size: 2.5rem;
             }
-
-            .about-content {
+            
+            .pillars-grid {
                 grid-template-columns: 1fr;
             }
-
-            .timeline::after {
-                left: 31px;
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+            
+            .sticker {
+                transform: scale(0.8);
             }
+        }
 
-            .timeline-item::after {
-                left: 15px;
+        @media (max-width: 480px) {
+            .static-text {
+                font-size: 1.5rem;
             }
-
-            .right {
-                left: 0;
+            
+            .crayon-text-container {
+                height: 60px;
+                font-size: 2rem;
             }
-
-            .left, .right {
-                text-align: left;
+            
+            .section-heading h2 {
+                font-size: 2rem;
+            }
+            
+            .mission-box p {
+                font-size: 1rem;
+            }
+            
+            .cta-text {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Navigation -->
+    <!-- Header Navigation (copied from original site for consistency) -->
     <header id="main-header">
         <div class="logo-container">
             <a href="index.html" id="logo-link">
@@ -687,330 +648,131 @@
         </nav>
     </header>
     
-    <!-- Page Banner -->
-   <section class="about-video-section">
-  <video autoplay muted loop playsinline class="about-bg-video">
-    <source src="about-section-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div class="about-overlay">
-    <h2>About Us</h2>
-  </div>
-</section>
-    
-    <!-- About Content Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Our <span class="calligraphy">Story</span></h2>
-                <p>How we began and where we're headed</p>
-            </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="PAAStudentsinAction.png" alt="PAA Students in Action">
-                </div>
-                <div class="about-text">
-                    <h3>Building a Community of Advocates</h3>
-                    <p>Pediatric Advocacy Alliance (PAA) was founded in 2024 by a visionary group of student leaders who saw the urgent need for a unified space where students could champion the health, rights, and well-being of children, especially those in underserved communities. What began as an idea between peers quickly grew into a dynamic, student-led movement committed to real-world advocacy.</p>
-                    <p>From the start, PAA has been rooted in an interdisciplinary approach. Our community brings together students from medicine, public health, social work, education, business, STEM, policy, and more; reflecting the reality that caring for children takes all of us. We believe that lasting impact is made when we combine lived experience, academic knowledge, and collective action.</p>
-                    <p>Today, PAA continues to grow in reach and influence. We equip our members with the tools to lead service-based projects, raise awareness around key pediatric issues, and work in partnership with healthcare professionals and community organizations. From hands-on volunteering to institutional advocacy, we are building something bigger than ourselves: a culture of student-driven, child-centered change.</p>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="gradient-bg"></div>
+        
+        <!-- Doodles -->
+        <div class="doodle" style="top: 15%; left: 10%;">✏️</div>
+        <div class="doodle" style="top: 25%; right: 15%;">📎</div>
+        <div class="doodle" style="top: 60%; left: 20%;">✨</div>
+        <div class="doodle" style="top: 40%; right: 20%;">🌟</div>
+        <div class="doodle" style="top: 80%; left: 30%;">📌</div>
+        <div class="doodle" style="top: 70%; right: 25%;">✨</div>
+        <div class="doodle" style="top: 20%; left: 40%;">🌠</div>
+        <div class="doodle" style="top: 50%; right: 35%;">📎</div>
+        
+        <div class="hero-content">
+            <h1 class="static-text">We advocate for</h1>
+            <div class="crayon-text-container">
+                <div class="crayon-text" style="color: #ff6f91;" data-index="0">Health</div>
+                <div class="crayon-text" style="color: #c2efe9;" data-index="1">Rights</div>
+                <div class="crayon-text" style="color: #a6d1fa;" data-index="2">Access</div>
+                <div class="crayon-text" style="color: #ffe497;" data-index="3">Equity</div>
+                <div class="crayon-text" style="color: #d4c1ec;" data-index="4">Dignity</div>
+                <div class="crayon-text" style="color: #c2efe9;" data-index="5">Safety</div>
+                <div class="crayon-text" style="color: #ffb19a;" data-index="6">Futures</div>
+                <div class="crayon-text" style="color: #ff6f91;" data-index="7">Hope</div>
             </div>
         </div>
     </section>
     
-    <!-- Timeline Section -->
-    <section class="timeline-section">
+    <!-- Our Story Section -->
+    <section class="our-story">
         <div class="container">
             <div class="section-heading">
-                <h2>Our <span class="calligraphy">Journey</span></h2>
-                <p>Key milestones in our growth</p>
+                <h2>Why We Exist</h2>
             </div>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <div class="timeline-year">Fall 2024</div>
-                        <h3>Official Founding</h3>
-                        <p>The Pediatric Advocacy Alliance officially launched in October 2024 at Dominican University, founded by Trinity Dallas and led by a team of student advocates committed to pediatric health and justice. The organization was recognized by Student Life and guided by founding mentors Dr. William Zic, Assistant Professor of Nursing and practicing pediatric nurse, and Dr. James, a senior professor of social work with decades of experience in child welfare. The inaugural board established PAA's mission, branding, and first semester of programming.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <div class="timeline-year">Fall 2024</div>
-                        <h3>Building Identity and Momentum</h3>
-                        <p>PAA quickly established a strong brand voice, a clear mission, and a sense of purpose that resonated across campus. With 30+ members from nursing, social work, business, biology, and beyond, the organization grew fast and forged early collaborations with student groups and community partners. With trusted mentors in place and a bold vision for interdisciplinary advocacy, PAA laid the foundation for lasting impact.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <div class="timeline-year">Winter 2025</div>
-                        <h3>Turning Point in Growth and Impact</h3>
-                        <p>What started as a student-led initiative became a recognized force on campus. During this period, PAA restructured its executive board, doubling leadership capacity and formalizing systems for volunteer tracking, programming, and internal communication. More importantly, the organization expanded its footprint—building new partnerships with clinics, connecting with academic departments, and gaining recognition from campus leadership. Winter 2025 marked a shift from a start-up club to a well-organized, high-impact alliance with both structure and reach.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <div class="timeline-year">Winter 2025</div>
-                        <h3>Advocacy Training and Skill Building</h3>
-                        <p>PAA launched its first advocacy training sessions to equip members with foundational knowledge in pediatric justice, health policy, and service-based leadership, laying the groundwork for future action campaigns.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <div class="timeline-year">Winter 2025</div>
-                        <h3>Expanding Presence and Recognition</h3>
-                        <p>Through service projects, clinic partnerships, and high-impact events, PAA quickly became a visible and trusted presence both on campus and in the surrounding community. Students, faculty, and partners alike began to see PAA as a leading voice in pediatric-focused advocacy and outreach.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <div class="timeline-year">Winter 2025</div>
-                        <h3>Academic Integration and Organizational Expansion</h3>
-                        <p>PAA officially partnered with Dominican University's Community-Based Learning (CBL) program, becoming a designated volunteer site for nursing students completing civic engagement coursework. This milestone not only strengthened the organization's academic ties but also accelerated its need for growth. In response, PAA began expanding its executive board, increasing event capacity, and laying the groundwork for signature annual programming to meet rising interest, demand, and impact.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <div class="timeline-year">Fall 2025</div>
-                        <h3>Rooted in Our Home, Focused on What's Ahead</h3>
-                        <p>At our home, Dominican University, PAA will expand its efforts both on and off campus to empower the next generation of healthcare leaders, educators, social workers, and policymakers. Through awareness campaigns, signature events, and service-driven outreach, we'll continue building community through service—while creating space for students to lead with purpose and advocate for change. Looking ahead, PAA will remain a driving force for pediatric justice at Dominican and beyond.</p>
-                    </div>
-                </div>
+            <div class="story-content">
+                <p class="story-paragraph">Pediatric Advocacy Alliance was founded on a simple but urgent truth: too many children are left out of conversations about health, safety, and dignity. We are a student-driven movement working to change that — through service, education, advocacy, and action.</p>
+                <p class="story-paragraph">We believe advocacy belongs to everyone. We believe kids deserve systems that protect them, not fail them. And we believe change happens when people show up.</p>
             </div>
         </div>
     </section>
     
-    <!-- Values Section -->
-    <section class="values-section">
+    <!-- Our Pillars Section -->
+    <section class="our-pillars">
         <div class="container">
             <div class="section-heading">
-                <h2>Our <span class="calligraphy">Values</span></h2>
-                <p>The principles that guide our work</p>
+                <h2>Our Pillars</h2>
             </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Community</h3>
-                    <p>We believe in the power of connection and collaboration, bringing together diverse perspectives to create meaningful change in pediatric healthcare.</p>
+            <div class="pillars-grid">
+                <div class="pillar">
+                    <div class="pillar-icon">🩺</div>
+                    <h3>Health</h3>
+                    <div class="pillar-tooltip">Every child deserves safe, accessible healthcare.</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Empowerment</h3>
-                    <p>We equip students with the knowledge, skills, and confidence to become effective advocates for children's health and well-being.</p>
+                <div class="pillar">
+                    <div class="pillar-icon">📣</div>
+                    <h3>Voice</h3>
+                    <div class="pillar-tooltip">We amplify young voices that too often go unheard.</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Advocacy</h3>
-                    <p>We use our collective voice to advance policies, practices, and systems that prioritize children's health needs and rights.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Compassion</h3>
-                    <p>We approach our work with empathy, understanding, and a genuine commitment to improving the lives of children and families.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🌈</div>
                     <h3>Equity</h3>
-                    <p>We strive to address healthcare disparities and ensure that all children have access to quality care regardless of their background or circumstances.</p>
+                    <div class="pillar-tooltip">We fight for fairness, dignity, and opportunity.</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Learning</h3>
-                    <p>We foster a culture of continuous learning, growth, and professional development among our members.</p>
+                <div class="pillar">
+                    <div class="pillar-icon">🎨</div>
+                    <h3>Action</h3>
+                    <div class="pillar-tooltip">Advocacy is creative, direct, and hands-on.</div>
                 </div>
             </div>
         </div>
     </section>
     
-<!-- Team Section -->
-<section class="team-section">
-    <div class="container">
-        <div class="section-heading">
-            <h2>Leadership <span class="calligraphy">Team</span></h2>
-            <p>Meet the dedicated students behind PAA</p>
+    <!-- Sticker Section -->
+    <section class="sticker-section">
+        <div class="sticker-container">
+            <div class="sticker">
+                Hope
+                <div class="sticker-tooltip">The belief that things can and will get better for every child.</div>
+            </div>
+            <div class="sticker">
+                Safety
+                <div class="sticker-tooltip">Creating spaces where children can thrive without fear.</div>
+            </div>
+            <div class="sticker">
+                Freedom
+                <div class="sticker-tooltip">The right of every child to grow, explore, and develop autonomy.</div>
+            </div>
+            <div class="sticker">
+                Joy
+                <div class="sticker-tooltip">Because childhood should be filled with wonder and delight.</div>
+            </div>
+            <div class="sticker">
+                Care
+                <div class="sticker-tooltip">Showing up with compassion and consistent support.</div>
+            </div>
+            <div class="sticker">
+                Futures
+                <div class="sticker-tooltip">Building pathways for children to reach their full potential.</div>
+            </div>
         </div>
-        <div class="team-grid">
-            <!-- Existing Members -->
-            <!-- Trinity -->
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Trinity Dallas</div>
-                    <div class="team-role">President</div>
-                    <div class="team-bio">Trinity is a Junior at Dominican University double majoring in Nursing and Business Management. She’s preparing for a dual career as a pediatric nurse and healthcare administrator, with a focus on improving equity and access in child health. As the Founder and President of the Pediatric Advocacy Alliance, she brings experience in clinical settings, nonprofit leadership, and pharmacy operations. Trinity is passionate about bridging hands-on care with systemic change to advocate for children and families.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/trinity-dallas-662022220/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=tdallas@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Harmony -->
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Harmony Perez</div>
-                    <div class="team-role">Vice President</div>
-                    <div class="team-bio">Harmony is a senior undergraduate at Dominican University with over a year of research experience in behavioral and molecular neuroscience. She also brings clinical experience working with pediatric neurology patients, fueling her passion for advancing care in both pediatric and internal medicine. On the pre-physician assistant track, Harmony combines scientific curiosity with compassionate leadership to help guide PAA’s mission forward.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=hperez1@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Myles -->
-            <div class="team-member">
-                    <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Myles Waters</div>
-                    <div class="team-role">Treasurer</div>
-                    <div class="team-bio">Myles is a dedicated student at Dominican University, double majoring in Computer Information Systems and Black World Studies. As a member of the Black Student Union and current Business Insight Data Analyst Intern at Martin Brower, he brings a data-driven mindset and strong organizational skills to his role as Treasurer. With experience in analytics and a passion for equity, Myles ensures PAA’s finances are handled with precision and purpose.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/myleswaters/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=mwaters@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Elsy -->
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Elsy Hernandez Lozano</div>
-                    <div class="team-role">Secretary</div>
-                    <div class="team-bio">Elsy is a biology major at Dominican University with minors in Chemistry and Sociology of Health. Her work in cancer equity and patient-centered research has led her to participate in several prestigious programs. With a passion for patient advocacy and equitable healthcare, Elsy is committed to supporting the mission of PAA through inclusive leadership and behind-the-scenes coordination.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/elsy-hernandez-lozano/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ehernandezlozano@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- New Members (Placeholder Info) -->
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Daisy Tenemaza</div>
-                    <div class="team-role">Events Coordinator</div>
-                    <div class="team-bio">Daisy is a sophomore at Dominican University double majoring in Biochemistry and Spanish. As Events Coordinator, she brings creativity, warmth, and precision to every program she helps lead. With a strong interest in community wellness and pediatric care, Daisy is passionate about making science and service accessible; whether through educational outreach or campus-wide events that bring people together. Her bilingual background and attention to detail make her a key force behind the scenes at PAA.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=dtenemaza@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Nataly Dominguez</div>
-                    <div class="team-role">Events Coordinator</div>
-                    <div class="team-bio">Nataly is a Nursing major at Dominican University with a passion for child health and hands-on care. As one of PAA’s Events Coordinators, she helps bring our mission to life through thoughtful, well-executed programming that supports families and uplifts volunteers. With her heart for service and eye for logistics, Nataly plays an essential role in making our initiatives meaningful, engaging, and rooted in real impact. She’s especially excited to bridge healthcare and advocacy through community-driven events.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ndominguez3@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Samantha Acosta</div>
-                    <div class="team-role">Volunteer Coordinator</div>
-                    <div class="team-bio">Samantha is a sophomore Biochemistry major at Dominican University with a heart for service and a proven track record of leadership. She brings experience from her role as a Patient Care Technician at Northwestern Memorial Hospital, and a dedicated volunteer with Cradles to Crayons. With strong organizational skills and a passion for empowering others, Samantha plays a vital role in mobilizing volunteers and supporting the Alliance’s mission of advancing pediatric health and advocacy.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=sacosta3@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Elizabeth John</div>
-                    <div class="team-role">Volunteer Coordinator</div>
-                    <div class="team-bio">Elizabeth is a senior at Dominican University, majoring in Biology with minors in Chemistry and Health Communication.  Her experience in mentorship and leadership on campus has shaped her into a thoughtful and organized advocate. She also works as a medical assistant at Aziz Family Medical Center, where she supports underserved populations and provides patient-centered care. As Volunteer Coordinator, Elizabeth blends her background in healthcare and student support to ensure every volunteer experience is meaningful, organized, and rooted in advocacy.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/elizabeth-john-812b23238/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=ejohn@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Juliana Macias</div>
-                    <div class="team-role">Membership Engagement Chair</div>
-                    <div class="team-bio">Juliana is a sophomore double majoring in Psychology and Social Work at Dominican University. As Membership Engagement Chair, she brings warmth, empathy, and heart to the PAA community. Her background as a crisis hotline volunteer at Sarah’s Inn shaped her ability to create safe, welcoming spaces for others, especially those navigating difficult situations. Juliana is passionate about building community, supporting new members, and helping every voice feel heard within our mission of advocacy and care.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=jmacias@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Lizbeth Lopez</div>
-                    <div class="team-role">Community Engagement Chair</div>
-                    <div class="team-bio">Lizbeth is a junior Biochemistry Honors student at Dominican University on the Pre-Dental track. As Community Engagement Chair, she brings a passion for connecting with others and building meaningful partnerships that extend PAA’s reach. With a strong science background and heart for service, Lizbeth is dedicated to helping bridge campus and community through advocacy, education, and outreach.</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/lizbeth-lopez-04ab622b4/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=llopez13@my.dom.edu" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <img src="TeamMember.png" alt="Team Member" class="team-photo">
-                <div class="team-info">
-                    <div class="team-name">Open Position</div>
-                    <div class="team-role">Marketing & Communications</div>
-                    <div class="team-bio">We're currently seeking a creative, organized leader to join the board and manage all things comms. Apply through our website!</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://outlook.office.com/mail/deeplink/compose?to=" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
+    </section>
+    
+    <!-- Mission Highlight -->
+    <div class="container">
+        <div class="mission-box">
+            <p><strong>Our Mission:</strong> To advance the health, rights, and well-being of children through service, advocacy, education, and systemic action.</p>
         </div>
     </div>
-</section>
-
     
-    <!-- CTA Section -->
+    <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
-            <div class="cta-content">
-                <h2>Join Our Community of Advocates</h2>
-                <p>Become part of a movement dedicated to improving children's healthcare through service, education, and advocacy.</p>
-                <div class="btn-container">
-                    <a href="volunteer.html" class="btn">Get Involved</a>
-                     <a href="https://outlook.office.com/mail/deeplink/compose?to=paaexecutiveboard@mydomedu.onmicrosoft.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Contact Us</a>
-                    <a href="#donate" class="btn btn-outline">Support Our Mission</a>
+            <div class="cta-box">
+                <p class="cta-text">You don't need to be perfect. You don't need to have it all figured out. You just have to care.</p>
+                <div class="cta-buttons">
+                    <a href="volunteer.html" class="cta-btn btn-pink">Volunteer With PAA</a>
+                    <a href="member.html" class="cta-btn btn-blue">Become a Member</a>
+                    <a href="partnership.html" class="cta-btn btn-mint">Partner With Us</a>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Footer -->
+    <!-- Footer (from original site for consistency) -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1048,7 +810,7 @@
                     <ul class="footer-links">
                         <li><a href="https://www.instagram.com/pediatricadvocacydu/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
                         <li><a href="https://www.linkedin.com/in/paadu/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="https://outlook.office.com/mail/deeplink/compose?to=pediatricadvocacyalliance@mydomedu.onmicrosoft.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Email Us</a></li>
+                        <li><a href="mailto:pediatricadvocacyalliance@mydomedu.onmicrosoft.com"><i class="fas fa-envelope"></i> Email Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -1058,58 +820,125 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Interactive Elements -->
+    <!-- JavaScript for Animations -->
     <script>
-        // Sticky Header Functionality
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('main-header');
-            const logo = document.querySelector('.logo');
-            const logoContainer = document.querySelector('.logo-container');
+        // Crayon Text Animation Function
+        const crayonTexts = document.querySelectorAll('.crayon-text');
+        const totalWords = crayonTexts.length;
+        let currentIndex = 0;
+        let animationInProgress = false;
+        
+        // Function to animate a word by typing effect
+        function typeWord(wordElement) {
+            const text = wordElement.textContent;
+            wordElement.textContent = '';
+            wordElement.style.opacity = '1';
             
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-                logo.style.width = '80px';
-                logo.style.height = '80px';
-                logoContainer.style.padding = '5px 0';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                logo.style.width = '120px';
-                logo.style.height = '120px';
-                logoContainer.style.padding = '15px 0';
+            let charIndex = 0;
+            const textLength = text.length;
+            
+            // Clear any existing timeouts
+            if (window.typeTimeout) {
+                clearTimeout(window.typeTimeout);
             }
-        });
-
-        // Fade-in animation for timeline items
-        document.addEventListener('DOMContentLoaded', function() {
-            const timelineItems = document.querySelectorAll('.timeline-item');
             
-            function checkIfInView() {
-                timelineItems.forEach(item => {
-                    const rect = item.getBoundingClientRect();
-                    const isInView = (
-                        rect.top >= 0 &&
-                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-                    );
-                    
-                    if (isInView) {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
+            function typeChar() {
+                if (charIndex < textLength) {
+                    wordElement.textContent += text.charAt(charIndex);
+                    charIndex++;
+                    window.typeTimeout = setTimeout(typeChar, 100); // Speed of typing
+                } else {
+                    // Typing complete, show for 1.5 seconds, then fade out
+                    setTimeout(() => {
+                        wordElement.style.opacity = '0';
+                        
+                        // Wait for fade out, then move to next word
+                        setTimeout(() => {
+                            // Move to next word
+                            currentIndex = (currentIndex + 1) % totalWords;
+                            animationInProgress = false;
+                            animateCrayonText();
+                        }, 600); // Fade out duration
+                    }, 1500); // Word display duration
+                }
+            }
+            
+            // Start typing
+            window.typeTimeout = setTimeout(typeChar, 100);
+        }
+        
+        // Main animation function to start the process
+        function animateCrayonText() {
+            if (!animationInProgress) {
+                animationInProgress = true;
+                const wordElement = crayonTexts[currentIndex];
+                typeWord(wordElement);
+            }
+        }
+        
+        // Start animation
+        window.addEventListener('load', animateCrayonText);
+        
+        // Scroll Animation for Fade-In Effects
+        function checkScroll() {
+            const elements = document.querySelectorAll('.section-heading, .story-paragraph, .pillar, .mission-box, .cta-box, .sticker');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                // If element is in viewport
+                if (position.top < window.innerHeight * 0.9) {
+                    if (element.classList.contains('section-heading')) {
+                        element.classList.add('story-visible');
+                    } else if (element.classList.contains('story-paragraph') || 
+                              element.classList.contains('mission-box') || 
+                              element.classList.contains('cta-box')) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    } else if (element.classList.contains('pillar')) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    } else if (element.classList.contains('sticker')) {
+                        element.style.opacity = '1';
                     }
-                });
-            }
-            
-            // Initial style setup
-            timelineItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-                item.style.transition = 'all 0.5s ease-in-out';
+                }
             });
-            
-            // Check on scroll
-            window.addEventListener('scroll', checkIfInView);
-            
-            // Initial check
-            checkIfInView();
+        }
+        
+        // Initial check on page load
+        window.addEventListener('load', checkScroll);
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkScroll);
+        
+        // Pillar click functionality (optional)
+        const pillars = document.querySelectorAll('.pillar');
+        pillars.forEach(pillar => {
+            pillar.addEventListener('click', function() {
+                const tooltip = this.querySelector('.pillar-tooltip');
+                if (tooltip.style.visibility === 'visible') {
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.opacity = '0';
+                } else {
+                    tooltip.style.visibility = 'visible';
+                    tooltip.style.opacity = '1';
+                }
+            });
+        });
+        
+        // Sticker click functionality (optional)
+        const stickers = document.querySelectorAll('.sticker');
+        stickers.forEach(sticker => {
+            sticker.addEventListener('click', function() {
+                const tooltip = this.querySelector('.sticker-tooltip');
+                if (tooltip.style.visibility === 'visible') {
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.opacity = '0';
+                } else {
+                    tooltip.style.visibility = 'visible';
+                    tooltip.style.opacity = '1';
+                }
+            });
         });
     </script>
 </body>
