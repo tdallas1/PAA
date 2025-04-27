@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAA - CBL Student Info Hub</title>
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Castoro+Titling&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
             --green: #3e5f4a;
             --light-pink: #ffc6d3;
             --text-color: #333;
-            --header-transition: all 0.3s ease;
+            --mainHeader-transition: all 0.3s ease;
         }
 
         * {
@@ -48,13 +48,13 @@
         }
 
         /* Navigation */
-        header {
+        mainHeader {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: var(--header-transition);
+            transition: var(--mainHeader-transition);
         }
 
         .logo-container {
@@ -62,7 +62,7 @@
             justify-content: center;
             padding: 15px 0;
             background-color: var(--cream);
-            transition: var(--header-transition);
+            transition: var(--mainHeader-transition);
         }
 
         .logo {
@@ -71,7 +71,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--light-pink);
-            transition: var(--header-transition);
+            transition: var(--mainHeader-transition);
         }
 
         nav {
@@ -80,7 +80,7 @@
             background-color: white;
             border-top: 1px solid var(--light-pink);
             border-bottom: 1px solid var(--light-pink);
-            transition: var(--header-transition);
+            transition: var(--mainHeader-transition);
         }
 
         nav ul {
@@ -99,7 +99,7 @@
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            transition: var(--header-transition);
+            transition: var(--mainHeader-transition);
         }
 
         nav a:hover {
@@ -622,7 +622,7 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.05);
         }
 
-        .accordion-header {
+        .accordion-mainHeader {
             background-color: var(--cream);
             padding: 15px 20px;
             cursor: pointer;
@@ -632,7 +632,7 @@
             transition: all 0.3s ease;
         }
 
-        .accordion-header:hover {
+        .accordion-mainHeader:hover {
             background-color: var(--blush-pink);
         }
 
@@ -658,7 +658,7 @@
             padding: 20px;
         }
 
-        .accordion-item.active .accordion-header {
+        .accordion-item.active .accordion-mainHeader {
             background-color: var(--light-pink);
         }
 
@@ -877,8 +877,8 @@
     </style>
 </head>
 <body>
-    <!-- Header Navigation -->
-    <header id="main-header">
+    <!-- mainHeader Navigation -->
+    <mainHeader id="main-mainHeader">
         <div class="logo-container">
             <a href="index.html" id="logo-link">
                 <img src="/api/placeholder/240/240" alt="PAA Logo" class="logo">
@@ -915,7 +915,7 @@
                 </li>
             </ul>
         </nav>
-    </header>
+    </mainHeader>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
@@ -1189,7 +1189,7 @@
             <div class="accordion" data-aos="fade-up" data-aos-delay="100">
                 <!-- FAQ Item 1 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
+                    <div class="accordion-mainHeader">
                         <h3 class="accordion-title">What events count toward CBL hours?</h3>
                         <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
@@ -1202,7 +1202,7 @@
 
                 <!-- FAQ Item 2 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
+                    <div class="accordion-mainHeader">
                         <h3 class="accordion-title">What happens if I miss an event I signed up for?</h3>
                         <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
@@ -1215,7 +1215,7 @@
 
                 <!-- FAQ Item 3 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
+                    <div class="accordion-mainHeader">
                         <h3 class="accordion-title">How do I complete DU Impact reflections effectively?</h3>
                         <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
@@ -1228,7 +1228,7 @@
 
                 <!-- FAQ Item 4 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
+                    <div class="accordion-mainHeader">
                         <h3 class="accordion-title">Who do I talk to if I have questions?</h3>
                         <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
@@ -1241,7 +1241,7 @@
 
                 <!-- FAQ Item 5 -->
                 <div class="accordion-item">
-                    <div class="accordion-header">
+                    <div class="accordion-mainHeader">
                         <h3 class="accordion-title">Can I suggest new CBL opportunities?</h3>
                         <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
@@ -1340,8 +1340,8 @@
             const accordionItems = document.querySelectorAll('.accordion-item');
             
             accordionItems.forEach(item => {
-                const header = item.querySelector('.accordion-header');
-                header.addEventListener('click', () => {
+                const mainHeader = item.querySelector('.accordion-mainHeader');
+                mainHeader.addEventListener('click', () => {
                     item.classList.toggle('active');
                 });
             });
@@ -1365,16 +1365,16 @@
                 });
             });
             
-            // Sticky Header
-            const header = document.getElementById('main-header');
+            // Sticky mainHeader
+            const mainmainHeader = document.getElementById('main-mainHeader');
             const quickNav = document.getElementById('quick-nav');
             const heroHeight = document.getElementById('hero').offsetHeight;
             
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 100) {
-                    header.classList.add('scrolled');
+                    mainHeader.classList.add('scrolled');
                 } else {
-                    header.classList.remove('scrolled');
+                    mainHeader.classList.remove('scrolled');
                 }
                 
                 if (window.pageYOffset > heroHeight) {
