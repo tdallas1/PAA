@@ -1681,75 +1681,30 @@
         </div>
     </section>
     
-    <!-- Sticker Sheet Section -->
-    <section class="sticker-section">
-        <div class="container sticker-container">
+    <!-- CTA Envelope Section -->
+    <section class="envelope-section">
+        <div class="container envelope-container">
             <div class="section-title reveal">
                 <h2>Connect <span class="calligraphy">With Us</span></h2>
-                <p>Peel a sticker to join our community and stay connected!</p>
+                <p>Let's work together to make a positive impact on children's lives.</p>
             </div>
-            
-            <!-- Floating Shapes -->
-            <div class="floating-shape"><i class="fas fa-heart"></i></div>
-            <div class="floating-shape"><i class="fas fa-star"></i></div>
-            <div class="floating-shape"><i class="fas fa-baby"></i></div>
-            <div class="floating-shape"><i class="fas fa-certificate"></i></div>
-            
-            <!-- Sticker Sheet -->
-            <div class="sticker-sheet reveal">
-                <div class="sticker" data-id="1">
-                    <i class="fas fa-heart"></i>
-                    <div class="sticker-corner"></div>
-                </div>
-                <div class="sticker" data-id="2">
-                    <i class="fas fa-star"></i>
-                    <div class="sticker-corner"></div>
-                </div>
-                <div class="sticker" data-id="3">
-                    <i class="fas fa-baby"></i>
-                    <div class="sticker-corner"></div>
-                </div>
-                <div class="sticker" data-id="4">
-                    <i class="fas fa-hands-helping"></i>
-                    <div class="sticker-corner"></div>
-                </div>
-                <div class="sticker" data-id="5">
-                    <i class="fas fa-gift"></i>
-                    <div class="sticker-corner"></div>
-                </div>
-                <div class="sticker" data-id="6">
-                    <i class="fas fa-book-reader"></i>
-                    <div class="sticker-corner"></div>
+            <div class="envelope-wrapper reveal" id="envelope">
+                <div class="envelope">
+                    <div class="envelope-front"></div>
+                    <div class="envelope-back"></div>
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-left"></div>
+                    <div class="envelope-right"></div>
+                    <div class="envelope-paper">
+                        <h3>Let's Connect!</h3>
+                        <p>Reach out to learn more about our programs and how you can get involved.</p>
+                        <a href="#" class="btn">Contact Us</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Modal Overlay -->
-        <div class="overlay" id="modal-overlay"></div>
-        
-        <!-- Signup Form Modal -->
-        <div class="signup-form-modal" id="signup-modal">
-            <div class="modal-close" id="modal-close">
-                <i class="fas fa-times"></i>
-            </div>
-            <h3>Join the Movement 💖</h3>
-            <p class="form-subtitle">Stay connected with PAA and learn how you can make a difference.</p>
-            <form id="signup-form">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message (Optional)</label>
-                    <textarea id="message" name="message" placeholder="Tell us what interests you most about PAA..."></textarea>
-                </div>
-                <button type="submit" class="btn">Stay Connected</button>
-                <p class="privacy-note">We'll never spam you. Your information is secure with us.</p>
-            </form>
+            <div class="floating-heart"><i class="fas fa-heart"></i></div>
+            <div class="floating-heart"><i class="fas fa-heart"></i></div>
+            <div class="floating-heart"><i class="fas fa-heart"></i></div>
         </div>
     </section>
     
@@ -1884,128 +1839,44 @@
             this.reset();
         });
         
-        // Sticker Sheet Animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const stickers = document.querySelectorAll('.sticker');
-            const overlay = document.getElementById('modal-overlay');
-            const signupModal = document.getElementById('signup-modal');
-            const modalClose = document.getElementById('modal-close');
-            const signupForm = document.getElementById('signup-form');
+        // Envelope Animation
+        const envelope = document.getElementById('envelope').querySelector('.envelope');
+        const envelopeWrapper = document.getElementById('envelope');
+        let envelopeOpen = false;
+        let timeoutId;
+        
+        // Click to open/close envelope
+        envelopeWrapper.addEventListener('click', function() {
+            clearTimeout(timeoutId); // Clear any existing timeout
             
-            // Create sparkles
-            function createSparkles() {
-                const stickerSheet = document.querySelector('.sticker-sheet');
-                
-                for (let i = 0; i < 20; i++) {
-                    const sparkle = document.createElement('div');
-                    sparkle.classList.add('sparkle');
-                    sparkle.style.left = Math.random() * 100 + '%';
-                    sparkle.style.top = Math.random() * 100 + '%';
-                    sparkle.style.animationDelay = Math.random() * 2 + 's';
-                    stickerSheet.appendChild(sparkle);
-                }
+            if (!envelopeOpen) {
+                // Open envelope
+                envelope.classList.add('open');
+                envelopeOpen = true;
+            } else {
+                // Close envelope
+                envelope.classList.remove('open');
+                envelopeOpen = false;
             }
+        });
+        
+        // Hover effects with delay on mouseout
+        envelopeWrapper.addEventListener('mouseenter', function() {
+            clearTimeout(timeoutId); // Clear any existing timeout
             
-            createSparkles();
-            
-            // Sticker click handler
-            stickers.forEach(sticker => {
-                sticker.addEventListener('click', function() {
-                    if (this.classList.contains('disabled')) return;
-                    
-                    // Add peel class to animate the sticker
-                    this.classList.add('peel');
-                    
-                    // Disable all stickers during animation
-                    stickers.forEach(s => {
-                        s.style.pointerEvents = 'none';
-                    });
-                    
-                    // Mark this sticker as used
-                    const stickerId = this.getAttribute('data-id');
-                    localStorage.setItem('sticker-' + stickerId, 'peeled');
-                    
-                    // Show overlay with slight delay
-                    setTimeout(() => {
-                        overlay.classList.add('active');
-                    }, 300);
-                    
-                    // After animation completes, hide sticker and show modal
-                    setTimeout(() => {
-                        this.style.opacity = '0';
-                        signupModal.classList.add('active');
-                        
-                        // Enable other stickers again
-                        stickers.forEach(s => {
-                            if (!s.classList.contains('disabled')) {
-                                s.style.pointerEvents = 'auto';
-                            }
-                        });
-                        
-                        // After modal is shown, mark the sticker as disabled
-                        setTimeout(() => {
-                            this.classList.remove('peel');
-                            this.classList.add('disabled');
-                            this.style.opacity = '1';
-                        }, 300);
-                        
-                    }, 700);
-                });
-            });
-            
-            // Close button handler
-            modalClose.addEventListener('click', function() {
-                signupModal.classList.remove('active');
-                
-                setTimeout(() => {
-                    overlay.classList.remove('active');
-                }, 300);
-            });
-            
-            // Click outside modal to close
-            overlay.addEventListener('click', function(e) {
-                if (e.target === overlay) {
-                    signupModal.classList.remove('active');
-                    setTimeout(() => {
-                        overlay.classList.remove('active');
-                    }, 300);
-                }
-            });
-            
-            // Form submission
-            signupForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Simulate form submission
-                const submitBtn = this.querySelector('.btn');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Submitting...';
-                submitBtn.disabled = true;
-                
-                // Simulate API call
-                setTimeout(() => {
-                    submitBtn.textContent = 'Thank You! ✓';
-                    
-                    // Close modal after thank you message
-                    setTimeout(() => {
-                        signupModal.classList.remove('active');
-                        setTimeout(() => {
-                            overlay.classList.remove('active');
-                            submitBtn.textContent = originalText;
-                            submitBtn.disabled = false;
-                            signupForm.reset();
-                        }, 300);
-                    }, 1500);
-                }, 1000);
-            });
-            
-            // Check for previously peeled stickers
-            stickers.forEach(sticker => {
-                const stickerId = sticker.getAttribute('data-id');
-                if (localStorage.getItem('sticker-' + stickerId) === 'peeled') {
-                    sticker.classList.add('disabled');
-                }
-            });
+            if (!envelopeOpen) {
+                // Only open if not already opened by click
+                envelope.classList.add('open');
+            }
+        });
+        
+        envelopeWrapper.addEventListener('mouseleave', function() {
+            // Only start timeout if not clicked open
+            if (!envelopeOpen) {
+                timeoutId = setTimeout(() => {
+                    envelope.classList.remove('open');
+                }, 800); // Delay close animation by 800ms
+            }
         });
     </script>
 </body>
