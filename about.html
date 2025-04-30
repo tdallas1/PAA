@@ -16,6 +16,7 @@
             --purple: #d4c1ec;
             --teal: #c2efe9;
             --cream: #FFFCF9;
+            --mint: #e6f0e4;
             --text-color: #333;
             --header-transition: all 0.3s ease;
         }
@@ -34,7 +35,7 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Navigation - Scrapbook Tab Style */
         header {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -59,15 +60,18 @@
             object-fit: cover;
             border: 3px solid var(--light-pink);
             transition: var(--header-transition);
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            transform: rotate(-2deg);
         }
 
         nav {
             display: flex;
             justify-content: center;
             background-color: white;
-            border-top: 1px solid var(--light-pink);
-            border-bottom: 1px solid var(--light-pink);
+            border-top: 1px dashed var(--light-pink);
+            border-bottom: 1px dashed var(--light-pink);
             transition: var(--header-transition);
+            padding: 8px 0;
         }
 
         nav ul {
@@ -76,6 +80,7 @@
             padding: 0;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 5px;
         }
 
         nav li {
@@ -83,19 +88,47 @@
         }
 
         nav a {
-            display: block;
-            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            padding: 10px 18px;
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            transition: var(--header-transition);
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            margin: 3px;
+            position: relative;
+            overflow: hidden;
         }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-pink);
+            left: 10px;
+            opacity: 0.7;
+        }
+        
+        nav li:nth-child(1) a {background-color: var(--light-pink);}
+        nav li:nth-child(2) a {background-color: var(--teal);}
+        nav li:nth-child(3) a {background-color: var(--yellow);}
+        nav li:nth-child(4) a {background-color: var(--purple);}
+        nav li:nth-child(5) a {background-color: var(--mint);}
+        nav li:nth-child(6) a {background-color: var(--light-pink);}
+        nav li:nth-child(7) a {background-color: var(--teal);}
+        nav li:nth-child(8) a {background-color: var(--yellow);}
+        nav li:nth-child(9) a {background-color: var(--purple);}
 
         nav a:hover {
-            color: var(--pink);
+            color: var(--text-color);
+            transform: translateY(-3px) rotate(1deg);
+            box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
         }
 
-        /* Hero Section */
+        /* Hero Section - Scrapbook Style */
         .hero-section {
             height: 100vh;
             display: flex;
@@ -193,6 +226,21 @@
             margin-bottom: 2rem;
             z-index: 1;
             font-family: 'Playfair Display', serif;
+            position: relative;
+            transform: rotate(-1deg);
+        }
+
+        .hero-heading::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -10px;
+            width: 40px;
+            height: 20px;
+            background-color: var(--light-pink);
+            opacity: 0.7;
+            transform: rotate(-5deg);
+            z-index: -1;
         }
 
         .crayon-word-container {
@@ -204,24 +252,25 @@
         }
 
    .crayon-word {
-  font-family: 'Gloria Hallelujah', cursive;
-  font-size: 3rem;
-  position: absolute;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.crayon-word.show {
-  opacity: 1;
-  transform: scale(1);
-}
+            font-family: 'Gloria Hallelujah', cursive;
+            font-size: 3rem;
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        /* Story Section */
+        .crayon-word.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Story Section - Scrapbook Style */
         .story-section {
             padding: 5rem 2rem;
-            background-color: white;
+            background-color: var(--cream);
+            position: relative;
+            overflow: hidden;
         }
 
         .container {
@@ -235,6 +284,43 @@
             margin-bottom: 3rem;
             font-family: 'Playfair Display', serif;
             color: var(--pink);
+            position: relative;
+            display: inline-block;
+        }
+
+        .scrapbook-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(-1deg);
+            margin-bottom: 60px;
+            width: 94%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scrapbook-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            width: 40px;
+            height: 20px;
+            background-color: rgba(255, 111, 145, 0.3);
+            transform: rotate(-5deg);
+        }
+
+        .scrapbook-container::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 40px;
+            width: 50px;
+            height: 20px;
+            background-color: rgba(194, 239, 233, 0.5);
+            transform: rotate(3deg);
         }
 
         .story-content {
@@ -254,17 +340,48 @@
             margin-bottom: 2rem;
             font-size: 1.2rem;
             line-height: 1.8;
+            position: relative;
+        }
+
+        .story-paragraph:nth-child(2)::after {
+            content: '❤️';
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            font-size: 1.8rem;
+        }
+
+        .mission-container {
+            background-color: var(--mint);
+            border-radius: 12px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(1.5deg);
+            width: 92%;
+            margin: 80px auto;
+        }
+
+        .mission-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 60px;
+            width: 50px;
+            height: 25px;
+            background-color: rgba(255, 228, 151, 0.7);
+            transform: rotate(-3deg);
         }
 
         .mission-box {
-            background-color: var(--teal);
+            background-color: white;
             padding: 2rem;
             border-radius: 10px;
-            margin: 3rem 0;
             text-align: center;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease, transform 0.8s ease;
+            position: relative;
         }
 
         .mission-box.visible {
@@ -276,6 +393,42 @@
             font-family: 'Playfair Display', serif;
             color: var(--green);
             margin-bottom: 1rem;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: -5px;
+            right: -5px;
+            height: 10px;
+            background-color: rgba(255, 111, 145, 0.2);
+            z-index: -1;
+        }
+
+        .polaroid-container {
+            background-color: var(--light-pink);
+            padding: 40px;
+            border-radius: 12px;
+            position: relative;
+            transform: rotate(-1.5deg);
+            width: 95%;
+            margin: 80px auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .polaroid-container::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 40px;
+            width: 40px;
+            height: 20px;
+            background-color: rgba(194, 239, 233, 0.7);
+            transform: rotate(5deg);
         }
 
         .polaroid {
@@ -302,7 +455,20 @@
             font-size: 0.9rem;
         }
 
-        /* Pillars Section */
+        .polaroid::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            width: 30px;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,0 C5.373,0 0,5.373 0,12 C0,18.627 5.373,24 12,24 C18.627,24 24,18.627 24,12 C24,5.373 18.627,0 12,0 Z M12,22 C6.477,22 2,17.523 2,12 C2,6.477 6.477,2 12,2 C17.523,2 22,6.477 22,12 C22,17.523 17.523,22 12,22 Z" fill="%23ff6f91"/></svg>');
+            background-size: contain;
+            transform: rotate(5deg);
+            opacity: 0.8;
+        }
+
+        /* Pillars Section - NOT MODIFIED as requested */
         .pillars-section {
             padding: 5rem 0;
             position: relative;
@@ -445,10 +611,10 @@
             z-index: 1;
         }
 
-        /* Timeline Section */
+        /* Timeline Section - Scrapbook Style */
         .timeline-section {
-            padding: 5rem 0;
-            background-color: white;
+            padding: 5rem 2rem;
+            background-color: var(--fef9f0);
             overflow: hidden;
             position: relative;
         }
@@ -458,6 +624,36 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 3rem 1rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: rotate(1deg);
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 40px;
+            width: 50px;
+            height: 30px;
+            background-color: var(--purple);
+            opacity: 0.4;
+            transform: rotate(-5deg);
+            border-radius: 3px;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 60px;
+            width: 70px;
+            height: 30px;
+            background-color: var(--yellow);
+            opacity: 0.5;
+            transform: rotate(3deg);
+            border-radius: 3px;
         }
 
         .timeline-path {
@@ -523,6 +719,7 @@
             text-align: center;
             position: relative;
             transition: all 0.3s ease;
+            border: 2px solid #f0f0f0;
         }
 
         .timeline-event:hover .timeline-card {
@@ -563,6 +760,7 @@
             font-weight: 700;
             color: var(--pink);
             margin-bottom: 0.5rem;
+            font-family: 'Gloria Hallelujah', cursive;
         }
 
         .timeline-title {
@@ -581,7 +779,7 @@
             z-index: 3;
         }
 
-        /* Leaders Section */
+        /* Leaders Section - NOT MODIFIED as requested */
         .leaders-section {
             padding: 5rem 0;
             background-color: var(--cream);
@@ -746,7 +944,8 @@
             margin-top: 2rem;
         }
 
-        .book-btn {
+        /* Scrapbook Button Style */
+        .book-btn, .cta-btn, .scrapbook-btn {
             padding: 0.8rem 2rem;
             background-color: var(--light-pink);
             border: none;
@@ -757,19 +956,61 @@
             font-size: 1rem;
             color: var(--text-color);
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .book-btn:hover {
+        .book-btn::before, .cta-btn::before, .scrapbook-btn::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: repeating-linear-gradient(45deg, var(--light-pink), var(--light-pink) 5px, rgba(255,255,255,0.5) 5px, rgba(255,255,255,0.5) 10px);
+            border-radius: 32px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .book-btn:hover, .cta-btn:hover, .scrapbook-btn:hover {
             background-color: var(--pink);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transform: translateY(-3px) rotate(0.5deg);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15), 0 0 30px rgba(255, 111, 145, 0.3);
         }
 
-        /* Build Member Section */
+        .book-btn:hover::before, .cta-btn:hover::before, .scrapbook-btn:hover::before {
+            opacity: 0.3;
+        }
+
+        .book-btn:nth-child(1) {
+            background-color: var(--light-pink);
+        }
+
+        .book-btn:nth-child(2) {
+            background-color: var(--teal);
+        }
+
+        /* Build Member Section - Scrapbook Style */
         .build-section {
             padding: 5rem 0;
-            background-color: white;
+            background-color: var(--f9d1d9);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .build-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="%23fff" stroke-width="1" stroke-dasharray="5,5"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.2;
         }
 
         .build-container {
@@ -778,6 +1019,38 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transform: rotate(-1deg);
+        }
+
+        .build-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 40px;
+            width: 60px;
+            height: 25px;
+            background-color: var(--yellow);
+            opacity: 0.7;
+            transform: rotate(-5deg);
+            border-radius: 3px;
+        }
+
+        .build-container::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 50px;
+            width: 70px;
+            height: 25px;
+            background-color: var(--teal);
+            opacity: 0.7;
+            transform: rotate(3deg);
+            border-radius: 3px;
         }
 
         .silhouette-container {
@@ -790,6 +1063,7 @@
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="500" viewBox="0 0 300 500"><path d="M150,60 C180,60 200,80 200,110 C200,140 180,170 150,170 C120,170 100,140 100,110 C100,80 120,60 150,60 Z M100,180 L200,180 L200,320 C200,390 170,450 150,450 C130,450 100,390 100,320 Z" fill="%23e6e6e6"/></svg>');
             background-repeat: no-repeat;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 8px solid white;
         }
 
         .dragables-container {
@@ -820,6 +1094,7 @@
             font-size: 0.8rem;
             text-align: center;
             color: #999;
+            border: 2px dashed var(--light-pink);
         }
 
         .dragable-value {
@@ -829,10 +1104,11 @@
             color: var(--text-color);
             font-weight: 600;
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            font-family: 'Gloria Hallelujah', cursive;
         }
 
         .dragable:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotate(2deg);
         }
 
         .dragable-image:hover {
@@ -851,7 +1127,7 @@
             z-index: 100;
         }
 
-        /* CTA Section */
+        /* CTA Section - Scrapbook Style */
         .cta-section {
             padding: 5rem 2rem;
             background-color: var(--yellow);
@@ -895,6 +1171,35 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(1deg);
+        }
+
+        .cta-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50px;
+            width: 50px;
+            height: 20px;
+            background-color: var(--teal);
+            opacity: 0.7;
+            transform: rotate(-3deg);
+        }
+
+        .cta-content::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 40px;
+            width: 60px;
+            height: 20px;
+            background-color: var(--light-pink);
+            opacity: 0.7;
+            transform: rotate(5deg);
         }
 
         .cta-text {
@@ -911,31 +1216,142 @@
             flex-wrap: wrap;
         }
 
-        .cta-btn {
-            padding: 1.2rem 2.5rem;
+        /* Envelope Invitation Interaction */
+        .envelope-section {
+            padding: 5rem 0;
+            background-color: var(--e6f0e4);
+            text-align: center;
+            position: relative;
+        }
+
+        .envelope-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
             background-color: white;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light-pink);
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+            z-index: 1;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: var(--pink);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 75%, 0 100%);
+            transform-origin: top;
+            transition: transform 0.5s ease;
+            z-index: 3;
+        }
+
+        .invitation {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background-color: var(--cream);
+            transform: translateY(180px);
+            transition: transform 0.5s ease 0.2s;
+            z-index: 2;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .invitation-text {
+            font-family: 'Gloria Hallelujah', cursive;
+            font-size: 1.2rem;
             color: var(--text-color);
-            border: none;
-            border-radius: 30px;
-            font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            font-size: 1.1rem;
+            position: relative;
         }
 
-        .cta-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 0 30px rgba(255, 111, 145, 0.3);
+        .invitation-text::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
             background-color: var(--pink);
-            color: white;
+            transition: width 0.3s ease;
         }
 
-        /* Footer */
+        .invitation-text:hover {
+            color: var(--pink);
+        }
+
+        .invitation-text:hover::after {
+            width: 100%;
+        }
+
+        .envelope-container:hover .envelope-flap,
+        .envelope-container:focus .envelope-flap,
+        .envelope-container.active .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope-container:hover .invitation,
+        .envelope-container:focus .invitation,
+        .envelope-container.active .invitation {
+            transform: translateY(0);
+        }
+
+        .envelope-container:hover .envelope,
+        .envelope-container:focus .envelope,
+        .envelope-container.active .envelope {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        /* Footer - Scrapbook Style */
         footer {
             background-color: white;
             padding: 3rem 2rem;
             text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--pink), var(--teal), var(--yellow), var(--light-pink), var(--purple));
         }
 
         .footer-content {
@@ -948,6 +1364,9 @@
             height: 80px;
             border-radius: 50%;
             margin-bottom: 1rem;
+            border: 3px solid var(--light-pink);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            transform: rotate(-3deg);
         }
 
         .footer-links {
@@ -962,10 +1381,26 @@
             color: var(--text-color);
             text-decoration: none;
             transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--pink);
+            transition: width 0.3s ease;
         }
 
         .footer-link:hover {
             color: var(--pink);
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
         }
 
         .copyright {
@@ -990,6 +1425,11 @@
             
             .book-container {
                 height: 500px;
+            }
+
+            .envelope {
+                width: 250px;
+                height: 180px;
             }
         }
         
@@ -1035,6 +1475,11 @@
             
             .cta-buttons {
                 flex-direction: column;
+            }
+
+            .envelope {
+                width: 220px;
+                height: 160px;
             }
         }
     </style>
@@ -1088,29 +1533,36 @@
         </div>
     </section>
 
-    <!-- Story Section -->
+    <!-- Story Section - Scrapbook Style -->
     <section class="story-section">
         <div class="container">
             <h2 class="section-heading">The Heart Behind PAA</h2>
-            <div class="story-content" id="storyContent">
-                <p class="story-paragraph">PAA was created from a simple belief: every child deserves to be seen, heard, and supported. We are fueled by compassion, grounded in justice, and built on the truth that community care is our collective strength..</p>
-                <p class="story-paragraph">In PAA, we don't just advocate for pediatric health and equity; we build a community that chooses action, uplifts young lives, and stands alongside families who deserve better.</p>
-                <p class="story-paragraph">We are here to lead with heart, serve with purpose, and be a voice where it's needed most.</p>
+            
+            <div class="scrapbook-container">
+                <div class="story-content" id="storyContent">
+                    <p class="story-paragraph">PAA was created from a simple belief: every child deserves to be seen, heard, and supported. We are fueled by compassion, grounded in justice, and built on the truth that community care is our collective strength.</p>
+                    <p class="story-paragraph">In PAA, we don't just advocate for pediatric health and equity; we build a community that chooses action, uplifts young lives, and stands alongside families who deserve better.</p>
+                    <p class="story-paragraph">We are here to lead with heart, serve with purpose, and be a voice where it's needed most.</p>
+                </div>
             </div>
 
-            <div class="mission-box" id="missionBox">
-                <h3 class="mission-heading">Our Mission:</h3>
-                <p>The Pediatric Advocacy Alliance (PAA) is a student-led organization at Dominican University dedicated to advancing the health, rights, and well-being of children—especially those in underserved communities. Our mission is to promote pediatric equity through advocacy, education, and service. We empower students to take action on the issues affecting children and families by creating meaningful volunteer opportunities, raising awareness of systemic disparities, and collaborating with partners across healthcare, education, and social services. PAA exists to uplift young lives and inspire future leaders to care, serve, and advocate with purpose.</p>
+            <div class="mission-container">
+                <div class="mission-box" id="missionBox">
+                    <h3 class="mission-heading">Our Mission:</h3>
+                    <p>The Pediatric Advocacy Alliance (PAA) is a student-led organization at Dominican University dedicated to advancing the health, rights, and well-being of children—especially those in underserved communities. Our mission is to promote pediatric equity through advocacy, education, and service. We empower students to take action on the issues affecting children and families by creating meaningful volunteer opportunities, raising awareness of systemic disparities, and collaborating with partners across healthcare, education, and social services. PAA exists to uplift young lives and inspire future leaders to care, serve, and advocate with purpose.</p>
+                </div>
             </div>
 
-            <div class="polaroid">
-                <div class="polaroid-img"></div>
-                <p class="polaroid-caption">Advocating from the heart, 2024.</p>
+            <div class="polaroid-container">
+                <div class="polaroid">
+                    <div class="polaroid-img"></div>
+                    <p class="polaroid-caption">Advocating from the heart, 2024.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Pillars Section -->
+    <!-- Pillars Section - KEEPING AS IS -->
     <section class="pillars-section">
         <img src="SRH.png" alt="Sorority House" class="pillars-bg">
         <div class="house-base"></div>
@@ -1143,13 +1595,13 @@
                         <img src="/api/placeholder/40/40" alt="Action Icon">
                     </div>
                     <h3 class="pillar-title">Empowerment</h3>
-                    <div class="pillar-tooltip">Equipping students, children and families with the knowledge and tools to create positive, lasting change for children’s health and rights.</div>
+                    <div class="pillar-tooltip">Equipping students, children and families with the knowledge and tools to create positive, lasting change for children's health and rights.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Timeline Section -->
+    <!-- Timeline Section - Scrapbook Style -->
     <section class="timeline-section">
         <div class="container">
             <h2 class="section-heading">Our Journey</h2>
@@ -1166,7 +1618,7 @@
         </div>
     </section>
 
-    <!-- Leaders Section -->
+    <!-- Leaders Section - KEEPING AS IS -->
     <section class="leaders-section">
         <div class="container">
             <h2 class="section-heading">Meet Our Leaders</h2>
@@ -1182,7 +1634,7 @@
         </div>
     </section>
 
-    <!-- Build Member Section -->
+    <!-- Build Member Section - Scrapbook Style -->
     <section class="build-section">
         <div class="container">
             <h2 class="section-heading">Design the Perfect Board Member</h2>
@@ -1193,12 +1645,12 @@
                 <div class="dragables-container">
                     <div class="dragable" draggable="true" data-type="clothing">
                         <div class="dragable-image">
-                            <img src="dragable-image. PAA Sweater.png" alt="PAA Sweater">
+                            <img src="/api/placeholder/80/80" alt="PAA Sweater">
                         </div>
                     </div>
                     <div class="dragable" draggable="true" data-type="clothing">
                         <div class="dragable-image">
-                            <img src="dragable-image. PAA Sweatpants.png" alt="Sweatpants">
+                            <img src="/api/placeholder/80/80" alt="Sweatpants">
                         </div>
                     </div>
                     <div class="dragable" draggable="true" data-type="clothing">
@@ -1236,7 +1688,7 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section - Scrapbook Style -->
     <section class="cta-section">
         <div class="sticker" style="top: 10%; left: 10%;">
             <img src="/api/placeholder/40/40" alt="Sticker">
@@ -1261,6 +1713,21 @@
                     <a href="volunteer.html" class="cta-btn">Volunteer With PAA</a>
                     <a href="membership.html" class="cta-btn">Become a Member</a>
                     <a href="partnership.html" class="cta-btn">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Envelope Invitation Section -->
+    <section class="envelope-section">
+        <div class="container">
+            <div class="envelope-container" id="envelopeContainer">
+                <div class="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="invitation">
+                        <a href="join.html" class="invitation-text">Want to advocate with us?</a>
+                        <a href="contact.html" class="invitation-text">Let's connect.</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1366,319 +1833,335 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
             
-            // Check on scroll
-            window.addEventListener('scroll', checkScroll);
+    // Check on scroll
+    window.addEventListener('scroll', checkScroll);
             
-            // Initial check
-            checkScroll();
+    // Initial check
+    checkScroll();
             
-            // Pillar Tooltips
-            pillars.forEach(pillar => {
-                pillar.addEventListener('click', () => {
-                    if (pillar.classList.contains('active')) {
-                        pillar.classList.remove('active');
-                    } else {
-                        // Remove active class from all pillars
-                        pillars.forEach(p => p.classList.remove('active'));
-                        // Add active class to clicked pillar
-                        pillar.classList.add('active');
-                    }
-                });
-            });
-            
-            // Timeline Events
-            const timelineEvents = document.getElementById('timelineEvents');
-            const events = [
-                { 
-                    year: 'Fall 2024',
-                    title: 'Founded Pediatric Advocacy Alliance',
-                    position: { top: '20%', left: '5%' }
-                },
-                { 
-                    year: 'Winter 2025',
-                    title: 'Advocacy Training and Skill Building',
-                    position: { top: '40%', left: '23%' }
-                },
-                { 
-                    year: 'Winter 2025',
-                    title: 'Expanding Presence and Recognition',
-                    position: { top: '15%', left: '42%' }
-                },
-                { 
-                    year: 'Winter 2025',
-                    title: 'Partnered with Dominican Nursing for CBL',
-                    position: { top: '45%', left: '60%' }
-                },
-                { 
-                    year: 'Fall 2025',
-                    title: 'Expanding Efforts On and Off Campus',
-                    position: { top: '20%', left: '80%' }
-                }
-            ];
-            
-            events.forEach((event, index) => {
-                const eventElement = document.createElement('div');
-                eventElement.className = 'timeline-event';
-                eventElement.style.top = event.position.top;
-                eventElement.style.left = event.position.left;
-                eventElement.id = `event${index + 1}`;
-                
-                const pinPosition = index % 2 === 0 ? { bottom: '-10px', left: '50%' } : { top: '-10px', left: '50%' };
-                const doodlePosition = index % 2 === 0 ? { top: '-40px', right: '-20px' } : { bottom: '-40px', left: '-20px' };
-                
-                eventElement.innerHTML = `
-                    <div class="timeline-pin" style="transform: translate(-50%, 50%); ${Object.entries(pinPosition).map(([key, value]) => `${key}: ${value}`).join('; ')}"></div>
-                    <div class="timeline-card">
-                        <div class="timeline-tape timeline-tape-left"></div>
-                        <div class="timeline-tape timeline-tape-right"></div>
-                        <div class="timeline-year">${event.year}</div>
-                        <div class="timeline-title">${event.title}</div>
-                    </div>
-                    <div class="timeline-doodle" style="${Object.entries(doodlePosition).map(([key, value]) => `${key}: ${value}`).join('; ')}">
-                        <img src="/api/placeholder/50/50" alt="Timeline Doodle">
-                    </div>
-                `;
-                
-                timelineEvents.appendChild(eventElement);
-            });
-            
-            // Check timeline events visibility
-            const timelineEventElements = document.querySelectorAll('.timeline-event');
-            function checkTimelineScroll() {
-                timelineEventElements.forEach((event, index) => {
-                    if (isInViewport(event)) {
-                        setTimeout(() => {
-                            event.classList.add('visible');
-                        }, index * 300);
-                    }
-                });
+    // Pillar Tooltips
+    pillars.forEach(pillar => {
+        pillar.addEventListener('click', () => {
+            if (pillar.classList.contains('active')) {
+                pillar.classList.remove('active');
+            } else {
+                // Remove active class from all pillars
+                pillars.forEach(p => p.classList.remove('active'));
+                // Add active class to clicked pillar
+                pillar.classList.add('active');
             }
-            
-            window.addEventListener('scroll', checkTimelineScroll);
-            checkTimelineScroll();
-            
-            // Leaders Scrapbook
-            const leaderData = [
-                {
-                    name: 'Trinity Dallas',
-                    title: 'President',
-                    fact: 'Double majoring in Nursing and Business Management.',
-                    email: 'tdallas@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/trinity-dallas-662022220/'
-                },
-                {
-                    name: 'Harmony Perez',
-                    title: 'Vice President',
-                    fact: 'Experience in behavioral and molecular neuroscience research.',
-                    email: 'hperez1@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/harmony-perez-5a2373280/'
-                },
-                {
-                    name: 'Myles Waters',
-                    title: 'Treasurer',
-                    fact: 'Double majoring in Computer Information Systems and Black World Studies.',
-                    email: 'mwaters@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/myleswaters/'
-                },
-                {
-                    name: 'Elsy Hernandez Lozano',
-                    title: 'Secretary',
-                    fact: 'Biology major with minors in Chemistry and Sociology of Health.',
-                    email: 'ehernandezlozano@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/elsy-hernandez-lozano/'
-                },
-                {
-                    name: 'Daisy Tenemaza',
-                    title: 'Events Coordinator',
-                    fact: 'Double majoring in Biochemistry and Spanish.',
-                    email: 'dtenemaza@my.dom.edu',
-                    linkedin: ''
-                },
-                {
-                    name: 'Nataly Dominguez',
-                    title: 'Events Coordinator',
-                    fact: 'Nursing major with a passion for child health.',
-                    email: 'ndominguez3@my.dom.edu',
-                    linkedin: ''
-                },
-                {
-                    name: 'Samantha Acosta',
-                    title: 'Volunteer Coordinator',
-                    fact: 'Biochemistry major with experience as Patient Care Technician.',
-                    email: 'sacosta3@my.dom.edu',
-                    linkedin: ''
-                },
-                {
-                    name: 'Elizabeth John',
-                    title: 'Volunteer Coordinator',
-                    fact: 'Biology major with minors in Chemistry and Health Communication.',
-                    email: 'ejohn@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/elizabeth-john-812b23238/'
-                },
-                {
-                    name: 'Juliana Macias',
-                    title: 'Membership Engagement Chair',
-                    fact: 'Double majoring in Psychology and Social Work.',
-                    email: 'jmacias@my.dom.edu',
-                    linkedin: ''
-                },
-                {
-                    name: 'Lizbeth Lopez',
-                    title: 'Community Engagement Chair',
-                    fact: 'Junior Biochemistry Honors student on the Pre-Dental track.',
-                    email: 'llopez13@my.dom.edu',
-                    linkedin: 'https://www.linkedin.com/in/lizbeth-lopez-04ab622b4/'
-                },
-                {
-                    name: 'Open Position',
-                    title: 'Marketing & Communications',
-                    fact: 'We\'re looking for a creative, organized leader to join our team!',
-                    email: '',
-                    linkedin: ''
-                }
-            ];
-            
-            const leaderBook = document.getElementById('leaderBook');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            let currentPage = 0;
-            
-            // Create pages
-            leaderData.forEach((leader, index) => {
-                const page = document.createElement('div');
-                page.className = 'page';
-                page.style.zIndex = 100 - index;
-                page.style.transform = `rotateY(0deg)`;
-                
-                const pageContent = document.createElement('div');
-                pageContent.className = 'page-content';
-                
-                pageContent.innerHTML = `
-                    <div class="leader-polaroid">
-                        <div class="leader-photo"></div>
-                    </div>
-                    <div class="leader-name-container">
-                        <div class="leader-name" id="leaderName${index}">${leader.name}</div>
-                    </div>
-                    <div class="leader-title">${leader.title}</div>
-                    <div class="leader-fact-container">
-                        <div class="leader-fact">${leader.fact}</div>
-                    </div>
-                    <div class="leader-links">
-                        ${leader.email ? `<a href="mailto:${leader.email}" class="leader-link"><i class="fas fa-envelope"></i></a>` : ''}
-                        ${leader.linkedin ? `<a href="${leader.linkedin}" target="_blank" class="leader-link"><i class="fab fa-linkedin-in"></i></a>` : ''}
-                    </div>
-                `;
-                
-                page.appendChild(pageContent);
-                leaderBook.appendChild(page);
-            });
-            
-            // Get all pages
-            const pages = document.querySelectorAll('.page');
-            
-            // Update book display
-            function updateBook() {
-                pages.forEach((page, index) => {
-                    if (index < currentPage) {
-                        // Pages before current are turned to the left
-                        page.style.transform = 'rotateY(-180deg)';
-                    } else if (index === currentPage) {
-                        // Current page is in the process of turning
-                        page.style.transform = 'rotateY(0deg)';
-                        page.style.zIndex = 100 - index;
-                        
-                        // Animate name with handwriting effect
-                        const nameElement = document.getElementById(`leaderName${index}`);
-                        if (nameElement) {
-                            nameElement.style.opacity = '0';
-                            setTimeout(() => {
-                                nameElement.style.transition = 'opacity 0.8s ease';
-                                nameElement.style.opacity = '1';
-                            }, 500);
-                        }
-                    } else {
-                        // Pages after current are flat
-                        page.style.transform = 'rotateY(0deg)';
-                        page.style.zIndex = 100 - index;
-                    }
-                });
-            }
-            
-            // Next button
-            nextBtn.addEventListener('click', () => {
-                if (currentPage < pages.length - 1) {
-                    currentPage++;
-                    updateBook();
-                }
-            });
-            
-            // Previous button
-            prevBtn.addEventListener('click', () => {
-                if (currentPage > 0) {
-                    currentPage--;
-                    updateBook();
-                }
-            });
-            
-            // Initialize book
-            updateBook();
-            
-            // Animate first leader name
-            const firstNameElement = document.getElementById('leaderName0');
-            if (firstNameElement) {
-                setTimeout(() => {
-                    firstNameElement.style.transition = 'opacity 0.8s ease';
-                    firstNameElement.style.opacity = '1';
-                }, 1000);
-            }
-            
-            // Drag and Drop Functionality
-            const dragables = document.querySelectorAll('.dragable');
-            const silhouette = document.getElementById('silhouette');
-            
-            dragables.forEach(dragable => {
-                dragable.addEventListener('dragstart', (e) => {
-                    dragable.classList.add('dragging');
-                    e.dataTransfer.setData('text/plain', dragable.innerHTML);
-                    e.dataTransfer.setData('data-type', dragable.getAttribute('data-type'));
-                });
-                
-                dragable.addEventListener('dragend', () => {
-                    dragable.classList.remove('dragging');
-                });
-            });
-            
-            silhouette.addEventListener('dragover', (e) => {
-                e.preventDefault();
-            });
-            
-            silhouette.addEventListener('drop', (e) => {
-                e.preventDefault();
-                
-                const html = e.dataTransfer.getData('text/plain');
-                const type = e.dataTransfer.getData('data-type');
-                
-                const x = e.clientX - silhouette.getBoundingClientRect().left;
-                const y = e.clientY - silhouette.getBoundingClientRect().top;
-                
-                const item = document.createElement('div');
-                item.innerHTML = html;
-                item.style.position = 'absolute';
-                item.style.left = `${x - 40}px`;
-                item.style.top = `${y - 40}px`;
-                item.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
-                item.style.zIndex = '10';
-                
-                if (type === 'value') {
-                    item.querySelector('.dragable-value').style.boxShadow = '0 3px 8px rgba(0,0,0,0.2)';
-                } else {
-                    item.querySelector('.dragable-image').style.boxShadow = '0 3px 8px rgba(0,0,0,0.2)';
-                }
-                
-                silhouette.appendChild(item);
-            });
         });
-    </script>
+    });
+            
+    // Timeline Events
+    const timelineEvents = document.getElementById('timelineEvents');
+    const events = [
+        { 
+            year: 'Fall 2024',
+            title: 'Founded Pediatric Advocacy Alliance',
+            position: { top: '20%', left: '5%' }
+        },
+        { 
+            year: 'Winter 2025',
+            title: 'Advocacy Training and Skill Building',
+            position: { top: '40%', left: '23%' }
+        },
+        { 
+            year: 'Winter 2025',
+            title: 'Expanding Presence and Recognition',
+            position: { top: '15%', left: '42%' }
+        },
+        { 
+            year: 'Winter 2025',
+            title: 'Partnered with Dominican Nursing for CBL',
+            position: { top: '45%', left: '60%' }
+        },
+        { 
+            year: 'Fall 2025',
+            title: 'Expanding Efforts On and Off Campus',
+            position: { top: '20%', left: '80%' }
+        }
+    ];
+            
+    events.forEach((event, index) => {
+        const eventElement = document.createElement('div');
+        eventElement.className = 'timeline-event';
+        eventElement.style.top = event.position.top;
+        eventElement.style.left = event.position.left;
+        eventElement.id = `event${index + 1}`;
+                
+        const pinPosition = index % 2 === 0 ? { bottom: '-10px', left: '50%' } : { top: '-10px', left: '50%' };
+        const doodlePosition = index % 2 === 0 ? { top: '-40px', right: '-20px' } : { bottom: '-40px', left: '-20px' };
+                
+        eventElement.innerHTML = `
+            <div class="timeline-pin" style="transform: translate(-50%, 50%); ${Object.entries(pinPosition).map(([key, value]) => `${key}: ${value}`).join('; ')}"></div>
+            <div class="timeline-card">
+                <div class="timeline-tape timeline-tape-left"></div>
+                <div class="timeline-tape timeline-tape-right"></div>
+                <div class="timeline-year">${event.year}</div>
+                <div class="timeline-title">${event.title}</div>
+            </div>
+            <div class="timeline-doodle" style="${Object.entries(doodlePosition).map(([key, value]) => `${key}: ${value}`).join('; ')}">
+                <img src="/api/placeholder/50/50" alt="Timeline Doodle">
+            </div>
+        `;
+                
+        timelineEvents.appendChild(eventElement);
+    });
+            
+    // Check timeline events visibility
+    const timelineEventElements = document.querySelectorAll('.timeline-event');
+    function checkTimelineScroll() {
+        timelineEventElements.forEach((event, index) => {
+            if (isInViewport(event)) {
+                setTimeout(() => {
+                    event.classList.add('visible');
+                }, index * 300);
+            }
+        });
+    }
+            
+    window.addEventListener('scroll', checkTimelineScroll);
+    checkTimelineScroll();
+            
+    // Leaders Scrapbook
+    const leaderData = [
+        {
+            name: 'Trinity Dallas',
+            title: 'President',
+            fact: 'Double majoring in Nursing and Business Management.',
+            email: 'tdallas@my.dom.edu',
+            linkedin: 'https://www.linkedin.com/in/trinity-dallas-662022220/'
+        },
+        {
+            name: 'Harmony Perez',
+            title: 'Vice President',
+            fact: 'Experience in behavioral and molecular neuroscience research.',
+            email: 'hperez1@my.dom.edu',
+            linkedin: 'https://www.linkedin.com/in/harmony-perez-5a2373280/'
+        },
+        {
+            name: 'Myles Waters',
+            title: 'Treasurer',
+            fact: 'Double majoring in Computer Information Systems and Black World Studies.',
+            email: 'mwaters@my.dom.edu',
+            linkedin: 'https://www.linkedin.com/in/myleswaters/'
+        },
+        {
+            name: 'Elsy Hernandez Lozano',
+            title: 'Secretary',
+            fact: 'Biology major with minors in Chemistry and Sociology of Health.',
+            email: 'ehernandezlozano@my.dom.edu',
+            linkedin: 'https://www.linkedin.com/in/elsy-hernandez-lozano/'
+        },
+        {
+            name: 'Daisy Tenemaza',
+            title: 'Events Coordinator',
+            fact: 'Double majoring in Biochemistry and Spanish.',
+            email: 'dtenemaza@my.dom.edu',
+            linkedin: ''
+        },
+        {
+            name: 'Nataly Dominguez',
+            title: 'Events Coordinator',
+            fact: 'Nursing major with a passion for child health.',
+            email: 'ndominguez3@my.dom.edu',
+            linkedin: ''
+        },
+        {
+            name: 'Samantha Acosta',
+            title: 'Volunteer Coordinator',
+            fact: 'Biochemistry major with experience as Patient Care Technician.',
+            email: 'sacosta3@my.dom.edu',
+            linkedin: ''
+        },
+        {
+            name: 'Elizabeth John',
+            title: 'Volunteer Coordinator',
+            fact: 'Biology major with minors in Chemistry and Health Communication.',
+            email: 'ejohn@my.dom.edu',
+            linkedin: 'https://www.linkedin.com/in/elizabeth-john-812b23238/'
+        },
+        {
+            name: 'Juliana Macias',
+            title: 'Membership Engagement Chair',
+            fact: 'Double majoring in Psychology and Social Work.',
+            email: 'jmacias@my.dom.edu',
+            linkedin: ''
+        },
+        {
+            name: 'Lizbeth Lopez',
+            title: 'Community Engagement Chair',
+            fact: 'Junior Biochemistry Honors student on the Pre-Dental track.',
+            email: 'llopez13@my.dom.edu',
+            linkedin: 'https://www.linkedin.com/in/lizbeth-lopez-04ab622b4/'
+        },
+        {
+            name: 'Open Position',
+            title: 'Marketing & Communications',
+            fact: 'We\'re looking for a creative, organized leader to join our team!',
+            email: '',
+            linkedin: ''
+        }
+    ];
+            
+    const leaderBook = document.getElementById('leaderBook');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentPage = 0;
+            
+    // Create pages
+    leaderData.forEach((leader, index) => {
+        const page = document.createElement('div');
+        page.className = 'page';
+        page.style.zIndex = 100 - index;
+        page.style.transform = `rotateY(0deg)`;
+                
+        const pageContent = document.createElement('div');
+        pageContent.className = 'page-content';
+                
+        pageContent.innerHTML = `
+            <div class="leader-polaroid">
+                <div class="leader-photo"></div>
+            </div>
+            <div class="leader-name-container">
+                <div class="leader-name" id="leaderName${index}">${leader.name}</div>
+            </div>
+            <div class="leader-title">${leader.title}</div>
+            <div class="leader-fact-container">
+                <div class="leader-fact">${leader.fact}</div>
+            </div>
+            <div class="leader-links">
+                ${leader.email ? `<a href="mailto:${leader.email}" class="leader-link"><i class="fas fa-envelope"></i></a>` : ''}
+                ${leader.linkedin ? `<a href="${leader.linkedin}" target="_blank" class="leader-link"><i class="fab fa-linkedin-in"></i></a>` : ''}
+            </div>
+        `;
+                
+        page.appendChild(pageContent);
+        leaderBook.appendChild(page);
+    });
+            
+    // Get all pages
+    const pages = document.querySelectorAll('.page');
+            
+    // Update book display
+    function updateBook() {
+        pages.forEach((page, index) => {
+            if (index < currentPage) {
+                // Pages before current are turned to the left
+                page.style.transform = 'rotateY(-180deg)';
+            } else if (index === currentPage) {
+                // Current page is in the process of turning
+                page.style.transform = 'rotateY(0deg)';
+                page.style.zIndex = 100 - index;
+                        
+                // Animate name with handwriting effect
+                const nameElement = document.getElementById(`leaderName${index}`);
+                if (nameElement) {
+                    nameElement.style.opacity = '0';
+                    setTimeout(() => {
+                        nameElement.style.transition = 'opacity 0.8s ease';
+                        nameElement.style.opacity = '1';
+                    }, 500);
+                }
+            } else {
+                // Pages after current are flat
+                page.style.transform = 'rotateY(0deg)';
+                page.style.zIndex = 100 - index;
+            }
+        });
+    }
+            
+    // Next button
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < pages.length - 1) {
+            currentPage++;
+            updateBook();
+        }
+    });
+            
+    // Previous button
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 0) {
+            currentPage--;
+            updateBook();
+        }
+    });
+            
+    // Initialize book
+    updateBook();
+            
+    // Animate first leader name
+    const firstNameElement = document.getElementById('leaderName0');
+    if (firstNameElement) {
+        setTimeout(() => {
+            firstNameElement.style.transition = 'opacity 0.8s ease';
+            firstNameElement.style.opacity = '1';
+        }, 1000);
+    }
+            
+    // Drag and Drop Functionality
+    const dragables = document.querySelectorAll('.dragable');
+    const silhouette = document.getElementById('silhouette');
+            
+    dragables.forEach(dragable => {
+        dragable.addEventListener('dragstart', (e) => {
+            dragable.classList.add('dragging');
+            e.dataTransfer.setData('text/plain', dragable.innerHTML);
+            e.dataTransfer.setData('data-type', dragable.getAttribute('data-type'));
+        });
+                
+        dragable.addEventListener('dragend', () => {
+            dragable.classList.remove('dragging');
+        });
+    });
+            
+    silhouette.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
+            
+    silhouette.addEventListener('drop', (e) => {
+        e.preventDefault();
+                
+        const html = e.dataTransfer.getData('text/plain');
+        const type = e.dataTransfer.getData('data-type');
+                
+        const x = e.clientX - silhouette.getBoundingClientRect().left;
+        const y = e.clientY - silhouette.getBoundingClientRect().top;
+                
+        const item = document.createElement('div');
+        item.innerHTML = html;
+        item.style.position = 'absolute';
+        item.style.left = `${x - 40}px`;
+        item.style.top = `${y - 40}px`;
+        item.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
+        item.style.zIndex = '10';
+                
+        if (type === 'value') {
+            item.querySelector('.dragable-value').style.boxShadow = '0 3px 8px rgba(0,0,0,0.2)';
+        } else {
+            item.querySelector('.dragable-image').style.boxShadow = '0 3px 8px rgba(0,0,0,0.2)';
+        }
+                
+        silhouette.appendChild(item);
+    });
+
+    // Envelope Interaction
+    const envelopeContainer = document.getElementById('envelopeContainer');
+    
+    envelopeContainer.addEventListener('click', function() {
+        this.classList.toggle('active');
+    });
+
+    // Add hover effect to envelope for accessibility
+    envelopeContainer.addEventListener('mouseenter', function() {
+        this.classList.add('hover');
+    });
+
+    envelopeContainer.addEventListener('mouseleave', function() {
+        this.classList.remove('hover');
+    });
+});
+</script>
 </body>
 </html>
