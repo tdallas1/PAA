@@ -456,6 +456,7 @@
             position: relative;
             transition: var(--transition-medium);
             border: 2px dashed var(--baby-blue);
+            overflow: hidden;
         }
         
         .impact-card:hover {
@@ -479,6 +480,30 @@
         
         .impact-card:hover:before {
             opacity: 1;
+        }
+        
+        .impact-card:after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(209, 224, 246, 0.8);
+            animation: glow 2s infinite;
+            z-index: -1;
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.03);
+            }
         }
         
         @keyframes pulse {
@@ -1456,16 +1481,16 @@
             </div>
             <div class="impact-container">
                 <div class="impact-card reveal">
-                    <h3>300+</h3>
+                    <h3 class="count-up" data-target="300">0</h3>
                     <p>Volunteer Hours</p>
                 </div>
                 <div class="impact-card reveal">
-                    <h3>20</h3>
+                    <h3 class="count-up" data-target="20">0</h3>
                     <p>Community Events</p>
                 </div>
                 <div class="impact-card reveal">
-                    <h3>2</h3>
-                    <p>Active Chapters</p>
+                    <h3 class="count-up" data-target="2">0</h3>
+                    <p>University Chapters</p>
                 </div>
             </div>
         </div>
@@ -1748,6 +1773,7 @@
         
         // Reveal on Scroll
         const revealElements = document.querySelectorAll('.reveal');
+        let countersStarted = false;
         
         function revealOnScroll() {
             for (let i = 0; i < revealElements.length; i++) {
@@ -1757,8 +1783,48 @@
                 
                 if (elementTop < windowHeight - elementVisible) {
                     revealElements[i].classList.add('active');
+                    
+                    // Start counters when impact section appears
+                    if (!countersStarted && revealElements[i].closest('.impact-section')) {
+                        startCounters();
+                        countersStarted = true;
+                    }
                 }
             }
+        }
+        
+        // Counter Animation for Impact Section
+        function startCounters() {
+            const counters = document.querySelectorAll('.count-up');
+            const speed = 200; // The lower the value, the faster the animation
+            
+            counters.forEach(counter => {
+                const targetValue = +counter.getAttribute('data-target');
+                let currentValue = 0;
+                const increment = targetValue / speed;
+                
+                const updateCounter = () => {
+                    currentValue += increment;
+                    
+                    if (currentValue < targetValue) {
+                        // Display with no decimal places for integers
+                        counter.innerText = Math.floor(currentValue);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        // Make sure we end precisely at the target value
+                        counter.innerText = targetValue;
+                        
+                        // Add the '+' to the first counter after it's done counting
+                        if (targetValue === 300) {
+                            setTimeout(() => {
+                                counter.innerText = targetValue + '+';
+                            }, 300);
+                        }
+                    }
+                };
+                
+                requestAnimationFrame(updateCounter);
+            });
         }
         
         window.addEventListener('scroll', revealOnScroll);
