@@ -2040,6 +2040,619 @@
         
         // Create confetti when page loads
         createConfetti();
+
+        // Mobile Menu Toggle
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const nav = document.querySelector('nav');
+
+mobileMenuToggle.addEventListener('click', function() {
+    nav.classList.toggle('active');
+});
+
+// Month Tabs Navigation - ENHANCED VERSION
+const monthTabs = document.querySelectorAll('.month-tab');
+const calendarSections = document.querySelectorAll('.calendar-section');
+
+// Store current view mode for each month
+const viewModes = {
+    april: 'grid', may: 'grid', june: 'grid', july: 'grid',
+    august: 'grid', september: 'grid', october: 'grid',
+    november: 'grid', december: 'grid', january: 'grid',
+    february: 'grid', march: 'grid'
+};
+
+// Month data structure for calendar generation
+const calendarData = {
+    april: { startDay: 2, days: 30 },     // Tuesday start
+    may: { startDay: 4, days: 31 },       // Thursday start
+    june: { startDay: 0, days: 30 },      // Sunday start
+    july: { startDay: 2, days: 31 },      // Tuesday start
+    august: { startDay: 5, days: 31 },    // Friday start
+    september: { startDay: 1, days: 30 }, // Monday start
+    october: { startDay: 3, days: 31 },   // Wednesday start
+    november: { startDay: 6, days: 30 },  // Saturday start
+    december: { startDay: 1, days: 31 },  // Monday start
+    january: { startDay: 4, days: 31 },   // Thursday start
+    february: { startDay: 0, days: 28 },  // Sunday start
+    march: { startDay: 0, days: 31 }      // Sunday start
+};
+
+// Monthly themes
+const monthThemes = {
+    april: "Child Abuse Prevention",
+    may: "Mental Health Awareness",
+    june: "Summer Health & Safety",
+    july: "Childhood Enrichment",
+    august: "Back to School Wellness",
+    september: "Childhood Obesity Prevention",
+    october: "Bullying Prevention",
+    november: "Children's Health Month",
+    december: "Holiday Giving",
+    january: "New Year Resolutions",
+    february: "Heart Health",
+    march: "Nutrition Month"
+};
+
+// Function to generate calendar grid for a month
+function generateCalendarGrid(monthId) {
+    // Create month section if it doesn't exist
+    let section = document.getElementById(monthId);
+    if (!section) {
+        section = document.createElement('section');
+        section.id = monthId;
+        section.className = 'calendar-section';
+        section.style.display = 'none';
+        
+        // Add month header
+        const monthHeader = document.createElement('div');
+        monthHeader.className = 'month-header';
+        monthHeader.innerHTML = `
+            <h2 class="month-title">${monthId.charAt(0).toUpperCase() + monthId.slice(1)} 2025 
+                <span class="month-subtitle">${monthThemes[monthId]}</span>
+            </h2>
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="grid">Grid View</button>
+                <button class="view-btn" data-view="list">List View</button>
+            </div>
+        `;
+        
+        section.appendChild(monthHeader);
+        
+        // Add grid container
+        const calendarGrid = document.createElement('div');
+        calendarGrid.className = 'calendar-grid';
+        section.appendChild(calendarGrid);
+        
+        // Add list container
+        const eventList = document.createElement('div');
+        eventList.className = 'event-list';
+        eventList.style.display = 'none';
+        section.appendChild(eventList);
+        
+        // Add to page
+        const container = document.querySelector('main .container');
+        container.appendChild(section);
+    }
+    
+    const calendarGrid = section.querySelector('.calendar-grid');
+    calendarGrid.innerHTML = '';
+    
+    // Add weekday headers
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    weekdays.forEach(day => {
+        const header = document.createElement('div');
+        header.className = 'calendar-day-header';
+        header.textContent = day;
+        calendarGrid.appendChild(header);
+    });
+    
+    // Get month configuration
+    const config = calendarData[monthId];
+    
+    // Add previous month days
+    for (let i = 0; i < config.startDay; i++) {
+        const prevDay = document.createElement('div');
+        prevDay.className = 'calendar-day other-month';
+        prevDay.innerHTML = '<div class="day-number"></div>';
+        calendarGrid.appendChild(prevDay);
+    }
+    
+    // Add current month days
+    for (let day = 1; day <= config.days; day++) {
+        const dayCell = document.createElement('div');
+        dayCell.className = 'calendar-day';
+        dayCell.innerHTML = `<div class="day-number">${day}</div>`;
+        calendarGrid.appendChild(dayCell);
+    }
+    
+    // Add next month days
+    const totalCells = Math.ceil((config.startDay + config.days) / 7) * 7;
+    const nextMonthDays = totalCells - config.startDay - config.days;
+    
+    for (let i = 1; i <= nextMonthDays; i++) {
+        const nextDay = document.createElement('div');
+        nextDay.className = 'calendar-day other-month';
+        nextDay.innerHTML = `<div class="day-number">${i}</div>`;
+        calendarGrid.appendChild(nextDay);
+    }
+}
+
+// Function to generate list view for a month
+function generateListView(monthId) {
+    const section = document.getElementById(monthId);
+    const eventList = section.querySelector('.event-list');
+    
+    // If this is not April, create a placeholder event
+    if (monthId !== 'april') {
+        eventList.innerHTML = `
+            <div class="event-list-item">
+                <div class="event-date">
+                    <div class="event-date-day">15</div>
+                    <div class="event-date-month">${monthId.substring(0, 3).toUpperCase()}</div>
+                </div>
+                <div class="event-details">
+                    <h3 class="event-title">${monthThemes[monthId]} Event</h3>
+                    <div class="event-meta">
+                        <span><i class="far fa-clock"></i> Time TBD</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Location TBD</span>
+                        <span><i class="fas fa-tag"></i> Education</span>
+                    </div>
+                    <div class="event-description">
+                        Details for the ${monthThemes[monthId]} events will be announced soon. Check back for updates!
+                    </div>
+                    <div class="event-actions">
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// Enhanced month tab click handler
+monthTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        monthTabs.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        this.classList.add('active');
+        
+        // Get the month ID
+        const monthId = this.getAttribute('data-month');
+        
+        // Hide all calendar sections
+        calendarSections.forEach(section => {
+            section.style.display = 'none';
+        });
+        
+        // Get or create the month section
+        let monthSection = document.getElementById(monthId);
+        
+        // Generate calendar content if not April (April is pre-built in HTML)
+        if (monthId !== 'april' && (!monthSection || !monthSection.getAttribute('data-initialized'))) {
+            if (!monthSection) {
+                generateCalendarGrid(monthId);
+                generateListView(monthId);
+                monthSection = document.getElementById(monthId);
+            }
+            
+            // Set up view toggles for the new section
+            const viewBtns = monthSection.querySelectorAll('.view-btn');
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    handleViewToggle(monthId, this);
+                });
+            });
+            
+            monthSection.setAttribute('data-initialized', 'true');
+        }
+        
+        // Show the selected month section
+        monthSection.style.display = 'block';
+        
+        // Apply the correct view mode
+        updateViewMode(monthId, viewModes[monthId]);
+        
+        // Smooth scroll to the calendar section
+        monthSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+});
+
+// Enhanced view toggle functionality
+function handleViewToggle(monthId, button) {
+    const viewType = button.getAttribute('data-view');
+    const parentSection = document.getElementById(monthId);
+    
+    // Update button states
+    parentSection.querySelectorAll('.view-btn').forEach(b => {
+        b.classList.remove('active');
+    });
+    button.classList.add('active');
+    
+    // Store the view mode
+    viewModes[monthId] = viewType;
+    
+    // Update the view
+    updateViewMode(monthId, viewType);
+}
+
+// Function to update view mode display
+function updateViewMode(monthId, viewType) {
+    const section = document.getElementById(monthId);
+    const gridView = section.querySelector('.calendar-grid');
+    const listView = section.querySelector('.event-list');
+    
+    // Update button states
+    section.querySelectorAll('.view-btn').forEach(b => {
+        b.classList.remove('active');
+        if (b.getAttribute('data-view') === viewType) {
+            b.classList.add('active');
+        }
+    });
+    
+    // Toggle views
+    if (viewType === 'grid') {
+        gridView.style.display = 'grid';
+        listView.style.display = 'none';
+    } else {
+        gridView.style.display = 'none';
+        listView.style.display = 'block';
+    }
+}
+
+// Set up the view toggle buttons for April (which is in the HTML)
+document.querySelectorAll('#april .view-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        handleViewToggle('april', this);
+    });
+});
+
+// Event Modal Functionality (keep the existing code)
+const dayEvents = document.querySelectorAll('.day-event');
+const listEventBtns = document.querySelectorAll('.event-list .btn');
+const modalOverlay = document.querySelector('.event-modal-overlay');
+const eventModal = document.querySelector('.event-modal');
+const modalClose = document.querySelector('.modal-close');
+
+// Event data (would typically come from a database)
+const eventData = {
+    1: {
+        title: 'Child Abuse Prevention Month Begins',
+        date: 'April 1, 2025',
+        time: 'All Day',
+        location: 'Campus-wide',
+        description: 'Join us as we kick off Child Abuse Prevention Month with our campus-wide blue ribbon campaign. Throughout April, we'll host educational workshops and awareness events to support this important cause.',
+        tags: ['Awareness', 'Campus-wide']
+    },
+    2: {
+        title: 'Pediatric Advocacy Day: Action for Change',
+        date: 'April 10, 2025',
+        time: '9:00 AM - 3:00 PM',
+        location: 'Student Center',
+        description: 'A day dedicated to advocating for children's health and welfare policies. Learn advocacy skills, participate in letter-writing campaigns, and connect with local representatives who are making decisions that impact children's lives.',
+        tags: ['Advocacy', 'CBL Approved', 'Featured']
+    },
+    3: {
+        title: 'Board Application Closes',
+        date: 'April 11, 2025',
+        time: '11:59 PM',
+        location: 'Online',
+        description: 'Last day to submit your application to join the 2025-2026 PAA Executive Board. Make sure to complete all sections of the application and submit by 11:59 PM.',
+        tags: ['Deadline', 'Leadership']
+    },
+    4: {
+        title: 'Family Resource Day',
+        date: 'April 22, 2025',
+        time: '5:00 PM - 7:00 PM',
+        location: 'Elmwood Park Public Library',
+        description: 'This hands-on workshop is all about guiding families through the enrollment process for critical programs like Medicaid, SNAP, childcare assistance, and more. Together, we'll ensure families in our community have access to the support they need for brighter futures.',
+        tags: ['Education', 'CBL Approved', 'Community Outreach']
+    },
+    5: {
+        title: 'Sunshine & Service: Bundles of Joy Assembling',
+        date: 'April 22, 2025',
+        time: '3:00 PM - 4:15 PM',
+        location: 'The Grotto & Labyrinth, Dominican University',
+        description: 'Join us for a cozy spring afternoon as we gather to assemble our first round of Bundles of Joy! These are care packages for new and expecting mothers supported by PAA's donation drive. Bring a donation, enjoy some sunshine, and help us turn generous community donations into beautifully packed bundles full of love and essentials.',
+        tags: ['Volunteer', 'Donation', 'Service Hours']
+    },
+    6: {
+        title: '2025-2026 Board Member Reveal',
+        date: 'April 25, 2025',
+        time: '4:00 PM - 5:30 PM',
+        location: 'Parmer Hall, Room 108',
+        description: 'Join us for the exciting reveal of our new 2025-2026 Executive Board members! We'll introduce the team that will lead PAA in the coming year, celebrate our outgoing board's accomplishments, and share our vision for the future.',
+        tags: ['Social', 'Leadership', 'Celebration']
+    }
+};
+
+function openEventModal(eventId) {
+    const event = eventData[eventId];
+    if (!event) return;
+    
+    // Populate modal with event data
+    document.querySelector('.event-modal-header h3').textContent = event.title;
+    document.getElementById('modal-date').textContent = event.date;
+    document.getElementById('modal-time').textContent = event.time;
+    document.getElementById('modal-location').textContent = event.location;
+    document.querySelector('.event-modal-description').textContent = event.description;
+    
+    // Clear existing tags
+    const tagsContainer = document.querySelector('.event-modal-tags');
+    tagsContainer.innerHTML = '';
+    
+    // Add new tags
+    event.tags.forEach(tag => {
+        const tagElem = document.createElement('div');
+        tagElem.className = 'event-tag';
+        tagElem.textContent = tag;
+        tagsContainer.appendChild(tagElem);
+    });
+    
+    // Show modal with animation
+    modalOverlay.style.display = 'flex';
+    setTimeout(() => {
+        eventModal.classList.add('active');
+    }, 10);
+}
+
+function closeEventModal() {
+    eventModal.classList.remove('active');
+    setTimeout(() => {
+        modalOverlay.style.display = 'none';
+    }, 300);
+}
+
+// Event listeners for day events
+dayEvents.forEach(event => {
+    event.addEventListener('click', function() {
+        const eventId = this.getAttribute('data-event-id');
+        openEventModal(eventId);
+    });
+});
+
+// Event listeners for list view buttons
+listEventBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const eventId = this.getAttribute('data-event-id');
+        openEventModal(eventId);
+    });
+});
+
+// Close modal
+modalClose.addEventListener('click', closeEventModal);
+modalOverlay.addEventListener('click', function(e) {
+    if (e.target === modalOverlay) {
+        closeEventModal();
+    }
+});
+
+// Event Type Filtering
+const eventTypes = document.querySelectorAll('.event-type');
+
+eventTypes.forEach(type => {
+    type.addEventListener('click', function() {
+        // Update active status
+        eventTypes.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filterType = this.getAttribute('data-type');
+        
+        // Filter calendar events
+        const allEvents = document.querySelectorAll('.day-event');
+        
+        if (filterType === 'all') {
+            allEvents.forEach(event => {
+                event.style.display = 'block';
+            });
+        } else {
+            allEvents.forEach(event => {
+                if (event.classList.contains(filterType)) {
+                    event.style.display = 'block';
+                } else {
+                    event.style.display = 'none';
+                }
+            });
+        }
+    });
+});
+
+// Scroll reveal animation
+function revealOnScroll() {
+    const sections = document.querySelectorAll('.calendar-section, .highlight-section, .suggest-event-section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (sectionTop < windowHeight - 100) {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+// Apply initial styles for scroll reveal
+document.querySelectorAll('.calendar-section, .highlight-section, .suggest-event-section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+});
+
+// Add scroll event listener
+window.addEventListener('scroll', revealOnScroll);
+// Initial check on page load
+revealOnScroll();
+
+// Form Submission (placeholder)
+const suggestForm = document.querySelector('.suggest-form');
+
+suggestForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for your event suggestion! Our team will review it soon.');
+    this.reset();
+});
+
+// Add animated confetti
+function createConfetti() {
+    const highlightSection = document.querySelector('.highlight-section');
+    const colors = ['#f9d1d9', '#d1e0f6', '#fcf5d9', '#e6f0e4'];
+    
+    for (let i = 0; i < 20; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.width = Math.random() * 8 + 5 + 'px';
+        confetti.style.height = Math.random() * 8 + 5 + 'px';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 5 + 's';
+        confetti.style.animationDuration = Math.random() * 3 + 3 + 's';
+        
+        highlightSection.appendChild(confetti);
+    }
+}
+
+// Create confetti when page loads
+createConfetti();
+
+// PAA Rewind Section - Past Events Carousel Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded - initializing PAA Rewind');
+    
+    // Make sure the elements exist before trying to use them
+    if (!document.getElementById('prev-event-btn') || !document.getElementById('next-event-btn')) {
+        console.error('PAA Rewind buttons not found - possibly loading too early');
+        
+        // Try again after a short delay to ensure all elements are loaded
+        setTimeout(initPaaRewind, 500);
+    } else {
+        initPaaRewind();
+    }
+    
+    function initPaaRewind() {
+        // Sample past events data
+        const pastEvents = [
+            {
+                id: 1,
+                title: "Fall Donation Drive 2024",
+                date: "October 15, 2024",
+                description: "We collected over 500 items for local children in need, including warm clothing, books, and school supplies.",
+                image: "/api/placeholder/400/300"
+            },
+            {
+                id: 2,
+                title: "Community Health Fair",
+                date: "September 8, 2024",
+                description: "PAA volunteers provided health screenings and resources to over 200 families at our annual health fair.",
+                image: "/api/placeholder/400/300"
+            },
+            {
+                id: 3,
+                title: "Back to School Backpack Drive",
+                date: "August 20, 2024", 
+                description: "Thanks to your generosity, we provided 150 fully-stocked backpacks to children starting the school year!",
+                image: "/api/placeholder/400/300"
+            },
+            {
+                id: 4,
+                title: "Summer Reading Program",
+                date: "July 12, 2024",
+                description: "Our volunteers read to over 100 children at local libraries and distributed free books to promote literacy.",
+                image: "/api/placeholder/400/300"
+            }
+        ];
+
+        // Get DOM elements - with verification
+        const prevButton = document.getElementById('prev-event-btn');
+        const nextButton = document.getElementById('next-event-btn');
+        const eventImage = document.getElementById('event-image');
+        const eventTitle = document.getElementById('event-title');
+        const eventDate = document.getElementById('event-date');
+        const eventDescription = document.getElementById('event-description');
+        const currentEventCounter = document.getElementById('current-event');
+        const totalEventsCounter = document.getElementById('total-events');
+        
+        console.log('Prev button:', prevButton);
+        console.log('Next button:', nextButton);
+        
+        if (!prevButton || !nextButton) {
+            console.error('PAA Rewind navigation buttons not found!');
+            return;
+        }
+        
+        // Initialize current event index
+        let currentEventIndex = 0;
+        
+        // Update total events counter
+        if (totalEventsCounter) {
+            totalEventsCounter.textContent = pastEvents.length;
+        }
+        
+        // Function to display current event
+        function displayEvent(index) {
+            const event = pastEvents[index];
+            if (eventImage) eventImage.src = event.image;
+            if (eventImage) eventImage.alt = event.title;
+            if (eventTitle) eventTitle.textContent = event.title;
+            if (eventDate) eventDate.textContent = event.date;
+            if (eventDescription) eventDescription.textContent = event.description;
+            if (currentEventCounter) currentEventCounter.textContent = index + 1;
+            console.log('Displayed event #' + (index + 1));
+        }
+        
+        // Display initial event
+        displayEvent(currentEventIndex);
+        
+        // Previous event button click handler
+        prevButton.addEventListener('click', function(e) {
+            console.log('Previous button clicked');
+            e.preventDefault(); // Prevent default button behavior
+            
+            currentEventIndex = currentEventIndex === 0 ? 
+                pastEvents.length - 1 : currentEventIndex - 1;
+            
+            // Add a small press animation to the button
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+            
+            displayEvent(currentEventIndex);
+        });
+        
+        // Next event button click handler
+        nextButton.addEventListener('click', function(e) {
+            console.log('Next button clicked');
+            e.preventDefault(); // Prevent default button behavior
+            
+            currentEventIndex = currentEventIndex === pastEvents.length - 1 ? 
+                0 : currentEventIndex + 1;
+            
+            // Add a small press animation to the button
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+            
+            displayEvent(currentEventIndex);
+        });
+        
+        // Explicitly ensure buttons are clickable
+        prevButton.style.cursor = 'pointer';
+        nextButton.style.cursor = 'pointer';
+        prevButton.style.pointerEvents = 'auto';
+        nextButton.style.pointerEvents = 'auto';
+        prevButton.style.zIndex = '20';
+        nextButton.style.zIndex = '20';
+        
+       console.log('PAA Rewind initialization complete');
+    }
+});
         
 // PAA Rewind Section - Past Events Carousel Functionality
   document.addEventListener('DOMContentLoaded', function() {
