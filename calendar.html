@@ -2040,18 +2040,14 @@
         
         // Create confetti when page loads
         createConfetti();
+        
   // PAA Rewind Section - Past Events Carousel Functionality
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded - initializing PAA Rewind');
     
     // Make sure the elements exist before trying to use them
-    if (!document.getElementById('prev-event-btn') || !document.getElementById('next-event-btn')) {
-        console.error('PAA Rewind buttons not found - possibly loading too early');
-        
-        // Try again after a short delay to ensure all elements are loaded
-        setTimeout(initPaaRewind, 500);
-    } else {
-        initPaaRewind();
+    setTimeout(initPaaRewind, 200);
+    
     }
     
     function initPaaRewind() {
