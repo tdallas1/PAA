@@ -2040,118 +2040,139 @@
         
         // Create confetti when page loads
         createConfetti();
-        // PAA Rewind Section - Past Events Carousel Functionality
+  // PAA Rewind Section - Past Events Carousel Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Sample past events data
-    const pastEvents = [
-        {
-            id: 1,
-            title: "Fall Donation Drive 2024",
-            date: "October 15, 2024",
-            description: "We collected over 500 items for local children in need, including warm clothing, books, and school supplies.",
-            image: "/api/placeholder/400/300"
-        },
-        {
-            id: 2,
-            title: "Community Health Fair",
-            date: "September 8, 2024",
-            description: "PAA volunteers provided health screenings and resources to over 200 families at our annual health fair.",
-            image: "/api/placeholder/400/300"
-        },
-        {
-            id: 3,
-            title: "Back to School Backpack Drive",
-            date: "August 20, 2024", 
-            description: "Thanks to your generosity, we provided 150 fully-stocked backpacks to children starting the school year!",
-            image: "/api/placeholder/400/300"
-        },
-        {
-            id: 4,
-            title: "Summer Reading Program",
-            date: "July 12, 2024",
-            description: "Our volunteers read to over 100 children at local libraries and distributed free books to promote literacy.",
-            image: "/api/placeholder/400/300"
-        }
-    ];
-
-    // Get DOM elements
-    const prevButton = document.getElementById('prev-event-btn');
-    const nextButton = document.getElementById('next-event-btn');
-    const eventImage = document.getElementById('event-image');
-    const eventTitle = document.getElementById('event-title');
-    const eventDate = document.getElementById('event-date');
-    const eventDescription = document.getElementById('event-description');
-    const currentEventCounter = document.getElementById('current-event');
-    const totalEventsCounter = document.getElementById('total-events');
+    console.log('DOM loaded - initializing PAA Rewind');
     
-    // Initialize current event index
-    let currentEventIndex = 0;
-    
-    // Update total events counter
-    totalEventsCounter.textContent = pastEvents.length;
-    
-    // Function to display current event
-    function displayEvent(index) {
-        const event = pastEvents[index];
-        eventImage.src = event.image;
-        eventImage.alt = event.title;
-        eventTitle.textContent = event.title;
-        eventDate.textContent = event.date;
-        eventDescription.textContent = event.description;
-        currentEventCounter.textContent = index + 1;
+    // Make sure the elements exist before trying to use them
+    if (!document.getElementById('prev-event-btn') || !document.getElementById('next-event-btn')) {
+        console.error('PAA Rewind buttons not found - possibly loading too early');
+        
+        // Try again after a short delay to ensure all elements are loaded
+        setTimeout(initPaaRewind, 500);
+    } else {
+        initPaaRewind();
     }
     
-    // Display initial event
-    displayEvent(currentEventIndex);
-    
-    // Previous event button click handler
-    prevButton.addEventListener('click', function() {
-        currentEventIndex = currentEventIndex === 0 ? 
-            pastEvents.length - 1 : currentEventIndex - 1;
+    function initPaaRewind() {
+        // Sample past events data
+        const pastEvents = [
+            {
+                id: 1,
+                title: "Fall Donation Drive 2024",
+                date: "October 15, 2024",
+                description: "We collected over 500 items for local children in need, including warm clothing, books, and school supplies.",
+                image: "/api/placeholder/400/300"
+            },
+            {
+                id: 2,
+                title: "Community Health Fair",
+                date: "September 8, 2024",
+                description: "PAA volunteers provided health screenings and resources to over 200 families at our annual health fair.",
+                image: "/api/placeholder/400/300"
+            },
+            {
+                id: 3,
+                title: "Back to School Backpack Drive",
+                date: "August 20, 2024", 
+                description: "Thanks to your generosity, we provided 150 fully-stocked backpacks to children starting the school year!",
+                image: "/api/placeholder/400/300"
+            },
+            {
+                id: 4,
+                title: "Summer Reading Program",
+                date: "July 12, 2024",
+                description: "Our volunteers read to over 100 children at local libraries and distributed free books to promote literacy.",
+                image: "/api/placeholder/400/300"
+            }
+        ];
+
+        // Get DOM elements - with verification
+        const prevButton = document.getElementById('prev-event-btn');
+        const nextButton = document.getElementById('next-event-btn');
+        const eventImage = document.getElementById('event-image');
+        const eventTitle = document.getElementById('event-title');
+        const eventDate = document.getElementById('event-date');
+        const eventDescription = document.getElementById('event-description');
+        const currentEventCounter = document.getElementById('current-event');
+        const totalEventsCounter = document.getElementById('total-events');
         
-        // Add a small press animation to the button
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 100);
+        console.log('Prev button:', prevButton);
+        console.log('Next button:', nextButton);
         
-        displayEvent(currentEventIndex);
-    });
-    
-    // Next event button click handler
-    nextButton.addEventListener('click', function() {
-        currentEventIndex = currentEventIndex === pastEvents.length - 1 ? 
-            0 : currentEventIndex + 1;
-        
-        // Add a small press animation to the button
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 100);
-        
-        displayEvent(currentEventIndex);
-    });
-    
-    // Add keyboard navigation for accessibility
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
-            prevButton.click();
-        } else if (e.key === 'ArrowRight') {
-            nextButton.click();
+        if (!prevButton || !nextButton) {
+            console.error('PAA Rewind navigation buttons not found!');
+            return;
         }
-    });
-    
-    // Add hover effect to arrow buttons
-    [prevButton, nextButton].forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            this.style.color = '#000';
+        
+        // Initialize current event index
+        let currentEventIndex = 0;
+        
+        // Update total events counter
+        if (totalEventsCounter) {
+            totalEventsCounter.textContent = pastEvents.length;
+        }
+        
+        // Function to display current event
+        function displayEvent(index) {
+            const event = pastEvents[index];
+            if (eventImage) eventImage.src = event.image;
+            if (eventImage) eventImage.alt = event.title;
+            if (eventTitle) eventTitle.textContent = event.title;
+            if (eventDate) eventDate.textContent = event.date;
+            if (eventDescription) eventDescription.textContent = event.description;
+            if (currentEventCounter) currentEventCounter.textContent = index + 1;
+            console.log('Displayed event #' + (index + 1));
+        }
+        
+        // Display initial event
+        displayEvent(currentEventIndex);
+        
+        // Previous event button click handler
+        prevButton.addEventListener('click', function(e) {
+            console.log('Previous button clicked');
+            e.preventDefault(); // Prevent default button behavior
+            
+            currentEventIndex = currentEventIndex === 0 ? 
+                pastEvents.length - 1 : currentEventIndex - 1;
+            
+            // Add a small press animation to the button
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+            
+            displayEvent(currentEventIndex);
         });
         
-        button.addEventListener('mouseleave', function() {
-            this.style.color = '#444';
+        // Next event button click handler
+        nextButton.addEventListener('click', function(e) {
+            console.log('Next button clicked');
+            e.preventDefault(); // Prevent default button behavior
+            
+            currentEventIndex = currentEventIndex === pastEvents.length - 1 ? 
+                0 : currentEventIndex + 1;
+            
+            // Add a small press animation to the button
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+            
+            displayEvent(currentEventIndex);
         });
-    });
+        
+        // Explicitly ensure buttons are clickable
+        prevButton.style.cursor = 'pointer';
+        nextButton.style.cursor = 'pointer';
+        prevButton.style.pointerEvents = 'auto';
+        nextButton.style.pointerEvents = 'auto';
+        prevButton.style.zIndex = '20';
+        nextButton.style.zIndex = '20';
+        
+        console.log('PAA Rewind initialization complete');
+    }
 });
-    </script>
+<script>       
 </body>
 </html>
