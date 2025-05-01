@@ -1,1 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAA Programs & Pillars of Impact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Pinyon+Script&family=Bebas+Neue&family=Montserrat:wght@300;400;500&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --blush-pink: #ffd1dc;
+            --light-pink: #ffe6ea;
+            --soft-blue: #add8e6;
+            --light-blue: #d1e8f2;
+            --soft-yellow: #fff4bd;
+            --light-yellow: #fffae0;
+            --soft-lavender: #e6e6fa;
+            --light-lavender: #f1f1ff;
+            --mint-green: #c9f2d0;
+            --vanilla-cream: #f8f4e3;
+            --dark-text: #444444;
+            --gold: #d4af37;
+            --silver: #c0c0c0;
+            --shadow: 0 8px 20px rgba(0,0,0,0.1);
+            --glitter: 0 0 10px rgba(255,255,255,0.8);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--vanilla-cream);
+            color: var(--dark-text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' fill='%23ffd1dc' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .script-text {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.8rem;
+            font-weight: normal;
+        }
+
+        .calligraphy-text {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.4rem;
+        }
+
+        .greek-text {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Animation Keyframes */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shine {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes wiggle {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes slap {
+            0% { transform: translateY(-50px) rotate(-5deg); opacity: 0; }
+            60% { transform: translateY(10px) rotate(2deg); opacity: 1; }
+            100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes check {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        /* Decorative Elements */
+        .glitter-text {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitter-text::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            background-size: 200% 100%;
+            animation: shine 2s infinite;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255,255,255,0.8);
+            z-index: 10;
+            animation: sparkle 1.5s infinite;
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .stitched-edge {
+            position: relative;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .stitched-edge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px dashed rgba(0,0,0,0.1);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .pearl {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: inset -2px -2px 4px rgba(0,0,0,0.1), 0 0 5px rgba(255,255,255,0.8);
+        }
+
+        .stitched-heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--blush-pink);
+            transform: rotate(-45deg);
+            border: 1px dashed rgba(0,0,0,0.1);
+        }
+
+        .stitched-heart::before, .stitched-heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--blush-pink);
+            border-radius: 50%;
+            border: 1px dashed rgba(0,0,0,0.1);
+        }
+
+        .stitched-heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .stitched-heart::after {
+            top: 0;
+            left: -10px;
+        }
+
+        .pennant {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: var(--soft-blue);
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--soft-lavender);
+            opacity: 0.6;
+            transform: rotate(var(--rotate, 45deg));
+        }
+
+        /* Section 1: Hero (Entryway to the Mansion) */
+        .hero-section {
+            position: relative;
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--light-pink), var(--blush-pink));
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 30%, var(--light-pink) 10px, transparent 10px),
+                radial-gradient(circle at 70% 70%, var(--light-pink) 10px, transparent 10px),
+                radial-gradient(circle at 30% 70%, var(--light-pink) 10px, transparent 10px),
+                radial-gradient(circle at 70% 30%, var(--light-pink) 10px, transparent 10px);
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        .hero-crest {
+            width: 200px;
+            height: 250px;
+            background: linear-gradient(to right, var(--light-blue), var(--light-lavender));
+            border-radius: 60% 60% 40% 40% / 70% 70% 30% 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 5px solid white;
+            box-shadow: var(--shadow);
+            margin-left: 40px;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeInUp 1s 0.5s forwards;
+        }
+
+        .hero-crest::before {
+            content: 'PAA';
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--dark-text);
+        }
+
+        .hero-button {
+            background: white;
+            color: var(--dark-text);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-button::after {
+            content: '✨';
+            margin-left: 8px;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Section 2: Our Three Pillars - NEW DESIGN */
+        .pillars-section {
+            padding: 80px 0 40px;
+            position: relative;
+        }
+
+        .pillars-banners {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .pillar-crest {
+            width: 250px;
+            height: 350px;
+            background: white;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .pillar-crest.visible {
+            opacity: 1;
+            transform: translateY(0) rotate(var(--rotate, 0deg));
+        }
+
+        .pillar-crest-education {
+            --rotate: -2deg;
+            background: linear-gradient(to bottom, white 80%, var(--light-blue));
+        }
+
+        .pillar-crest-service {
+            --rotate: 2deg;
+            background: linear-gradient(to bottom, white 80%, var(--blush-pink));
+            transition-delay: 0.2s;
+        }
+        
+        .pillar-crest-advocacy {
+            --rotate: -1deg;
+            background: linear-gradient(to bottom, white 80%, var(--soft-yellow));
+            transition-delay: 0.4s;
+        }
+
+        .pillar-shield {
+            width: 180px;
+            height: 200px;
+            background: var(--light-lavender);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .pillar-shield-education {
+            background: linear-gradient(to bottom, var(--light-blue), var(--soft-blue));
+        }
+
+        .pillar-shield-service {
+            background: linear-gradient(to bottom, var(--light-pink), var(--blush-pink));
+        }
+
+        .pillar-shield-advocacy {
+            background: linear-gradient(to bottom, var(--light-yellow), var(--soft-yellow));
+        }
+
+        .pillar-shield::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+            border: 2px dashed rgba(255, 255, 255, 0.6);
+        }
+
+        .pillar-icon {
+            font-size: 4rem;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.8));
+            transition: transform 0.3s ease;
+        }
+
+        .pillar-crest:hover .pillar-icon {
+            transform: scale(1.1);
+        }
+
+        .pillar-title {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2rem;
+            margin: 15px 0 10px;
+            color: var(--dark-text);
+        }
+
+        .pillar-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            max-width: 200px;
+        }
+
+        /* Section 3: CBL Nursing Hub Portal - NEW DESIGN */
+        .cbl-section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .cbl-container {
+            background: var(--light-lavender);
+            border-radius: 20px;
+            padding: 50px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cbl-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .cbl-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .cbl-memo {
+            width: 280px;
+            height: auto;
+            background: white;
+            padding: 30px 25px;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: var(--shadow);
+            transform: rotate(-2deg);
+            z-index: 2;
+            opacity: 0;
+            animation: slap 0.8s forwards 0.5s;
+        }
+
+        .cbl-memo::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 20px;
+            width: 50px;
+            height: 16px;
+            background: #FFC107;
+            border-radius: 3px;
+            transform: rotate(-2deg);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: -1;
+        }
+
+        .cbl-checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .cbl-checklist li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-family: 'Sacramento', cursive;
+            font-size: 1.4rem;
+        }
+
+        .cbl-checklist li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--dark-text);
+            border-radius: 4px;
+        }
+
+        .cbl-checklist li.checked::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 9px;
+            width: 0;
+            height: 10px;
+            border-bottom: 3px solid var(--blush-pink);
+            border-right: 3px solid var(--blush-pink);
+            transform: rotate(45deg);
+            animation: check 0.5s forwards;
+            animation-delay: var(--delay, 1s);
+        }
+
+        .cbl-planner {
+            width: 200px;
+            height: 250px;
+            background: linear-gradient(to bottom, var(--mint-green), var(--light-blue));
+            border-radius: 10px 30px 30px 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transform: rotate(3deg);
+            opacity: 0;
+            animation: slap 0.8s forwards 0.8s;
+        }
+
+        .cbl-planner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 30px;
+            background: rgba(255,255,255,0.3);
+            border-left: 2px dashed rgba(0,0,0,0.1);
+        }
+
+        .cbl-planner-tab {
+            position: absolute;
+            top: 40px;
+            right: -5px;
+            width: 40px;
+            height: 80px;
+            background: var(--blush-pink);
+            border-radius: 5px 0 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-90deg);
+            transform-origin: right center;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cbl-planner-tab:hover {
+            transform: rotate(-90deg) translateX(-5px);
+            box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+        }
+
+        .cbl-planner-tab span {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            color: var(--dark-text);
+            font-size: 1.2rem;
+            transform: rotate(180deg);
+        }
+
+        /* Section 4: Signature Programs - NEW DESIGN */
+        .programs-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .featured-program {
+            background: var(--vanilla-cream);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .featured-program.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .featured-program-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background: var(--light-pink);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .featured-program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-image-tape {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background: rgba(255,255,255,0.6);
+            transform: rotate(var(--rotate, -45deg));
+        }
+
+        .featured-program-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background: var(--blush-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.9rem;
+            color: var(--dark-text);
+            line-height: 1;
+            text-align: center;
+            padding: 5px;
+            box-shadow: var(--shadow);
+            transform: rotate(15deg);
+        }
+
+        .featured-program-title {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-text);
+        }
+
+        .featured-program-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .featured-program-button {
+            display: inline-block;
+            background: var(--blush-pink);
+            color: var(--dark-text);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .featured-program-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .program-poster {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.6s ease;
+            overflow: hidden;
+        }
+
+        .program-poster.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .program-poster::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: var(--light-pink);
+        }
+
+        .program-poster:nth-child(2)::after {
+            background: var(--light-blue);
+        }
+
+        .program-poster:nth-child(3)::after {
+            background: var(--light-yellow);
+        }
+
+        .program-poster:nth-child(4)::after {
+            background: var(--light-lavender);
+        }
+
+        .program-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--light-pink);
+            transform: translate(15px, -15px) rotate(45deg);
+        }
+
+        .program-poster:nth-child(2) .program-corner {
+            background: var(--light-blue);
+        }
+
+        .program-poster:nth-child(3) .program-corner {
+            background: var(--light-yellow);
+        }
+
+        .program-poster:nth-child(4) .program-corner {
+            background: var(--light-lavender);
+        }
+
+        .program-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            z-index: 2;
+        }
+
+        .program-poster-icon {
+            font-size: 3rem;
+            margin: 20px 0;
+        }
+
+        .program-poster-title {
+            font-family: 'Sacramento', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+
+        .program-poster-text {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .program-poster-button {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--dark-text);
+            color: var(--dark-text);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .program-poster-button:hover {
+            background: var(--dark-text);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Section 5: Our House Values - NEW DESIGN */
+        .values-section {
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .values-ribbon {
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(90deg, var(--blush-pink), var(--soft-blue), var(--blush-pink));
+            position: relative;
+            overflow: hidden;
+            border-radius: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .values-ribbon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(0deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.2) 75%, rgba(255,255,255,0.2));
+            background-size: 20px 20px;
+            opacity: 0.5;
+        }
+
+        .values-sash {
+            display: flex;
+            align-items: center;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+            height: 100%;
+            padding: 0 20px;
+        }
+
+        .values-sash-duplicate {
+            display: flex;
+            align-items: center;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            padding: 0 20px;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            margin: 0 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark-text);
+        }
+
+        .value-icon {
+            margin-left: 15px;
+            font-size: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .value-divider {
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stitched-star {
+            width: 20px;
+            height: 20px;
+            background: white;
+            position: relative;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header/Footer Placeholders */
+        .header-placeholder, .footer-placeholder {
+            background-color: var(--vanilla-cream);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+            box-shadow: var(--shadow);
+            color: var(--dark-text);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 30px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                min-width: 100%;
+            }
+
+            .hero-crest {
+                margin: 40px auto 0;
+            }
+
+            .pillars-banners {
+                gap: 50px;
+            }
+
+            .cbl-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+            }
+
+            .featured-program {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .featured-program-image {
+                min-width: 100%;
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Placeholder -->
+        <div class="header-placeholder">
+            <p>PAA Navigation Header</p>
+        </div>
+
+        <!-- Section 1: Hero (Entryway to the Mansion) -->
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1>PAA Programs & <span class="glitter-text">Pillars of Impact</span></h1>
+                <p>What we do, who we serve, and how we show up — together.</p>
+                <a href="#pillars-section" class="hero-button">Explore Our Work</a>
+            </div>
+            <div class="hero-crest"></div>
+
+            <!-- Decorative Elements -->
+            <div class="pearl floating" style="top: 30px; left: 80px;"></div>
+            <div class="pearl floating" style="top: 50px; left: 150px; animation-delay: 1s;"></div>
+            <div class="pearl floating" style="top: 80px; left: 40px; animation-delay: 2s;"></div>
+            
+            <div class="pearl floating" style="bottom: 50px; right: 120px; animation-delay: 0.5s;"></div>
+            <div class="pearl floating" style="bottom: 80px; right: 60px; animation-delay: 1.5s;"></div>
+            <div class="pearl floating" style="bottom: 40px; right: 200px; animation-delay: 2.5s;"></div>
+            
+            <div class="stitched-heart" style="top: 100px; right: 200px;"></div>
+            <div class="stitched-heart" style="bottom: 120px; left: 180px;"></div>
+            
+            <div class="pennant" style="top: 60px; right: 60px;">P</div>
+            <div class="pennant" style="bottom: 80px; left: 60px;">A</div>
+            
+            <div class="confetti" style="top: 20%; left: 30%; --rotate: 15deg;"></div>
+            <div class="confetti" style="top: 40%; right: 25%; --rotate: 30deg;"></div>
+            <div class="confetti" style="bottom: 30%; left: 25%; --rotate: 60deg;"></div>
+            <div class="confetti" style="bottom: 50%; right: 35%; --rotate: 45deg;"></div>
+            
+            <div class="sparkle" style="top: 20%; left: 40%; animation-delay: 0.5s;"></div>
+            <div class="sparkle" style="top: 40%; right: 20%; animation-delay: 1s;"></div>
+            <div class="sparkle" style="bottom: 30%; left: 35%; animation-delay: 1.5s;"></div>
+        </section>
+
+        <!-- Section 2: Our Three Pillars - NEW CREST STYLE DESIGN -->
+        <section id="pillars-section" class="pillars-section">
+            <h2 style="text-align: center;">Our Three Pillars</h2>
+            
+            <div class="pillars-banners">
+                <!-- Education Pillar -->
+                <div class="pillar-crest pillar-crest-education" id="crest1">
+                    <div class="pillar-shield pillar-shield-education">
+                        <div class="pillar-icon">📚</div>
+                    </div>
+                    <h3 class="pillar-title">Education</h3>
+                    <p class="pillar-text">Workshops, classes, & resources</p>
+                </div>
+                
+                <!-- Service Pillar -->
+                <div class="pillar-crest pillar-crest-service" id="crest2">
+                    <div class="pillar-shield pillar-shield-service">
+                        <div class="pillar-icon">🩺</div>
+                    </div>
+                    <h3 class="pillar-title">Service</h3>
+                    <p class="pillar-text">Volunteering and direct support</p>
+                </div>
+                
+                <!-- Advocacy Pillar -->
+                <div class="pillar-crest pillar-crest-advocacy" id="crest3">
+                    <div class="pillar-shield pillar-shield-advocacy">
+                        <div class="pillar-icon">📣</div>
+                    </div>
+                    <h3 class="pillar-title">Advocacy</h3>
+                    <p class="pillar-text">Campaigns, outreach, and change</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: CBL Nursing Hub Portal - PINBOARD/CLIPBOARD STYLE -->
+        <section class="cbl-section">
+            <h2 style="text-align: center;">CBL Nursing Hub</h2>
+            
+            <div class="cbl-container">
+                <div class="cbl-memo" id="cbl-memo">
+                    <h3 class="calligraphy-text" style="text-align: center; margin-bottom: 20px;">CBL Sisters</h3>
+                    <ul class="cbl-checklist">
+                        <li class="checked" style="--delay: 1.2s;">Track hours</li>
+                        <li class="checked" style="--delay: 1.6s;">Find placements</li>
+                        <li class="checked" style="--delay: 2s;">Explore service</li>
+                    </ul>
+                </div>
+                
+                <div class="cbl-planner" id="cbl-planner">
+                    <a href="#" class="cbl-planner-tab">
+                        <span>OPEN HUB</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Signature Programs - NEW FEATURED + POSTERS DESIGN -->
+        <section class="programs-section">
+            <h2 style="text-align: center;">Signature Programs</h2>
+            
+            <!-- Featured Program -->
+            <div class="featured-program" id="featured-program">
+                <div class="featured-program-image">
+                    <img src="/api/placeholder/400/320" alt="Bundles of Joy Program">
+                    <div class="featured-image-tape" style="top: 10px; left: -20px; --rotate: -45deg;"></div>
+                    <div class="featured-image-tape" style="bottom: 10px; right: -20px; --rotate: 45deg;"></div>
+                </div>
+                
+                <div class="featured-program-content">
+                    <div class="featured-badge">CBL Approved</div>
+                    <h3 class="featured-program-title">Bundles of Joy</h3>
+                    <p class="featured-program-text">Our flagship initiative providing care packages with diapers, baby essentials, and support resources for new mothers in underserved communities. Through partnerships with local hospitals, we ensure families have what they need during those critical first weeks at home.</p>
+                    <a href="#" class="featured-program-button">JOIN THIS PROGRAM</a>
+                </div>
+            </div>
+            
+            <!-- Program Posters Grid -->
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <div class="program-poster" id="poster1" style="transition-delay: 0.2s;">
+                    <div class="program-corner"></div>
+                    <div class="program-badge">For Schools</div>
+                    <div class="program-poster-icon">📚</div>
+                    <h3 class="program-poster-title">Literacy Project</h3>
+                    <p class="program-poster-text">Book donations, reading events, and literacy support for children in pediatric care.</p>
+                    <a href="#" class="program-poster-button">LEARN MORE</a>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="program-poster" id="poster2" style="transition-delay: 0.4s;">
+                    <div class="program-corner"></div>
+                    <div class="program-badge">For Students</div>
+                    <div class="program-poster-icon">🩹</div>
+                    <h3 class="program-poster-title">First Aid Workshops</h3>
+                    <p class="program-poster-text">Basic care classes for students and families to build essential health skills.</p>
+                    <a href="#" class="program-poster-button">LEARN MORE</a>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="program-poster" id="poster3" style="transition-delay: 0.6s;">
+                    <div class="program-corner"></div>
+                    <div class="program-badge">Annual Event</div>
+                    <div class="program-poster-icon">🗣️</div>
+                    <h3 class="program-poster-title">Advocacy Day</h3>
+                    <p class="program-poster-text">Our annual policy action event bringing pediatric health issues to lawmakers.</p>
+                    <a href="#" class="program-poster-button">LEARN MORE</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Our House Values - NEW RIBBON SASH DESIGN -->
+        <section class="values-section">
+            <h2 style="text-align: center;">Our House Values</h2>
+            
+            <div class="values-ribbon">
+                <div class="values-sash">
+                    <div class="value-item">SISTERHOOD <span class="value-icon">🌟</span></div>
+                    <div class="value-divider"><div class="stitched-star"></div></div>
+                    
+                    <div class="value-item">GENEROSITY <span class="value-icon">🩷</span></div>
+                    <div class="value-divider"><div class="stitched-star"></div></div>
+                    
+                    <div class="value-item">ADVOCACY <span class="value-icon">✨</span></div>
+                    <div class="value-divider"><div class="stitched-star"></div></div>
+                    
+                    <div class="value-item">LEADERSHIP <span class="value-icon">⭐</span></div>
+                    <div class="value-divider"><div class="stitched-star"></div></div>
+                    
+                    <div class="value-item">COMMUNITY <span class="value-icon">💫</span></div>
+                </div>
+                
+                <div class="values-sash-duplicate">
+                    <div class="value-item">SISTERHOOD <span class="value-icon">🌟</span></div>
+                    <div class="value-divider"><div class="stitched-star"></div></div>
+                    
+                    <div class="value-item">GENEROSITY <span class="value-icon">🩷</span></div>
+                    <div class="value-divider"><div class="stitched-star"></div></div>
+                    
+                    <div class="value-item">ADVOCACY <span class="value-icon">✨</span></div>
+                    <div class="value-divider"><div class="stitched-star"></div></div>
+                    
+                    <div class="value-item">LEADERSHIP <span class="value-icon">⭐</span></div>
+                    <div class="value-divider"><div class="stitched-star"></div></div>
+                    
+                    <div class="value-item">COMMUNITY <span class="value-icon">💫</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Placeholder -->
+        <div class="footer-placeholder">
+            <p>PAA Footer</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+            
+            // Observe pillar crests
+            document.querySelectorAll('.pillar-crest').forEach(crest => {
+                observer.observe(crest);
+            });
+            
+            // Observe program posters
+            document.querySelectorAll('.program-poster').forEach(poster => {
+                observer.observe(poster);
+            });
+            
+            // Observe featured program
+            observer.observe(document.getElementById('featured-program'));
+            
+            // Add shine effect to featured badge
+            const featuredBadge = document.querySelector('.featured-badge');
+            if (featuredBadge) {
+                featuredBadge.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 15px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5)';
+                });
+                
+                featuredBadge.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'var(--shadow)';
+                });
+            }
+            
+            // Add rotation animation to crests
+            document.querySelectorAll('.pillar-crest').forEach(crest => {
+                crest.addEventListener('mouseenter', function() {
+                    const currentRotation = window.getComputedStyle(this).getPropertyValue('--rotate');
+                    const newRotation = currentRotation === '0deg' ? '2deg' : 
+                                       currentRotation === '2deg' ? '-2deg' : 
+                                       currentRotation === '-2deg' ? '1deg' : 
+                                       currentRotation === '-1deg' ? '1deg' : '0deg';
+                    
+                    this.style.transform = `translateY(0) rotate(${newRotation})`;
+                    this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
+                });
+                
+                crest.addEventListener('mouseleave', function() {
+                    const originalRotation = this.classList.contains('pillar-crest-education') ? '-2deg' :
+                                            this.classList.contains('pillar-crest-service') ? '2deg' :
+                                            this.classList.contains('pillar-crest-advocacy') ? '-1deg' : '0deg';
+                    
+                    this.style.transform = `translateY(0) rotate(${originalRotation})`;
+                    this.style.boxShadow = 'var(--shadow)';
+                });
+            });
+            
+            // Add subtle bounce to program posters
+            document.querySelectorAll('.program-poster').forEach(poster => {
+                poster.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
+                });
+                
+                poster.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'var(--shadow)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
