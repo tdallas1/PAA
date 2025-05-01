@@ -1522,6 +1522,85 @@ nav a:hover::before {
     transition: all 0.3s ease;
 }
 
+        .leader-fact-container {
+    margin-bottom: 5rem; /* Significantly increase bottom margin */
+}
+
+/* Position links at fixed distance from bottom */
+.leader-links {
+    position: absolute;
+    bottom: 2rem; /* Fixed position from bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    display: flex;
+    gap: 2rem;
+    z-index: 5;
+    width: auto; /* Let it size to content */
+}
+
+/* Make sure page content has room for buttons */
+.page-content {
+    padding-bottom: 7rem; /* Ensure there's always room for buttons */
+    position: relative; /* For absolute positioning of buttons */
+}
+
+/* Add extra styles to make buttons more visible */
+.leader-link {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.leader-link:hover {
+    transform: translateY(-5px);
+    border-color: white;
+}
+
+/* Email button style */
+.leader-link:nth-child(1) {
+    background-color: var(--light-pink);
+}
+
+.leader-link:nth-child(1):hover {
+    background-color: var(--pink);
+    color: white;
+}
+
+/* LinkedIn button style */
+.leader-link:nth-child(2) {
+    background-color: var(--teal);
+}
+
+.leader-link:nth-child(2):hover {
+    background-color: var(--vibrant-teal);
+    color: white;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .leader-fact-container {
+        margin-bottom: 4.5rem;
+    }
+    
+    .page-content {
+        padding-bottom: 6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .leader-fact-container {
+        margin-bottom: 4rem;
+    }
+    
+    .leader-links {
+        bottom: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .page-content {
+        padding-bottom: 5rem;
+    }
+}
 .leader-fact-container {
     background-color: var(--yellow);
     padding: 1.8rem;
@@ -3526,6 +3605,32 @@ document.addEventListener('DOMContentLoaded', function() {
     checkTimelineScroll();
             
     // Leaders Scrapbook
+    function updateBook() {
+    pages.forEach((page, index) => {
+        if (index < currentPage) {
+            // Pages before current are turned to the left
+            page.style.transform = 'rotateY(-180deg)';
+        } else if (index === currentPage) {
+            // Current page is in the process of turning
+            page.style.transform = 'rotateY(0deg)';
+            page.style.zIndex = 100 - index;
+            
+            // Animate name with handwriting effect
+            const nameElement = document.getElementById(`leaderName${index}`);
+            if (nameElement) {
+                nameElement.style.opacity = '0';
+                setTimeout(() => {
+                    nameElement.style.transition = 'opacity 0.8s ease';
+                    nameElement.classList.add('show');
+                }, 500);
+            }
+        } else {
+            // Pages after current are flat
+            page.style.transform = 'rotateY(0deg)';
+            page.style.zIndex = 100 - index;
+        }
+    });
+}
     const leaderData = [
         {
             name: 'Trinity Dallas',
