@@ -727,7 +727,301 @@
         .form-submit {
             text-align: center;
         }
-        
+        /* ===== PAA Rewind Section Styles ===== */
+.paa-rewind-section {
+    padding: 50px 0;
+    position: relative;
+    background-color: var(--cream);
+}
+
+.paa-rewind-section .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.paa-rewind-section .section-title h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-text);
+}
+
+.paa-rewind-section .section-title p {
+    color: var(--light-text);
+    font-size: 1.1rem;
+}
+
+.camera-frame-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.camera-frame {
+    background-color: #d8d8d8;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+}
+
+/* Camera top section */
+.camera-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.camera-brand {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #444;
+}
+
+.camera-viewfinder {
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 50%;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.camera-flash {
+    width: 25px;
+    height: 25px;
+    background-color: #bbb;
+    border-radius: 4px;
+}
+
+/* Camera body layout */
+.camera-body {
+    display: flex;
+    gap: 20px;
+}
+
+/* Camera screen */
+.camera-screen {
+    background-color: white;
+    border: 4px solid #b0b0b0;
+    border-radius: 8px;
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.camera-screen-content {
+    position: relative;
+}
+
+.camera-screen img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.event-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 12px;
+}
+
+.event-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.event-info p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.event-description {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Camera controls */
+.camera-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+.event-counter {
+    background-color: #eee;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+/* Control dial */
+.control-dial {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background-color: #b0b0b0;
+    border-radius: 50%;
+    border: 2px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.dial-center {
+    width: 30px;
+    height: 30px;
+    background-color: #444;
+    border-radius: 50%;
+    color: white;
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.arrow-btn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+    transition: color 0.2s;
+}
+
+.arrow-btn:hover {
+    color: #000;
+}
+
+.left-arrow {
+    left: 5px;
+}
+
+.right-arrow {
+    right: 5px;
+}
+
+.dial-indentation {
+    position: absolute;
+    width: 20px;
+    height: 6px;
+    background-color: #888;
+    border-radius: 3px;
+}
+
+.top-indent {
+    top: 5px;
+}
+
+.bottom-indent {
+    bottom: 5px;
+}
+
+.additional-buttons {
+    display: flex;
+    margin-top: 15px;
+}
+
+.camera-button {
+    width: 15px;
+    height: 15px;
+    background-color: #777;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+/* Camera bottom */
+.camera-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.bottom-detail {
+    width: 50px;
+    height: 6px;
+    background-color: #aaa;
+    border-radius: 3px;
+}
+
+.model-number {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+/* View all button */
+.view-all-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.view-all-container .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 30px;
+    background-color: var(--blush-pink);
+    color: var(--dark-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-medium);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+.view-all-container .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .camera-body {
+        flex-direction: column;
+    }
+    
+    .camera-controls {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 15px;
+    }
+    
+    .control-dial {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .event-counter {
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+    
+    .additional-buttons {
+        margin-top: 0;
+        margin-left: 10px;
+    }
+}
         /* ===== Footer ===== */
         footer {
             background-color: white;
@@ -1337,6 +1631,90 @@
         </div>
     </div>
     
+    <!-- PAA Rewind Section - Past Events Digital Camera Interface -->
+<section class="paa-rewind-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>PAA <span class="calligraphy">Rewind</span></h2>
+            <p>Look back at our favorite memories and accomplishments</p>
+        </div>
+        
+        <div class="camera-frame-container">
+            <div class="camera-frame">
+                <!-- Camera top section with viewfinder and flash -->
+                <div class="camera-top">
+                    <div class="camera-brand">Canon</div>
+                    <div class="camera-viewfinder"></div>
+                    <div class="camera-flash"></div>
+                </div>
+                
+                <!-- Camera body with screen and control dial side by side -->
+                <div class="camera-body">
+                    <!-- Camera screen/display -->
+                    <div class="camera-screen">
+                        <div class="camera-screen-content">
+                            <img id="event-image" src="/api/placeholder/400/300" alt="Event Image">
+                            <div class="event-info">
+                                <h3 id="event-title">Fall Donation Drive 2024</h3>
+                                <p id="event-date">October 15, 2024</p>
+                            </div>
+                        </div>
+                        <p id="event-description" class="event-description">
+                            We collected over 500 items for local children in need, including warm clothing, books, and school supplies.
+                        </p>
+                    </div>
+                    
+                    <!-- Right side control area -->
+                    <div class="camera-controls">
+                        <!-- Event counter -->
+                        <div class="event-counter">
+                            <span id="current-event">1</span>/<span id="total-events">4</span>
+                        </div>
+                        
+                        <!-- Circular control dial with directional buttons -->
+                        <div class="control-dial">
+                            <!-- Center of dial -->
+                            <div class="dial-center">MODE</div>
+                            
+                            <!-- Left arrow button -->
+                            <button id="prev-event-btn" class="arrow-btn left-arrow">
+                                <span>←</span>
+                            </button>
+                            
+                            <!-- Right arrow button -->
+                            <button id="next-event-btn" class="arrow-btn right-arrow">
+                                <span>→</span>
+                            </button>
+                            
+                            <!-- Top indentation (non-functional) -->
+                            <div class="dial-indentation top-indent"></div>
+                            
+                            <!-- Bottom indentation (non-functional) -->
+                            <div class="dial-indentation bottom-indent"></div>
+                        </div>
+                        
+                        <!-- Additional camera buttons for aesthetic -->
+                        <div class="additional-buttons">
+                            <div class="camera-button"></div>
+                            <div class="camera-button"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Camera bottom section with subtle details -->
+                <div class="camera-bottom">
+                    <div class="bottom-detail"></div>
+                    <div class="model-number">PowerShot</div>
+                    <div class="bottom-detail"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-all-container">
+            <a href="#" class="btn">View All Past Events</a>
+        </div>
+    </div>
+</section>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1662,6 +2040,118 @@
         
         // Create confetti when page loads
         createConfetti();
+        // PAA Rewind Section - Past Events Carousel Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Sample past events data
+    const pastEvents = [
+        {
+            id: 1,
+            title: "Fall Donation Drive 2024",
+            date: "October 15, 2024",
+            description: "We collected over 500 items for local children in need, including warm clothing, books, and school supplies.",
+            image: "/api/placeholder/400/300"
+        },
+        {
+            id: 2,
+            title: "Community Health Fair",
+            date: "September 8, 2024",
+            description: "PAA volunteers provided health screenings and resources to over 200 families at our annual health fair.",
+            image: "/api/placeholder/400/300"
+        },
+        {
+            id: 3,
+            title: "Back to School Backpack Drive",
+            date: "August 20, 2024", 
+            description: "Thanks to your generosity, we provided 150 fully-stocked backpacks to children starting the school year!",
+            image: "/api/placeholder/400/300"
+        },
+        {
+            id: 4,
+            title: "Summer Reading Program",
+            date: "July 12, 2024",
+            description: "Our volunteers read to over 100 children at local libraries and distributed free books to promote literacy.",
+            image: "/api/placeholder/400/300"
+        }
+    ];
+
+    // Get DOM elements
+    const prevButton = document.getElementById('prev-event-btn');
+    const nextButton = document.getElementById('next-event-btn');
+    const eventImage = document.getElementById('event-image');
+    const eventTitle = document.getElementById('event-title');
+    const eventDate = document.getElementById('event-date');
+    const eventDescription = document.getElementById('event-description');
+    const currentEventCounter = document.getElementById('current-event');
+    const totalEventsCounter = document.getElementById('total-events');
+    
+    // Initialize current event index
+    let currentEventIndex = 0;
+    
+    // Update total events counter
+    totalEventsCounter.textContent = pastEvents.length;
+    
+    // Function to display current event
+    function displayEvent(index) {
+        const event = pastEvents[index];
+        eventImage.src = event.image;
+        eventImage.alt = event.title;
+        eventTitle.textContent = event.title;
+        eventDate.textContent = event.date;
+        eventDescription.textContent = event.description;
+        currentEventCounter.textContent = index + 1;
+    }
+    
+    // Display initial event
+    displayEvent(currentEventIndex);
+    
+    // Previous event button click handler
+    prevButton.addEventListener('click', function() {
+        currentEventIndex = currentEventIndex === 0 ? 
+            pastEvents.length - 1 : currentEventIndex - 1;
+        
+        // Add a small press animation to the button
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            this.style.transform = 'scale(1)';
+        }, 100);
+        
+        displayEvent(currentEventIndex);
+    });
+    
+    // Next event button click handler
+    nextButton.addEventListener('click', function() {
+        currentEventIndex = currentEventIndex === pastEvents.length - 1 ? 
+            0 : currentEventIndex + 1;
+        
+        // Add a small press animation to the button
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            this.style.transform = 'scale(1)';
+        }, 100);
+        
+        displayEvent(currentEventIndex);
+    });
+    
+    // Add keyboard navigation for accessibility
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            prevButton.click();
+        } else if (e.key === 'ArrowRight') {
+            nextButton.click();
+        }
+    });
+    
+    // Add hover effect to arrow buttons
+    [prevButton, nextButton].forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.color = '#000';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.color = '#444';
+        });
+    });
+});
     </script>
 </body>
 </html>
