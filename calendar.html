@@ -2041,13 +2041,18 @@
         // Create confetti when page loads
         createConfetti();
         
-  // PAA Rewind Section - Past Events Carousel Functionality
-document.addEventListener('DOMContentLoaded', function() {
+// PAA Rewind Section - Past Events Carousel Functionality
+  document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded - initializing PAA Rewind');
     
     // Make sure the elements exist before trying to use them
-    setTimeout(initPaaRewind, 200);
-    
+    if (!document.getElementById('prev-event-btn') || !document.getElementById('next-event-btn')) {
+        console.error('PAA Rewind buttons not found - possibly loading too early');
+        
+        // Try again after a short delay to ensure all elements are loaded
+        setTimeout(initPaaRewind, 500);
+    } else {
+        initPaaRewind();
     }
     
     function initPaaRewind() {
@@ -2166,9 +2171,9 @@ document.addEventListener('DOMContentLoaded', function() {
         prevButton.style.zIndex = '20';
         nextButton.style.zIndex = '20';
         
-        console.log('PAA Rewind initialization complete');
-      }
-});
-</script>   
+       console.log('PAA Rewind initialization complete');
+    }
+  });
+</script>
 </body>
 </html>
