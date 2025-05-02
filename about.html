@@ -65,179 +65,94 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Enhanced Navigation - More playful and vibrant */
-header {
-    background-color: white;
-    box-shadow: var(--soft-shadow);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    transition: var(--header-transition);
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--blush-pink);
+            transition: var(--transition-medium);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--blush-pink);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .custom-subscribe-btn {
+  background-color: #f6cfdc;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 40px;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.logo-container {
-    display: flex;
-    justify-content: center;
-    padding: 15px 0;
-    background-color: var(--cream);
-    transition: var(--header-transition);
-    position: relative;
-    overflow: hidden;
+.custom-subscribe-btn:hover {
+  background-color: #f9b5c9;
 }
-
-.logo-container::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 C30,10 70,10 80,20 C90,30 90,70 80,80 C70,90 30,90 20,80 C10,70 10,30 20,20 Z" fill="none" stroke="%23ffc6d3" stroke-width="1" stroke-dasharray="5,5" opacity="0.3"/></svg>');
-    background-size: 300px 300px;
-    opacity: 0.3;
-    z-index: -1;
-}
-
-.logo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--light-pink);
-    transition: all 0.4s ease;
-    box-shadow: var(--soft-shadow);
-    transform: rotate(-2deg);
-    animation: gentle-float 6s ease-in-out infinite;
-}
-
-.logo:hover {
-    transform: rotate(3deg) scale(1.05);
-    box-shadow: var(--accent-shadow);
-    border-color: var(--vibrant-pink);
-}
-
-@keyframes gentle-float {
-    0%, 100% { transform: rotate(-2deg) translateY(0); }
-    50% { transform: rotate(2deg) translateY(-5px); }
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    border-top: 1px dashed var(--light-pink);
-    border-bottom: 1px dashed var(--light-pink);
-    transition: var(--header-transition);
-    padding: 8px 0;
-    position: relative;
-}
-
-nav::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 15%;
-    width: 40px;
-    height: 15px;
-    background-color: var(--teal);
-    opacity: 0.5;
-    transform: rotate(-3deg);
-    border-radius: 2px;
-    z-index: 3;
-}
-
-nav::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    right: 15%;
-    width: 50px;
-    height: 15px;
-    background-color: var(--yellow);
-    opacity: 0.5;
-    transform: rotate(2deg);
-    border-radius: 2px;
-    z-index: 3;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-}
-
-nav li {
-    position: relative;
-}
-
-nav a {
-    display: flex;
-    align-items: center;
-    padding: 10px 18px;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border-radius: 15px;
-    margin: 3px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-nav a::before {
-    content: '';
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 111, 145, 0.7);
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.3s ease;
-    z-index: -1;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background-color: transparent;
-    left: 0;
-    top: 0;
-    transition: all 0.3s ease;
-    z-index: -1;
-    opacity: 0.8;
-}
-
-nav li:nth-child(1) a::after {background-color: var(--light-pink);}
-nav li:nth-child(2) a::after {background-color: var(--teal);}
-nav li:nth-child(3) a::after {background-color: var(--yellow);}
-nav li:nth-child(4) a::after {background-color: var(--purple);}
-nav li:nth-child(5) a::after {background-color: var(--mint);}
-nav li:nth-child(6) a::after {background-color: var(--light-pink);}
-nav li:nth-child(7) a::after {background-color: var(--teal);}
-nav li:nth-child(8) a::after {background-color: var(--yellow);}
-nav li:nth-child(9) a::after {background-color: var(--purple);}
-
-nav a:hover {
-    color: var(--text-color);
-    transform: translateY(-5px) rotate(1deg);
-    box-shadow: var(--soft-shadow);
-    padding-left: 28px;
-}
-
-nav a:hover::before {
-    width: 18px;
-    height: 18px;
-    left: 10px;
-}
-
+        
 /* Enhanced Hero Section */
 .hero-section {
     height: 100vh;
