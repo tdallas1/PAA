@@ -1605,6 +1605,8 @@ nav a:hover::before {
     box-shadow: var(--soft-shadow);
     position: relative;
     overflow: hidden;
+    pointer-events: auto; /* ✅ makes it clickable */
+    z-index: 10;           /* ✅ ensures it's above other elements */
 }
 
 .leader-link::after {
