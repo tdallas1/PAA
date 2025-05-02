@@ -34,7 +34,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
-    font-family: 'Abril Fatface', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -748,32 +748,21 @@ nav ul li a:hover {
 }
 
 .pillar {
-  height: 330px;
-  border-radius: 18px 18px 0 0;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-  box-shadow: var(--medium-shadow);
-  opacity: 0;
-  transform: translateY(70px);
-  animation-fill-mode: forwards;
-  border: 1px solid rgba(0,0,0,0.05);
-}
-        /* 🌈 Rainbow Body Colors */
-.pillar:nth-child(1) {
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4); /* pink to peach */
-}
-.pillar:nth-child(2) {
-  background: linear-gradient(to bottom, #fbc531, #f5a623); /* yellow to orange */
-}
-.pillar:nth-child(3) {
-  background: linear-gradient(to bottom, #a1c4fd, #c2e9fb); /* light blue to sky */
-}
-.pillar:nth-child(4) {
-  background: linear-gradient(to bottom, #c2f0c2, #a8edea); /* mint to teal */
+    width: 130px;
+    height: 330px;
+    background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+    border-radius: 18px 18px 0 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    box-shadow: var(--medium-shadow);
+    opacity: 0;
+    transform: translateY(70px);
+    animation-fill-mode: forwards;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .pillar.visible {
@@ -793,17 +782,7 @@ nav ul li a:hover {
     left: -25px;
     right: -25px;
     height: 50px;
-.pillar:nth-child(1)::before {
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-}
-.pillar:nth-child(2)::before {
-  background: linear-gradient(to bottom, #fbc531, #f5a623);
-}
-.pillar:nth-child(3)::before {
-  background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
-}
-.pillar:nth-child(4)::before {
-  background: linear-gradient(to bottom, #c2f0c2, #a8edea);
+    background: linear-gradient(to bottom, #ebebeb, #d5d5d5);
     border-radius: 12px 12px 0 0;
     z-index: -1;
     transition: all 0.3s ease;
@@ -818,17 +797,7 @@ nav ul li a:hover {
     left: -15px;
     right: -15px;
     height: 30px;
- .pillar:nth-child(1)::after {
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-}
-.pillar:nth-child(2)::after {
-  background: linear-gradient(to bottom, #fbc531, #f5a623);
-}
-.pillar:nth-child(3)::after {
-  background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
-}
-.pillar:nth-child(4)::after {
-  background: linear-gradient(to bottom, #c2f0c2, #a8edea);
+    background: linear-gradient(to bottom, #d8d8d8, #c5c5c5);
     border-radius: 0 0 12px 12px;
     z-index: -1;
     transition: all 0.3s ease;
