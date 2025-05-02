@@ -3640,21 +3640,21 @@ document.addEventListener('DOMContentLoaded', function() {
         pageContent.className = 'page-content';
                 
         pageContent.innerHTML = `
-            <div class="leader-polaroid">
-                <div class="leader-photo"></div>
-            </div>
-            <div class="leader-name-container">
-                <div class="leader-name" id="leaderName${index}">${leader.name}</div>
-            </div>
-            <div class="leader-title">${leader.title}</div>
-            <div class="leader-fact-container">
-                <div class="leader-fact">${leader.fact}</div>
-            </div>
-            <div class="leader-links">
-                ${leader.email ? `<a href="mailto:${leader.email}" class="leader-link"><i class="fas fa-envelope"></i></a>` : ''}
-                ${leader.linkedin ? `<a href="${leader.linkedin}" target="_blank" class="leader-link"><i class="fab fa-linkedin-in"></i></a>` : ''}
-            </div>
-        `;
+    <div class="leader-polaroid">
+        <div class="leader-photo"></div>
+    </div>
+    <div class="leader-name-container">
+        <div class="leader-name" id="leaderName${index}">${leader.name}</div>
+    </div>
+    <div class="leader-title">${leader.title}</div>
+    <div class="leader-fact-container" style="pointer-events: none;">
+        <div class="leader-fact" style="pointer-events: auto;">${leader.fact}</div>
+    </div>
+    <div class="leader-links" style="z-index: 9999; position: relative;">
+        ${leader.email ? `<a href="mailto:${leader.email}" class="leader-link" style="z-index: 10000;"><i class="fas fa-envelope"></i></a>` : ''}
+        ${leader.linkedin ? `<a href="${leader.linkedin}" target="_blank" class="leader-link" style="z-index: 10000;"><i class="fab fa-linkedin-in"></i></a>` : ''}
+    </div>
+`;
                 
         page.appendChild(pageContent);
         leaderBook.appendChild(page);
