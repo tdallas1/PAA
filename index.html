@@ -1564,13 +1564,14 @@
                 <div class="newsletter-signup reveal">
                     <h3>Join Our Mailing List</h3>
                     <p>Stay updated on upcoming events, volunteer opportunities, and ways to make a difference in children's lives.</p>
-<form action="https://formspree.io/f/xbloglen" method="POST">
+<form id="subscribe-form" action="https://formspree.io/f/xbloglen" method="POST">
   <input type="email" name="email" placeholder="Enter your email" required>
-<button type="submit" class="custom-subscribe-btn">
-  Subscribe <i class="fas fa-paper-plane"></i>
-</button>
-
+  <button type="submit" class="custom-subscribe-btn">Subscribe</button>
+  <p id="form-message" style="display: none; color: green; margin-top: 10px;">
+    Thank you! You’ve been subscribed 💌
+  </p>
 </form>
+
 
                 </div>
             </div>
@@ -1900,5 +1901,30 @@
             }
         });
     </script>
+    <script>
+  const form = document.getElementById('subscribe-form');
+  const message = document.getElementById('form-message');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); // Prevent the default redirect
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      form.reset(); // Clear the form
+      message.style.display = 'block'; // Show thank-you message
+    } else {
+      alert("Oops! Something went wrong. Try again.");
+    }
+  });
+</script>
+
 </body>
 </html>
