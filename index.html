@@ -1873,36 +1873,49 @@
             this.reset();
         });
         
-const envelope = document.querySelector('#envelope .envelope');
-const envelopeWrapper = document.getElementById('envelope');
-let isLockedOpen = false;
-let hoverTimeoutId;
+<script>
+  const envelope = document.querySelector('#envelope .envelope');
+  const flap = document.querySelector('#envelope .envelope-top');
+  const paper = document.querySelector('#envelope .envelope-paper');
+  const wrapper = document.getElementById('envelope');
 
-// Handle click (lock/unlock)
-envelopeWrapper.addEventListener('click', () => {
-  isLockedOpen = !isLockedOpen;
+  let isLockedOpen = false;
+  let hoverTimeoutId;
 
-  envelope.classList.remove('hover-open');
-  envelope.classList.toggle('locked-open', isLockedOpen);
-  clearTimeout(hoverTimeoutId);
-});
+  wrapper.addEventListener('click', () => {
+    isLockedOpen = !isLockedOpen;
 
-// Hover open (only if not locked)
-envelopeWrapper.addEventListener('mouseenter', () => {
-  if (!isLockedOpen) {
+    if (isLockedOpen) {
+      envelope.classList.add('locked-open');
+      flap.classList.add('locked-open');
+      paper.classList.add('locked-open');
+    } else {
+      envelope.classList.remove('locked-open');
+      flap.classList.remove('locked-open');
+      paper.classList.remove('locked-open');
+    }
+
     clearTimeout(hoverTimeoutId);
-    envelope.classList.add('hover-open');
-  }
-});
+  });
 
-// Hover close (only if not locked)
-envelopeWrapper.addEventListener('mouseleave', () => {
-  if (!isLockedOpen) {
-    hoverTimeoutId = setTimeout(() => {
-      envelope.classList.remove('hover-open');
-    }, 800);
-  }
-});
+  wrapper.addEventListener('mouseenter', () => {
+    if (!isLockedOpen) {
+      clearTimeout(hoverTimeoutId);
+      envelope.classList.add('hover-open');
+      flap.classList.add('hover-open');
+      paper.classList.add('hover-open');
+    }
+  });
+
+  wrapper.addEventListener('mouseleave', () => {
+    if (!isLockedOpen) {
+      hoverTimeoutId = setTimeout(() => {
+        envelope.classList.remove('hover-open');
+        flap.classList.remove('hover-open');
+        paper.classList.remove('hover-open');
+      }, 700);
+    }
+  });
 </script>
 </body>
 </html>
