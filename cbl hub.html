@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAA Programs & Pillars of Impact</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Sacramento&family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
         :root {
@@ -18,11 +19,16 @@
             --light-lavender: #f1f1ff;
             --mint-green: #c9f2d0;
             --vanilla-cream: #f8f4e3;
+            --cream: #fef9f0;
             --dark-text: #444444;
+            --light-text: #666666;
             --gold: #d4af37;
             --silver: #c0c0c0;
             --shadow: 0 8px 20px rgba(0,0,0,0.1);
             --glitter: 0 0 10px rgba(255,255,255,0.8);
+            --transition-fast: all 0.2s ease;
+            --transition-medium: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
         }
 
         * {
@@ -412,178 +418,405 @@
             background: linear-gradient(to right, white, var(--light-lavender));
         }
 
-        /* Section 2: Our Three Pillars - PENNANT STYLE */
-        .pillars-section {
-            padding: 80px 0 60px;
-            position: relative;
-            text-align: center;
-        }
+        /* Four Pillars Section - PLAYHOUSE ROW STYLE */
+    .pillars-section {
+        padding: 80px 0 60px;
+        position: relative;
+        background-color: var(--vanilla-cream);
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f9d1dc' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        overflow: hidden;
+    }
 
-        .pennants-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-            margin: 40px 0;
-            position: relative;
-        }
+    .pillars-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .pillars-title {
+        font-family: 'Sacramento', cursive;
+        font-size: 3rem;
+        color: var(--dark-text);
+        margin-bottom: 15px;
+        display: inline-block;
+        position: relative;
+        z-index: 2;
+    }
 
-        .pennant {
-            width: 400px;
-            height: 180px;
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
+    .pillars-title::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: -10px;
+        right: -10px;
+        height: 15px;
+        background-color: var(--light-pink);
+        z-index: -1;
+        border-radius: 10px;
+    }
 
-        .pennant.visible {
-            opacity: 1;
-            transform: translateY(0) rotate(var(--rotate, 0deg));
-        }
-
-        .pennant-1 {
-            --rotate: -2deg;
-            transition-delay: 0.1s;
-        }
-
-        .pennant-2 {
-            --rotate: 2deg;
-            transition-delay: 0.3s;
-        }
-
-        .pennant-3 {
-            --rotate: -1deg;
-            transition-delay: 0.5s;
-        }
-
-        .pennant-body {
-            width: 100%;
-            height: 100%;
-            background: var(--soft-blue);
-            clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: var(--shadow);
-        }
-
-        .pennant-1 .pennant-body {
-            background: linear-gradient(to bottom, var(--light-pink), var(--blush-pink));
-        }
-
-        .pennant-2 .pennant-body {
-            background: linear-gradient(to bottom, var(--light-blue), var(--soft-blue));
-        }
-
-        .pennant-3 .pennant-body {
-            background: linear-gradient(to bottom, var(--light-lavender), var(--soft-lavender));
-        }
-
-        .pennant-content {
-            text-align: center;
-            z-index: 2;
-            padding: 0 40px;
-        }
-
-        .pennant-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .pennant-icon {
-            font-size: 2rem;
-            margin-left: 10px;
-            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
-        }
-
-        .pennant-text {
-            color: white;
-            font-size: 1.1rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        .pennant-lace {
-            position: absolute;
-            height: 20px;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12' viewBox='0 0 24 12'%3E%3Cpath d='M2,2 C2,4 4,4 4,2 C4,4 6,4 6,2 C6,4 8,4 8,2 C8,4 10,4 10,2 C10,4 12,4 12,2 C12,4 14,4 14,2 C14,4 16,4 16,2 C16,4 18,4 18,2 C18,4 20,4 20,2 C20,4 22,4 22,2' stroke='rgba(255,255,255,0.8)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
-            background-repeat: repeat-x;
-            z-index: 3;
-        }
-
-        .pennant-pearls {
-            position: absolute;
-            bottom: 20px;
-            left: 40px;
-            right: 40px;
-            height: 12px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .pearl {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.8);
-            box-shadow: inset -2px -2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* PUSHPIN ELEMENTS FOR PENNANTS */
-        .push-pin {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            z-index: 10;
-            animation: pin 0.5s forwards;
-            animation-delay: var(--pin-delay, 0.8s);
-            opacity: 0;
-        }
-
-        .push-pin::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 12px;
-            height: 12px;
-            background: var(--dark-text);
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .push-pin::after {
-            content: '';
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 6px;
-            height: 6px;
-            background: white;
-            border-radius: 50%;
-        }
-
-        .pin-1 {
-            top: 15px;
-            left: 30%;
-            --pin-delay: 0.8s;
-        }
-
-        .pin-2 {
-            top: 15px;
-            right: 30%;
-            --pin-delay: 1s;
-        }
+    /* Little house village with a "ground" element */
+    .houses-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+        margin: 80px 0 40px;
+    }
+    
+    .houses-ground {
+        position: absolute;
+        height: 20px;
+        background-color: #b0dbc0; /* Grass green */
+        bottom: -20px;
+        left: 0;
+        right: 0;
+        border-radius: 0 0 50px 50px;
+        z-index: 1;
+    }
+    
+    /* Basic house structure */
+    .house-block {
+        position: relative;
+        width: 250px;
+        margin-bottom: 30px;
+        transition: all 0.4s ease;
+        z-index: 5;
+    }
+    
+    /* House body styling */
+    .house-body {
+        height: 300px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        padding: 25px 20px 35px;
+        position: relative;
+        overflow: hidden;
+        z-index: 2;
+        transition: all 0.3s ease;
+    }
+    
+    /* Different house colors */
+    .empowerment-house .house-body {
+        background: linear-gradient(to bottom, var(--light-pink) 70%, white);
+    }
+    
+    .service-house .house-body {
+        background: linear-gradient(to bottom, var(--light-blue) 70%, white);
+    }
+    
+    .equity-house .house-body {
+        background: linear-gradient(to bottom, var(--light-lavender) 70%, white);
+    }
+    
+    .joy-house .house-body {
+        background: linear-gradient(to bottom, var(--light-yellow) 70%, white);
+    }
+    
+    /* Roof styling */
+    .house-roof {
+        width: 280px;
+        height: 80px;
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        border-radius: 140px 140px 0 0;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .empowerment-house .house-roof {
+        background-color: var(--blush-pink);
+    }
+    
+    .service-house .house-roof {
+        background-color: var(--soft-blue);
+    }
+    
+    .equity-house .house-roof {
+        background-color: var(--soft-lavender);
+    }
+    
+    .joy-house .house-roof {
+        background-color: var(--soft-yellow);
+    }
+    
+    /* Windows styling */
+    .house-window {
+        width: 70px;
+        height: 70px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 50%;
+        position: absolute;
+        top: 60px;
+        box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+        overflow: hidden;
+        z-index: 3;
+    }
+    
+    .house-window::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: rgba(255,255,255,0.7);
+    }
+    
+    .house-window::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 3px;
+        background: rgba(255,255,255,0.7);
+    }
+    
+    .window-left {
+        left: 30px;
+    }
+    
+    .window-right {
+        right: 30px;
+    }
+    
+    /* Door styling */
+    .house-door {
+        width: 60px;
+        height: 90px;
+        background: var(--dark-text);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 30px 30px 0 0;
+        z-index: 3;
+        transition: all 0.3s ease;
+    }
+    
+    .door-knob {
+        width: 10px;
+        height: 10px;
+        background: #ffdc95; /* Doorknob color */
+        border-radius: 50%;
+        position: absolute;
+        top: 40px;
+        right: 15px;
+    }
+    
+    /* Content styling */
+    .house-content {
+        position: relative;
+        z-index: 4;
+        padding-top: 50px;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .pillar-icon {
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+        display: inline-block;
+        transition: all 0.4s ease;
+    }
+    
+    .pillar-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    
+    .pillar-main-text {
+        font-family: 'Satisfy', cursive;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-bottom: 15px;
+        padding: 0 5px;
+    }
+    
+    .pillar-sub-text {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        flex-grow: 1;
+        overflow-y: auto;
+        max-height: 80px;
+    }
+    
+    /* Decorative elements */
+    .house-fence {
+        position: absolute;
+        height: 20px;
+        bottom: -20px;
+        left: 10px;
+        right: 10px;
+        z-index: 3;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .fence-post {
+        width: 8px;
+        height: 20px;
+        background: white;
+        border-radius: 4px;
+    }
+    
+    .chimney {
+        width: 20px;
+        height: 30px;
+        background: #d67070;
+        position: absolute;
+        top: -30px;
+        right: 60px;
+        z-index: 2;
+        border-radius: 3px 3px 0 0;
+    }
+    
+    .smoke {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: rgba(255,255,255,0.8);
+        border-radius: 50%;
+        top: -30px;
+        right: 60px;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+    
+    .smoke-1 {
+        width: 15px;
+        height: 15px;
+        top: -25px;
+        right: 62px;
+    }
+    
+    .smoke-2 {
+        width: 18px;
+        height: 18px;
+        top: -35px;
+        right: 58px;
+    }
+    
+    .smoke-3 {
+        width: 15px;
+        height: 15px;
+        top: -45px;
+        right: 64px;
+    }
+    
+    /* Animations and hover effects */
+    @keyframes wiggle {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(5deg); }
+        50% { transform: rotate(0deg); }
+        75% { transform: rotate(-5deg); }
+        100% { transform: rotate(0deg); }
+    }
+    
+    @keyframes float-smoke {
+        0% { transform: translateY(0) scale(1); opacity: 0.8; }
+        100% { transform: translateY(-20px) scale(1.5); opacity: 0; }
+    }
+    
+    @keyframes glow {
+        0% { box-shadow: 0 0 5px rgba(255,255,255,0.5); }
+        50% { box-shadow: 0 0 20px rgba(255,255,255,0.8); }
+        100% { box-shadow: 0 0 5px rgba(255,255,255,0.5); }
+    }
+    
+    @keyframes shimmer {
+        0% { transform: translateX(-100%) skewX(-15deg); }
+        100% { transform: translateX(100%) skewX(-15deg); }
+    }
+    
+    .house-block:hover {
+        transform: translateY(-10px);
+    }
+    
+    .house-block:hover .house-body {
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    
+    .house-block:hover .house-door {
+        height: 95px;
+        background: #333333;
+    }
+    
+    .house-block:hover .pillar-icon {
+        animation: wiggle 1s ease;
+    }
+    
+    .house-block:hover .smoke {
+        opacity: 1;
+        animation: float-smoke 3s ease forwards;
+    }
+    
+    .house-block:hover .house-roof {
+        animation: glow 2s infinite;
+    }
+    
+    .house-body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
+        transform: skewX(-15deg);
+        transition: all 0.6s ease;
+    }
+    
+    .house-block:hover .house-body::before {
+        animation: shimmer 1.5s ease;
+    }
+    
+    /* Closing text */
+    .pillars-closing {
+        text-align: center;
+        max-width: 700px;
+        margin: 40px auto 0;
+        font-family: 'Satisfy', cursive;
+        font-size: 1.3rem;
+        line-height: 1.5;
+        position: relative;
+        padding: 0 20px;
+    }
+    
+    .yellow-heart {
+        color: #f0c932;
+        display: inline-block;
+        animation: pulse 2s infinite;
+    }
+    
+    /* Houses staggered entrance animation */
+    @keyframes float-in {
+        0% { opacity: 0; transform: translateY(50px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    .house-block {
+        opacity: 0;
+    }
+    
+    .house-block.visible {
+        animation: float-in 0.8s ease forwards;
+    }
+    
+    .empowerment-house.visible { animation-delay: 0.1s; }
+    .service-house.visible { animation-delay: 0.3s; }
+    .equity-house.visible { animation-delay: 0.5s; }
+    .joy-house.visible { animation-delay: 0.7s; }
 
         /* Section 3: CBL Nursing Hub - BINDER STYLE */
         .cbl-section {
@@ -1160,17 +1393,188 @@
             animation: pulse 2s infinite;
         }
 
-        /* Header/Footer Placeholders */
-        .header-placeholder, .footer-placeholder {
-            background-color: var(--vanilla-cream);
-            padding: 20px;
-            text-align: center;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 2px;
+        /* Header & Navigation */
+        header {
+            background-color: white;
             box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
             color: var(--dark-text);
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--blush-pink);
+            transition: var(--transition-medium);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--blush-pink);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--blush-pink);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: var(--light-text);
+            transition: var(--transition-fast);
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            transition: var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: var(--blush-pink);
+            padding-left: 20px;
+        }
+        
+        .footer-links a:hover:before {
+            left: 5px;
+            color: var(--blush-pink);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--cream);
+            border-radius: 50%;
+            margin: 0 5px;
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: var(--transition-medium);
+        }
+        
+        .social-link:hover {
+            background-color: var(--blush-pink);
+            color: white;
+            transform: translateY(-3px);
         }
 
         /* Responsiveness */
@@ -1179,6 +1583,7 @@
                 padding: 60px 30px;
                 flex-direction: column;
                 text-align: center;
+                margin-top: 80px;
             }
 
             .hero-text {
@@ -1204,6 +1609,45 @@
             .poster-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
+            
+            /* Header & Navigation Responsive */
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                box-shadow: var(--shadow);
+                transition: var(--transition-medium);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            /* Footer Responsive */
+            .footer-container {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1227,15 +1671,49 @@
             .poster-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* Header Responsive */
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            /* Footer Responsive */
+            .social-link {
+                width: 35px;
+                height: 35px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Placeholder -->
-        <div class="header-placeholder">
-            <p>PAA Navigation Header</p>
-        </div>
+        <!-- Header Navigation from original PAA project -->
+        <header>
+            <div class="container header-container">
+                <div class="logo">
+                    <img src="/api/placeholder/50/50" alt="PAA Logo">
+                    <h1>Pediatric Advocacy Alliance</h1>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="calendar.html">Events</a></li>
+                        <li><a href="cbl hub.html">Programs</a></li>
+                        <li><a href="partnership.html">Partnerships</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
         <!-- Section 1: Hero (Entryway to the Mansion) -->
         <section class="hero-section">
@@ -1497,14 +1975,72 @@
             </div>
         </section>
 
-        <!-- Footer Placeholder -->
-        <div class="footer-placeholder">
-            <p>PAA Footer</p>
-        </div>
+        <!-- Footer from original PAA project -->
+        <footer>
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-column">
+                        <h3>About</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Our Mission</a></li>
+                            <li><a href="#">Our Team</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Impact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Get Involved</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Volunteer</a></li>
+                            <li><a href="#">Donate</a></li>
+                            <li><a href="#">Partner With Us</a></li>
+                            <li><a href="#">Join Our Team</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Events Calendar</a></li>
+                            <li><a href="#">Newsletter Archive</a></li>
+                            <li><a href="#">Educational Materials</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Connect</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Email: info@paa.org</a></li>
+                            <li><a href="#">Phone: (123) 456-7890</a></li>
+                            <li><a href="#">Campus Location</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (mobileMenuToggle && nav) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                });
+            }
+            
             // Intersection Observer for animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1516,9 +2052,17 @@
                 threshold: 0.2
             });
             
-            // Observe pennants
-            document.querySelectorAll('.pennant').forEach(pennant => {
-                observer.observe(pennant);
+            // Observe playhouses and apply staggered animations
+            document.querySelectorAll('.playhouse').forEach((playhouse, index) => {
+                setTimeout(() => {
+                    playhouse.style.opacity = '0';
+                    playhouse.style.transform = 'translateY(30px)';
+                    
+                    setTimeout(() => {
+                        playhouse.style.opacity = '1';
+                        playhouse.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                }, 0);
             });
             
             // Add hover animations to posters
