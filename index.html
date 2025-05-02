@@ -553,7 +553,7 @@
        /* ===== Values Banner ===== */
 .values-banner {
     background-color: var(--blush-pink);
-    padding: 50px 0; /* Increased padding for more vertical space */
+    height: 140px; /* Set exact height */
     overflow: hidden;
     position: relative;
 }
@@ -566,40 +566,40 @@
     right: 0;
     bottom: 0;
     background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    z-index: 0;
 }
 
 .values-track {
     display: flex;
     white-space: nowrap;
     animation: scroll-left 20s linear infinite;
-    gap: 80px; /* More space between items */
+    gap: 80px;
+    align-items: center;
+    height: 100%;
 }
 
 @keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .value-item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 60px;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 4rem; /* Larger font size */
+    font-size: 3.8rem;
     color: white;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    line-height: 1;
+    padding: 0 50px;
 }
 
 .value-logo {
-    height: 75px; /* Bigger logo size */
+    height: 65px;
     width: auto;
-    margin: 0 30px;
+    margin: 0 20px;
 }
         
         /* ===== Newsletter Section ===== */
