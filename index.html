@@ -1140,17 +1140,21 @@
             font-size: 0.9rem;
         }
         
-        .envelope-wrapper:hover .envelope {
-            transform: rotateY(180deg);
-        }
-        
-        .envelope-wrapper:hover .envelope-top {
-            transform: rotateX(180deg);
-        }
-        
-        .envelope-wrapper:hover .envelope-paper {
-            transform: translateZ(50px) translateY(-30px);
-        }
+       /* Envelope Flap Animations */
+.envelope.hover-open,
+.envelope.locked-open {
+  transform: rotateY(180deg);
+}
+
+.envelope-top.hover-open,
+.envelope-top.locked-open {
+  transform: rotateX(180deg);
+}
+
+.envelope-paper.hover-open,
+.envelope-paper.locked-open {
+  transform: translateZ(50px) translateY(-30px);
+}
         
         .floating-heart {
             position: absolute;
@@ -1869,70 +1873,36 @@
             this.reset();
         });
         
-        // Envelope Animation
-        const envelope = document.getElementById('envelope').querySelector('.envelope');
-        const envelopeWrapper = document.getElementById('envelope');
-        let envelopeOpen = false;
-        let timeoutId;
-        
-        // Click to open/close envelope
-        envelopeWrapper.addEventListener('click', function() {
-            clearTimeout(timeoutId); // Clear any existing timeout
-            
-            if (!envelopeOpen) {
-                // Open envelope
-                envelope.classList.add('open');
-                envelopeOpen = true;
-            } else {
-                // Close envelope
-                envelope.classList.remove('open');
-                envelopeOpen = false;
-            }
-        });
-        
-        // Hover effects with delay on mouseout
-        envelopeWrapper.addEventListener('mouseenter', function() {
-            clearTimeout(timeoutId); // Clear any existing timeout
-            
-            if (!envelopeOpen) {
-                // Only open if not already opened by click
-                envelope.classList.add('open');
-            }
-        });
-        
-        envelopeWrapper.addEventListener('mouseleave', function() {
-            // Only start timeout if not clicked open
-            if (!envelopeOpen) {
-                timeoutId = setTimeout(() => {
-                    envelope.classList.remove('open');
-                }, 800); // Delay close animation by 800ms
-            }
-        });
-    </script>
-    <script>
-  const form = document.getElementById('subscribe-form');
-  const message = document.getElementById('form-message');
+const envelope = document.querySelector('#envelope .envelope');
+const envelopeWrapper = document.getElementById('envelope');
+let isLockedOpen = false;
+let hoverTimeoutId;
 
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault(); // Prevent the default redirect
-    const data = new FormData(form);
+// Handle click (lock/unlock)
+envelopeWrapper.addEventListener('click', () => {
+  isLockedOpen = !isLockedOpen;
 
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
+  envelope.classList.remove('hover-open');
+  envelope.classList.toggle('locked-open', isLockedOpen);
+  clearTimeout(hoverTimeoutId);
+});
 
-    if (response.ok) {
-      form.reset(); // Clear the form
-      message.style.display = 'block'; // Show thank-you message
-    } else {
-      alert("Oops! Something went wrong. Try again.");
-    }
-  });
+// Hover open (only if not locked)
+envelopeWrapper.addEventListener('mouseenter', () => {
+  if (!isLockedOpen) {
+    clearTimeout(hoverTimeoutId);
+    envelope.classList.add('hover-open');
+  }
+});
+
+// Hover close (only if not locked)
+envelopeWrapper.addEventListener('mouseleave', () => {
+  if (!isLockedOpen) {
+    hoverTimeoutId = setTimeout(() => {
+      envelope.classList.remove('hover-open');
+    }, 800);
+  }
+});
 </script>
-
 </body>
 </html>
