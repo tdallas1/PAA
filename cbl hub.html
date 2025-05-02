@@ -418,7 +418,7 @@
             background: linear-gradient(to right, white, var(--light-lavender));
         }
 
-       body {
+     body {
             background-color: var(--vanilla-cream);
             color: var(--dark-text);
             font-family: 'Montserrat', sans-serif;
@@ -454,7 +454,7 @@
 
         .pillars-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 30px;
         }
@@ -462,6 +462,7 @@
         .pillar-house {
             flex: 1;
             min-width: 260px;
+            max-width: 280px; /* Adds max-width to limit size */
             position: relative;
             margin-bottom: 80px;
             transition: var(--transition-medium);
@@ -680,80 +681,91 @@
             box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.3);
         }
 
+        /* Improved windows */
         .window {
             position: absolute;
-            width: 20%;
-            height: 25%;
-            border-radius: 10px;
+            width: 22%;
+            height: 28%;
+            border-radius: 50% 50% 10px 10px / 20% 20% 10px 10px;
             background: rgba(255,255,255,0.9);
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
             z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.6);
         }
 
-        .window::before, .window::after {
-            content: '';
+        .window-frame {
             position: absolute;
-            background: rgba(255,255,255,0.3);
-        }
-
-        .window::before {
             top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 2px;
-            background: rgba(0, 0, 0, 0.05);
-        }
-
-        .window::after {
             left: 0;
             right: 0;
-            top: 50%;
-            height: 2px;
-            background: rgba(0, 0, 0, 0.05);
+            bottom: 0;
+            display: grid;
+            grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+            padding: 3px;
         }
 
+        .window-pane {
+            background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(173,216,230,0.2));
+            margin: 2px;
+            border-radius: 2px;
+            box-shadow: inset 0 0 5px rgba(255,255,255,0.5);
+        }
+
+        .window-sill {
+            position: absolute;
+            bottom: -3px;
+            left: -5px;
+            right: -5px;
+            height: 6px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        .window-curtain {
+            position: absolute;
+            top: 0;
+            width: 40%;
+            height: 15%;
+            background: rgba(255,255,255,0.7);
+            border-radius: 0 0 50% 50%;
+        }
+        
+        .window-curtain-left {
+            left: 5%;
+        }
+        
+        .window-curtain-right {
+            right: 5%;
+        }
+        
         .window.left {
-            top: 30%;
+            top: 32%;
             left: 16%;
-            border: 3px solid rgba(255,255,255,0.3);
         }
 
         .window.right {
-            top: 30%;
+            top: 32%;
             right: 16%;
-            border: 3px solid rgba(255,255,255,0.3);
-        }
-
-        .window-arch {
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            height: 10px;
-            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-bottom: none;
         }
 
         .window-shutter {
             position: absolute;
-            top: -3px;
-            height: calc(100% + 6px);
+            top: 0;
+            height: 100%;
             width: 12px;
-            background: rgba(0,0,0,0.1);
+            background: rgba(0,0,0,0.15);
             z-index: 1;
+            border-radius: 3px;
         }
 
         .window-shutter.left-shutter {
-            left: -15px;
+            left: -16px;
         }
 
         .window-shutter.right-shutter {
-            right: -15px;
+            right: -16px;
         }
 
         /* House Sign */
@@ -842,6 +854,9 @@
         .empowerment-house .house-sign { 
             color: #ff7e93; 
         }
+        .empowerment-house .window-curtain {
+            background: rgba(255, 209, 220, 0.6);
+        }
 
         .service-house .house-body { 
             background: linear-gradient(to bottom, #b6d9e8, var(--light-blue)); 
@@ -857,6 +872,9 @@
         }
         .service-house .house-sign { 
             color: #7ebcd3; 
+        }
+        .service-house .window-curtain {
+            background: rgba(209, 232, 242, 0.6);
         }
 
         .equity-house .house-body { 
@@ -874,6 +892,9 @@
         .equity-house .house-sign { 
             color: #b6b6e8; 
         }
+        .equity-house .window-curtain {
+            background: rgba(230, 230, 250, 0.6);
+        }
 
         .joy-house .house-body { 
             background: linear-gradient(to bottom, #ffefaa, var(--soft-yellow)); 
@@ -889,6 +910,9 @@
         }
         .joy-house .house-sign { 
             color: #ffdd55; 
+        }
+        .joy-house .window-curtain {
+            background: rgba(255, 244, 189, 0.6);
         }
 
         /* Hover Effects */
@@ -916,6 +940,10 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) inset;
         }
 
+        .pillar-house:hover .window-pane {
+            background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(173,216,230,0.4));
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .pillars-container {
@@ -924,14 +952,14 @@
             
             .pillar-house {
                 flex: 0 0 calc(50% - 30px);
-                max-width: calc(50% - 30px);
+                max-width: 280px;
             }
         }
 
         @media (max-width: 768px) {
             .pillar-house {
                 flex: 0 0 calc(50% - 30px);
-                max-width: calc(50% - 30px);
+                max-width: 280px;
             }
 
             .house {
@@ -1884,7 +1912,7 @@
         <section id="pillars-section" class="pillars-section">
             <h2>The Four Pillars of Our Programs</h2>
             
-          <div class="container">
+         <div class="container">
         <h2 class="section-title">The Four Pillars of Our Programs</h2>
         
         <div class="pillars-container">
@@ -1905,12 +1933,28 @@
                     <div class="house-sign">EMPOWERMENT</div>
                     <div class="house-body">
                         <div class="window left">
-                            <div class="window-arch"></div>
+                            <div class="window-frame">
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                            </div>
+                            <div class="window-sill"></div>
+                            <div class="window-curtain window-curtain-left"></div>
+                            <div class="window-curtain window-curtain-right"></div>
                             <div class="window-shutter left-shutter"></div>
                             <div class="window-shutter right-shutter"></div>
                         </div>
                         <div class="window right">
-                            <div class="window-arch"></div>
+                            <div class="window-frame">
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                            </div>
+                            <div class="window-sill"></div>
+                            <div class="window-curtain window-curtain-left"></div>
+                            <div class="window-curtain window-curtain-right"></div>
                             <div class="window-shutter left-shutter"></div>
                             <div class="window-shutter right-shutter"></div>
                         </div>
@@ -1946,12 +1990,28 @@
                     <div class="house-sign">SERVICE</div>
                     <div class="house-body">
                         <div class="window left">
-                            <div class="window-arch"></div>
+                            <div class="window-frame">
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                            </div>
+                            <div class="window-sill"></div>
+                            <div class="window-curtain window-curtain-left"></div>
+                            <div class="window-curtain window-curtain-right"></div>
                             <div class="window-shutter left-shutter"></div>
                             <div class="window-shutter right-shutter"></div>
                         </div>
                         <div class="window right">
-                            <div class="window-arch"></div>
+                            <div class="window-frame">
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                            </div>
+                            <div class="window-sill"></div>
+                            <div class="window-curtain window-curtain-left"></div>
+                            <div class="window-curtain window-curtain-right"></div>
                             <div class="window-shutter left-shutter"></div>
                             <div class="window-shutter right-shutter"></div>
                         </div>
@@ -1987,12 +2047,28 @@
                     <div class="house-sign">EQUITY</div>
                     <div class="house-body">
                         <div class="window left">
-                            <div class="window-arch"></div>
+                            <div class="window-frame">
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                            </div>
+                            <div class="window-sill"></div>
+                            <div class="window-curtain window-curtain-left"></div>
+                            <div class="window-curtain window-curtain-right"></div>
                             <div class="window-shutter left-shutter"></div>
                             <div class="window-shutter right-shutter"></div>
                         </div>
                         <div class="window right">
-                            <div class="window-arch"></div>
+                            <div class="window-frame">
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                            </div>
+                            <div class="window-sill"></div>
+                            <div class="window-curtain window-curtain-left"></div>
+                            <div class="window-curtain window-curtain-right"></div>
                             <div class="window-shutter left-shutter"></div>
                             <div class="window-shutter right-shutter"></div>
                         </div>
@@ -2028,12 +2104,28 @@
                     <div class="house-sign">JOY</div>
                     <div class="house-body">
                         <div class="window left">
-                            <div class="window-arch"></div>
+                            <div class="window-frame">
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                            </div>
+                            <div class="window-sill"></div>
+                            <div class="window-curtain window-curtain-left"></div>
+                            <div class="window-curtain window-curtain-right"></div>
                             <div class="window-shutter left-shutter"></div>
                             <div class="window-shutter right-shutter"></div>
                         </div>
                         <div class="window right">
-                            <div class="window-arch"></div>
+                            <div class="window-frame">
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                                <div class="window-pane"></div>
+                            </div>
+                            <div class="window-sill"></div>
+                            <div class="window-curtain window-curtain-left"></div>
+                            <div class="window-curtain window-curtain-right"></div>
                             <div class="window-shutter left-shutter"></div>
                             <div class="window-shutter right-shutter"></div>
                         </div>
@@ -2294,7 +2386,7 @@
                 threshold: 0.2
             });
             
-            document.addEventListener('DOMContentLoaded', function() {
+           document.addEventListener('DOMContentLoaded', function() {
             // Animate houses when in viewport
             function animateOnScroll() {
                 const houses = document.querySelectorAll('.pillar-house');
@@ -2333,8 +2425,6 @@
             // Initial call and event listener
             handleResize();
             window.addEventListener('resize', handleResize);
-        });
-            }
         });
     </script>
 </body>
