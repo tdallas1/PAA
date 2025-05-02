@@ -193,7 +193,22 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
+        .custom-subscribe-btn {
+  background-color: #f6cfdc;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 40px;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-subscribe-btn:hover {
+  background-color: #f9b5c9;
+}
+
         /* ===== Hero Banner ===== */
         .hero-banner {
             background-color: var(--cream);
@@ -1549,10 +1564,14 @@
                 <div class="newsletter-signup reveal">
                     <h3>Join Our Mailing List</h3>
                     <p>Stay updated on upcoming events, volunteer opportunities, and ways to make a difference in children's lives.</p>
-                    <form class="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="Enter your email address">
-                        <button type="submit" class="btn">Subscribe <i class="fas fa-paper-plane paper-plane"></i></button>
-                    </form>
+<form action="https://formspree.io/f/yourFormID" method="POST">
+  <input type="email" name="email" placeholder="Enter your email" required>
+<button type="submit" class="custom-subscribe-btn">
+  Subscribe <i class="fas fa-paper-plane"></i>
+</button>
+
+</form>
+
                 </div>
             </div>
         </div>
