@@ -748,19 +748,32 @@ nav ul li a:hover {
 }
 
 .pillar {
-  background: linear-gradient(to bottom, #ffd6e8, #ff9fcf); /* brighter pinks */
-    border-radius: 18px 18px 0 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-    box-shadow: var(--medium-shadow);
-    opacity: 0;
-    transform: translateY(70px);
-    animation-fill-mode: forwards;
-    border: 1px solid rgba(0,0,0,0.05);
+  height: 330px;
+  border-radius: 18px 18px 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  box-shadow: var(--medium-shadow);
+  opacity: 0;
+  transform: translateY(70px);
+  animation-fill-mode: forwards;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+        /* 🌈 Rainbow Body Colors */
+.pillar:nth-child(1) {
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4); /* pink to peach */
+}
+.pillar:nth-child(2) {
+  background: linear-gradient(to bottom, #fbc531, #f5a623); /* yellow to orange */
+}
+.pillar:nth-child(3) {
+  background: linear-gradient(to bottom, #a1c4fd, #c2e9fb); /* light blue to sky */
+}
+.pillar:nth-child(4) {
+  background: linear-gradient(to bottom, #c2f0c2, #a8edea); /* mint to teal */
 }
 
 .pillar.visible {
@@ -780,7 +793,17 @@ nav ul li a:hover {
     left: -25px;
     right: -25px;
     height: 50px;
-  background: linear-gradient(to bottom, #ffc3e0, #ff87b2); /* top rim */
+.pillar:nth-child(1)::before {
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+}
+.pillar:nth-child(2)::before {
+  background: linear-gradient(to bottom, #fbc531, #f5a623);
+}
+.pillar:nth-child(3)::before {
+  background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
+}
+.pillar:nth-child(4)::before {
+  background: linear-gradient(to bottom, #c2f0c2, #a8edea);
     border-radius: 12px 12px 0 0;
     z-index: -1;
     transition: all 0.3s ease;
@@ -795,7 +818,17 @@ nav ul li a:hover {
     left: -15px;
     right: -15px;
     height: 30px;
-  background: linear-gradient(to bottom, #ffaed0, #ff7faa); /* base rim */
+ .pillar:nth-child(1)::after {
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+}
+.pillar:nth-child(2)::after {
+  background: linear-gradient(to bottom, #fbc531, #f5a623);
+}
+.pillar:nth-child(3)::after {
+  background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
+}
+.pillar:nth-child(4)::after {
+  background: linear-gradient(to bottom, #c2f0c2, #a8edea);
     border-radius: 0 0 12px 12px;
     z-index: -1;
     transition: all 0.3s ease;
