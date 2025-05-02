@@ -1583,11 +1583,12 @@ nav a:hover::before {
 }
 
 .leader-links {
-    position: relative; /* or remove this line entirely */
+    position: relative;
     margin-top: 1.5rem;
     display: flex;
     justify-content: center;
     gap: 2rem;
+    z-index: 1; /* ⬅️ Add this line */
 }
 
 .leader-link {
@@ -1631,6 +1632,20 @@ nav a:hover::before {
     opacity: 0.5;
     transform: rotate(45deg);
 }
+        .leader-fact-container {
+    pointer-events: none; /* Prevent it from blocking clicks */
+}
+
+.leader-fact {
+    pointer-events: auto; /* Allow the text to still be selectable if needed */
+}
+
+.leader-links, .leader-link {
+    pointer-events: auto; /* Ensure your buttons remain clickable */
+    z-index: 10; /* Bring them above */
+    position: relative;
+}
+
 
 .book-nav {
     display: flex;
