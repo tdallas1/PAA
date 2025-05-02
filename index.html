@@ -431,15 +431,16 @@
             color: white;
         }
         
-        /* ===== Squiggly Divider ===== */
-        .squiggly-divider {
-            height: 50px;
-            width: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='50' viewBox='0 0 100 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,25 C30,5 70,45 100,25 L100,50 L0,50 Z' fill='%23f9d1d9'/%3E%3C/svg%3E");
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            margin-bottom: -1px;
-        }
+     /* ===== Squiggly Divider ===== */
+.squiggly-divider {
+    height: 50px;
+    width: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,25 C30,5 70,45 100,25 L100,50 L0,50 Z' fill='%23f9d1d9'/%3E%3C/svg%3E");
+    background-size: cover; /* Ensures full stretch */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: -1px;
+}
         
         /* ===== Impact Section ===== */
         .impact-section {
