@@ -418,405 +418,540 @@
             background: linear-gradient(to right, white, var(--light-lavender));
         }
 
-        /* Four Pillars Section - PLAYHOUSE ROW STYLE */
-    .pillars-section {
-        padding: 80px 0 60px;
-        position: relative;
-        background-color: var(--vanilla-cream);
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f9d1dc' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        overflow: hidden;
-    }
+       body {
+            background-color: var(--vanilla-cream);
+            color: var(--dark-text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            padding: 40px 0;
+        }
 
-    .pillars-header {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-    
-    .pillars-title {
-        font-family: 'Sacramento', cursive;
-        font-size: 3rem;
-        color: var(--dark-text);
-        margin-bottom: 15px;
-        display: inline-block;
-        position: relative;
-        z-index: 2;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .pillars-title::after {
-        content: '';
-        position: absolute;
-        bottom: 5px;
-        left: -10px;
-        right: -10px;
-        height: 15px;
-        background-color: var(--light-pink);
-        z-index: -1;
-        border-radius: 10px;
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-text);
+            position: relative;
+        }
 
-    /* Little house village with a "ground" element */
-    .houses-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        position: relative;
-        margin: 80px 0 40px;
-    }
-    
-    .houses-ground {
-        position: absolute;
-        height: 20px;
-        background-color: #b0dbc0; /* Grass green */
-        bottom: -20px;
-        left: 0;
-        right: 0;
-        border-radius: 0 0 50px 50px;
-        z-index: 1;
-    }
-    
-    /* Basic house structure */
-    .house-block {
-        position: relative;
-        width: 250px;
-        margin-bottom: 30px;
-        transition: all 0.4s ease;
-        z-index: 5;
-    }
-    
-    /* House body styling */
-    .house-body {
-        height: 300px;
-        border-radius: 20px;
-        box-shadow: var(--shadow);
-        padding: 25px 20px 35px;
-        position: relative;
-        overflow: hidden;
-        z-index: 2;
-        transition: all 0.3s ease;
-    }
-    
-    /* Different house colors */
-    .empowerment-house .house-body {
-        background: linear-gradient(to bottom, var(--light-pink) 70%, white);
-    }
-    
-    .service-house .house-body {
-        background: linear-gradient(to bottom, var(--light-blue) 70%, white);
-    }
-    
-    .equity-house .house-body {
-        background: linear-gradient(to bottom, var(--light-lavender) 70%, white);
-    }
-    
-    .joy-house .house-body {
-        background: linear-gradient(to bottom, var(--light-yellow) 70%, white);
-    }
-    
-    /* Roof styling */
-    .house-roof {
-        width: 280px;
-        height: 80px;
-        position: absolute;
-        top: -40px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 3;
-        border-radius: 140px 140px 0 0;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-    }
-    
-    .empowerment-house .house-roof {
-        background-color: var(--blush-pink);
-    }
-    
-    .service-house .house-roof {
-        background-color: var(--soft-blue);
-    }
-    
-    .equity-house .house-roof {
-        background-color: var(--soft-lavender);
-    }
-    
-    .joy-house .house-roof {
-        background-color: var(--soft-yellow);
-    }
-    
-    /* Windows styling */
-    .house-window {
-        width: 70px;
-        height: 70px;
-        background: rgba(255,255,255,0.9);
-        border-radius: 50%;
-        position: absolute;
-        top: 60px;
-        box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
-        overflow: hidden;
-        z-index: 3;
-    }
-    
-    .house-window::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: rgba(255,255,255,0.7);
-    }
-    
-    .house-window::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 3px;
-        background: rgba(255,255,255,0.7);
-    }
-    
-    .window-left {
-        left: 30px;
-    }
-    
-    .window-right {
-        right: 30px;
-    }
-    
-    /* Door styling */
-    .house-door {
-        width: 60px;
-        height: 90px;
-        background: var(--dark-text);
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 30px 30px 0 0;
-        z-index: 3;
-        transition: all 0.3s ease;
-    }
-    
-    .door-knob {
-        width: 10px;
-        height: 10px;
-        background: #ffdc95; /* Doorknob color */
-        border-radius: 50%;
-        position: absolute;
-        top: 40px;
-        right: 15px;
-    }
-    
-    /* Content styling */
-    .house-content {
-        position: relative;
-        z-index: 4;
-        padding-top: 50px;
-        text-align: center;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .pillar-icon {
-        font-size: 2.2rem;
-        margin-bottom: 5px;
-        display: inline-block;
-        transition: all 0.4s ease;
-    }
-    
-    .pillar-title {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-        letter-spacing: 1px;
-        text-align: center;
-    }
-    
-    .pillar-main-text {
-        font-family: 'Satisfy', cursive;
-        font-size: 1.1rem;
-        line-height: 1.3;
-        margin-bottom: 15px;
-        padding: 0 5px;
-    }
-    
-    .pillar-sub-text {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        flex-grow: 1;
-        overflow-y: auto;
-        max-height: 80px;
-    }
-    
-    /* Decorative elements */
-    .house-fence {
-        position: absolute;
-        height: 20px;
-        bottom: -20px;
-        left: 10px;
-        right: 10px;
-        z-index: 3;
-        display: flex;
-        justify-content: space-around;
-    }
-    
-    .fence-post {
-        width: 8px;
-        height: 20px;
-        background: white;
-        border-radius: 4px;
-    }
-    
-    .chimney {
-        width: 20px;
-        height: 30px;
-        background: #d67070;
-        position: absolute;
-        top: -30px;
-        right: 60px;
-        z-index: 2;
-        border-radius: 3px 3px 0 0;
-    }
-    
-    .smoke {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background: rgba(255,255,255,0.8);
-        border-radius: 50%;
-        top: -30px;
-        right: 60px;
-        z-index: 1;
-        opacity: 0;
-        transition: all 0.5s ease;
-    }
-    
-    .smoke-1 {
-        width: 15px;
-        height: 15px;
-        top: -25px;
-        right: 62px;
-    }
-    
-    .smoke-2 {
-        width: 18px;
-        height: 18px;
-        top: -35px;
-        right: 58px;
-    }
-    
-    .smoke-3 {
-        width: 15px;
-        height: 15px;
-        top: -45px;
-        right: 64px;
-    }
-    
-    /* Animations and hover effects */
-    @keyframes wiggle {
-        0% { transform: rotate(0deg); }
-        25% { transform: rotate(5deg); }
-        50% { transform: rotate(0deg); }
-        75% { transform: rotate(-5deg); }
-        100% { transform: rotate(0deg); }
-    }
-    
-    @keyframes float-smoke {
-        0% { transform: translateY(0) scale(1); opacity: 0.8; }
-        100% { transform: translateY(-20px) scale(1.5); opacity: 0; }
-    }
-    
-    @keyframes glow {
-        0% { box-shadow: 0 0 5px rgba(255,255,255,0.5); }
-        50% { box-shadow: 0 0 20px rgba(255,255,255,0.8); }
-        100% { box-shadow: 0 0 5px rgba(255,255,255,0.5); }
-    }
-    
-    @keyframes shimmer {
-        0% { transform: translateX(-100%) skewX(-15deg); }
-        100% { transform: translateX(100%) skewX(-15deg); }
-    }
-    
-    .house-block:hover {
-        transform: translateY(-10px);
-    }
-    
-    .house-block:hover .house-body {
-        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-    
-    .house-block:hover .house-door {
-        height: 95px;
-        background: #333333;
-    }
-    
-    .house-block:hover .pillar-icon {
-        animation: wiggle 1s ease;
-    }
-    
-    .house-block:hover .smoke {
-        opacity: 1;
-        animation: float-smoke 3s ease forwards;
-    }
-    
-    .house-block:hover .house-roof {
-        animation: glow 2s infinite;
-    }
-    
-    .house-body::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent);
-        transform: skewX(-15deg);
-        transition: all 0.6s ease;
-    }
-    
-    .house-block:hover .house-body::before {
-        animation: shimmer 1.5s ease;
-    }
-    
-    /* Closing text */
-    .pillars-closing {
-        text-align: center;
-        max-width: 700px;
-        margin: 40px auto 0;
-        font-family: 'Satisfy', cursive;
-        font-size: 1.3rem;
-        line-height: 1.5;
-        position: relative;
-        padding: 0 20px;
-    }
-    
-    .yellow-heart {
-        color: #f0c932;
-        display: inline-block;
-        animation: pulse 2s infinite;
-    }
-    
-    /* Houses staggered entrance animation */
-    @keyframes float-in {
-        0% { opacity: 0; transform: translateY(50px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-    
-    .house-block {
-        opacity: 0;
-    }
-    
-    .house-block.visible {
-        animation: float-in 0.8s ease forwards;
-    }
-    
-    .empowerment-house.visible { animation-delay: 0.1s; }
-    .service-house.visible { animation-delay: 0.3s; }
-    .equity-house.visible { animation-delay: 0.5s; }
-    .joy-house.visible { animation-delay: 0.7s; }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--blush-pink);
+        }
+
+        .pillars-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .pillar-house {
+            flex: 1;
+            min-width: 260px;
+            position: relative;
+            margin-bottom: 80px;
+            transition: var(--transition-medium);
+        }
+
+        /* House Base Structure */
+        .house {
+            aspect-ratio: 1 / 1.3;
+            position: relative;
+            transition: var(--transition-medium);
+            transform-origin: bottom center;
+        }
+
+        .house-body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 75%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition-medium);
+            background-image: linear-gradient(0deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 10%);
+        }
+
+        .house-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: repeating-linear-gradient(
+                0deg,
+                rgba(255,255,255,0.1) 0px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0) 10px,
+                rgba(255,255,255,0) 20px
+            );
+            opacity: 0.6;
+        }
+
+        .house-trim {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .house-roof {
+            position: absolute;
+            top: 0;
+            left: -8%;
+            right: -8%;
+            height: 35%;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            box-shadow: var(--shadow);
+            z-index: 5;
+            transition: var(--transition-medium);
+            background-image: repeating-linear-gradient(
+                90deg,
+                rgba(0,0,0,0.05) 0px,
+                rgba(0,0,0,0.05) 10px,
+                rgba(0,0,0,0) 10px,
+                rgba(0,0,0,0) 20px
+            );
+        }
+
+        .roof-edge {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background-color: rgba(0,0,0,0.15);
+            z-index: 6;
+        }
+
+        .chimney {
+            position: absolute;
+            top: 15%;
+            right: 25%;
+            width: 12%;
+            height: 20%;
+            background: rgba(0,0,0,0.2);
+            border-radius: 3px 3px 0 0;
+            z-index: 4;
+        }
+
+        .chimney::before {
+            content: '';
+            position: absolute;
+            top: -15%;
+            left: -15%;
+            right: -15%;
+            height: 15%;
+            background: rgba(0,0,0,0.2);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .smoke {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            transition: var(--transition-medium);
+        }
+
+        .smoke:nth-child(2) {
+            top: -45px;
+            width: 12px;
+            height: 12px;
+            transition-delay: 0.1s;
+        }
+
+        .smoke:nth-child(3) {
+            top: -60px;
+            width: 10px;
+            height: 10px;
+            transition-delay: 0.2s;
+        }
+
+        /* Porch Addition */
+        .porch {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 10%;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .porch-roof {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
+        }
+
+        .porch-column {
+            position: absolute;
+            bottom: 0;
+            width: 8px;
+            height: 100%;
+            background: white;
+            z-index: 4;
+        }
+
+        .porch-column-left {
+            left: 5px;
+        }
+
+        .porch-column-right {
+            right: 5px;
+        }
+
+        .porch-step {
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 6px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 3px 3px 0 0;
+        }
+
+        /* Door and Windows */
+        .door {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 22%;
+            height: 35%;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px 10px 0 0;
+            z-index: 2;
+            transition: var(--transition-medium);
+            transform-origin: bottom center;
+            overflow: hidden;
+        }
+
+        .door::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            right: 15%;
+            bottom: 10%;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 5px;
+        }
+
+        .door-knob {
+            position: absolute;
+            top: 50%;
+            right: 20%;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .window {
+            position: absolute;
+            width: 20%;
+            height: 25%;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.9);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .window::before, .window::after {
+            content: '';
+            position: absolute;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .window::before {
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .window::after {
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .window.left {
+            top: 30%;
+            left: 16%;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .window.right {
+            top: 30%;
+            right: 16%;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        .window-arch {
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            height: 10px;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-bottom: none;
+        }
+
+        .window-shutter {
+            position: absolute;
+            top: -3px;
+            height: calc(100% + 6px);
+            width: 12px;
+            background: rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+
+        .window-shutter.left-shutter {
+            left: -15px;
+        }
+
+        .window-shutter.right-shutter {
+            right: -15px;
+        }
+
+        /* House Sign */
+        .house-sign {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 7;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.8rem;
+            color: var(--dark-text);
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transition: var(--transition-medium);
+        }
+
+        /* Flagpole */
+        .flagpole {
+            position: absolute;
+            top: 20%;
+            right: 20%;
+            width: 2px;
+            height: 25%;
+            background: rgba(0,0,0,0.2);
+            z-index: 7;
+        }
+
+        .flag {
+            position: absolute;
+            top: 0;
+            left: 2px;
+            width: 15px;
+            height: 10px;
+            background: white;
+            transform-origin: left center;
+            animation: waveFlag 3s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes waveFlag {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* Pillar Title */
+        .pillar-title {
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .pillar-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: currentColor;
+            opacity: 0.4;
+        }
+
+        /* House-Specific Styles */
+        .empowerment-house .house-body { 
+            background: linear-gradient(to bottom, #ffb6c1, var(--blush-pink)); 
+        }
+        .empowerment-house .house-roof { 
+            background: linear-gradient(to bottom, #ff9aab, #ffb6c1);
+        }
+        .empowerment-house .door { 
+            background: #ff7e93; 
+        }
+        .empowerment-house .flag { 
+            background: #ff9aab; 
+        }
+        .empowerment-house .house-sign { 
+            color: #ff7e93; 
+        }
+
+        .service-house .house-body { 
+            background: linear-gradient(to bottom, #b6d9e8, var(--light-blue)); 
+        }
+        .service-house .house-roof { 
+            background: linear-gradient(to bottom, #9accdf, #b6d9e8);
+        }
+        .service-house .door { 
+            background: #7ebcd3; 
+        }
+        .service-house .flag { 
+            background: #9accdf; 
+        }
+        .service-house .house-sign { 
+            color: #7ebcd3; 
+        }
+
+        .equity-house .house-body { 
+            background: linear-gradient(to bottom, #d8d8f6, var(--soft-lavender)); 
+        }
+        .equity-house .house-roof { 
+            background: linear-gradient(to bottom, #c8c8f0, #d8d8f6);
+        }
+        .equity-house .door { 
+            background: #b6b6e8; 
+        }
+        .equity-house .flag { 
+            background: #c8c8f0; 
+        }
+        .equity-house .house-sign { 
+            color: #b6b6e8; 
+        }
+
+        .joy-house .house-body { 
+            background: linear-gradient(to bottom, #ffefaa, var(--soft-yellow)); 
+        }
+        .joy-house .house-roof { 
+            background: linear-gradient(to bottom, #ffe680, #ffefaa);
+        }
+        .joy-house .door { 
+            background: #ffdd55; 
+        }
+        .joy-house .flag { 
+            background: #ffe680; 
+        }
+        .joy-house .house-sign { 
+            color: #ffdd55; 
+        }
+
+        /* Hover Effects */
+        .pillar-house:hover .house {
+            transform: translateY(-10px);
+        }
+
+        .pillar-house:hover .house-sign {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        .pillar-house:hover .chimney .smoke {
+            opacity: 1;
+            transform: translate(-50%, -20px);
+        }
+
+        .pillar-house:hover .door {
+            transform: translateX(-50%) scale(0.98);
+            filter: brightness(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .pillar-house:hover .window {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5) inset;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .pillars-container {
+                justify-content: center;
+            }
+            
+            .pillar-house {
+                flex: 0 0 calc(50% - 30px);
+                max-width: calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pillar-house {
+                flex: 0 0 calc(50% - 30px);
+                max-width: calc(50% - 30px);
+            }
+
+            .house {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .pillar-house {
+                flex: 0 0 100%;
+                max-width: 280px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .pillars-container {
+                gap: 60px;
+            }
+        }
 
         /* Section 3: CBL Nursing Hub - BINDER STYLE */
         .cbl-section {
@@ -1747,71 +1882,178 @@
 
         <!-- Section 2: Our Three Pillars - PENNANT STYLE -->
         <section id="pillars-section" class="pillars-section">
-            <h2>Our Three Pillars</h2>
+            <h2>The Four Pillars of Our Programs</h2>
             
-            <div class="pennants-container">
-                <!-- Empowerment Pennant -->
-                <div class="pennant pennant-1" id="pennant1">
-                    <div class="push-pin pin-1"></div>
-                    <div class="push-pin pin-2"></div>
-                    <div class="pennant-body">
-                        <div class="pennant-lace"></div>
-                        <div class="pennant-content">
-                            <h3 class="pennant-title">EMPOWERMENT <span class="pennant-icon">💪🏽</span></h3>
-                            <p class="pennant-text">Building confidence and capability through education and leadership</p>
+          <div class="container">
+        <h2 class="section-title">The Four Pillars of Our Programs</h2>
+        
+        <div class="pillars-container">
+            <!-- Empowerment House -->
+            <div class="pillar-house empowerment-house">
+                <div class="house">
+                    <div class="house-roof">
+                        <div class="roof-edge"></div>
+                    </div>
+                    <div class="chimney">
+                        <div class="smoke"></div>
+                        <div class="smoke"></div>
+                        <div class="smoke"></div>
+                    </div>
+                    <div class="flagpole">
+                        <div class="flag"></div>
+                    </div>
+                    <div class="house-sign">EMPOWERMENT</div>
+                    <div class="house-body">
+                        <div class="window left">
+                            <div class="window-arch"></div>
+                            <div class="window-shutter left-shutter"></div>
+                            <div class="window-shutter right-shutter"></div>
                         </div>
-                        <div class="pennant-pearls">
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
+                        <div class="window right">
+                            <div class="window-arch"></div>
+                            <div class="window-shutter left-shutter"></div>
+                            <div class="window-shutter right-shutter"></div>
                         </div>
+                        <div class="porch">
+                            <div class="porch-roof"></div>
+                            <div class="porch-column porch-column-left"></div>
+                            <div class="porch-column porch-column-right"></div>
+                            <div class="porch-step"></div>
+                        </div>
+                        <div class="door">
+                            <div class="door-knob"></div>
+                        </div>
+                        <div class="house-trim"></div>
                     </div>
                 </div>
-                
-                <!-- Service Pennant -->
-                <div class="pennant pennant-2" id="pennant2">
-                    <div class="push-pin pin-1"></div>
-                    <div class="push-pin pin-2"></div>
-                    <div class="pennant-body">
-                        <div class="pennant-lace"></div>
-                        <div class="pennant-content">
-                            <h3 class="pennant-title">SERVICE <span class="pennant-icon">💗</span></h3>
-                            <p class="pennant-text">Supporting children and families through direct action and care</p>
-                        </div>
-                        <div class="pennant-pearls">
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Equity Pennant -->
-                <div class="pennant pennant-3" id="pennant3">
-                    <div class="push-pin pin-1"></div>
-                    <div class="push-pin pin-2"></div>
-                    <div class="pennant-body">
-                        <div class="pennant-lace"></div>
-                        <div class="pennant-content">
-                            <h3 class="pennant-title">EQUITY <span class="pennant-icon">⚖️</span></h3>
-                            <p class="pennant-text">Advocating for accessible healthcare and resources for all children</p>
-                        </div>
-                        <div class="pennant-pearls">
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                            <div class="pearl"></div>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="pillar-title">EMPOWERMENT</h3>
             </div>
-        </section>
-
+            
+            <!-- Service House -->
+            <div class="pillar-house service-house">
+                <div class="house">
+                    <div class="house-roof">
+                        <div class="roof-edge"></div>
+                    </div>
+                    <div class="chimney">
+                        <div class="smoke"></div>
+                        <div class="smoke"></div>
+                        <div class="smoke"></div>
+                    </div>
+                    <div class="flagpole">
+                        <div class="flag"></div>
+                    </div>
+                    <div class="house-sign">SERVICE</div>
+                    <div class="house-body">
+                        <div class="window left">
+                            <div class="window-arch"></div>
+                            <div class="window-shutter left-shutter"></div>
+                            <div class="window-shutter right-shutter"></div>
+                        </div>
+                        <div class="window right">
+                            <div class="window-arch"></div>
+                            <div class="window-shutter left-shutter"></div>
+                            <div class="window-shutter right-shutter"></div>
+                        </div>
+                        <div class="porch">
+                            <div class="porch-roof"></div>
+                            <div class="porch-column porch-column-left"></div>
+                            <div class="porch-column porch-column-right"></div>
+                            <div class="porch-step"></div>
+                        </div>
+                        <div class="door">
+                            <div class="door-knob"></div>
+                        </div>
+                        <div class="house-trim"></div>
+                    </div>
+                </div>
+                <h3 class="pillar-title">SERVICE</h3>
+            </div>
+            
+            <!-- Equity House -->
+            <div class="pillar-house equity-house">
+                <div class="house">
+                    <div class="house-roof">
+                        <div class="roof-edge"></div>
+                    </div>
+                    <div class="chimney">
+                        <div class="smoke"></div>
+                        <div class="smoke"></div>
+                        <div class="smoke"></div>
+                    </div>
+                    <div class="flagpole">
+                        <div class="flag"></div>
+                    </div>
+                    <div class="house-sign">EQUITY</div>
+                    <div class="house-body">
+                        <div class="window left">
+                            <div class="window-arch"></div>
+                            <div class="window-shutter left-shutter"></div>
+                            <div class="window-shutter right-shutter"></div>
+                        </div>
+                        <div class="window right">
+                            <div class="window-arch"></div>
+                            <div class="window-shutter left-shutter"></div>
+                            <div class="window-shutter right-shutter"></div>
+                        </div>
+                        <div class="porch">
+                            <div class="porch-roof"></div>
+                            <div class="porch-column porch-column-left"></div>
+                            <div class="porch-column porch-column-right"></div>
+                            <div class="porch-step"></div>
+                        </div>
+                        <div class="door">
+                            <div class="door-knob"></div>
+                        </div>
+                        <div class="house-trim"></div>
+                    </div>
+                </div>
+                <h3 class="pillar-title">EQUITY</h3>
+            </div>
+            
+            <!-- Joy House -->
+            <div class="pillar-house joy-house">
+                <div class="house">
+                    <div class="house-roof">
+                        <div class="roof-edge"></div>
+                    </div>
+                    <div class="chimney">
+                        <div class="smoke"></div>
+                        <div class="smoke"></div>
+                        <div class="smoke"></div>
+                    </div>
+                    <div class="flagpole">
+                        <div class="flag"></div>
+                    </div>
+                    <div class="house-sign">JOY</div>
+                    <div class="house-body">
+                        <div class="window left">
+                            <div class="window-arch"></div>
+                            <div class="window-shutter left-shutter"></div>
+                            <div class="window-shutter right-shutter"></div>
+                        </div>
+                        <div class="window right">
+                            <div class="window-arch"></div>
+                            <div class="window-shutter left-shutter"></div>
+                            <div class="window-shutter right-shutter"></div>
+                        </div>
+                        <div class="porch">
+                            <div class="porch-roof"></div>
+                            <div class="porch-column porch-column-left"></div>
+                            <div class="porch-column porch-column-right"></div>
+                            <div class="porch-step"></div>
+                        </div>
+                        <div class="door">
+                            <div class="door-knob"></div>
+                        </div>
+                        <div class="house-trim"></div>
+                    </div>
+                </div>
+                <h3 class="pillar-title">JOY</h3>
+            </div>
+        </div>
+    </div>
+</section>
         <!-- Section 3: CBL Nursing Hub - BINDER STYLE -->
         <section class="cbl-section">
             <h2 style="text-align: center;">CBL Nursing Hub</h2>
@@ -2052,52 +2294,46 @@
                 threshold: 0.2
             });
             
-            // Observe playhouses and apply staggered animations
-            document.querySelectorAll('.playhouse').forEach((playhouse, index) => {
-                setTimeout(() => {
-                    playhouse.style.opacity = '0';
-                    playhouse.style.transform = 'translateY(30px)';
+            document.addEventListener('DOMContentLoaded', function() {
+            // Animate houses when in viewport
+            function animateOnScroll() {
+                const houses = document.querySelectorAll('.pillar-house');
+                
+                houses.forEach(house => {
+                    const position = house.getBoundingClientRect();
                     
-                    setTimeout(() => {
-                        playhouse.style.opacity = '1';
-                        playhouse.style.transform = 'translateY(0)';
-                    }, 100 * index);
-                }, 0);
+                    // If house is in viewport
+                    if(position.top < window.innerHeight && position.bottom >= 0) {
+                        setTimeout(() => {
+                            house.style.opacity = 1;
+                            house.style.transform = 'translateY(0)';
+                        }, 100);
+                    }
+                });
+            }
+            
+            // Set initial state
+            const houses = document.querySelectorAll('.pillar-house');
+            houses.forEach((house, index) => {
+                house.style.opacity = 0;
+                house.style.transform = 'translateY(20px)';
+                house.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                house.style.transitionDelay = (index * 0.15) + 's';
             });
             
-            // Add hover animations to posters
-            document.querySelectorAll('.program-poster').forEach(poster => {
-                poster.addEventListener('mouseenter', function() {
-                    this.style.transform = `translateY(-10px) rotate(${getComputedStyle(this).getPropertyValue('--rotate')})`;
-                    this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
-                });
-                
-                poster.addEventListener('mouseleave', function() {
-                    this.style.transform = `translateY(0) rotate(${getComputedStyle(this).getPropertyValue('--rotate')})`;
-                    this.style.boxShadow = 'var(--shadow)';
-                });
-            });
+            // Run on load and scroll
+            animateOnScroll();
+            window.addEventListener('scroll', animateOnScroll);
             
-            // Add tab switching functionality
-            document.querySelectorAll('.binder-tab').forEach(tab => {
-                tab.addEventListener('click', function() {
-                    document.querySelectorAll('.binder-tab').forEach(t => {
-                        t.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
+            // Additional responsive handling if needed
+            function handleResize() {
+                // Additional responsive adjustments can be added here if needed
+            }
             
-            // Add shine effect to featured badge
-            const featuredBadge = document.querySelector('.featured-badge');
-            if (featuredBadge) {
-                featuredBadge.addEventListener('mouseenter', function() {
-                    this.style.boxShadow = '0 0 15px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5)';
-                });
-                
-                featuredBadge.addEventListener('mouseleave', function() {
-                    this.style.boxShadow = 'var(--shadow)';
-                });
+            // Initial call and event listener
+            handleResize();
+            window.addEventListener('resize', handleResize);
+        });
             }
         });
     </script>
