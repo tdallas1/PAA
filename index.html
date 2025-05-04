@@ -624,61 +624,55 @@
             position: relative;
         }
         
-        .newsletter-card {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transform: rotate(-3deg);
-            transition: var(--transition-medium);
-            width: 100%;
-            max-width: 350px;
-            margin: 0 auto;
-        }
-        
-        .newsletter-card:hover {
-            transform: rotate(0deg) translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .newsletter-header {
-            background-color: var(--blush-pink);
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .newsletter-header h3 {
-            color: white;
-            margin: 0;
-            font-size: 1.2rem;
-        }
-        
-        .newsletter-content {
-            padding: 20px;
-        }
-        
-        .newsletter-line {
-            height: 10px;
-            background-color: #f0f0f0;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        
-        .newsletter-line:nth-child(2) {
-            width: 90%;
-        }
-        
-        .newsletter-line:nth-child(3) {
-            width: 80%;
-        }
-        
-        .newsletter-line:nth-child(4) {
-            width: 95%;
-        }
-        
-        .newsletter-line:nth-child(5) {
-            width: 75%;
-        }
+      .newsletter-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transform: rotate(-3deg);
+    transition: var(--transition-medium);
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.newsletter-card:hover {
+    transform: rotate(0deg) translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.newsletter-header {
+    background-color: var(--blush-pink);
+    padding: 15px;
+    text-align: center;
+}
+
+.newsletter-header h3 {
+    color: white;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.newsletter-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.newsletter-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--blush-pink);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-button:hover {
+    background-color: var(--pink);
+}
         
         .newsletter-signup {
             flex: 1;
@@ -1552,27 +1546,26 @@
 </div>
     
     <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="section-title reveal">
-                <h2>Stay <span class="calligraphy">Connected</span></h2>
-                <p>Subscribe to our newsletter for updates on events and opportunities.</p>
-            </div>
-            <div class="newsletter-container">
-                <div class="newsletter-preview reveal">
-                    <div class="newsletter-card">
-                        <div class="newsletter-header">
-                            <h3>PAA Monthly Update</h3>
-                        </div>
-                        <div class="newsletter-content">
-                            <div class="newsletter-line"></div>
-                            <div class="newsletter-line"></div>
-                            <div class="newsletter-line"></div>
-                            <div class="newsletter-line"></div>
-                            <div class="newsletter-line"></div>
-                        </div>
+  <section class="newsletter-section">
+    <div class="container">
+        <div class="section-title reveal">
+            <h2>Stay <span class="calligraphy">Connected</span></h2>
+            <p>Subscribe to our newsletter for updates on events and opportunities.</p>
+        </div>
+        <div class="newsletter-container">
+            <div class="newsletter-preview reveal">
+                <div class="newsletter-card">
+                    <div class="newsletter-header">
+                        <h3>PAA Monthly Update</h3>
+                    </div>
+                    <div class="newsletter-content">
+                        <p>Click below to view our latest newsletter:</p>
+                        <a href="your-pdf-link.pdf" target="_blank" class="newsletter-button">View Newsletter</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
                 <div class="newsletter-signup reveal">
                     <h3>Join Our Mailing List</h3>
                     <p>Stay updated on upcoming events, volunteer opportunities, and ways to make a difference in children's lives.</p>
@@ -1583,8 +1576,6 @@
     Thank you! You’ve been subscribed 💌
   </p>
 </form>
-
-
                 </div>
             </div>
         </div>
