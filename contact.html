@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call the House - Pediatric Advocacy Alliance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Color Palette */
+        :root {
+            --pink: #ff6f91;
+            --light-pink: #ffc6d3;
+            --yellow: #ffe497;
+            --vibrant-yellow: #ffdb6d;
+            --purple: #d4c1ec;
+            --teal: #c2efe9;
+            --cream: #FFFCF9;
+            --mint: #e6f0e4;
+            --text-color: #333;
+            --soft-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            --medium-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            --accent-shadow: 0 10px 25px rgba(255,111,145,0.15);
+        }
+
+        /* Global Styles */
+        @font-face {
+            font-family: 'Varsity Regular';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/varsity/1.0.0/varsity.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--cream);
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Container */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 12px;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        /* Nav Menu */
+        nav {
+            flex: 1;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--pink);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--pink);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffedf2 0%, #fff6f8 100%);
+            text-align: center;
+        }
+
+        /* Sorority House Banner */
+        .banner-container {
+            position: relative;
+            padding: 40px 20px 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,30 C40,20 60,20 70,30 C80,40 80,60 70,70 C60,80 40,80 30,70 C20,60 20,40 30,30 Z" fill="none" stroke="%23ffc6d3" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.5"/></svg>');
+            background-size: 200px 200px;
+        }
+
+        .banner-inner {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .banner-title-container {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .banner-title {
+            font-family: 'Varsity Regular', sans-serif;
+            font-size: 5rem;
+            color: var(--pink);
+            margin: 20px 0;
+            position: relative;
+            display: inline-block;
+            text-shadow: 2px 2px 0 white, 4px 4px 0 rgba(255,111,145,0.3);
+            animation: gentle-float 5s ease-in-out infinite;
+        }
+
+        .banner-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="12" viewBox="0 0 100 12"><path d="M0,6 C10,2 20,10 30,6 C40,2 50,10 60,6 C70,2 80,10 90,6 C100,2 110,10 120,6" fill="none" stroke="%23ff6f91" stroke-width="4" stroke-linecap="round" opacity="0.8"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .banner-subtitle {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0;
+            animation: typewriter 1s ease-in 0.5s forwards;
+            position: relative;
+        }
+
+        /* Decoration Elements */
+        .megaphone {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><path d="M30,90 L30,50 L90,20 L90,120 L30,90 Z M30,70 L10,70 C5,70 0,65 0,60 C0,55 5,50 10,50 L30,50" fill="%23ffc6d3" stroke="%23ff6f91" stroke-width="3"/></svg>');
+            background-repeat: no-repeat;
+            opacity: 0.8;
+            transform: rotate(15deg);
+            animation: gentle-float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .phone {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 120px;
+            height: 120px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="%23c2efe9" stroke="%23333" stroke-width="2"/><circle cx="35" cy="40" r="8" fill="white" stroke="%23333" stroke-width="1"/><circle cx="50" cy="40" r="8" fill="white" stroke="%23333" stroke-width="1"/><circle cx="65" cy="40" r="8" fill="white" stroke="%23333" stroke-width="1"/><circle cx="35" cy="60" r="8" fill="white" stroke="%23333" stroke-width="1"/><circle cx="50" cy="60" r="8" fill="white" stroke="%23333" stroke-width="1"/><circle cx="65" cy="60" r="8" fill="white" stroke="%23333" stroke-width="1"/><circle cx="35" cy="80" r="8" fill="white" stroke="%23333" stroke-width="1"/><circle cx="50" cy="80" r="8" fill="white" stroke="%23333" stroke-width="1"/><circle cx="65" cy="80" r="8" fill="white" stroke="%23333" stroke-width="1"/><circle cx="85" cy="60" r="15" fill="white" stroke="%23333" stroke-width="2"/><path d="M82,55 L88,65 M88,55 L82,65" stroke="%23333" stroke-width="1.5"/></svg>');
+            background-repeat: no-repeat;
+            opacity: 0.8;
+            transform: rotate(-10deg);
+            animation: gentle-float 7s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10,0 L12,8 L20,10 L12,12 L10,20 L8,12 L0,10 L8,8 Z" fill="%23ffe497"/></svg>');
+            animation: twinkle 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .sparkle:nth-child(1) {
+            top: 10%;
+            left: 30%;
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(2) {
+            top: 15%;
+            right: 35%;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle:nth-child(3) {
+            bottom: 20%;
+            left: 40%;
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(4) {
+            bottom: 25%;
+            right: 25%;
+            animation-delay: 1.5s;
+        }
+
+        .sparkle:nth-child(5) {
+            top: 40%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        /* Call Panel Section */
+        .call-panel-section {
+            padding: 50px 0;
+            position: relative;
+            background-color: white;
+        }
+
+        .call-panel-section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,40 C320,0 420,30 720,15 C1020,0 1120,30 1440,5 L1440,40 L0,40 Z" fill="white"/></svg>');
+            background-size: cover;
+        }
+
+        .call-panel-title {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .label-tag {
+            background-color: var(--yellow);
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            position: relative;
+            margin: 0 auto;
+            transform: rotate(-2deg);
+            box-shadow: var(--soft-shadow);
+        }
+
+        .label-tag::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 20px;
+            width: 30px;
+            height: 15px;
+            background-color: rgba(255, 111, 145, 0.4);
+            transform: rotate(-5deg);
+            border-radius: 3px;
+        }
+
+        .label-title {
+            font-family: 'Varsity Regular', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .label-title i {
+            margin-left: 10px;
+            color: var(--pink);
+        }
+
+        .call-panel-subtitle {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-color);
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .board-member {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nameplate {
+            background-color: var(--light-pink);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: var(--soft-shadow);
+            overflow: hidden;
+        }
+
+        .nameplate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="30" cy="10" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="50" cy="10" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="70" cy="10" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="90" cy="10" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="10" cy="30" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="30" cy="30" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="50" cy="30" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="70" cy="30" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="90" cy="30" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="10" cy="50" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="30" cy="50" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="70" cy="50" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="90" cy="50" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="10" cy="70" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="30" cy="70" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="50" cy="70" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="70" cy="70" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="90" cy="70" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="10" cy="90" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="30" cy="90" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="50" cy="90" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="70" cy="90" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="90" cy="90" r="1" fill="%23ffffff" opacity="0.3"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .nameplate::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.3) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .nameplate-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background-color: white;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nameplate-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nameplate-info {
+            position: relative;
+            z-index: 2;
+        }
+
+        .nameplate-name {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .nameplate-role {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--pink);
+            margin-bottom: 10px;
+        }
+
+        .nameplate-hover {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        /* Nameplate Variations */
+        .nameplate:nth-child(4n+1) {
+            background-color: var(--light-pink);
+            transform: rotate(-1deg);
+        }
+
+        .nameplate:nth-child(4n+2) {
+            background-color: var(--teal);
+            transform: rotate(1deg);
+        }
+
+        .nameplate:nth-child(4n+3) {
+            background-color: var(--yellow);
+            transform: rotate(-1.5deg);
+        }
+
+        .nameplate:nth-child(4n+4) {
+            background-color: var(--purple);
+            transform: rotate(1.5deg);
+        }
+
+        /* Hover Effects */
+        .board-member:hover .nameplate {
+            transform: translateY(-10px) rotate(0);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .board-member:hover .nameplate-photo {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .board-member:hover .nameplate-hover {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Contact Card Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: rotate(2deg);
+            animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes pop-in {
+            0% { transform: rotate(2deg) scale(0.8); opacity: 0; }
+            100% { transform: rotate(2deg) scale(1); opacity: 1; }
+        }
+
+        .polaroid-card {
+            background-color: white;
+            padding: 15px 15px 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .polaroid-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            width: 40px;
+            height: 20px;
+            background-color: rgba(255, 111, 145, 0.5);
+            transform: rotate(-5deg);
+            border-radius: 3px;
+        }
+
+        .polaroid-card::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            width: 50px;
+            height: 20px;
+            background-color: rgba(194, 239, 233, 0.7);
+            transform: rotate(5deg);
+            border-radius: 3px;
+        }
+
+        .modal-photo {
+            width: 100%;
+            height: 180px;
+            background-color: #f5f5f5;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            text-align: center;
+        }
+
+        .modal-name {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .modal-role {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--pink);
+            margin-bottom: 15px;
+        }
+
+        .modal-contact {
+            margin-top: 20px;
+        }
+
+        .contact-link {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: var(--cream);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .contact-link:hover {
+            background-color: var(--pink);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .modal-message {
+            font-family: 'Quicksand', sans-serif;
+            font-style: italic;
+            font-size: 1rem;
+            margin-top: 20px;
+            color: var(--text-color);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            background-color: var(--text-color);
+        }
+
+        /* Mailbox Form Section */
+        .mailbox-section {
+            padding: 80px 0;
+            position: relative;
+            background-color: var(--mint);
+        }
+
+        .mailbox-section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,40 C320,0 420,30 720,15 C1020,0 1120,30 1440,5 L1440,40 L0,40 Z" fill="%23e6f0e4"/></svg>');
+            background-size: cover;
+        }
+
+        .mailbox-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mailbox-visual {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .mailbox {
+            width: 100%;
+            max-width: 350px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .mailbox-body {
+            width: 100%;
+            height: 250px;
+            background-color: var(--pink);
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .mailbox-body::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 80px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .mailbox-flag {
+            position: absolute;
+            top: 30px;
+            right: -20px;
+            width: 15px;
+            height: 70px;
+            background-color: var(--yellow);
+            border-radius: 3px;
+            z-index: 0;
+        }
+
+        .mailbox-flag::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -25px;
+            width: 25px;
+            height: 40px;
+            background-color: var(--yellow);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
+        }
+
+        .mailbox-slot {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 10px;
+            background-color: var(--text-color);
+            border-radius: 5px;
+            z-index: 2;
+        }
+
+        .mailbox-post {
+            width: 40px;
+            height: 100px;
+            background-color: #a57b65;
+            margin: 0 auto;
+            position: relative;
+            z-index: 0;
+        }
+
+        .form-container {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--medium-shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            width: 50px;
+            height: 25px;
+            background-color: rgba(255, 111, 145, 0.5);
+            transform: rotate(-5deg);
+            border-radius: 3px;
+        }
+
+        .form-container::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 30px;
+            width: 60px;
+            height: 25px;
+            background-color: rgba(194, 239, 233, 0.7);
+            transform: rotate(5deg);
+            border-radius: 3px;
+        }
+
+        .form-title {
+            font-family: 'Varsity Regular', sans-serif;
+            font-size: 2rem;
+            color: var(--pink);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(255, 111, 145, 0.2);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6"><path d="M0,0 L12,0 L6,6 Z" fill="%23666"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(255, 111, 145, 0.2);
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--pink);
+            box-shadow: 0 0 0 3px rgba(255, 111, 145, 0.2);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: var(--pink);
+            color: white;
+            font-family: 'Varsity Regular', sans-serif;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--soft-shadow);
+            margin-top: 30px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--text-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Office Hours Section */
+        .hours-section {
+            padding: 80px 0;
+            position: relative;
+            background-color: var(--cream);
+        }
+
+        .hours-section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,40 C320,0 420,30 720,15 C1020,0 1120,30 1440,5 L1440,40 L0,40 Z" fill="%23FFFCF9"/></svg>');
+            background-size: cover;
+        }
+
+        .hours-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--medium-shadow);
+            position: relative;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23f0f0f0" stroke-width="2"/></svg>');
+            background-size: 20px 20px;
+        }
+
+        .hours-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 40px;
+            width: 60px;
+            height: 25px;
+            background-color: rgba(255, 228, 151, 0.7);
+            transform: rotate(-5deg);
+            border-radius: 3px;
+        }
+
+        .hours-container::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 40px;
+            width: 70px;
+            height: 25px;
+            background-color: rgba(212, 193, 236, 0.7);
+            transform: rotate(5deg);
+            border-radius: 3px;
+        }
+
+        .hours-title {
+            font-family: 'Varsity Regular', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .hours-card {
+            background-color: var(--yellow);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--soft-shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            transform: rotate(-1deg);
+        }
+
+        .hours-card:nth-child(2n) {
+            background-color: var(--light-pink);
+            transform: rotate(1deg);
+        }
+
+        .hours-card:nth-child(3n) {
+            background-color: var(--teal);
+            transform: rotate(-1.5deg);
+        }
+
+        .hours-card:nth-child(4n) {
+            background-color: var(--purple);
+            transform: rotate(1.5deg);
+        }
+
+        .hours-card:hover {
+            transform: translateY(-5px) rotate(0deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hours-name {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .hours-time {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .hours-time i {
+            margin-right: 10px;
+            color: var(--pink);
+        }
+
+        /* Join Us Section */
+        .join-section {
+            padding: 80px 0;
+            position: relative;
+            background-color: var(--light-pink);
+        }
+
+        .join-section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 40" preserveAspectRatio="none"><path d="M0,40 C320,0 420,30 720,15 C1020,0 1120,30 1440,5 L1440,40 L0,40 Z" fill="%23ffc6d3"/></svg>');
+            background-size: cover;
+        }
+
+        .join-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .join-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .join-title {
+            font-family: 'Varsity Regular', sans-serif;
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .join-text {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .join-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--pink);
+            color: white;
+            font-family: 'Varsity Regular', sans-serif;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+            box-shadow: var(--soft-shadow);
+        }
+
+        .join-btn:hover {
+            background-color: var(--text-color);
+            transform: translateY(-5px) rotate(0deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pink);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--soft-shadow);
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background-color: var(--pink);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .photo-strip {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+
+        .photo-item {
+            background-color: white;
+            padding: 10px;
+            box-shadow: var(--medium-shadow);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .photo-item:nth-child(1) {
+            transform: rotate(-5deg);
+            z-index: 3;
+        }
+
+        .photo-item:nth-child(2) {
+            transform: rotate(3deg) translateX(20px);
+            z-index: 2;
+        }
+
+        .photo-item:nth-child(3) {
+            transform: rotate(-2deg) translateX(-20px);
+            z-index: 1;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px) rotate(0deg);
+            z-index: 10;
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 120px;
+            background-color: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-tag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: var(--pink);
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border-radius: 20px;
+        }
+
+        /* Emergency Contact Section */
+        .emergency-section {
+            padding: 40px 0;
+            position: relative;
+            background-color: var(--cream);
+        }
+
+        .emergency-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .emergency-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--soft-shadow);
+            border-left: 5px solid var(--pink);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .emergency-icon {
+            font-size: 2rem;
+            color: var(--pink);
+        }
+
+        .emergency-content h3 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .emergency-content p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .emergency-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .emergency-link {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: var(--light-pink);
+            color: var(--text-color);
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .emergency-link:hover {
+            background-color: var(--pink);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--pink), var(--teal), var(--yellow), var(--purple), var(--light-pink));
+            opacity: 0.7;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid var(--light-pink);
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: rotate(10deg);
+            border-color: var(--pink);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--pink);
+        }
+
+        .copyright {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Animations */
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @keyframes typewriter {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .banner-title {
+                font-size: 4rem;
+            }
+            
+            .board-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 3rem;
+            }
+            
+            .banner-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .label-title {
+                font-size: 2rem;
+            }
+            
+            .board-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .join-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .banner-title {
+                font-size: 2.5rem;
+            }
+            
+            .banner-subtitle {
+                font-size: 1rem;
+            }
+            
+            .label-title {
+                font-size: 1.8rem;
+            }
+            
+            .board-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .join-title {
+                font-size: 2rem;
+            }
+            
+            .nameplate-photo {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/api/placeholder/50/50" alt="PAA Logo">
+                <h1>Pediatric Advocacy Alliance</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="calendar.html">Events</a></li>
+                    <li><a href="cbl hub.html">Programs</a></li>
+                    <li><a href="partnership.html">Partnerships</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="banner-container">
+            <div class="banner-inner">
+                <div class="banner-title-container">
+                    <h1 class="banner-title">Call the House</h1>
+                </div>
+                <p class="banner-subtitle">We don't do voicemails, but we always answer. Tap a nameplate to connect with your girls.</p>
+                
+                <!-- Decorative Elements -->
+                <div class="megaphone"></div>
+                <div class="phone"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+                <div class="sparkle"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call Panel Section -->
+    <section class="call-panel-section">
+        <div class="container">
+            <div class="call-panel-title">
+                <div class="label-tag">
+                    <h2 class="label-title">Call the House <i class="fas fa-phone-alt"></i></h2>
+                </div>
+            </div>
+            <p class="call-panel-subtitle">Tap a nameplate to reach one of our sisters — we'll be in touch faster than you can say pediatric care!</p>
+            
+            <div class="board-grid">
+                <!-- Board Member 1 -->
+                <div class="board-member" data-modal="member1">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Trinity Dallas">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Trinity Dallas</div>
+                            <div class="nameplate-role">President</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Trinity 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 2 -->
+                <div class="board-member" data-modal="member2">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Harmony Perez">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Harmony Perez</div>
+                            <div class="nameplate-role">Vice President</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Harmony 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 3 -->
+                <div class="board-member" data-modal="member3">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Myles Waters">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Myles Waters</div>
+                            <div class="nameplate-role">Treasurer</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Myles 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 4 -->
+                <div class="board-member" data-modal="member4">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Elsy Hernandez Lozano">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Elsy Hernandez</div>
+                            <div class="nameplate-role">Secretary</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Elsy 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 5 -->
+                <div class="board-member" data-modal="member5">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Daisy Tenemaza">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Daisy Tenemaza</div>
+                            <div class="nameplate-role">Events Coordinator</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Daisy 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 6 -->
+                <div class="board-member" data-modal="member6">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Nataly Dominguez">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Nataly Dominguez</div>
+                            <div class="nameplate-role">Events Coordinator</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Nataly 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 7 -->
+                <div class="board-member" data-modal="member7">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Samantha Acosta">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Samantha Acosta</div>
+                            <div class="nameplate-role">Volunteer Coordinator</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Samantha 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 8 -->
+                <div class="board-member" data-modal="member8">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Elizabeth John">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Elizabeth John</div>
+                            <div class="nameplate-role">Volunteer Coordinator</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Elizabeth 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 9 -->
+                <div class="board-member" data-modal="member9">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Juliana Macias">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Juliana Macias</div>
+                            <div class="nameplate-role">Membership Chair</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Juliana 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 10 -->
+                <div class="board-member" data-modal="member10">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Lizbeth Lopez">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Lizbeth Lopez</div>
+                            <div class="nameplate-role">Community Chair</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Lizbeth 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 11 -->
+                <div class="board-member" data-modal="member11">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Open Position">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Open Position</div>
+                            <div class="nameplate-role">Marketing & Comms</div>
+                        </div>
+                        <div class="nameplate-hover">Click to apply 💌</div>
+                    </div>
+                </div>
+                
+                <!-- Board Member 12 -->
+                <div class="board-member" data-modal="member12">
+                    <div class="nameplate">
+                        <div class="nameplate-photo">
+                            <img src="/api/placeholder/80/80" alt="Faculty Advisor">
+                        </div>
+                        <div class="nameplate-info">
+                            <div class="nameplate-name">Dr. Sharma</div>
+                            <div class="nameplate-role">Faculty Advisor</div>
+                        </div>
+                        <div class="nameplate-hover">Click to contact Dr. Sharma 💌</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mailbox Section -->
+    <section class="mailbox-section">
+        <div class="container">
+            <div class="mailbox-content">
+                <div class="mailbox-visual">
+                    <div class="mailbox">
+                        <div class="mailbox-body">
+                            <div class="mailbox-slot"></div>
+                        </div>
+                        <div class="mailbox-flag"></div>
+                        <div class="mailbox-post"></div>
+                    </div>
+                </div>
+                
+                <div class="form-container">
+                    <h2 class="form-title">General Inquiries</h2>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="topic" class="form-label">Topic</label>
+                            <select id="topic" class="form-select">
+                                <option value="">Select a topic</option>
+                                <option value="volunteer">Volunteering</option>
+                                <option value="partnership">Partnership Opportunities</option>
+                                <option value="membership">Membership Inquiry</option>
+                                <option value="donation">Donation Questions</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" class="form-textarea" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Drop in the Mailbox</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Hours Section -->
+    <section class="hours-section">
+        <div class="container">
+            <div class="hours-container">
+                <h2 class="hours-title">Office Hours</h2>
+                <div class="hours-grid">
+                    <!-- Office Hours 1 -->
+                    <div class="hours-card">
+                        <div class="hours-name">Trinity (President)</div>
+                        <div class="hours-time">
+                            <i class="far fa-clock"></i> Mon/Wed 3-5 PM
+                        </div>
+                    </div>
+                    
+                    <!-- Office Hours 2 -->
+                    <div class="hours-card">
+                        <div class="hours-name">Harmony (VP)</div>
+                        <div class="hours-time">
+                            <i class="far fa-clock"></i> Tues/Thurs 1-3 PM
+                        </div>
+                    </div>
+                    
+                    <!-- Office Hours 3 -->
+                    <div class="hours-card">
+                        <div class="hours-name">Myles (Treasurer)</div>
+                        <div class="hours-time">
+                            <i class="far fa-clock"></i> Friday 11 AM-1 PM
+                        </div>
+                    </div>
+                    
+                    <!-- Office Hours 4 -->
+                    <div class="hours-card">
+                        <div class="hours-name">Elsy (Secretary)</div>
+                        <div class="hours-time">
+                            <i class="far fa-clock"></i> Mon/Fri 2-4 PM
+                        </div>
+                    </div>
+                    
+                    <!-- Office Hours 5 -->
+                    <div class="hours-card">
+                        <div class="hours-name">Daisy & Nataly (Events)</div>
+                        <div class="hours-time">
+                            <i class="far fa-clock"></i> Wed 10 AM-12 PM
+                        </div>
+                    </div>
+                    
+                    <!-- Office Hours 6 -->
+                    <div class="hours-card">
+                        <div class="hours-name">Sam & Elizabeth (Volunteer)</div>
+                        <div class="hours-time">
+                            <i class="far fa-clock"></i> Tues 4-6 PM
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section class="join-section">
+        <div class="container">
+            <div class="join-container">
+                <div class="join-content">
+                    <h2 class="join-title">Join the House</h2>
+                    <p class="join-text">Become part of something bigger. We're looking for passionate advocates who care about pediatric health and want to make a real difference in our community.</p>
+                    <a href="membership.html" class="join-btn">Become a Member</a>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="far fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="photo-strip">
+                    <!-- Photo 1 -->
+                    <div class="photo-item">
+                        <div class="photo-img">
+                            <img src="/api/placeholder/250/120" alt="PAA Event">
+                            <div class="photo-tag">#PAAspeakerSeries</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 2 -->
+                    <div class="photo-item">
+                        <div class="photo-img">
+                            <img src="/api/placeholder/250/120" alt="PAA Volunteering">
+                            <div class="photo-tag">#PAAfieldDay</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 3 -->
+                    <div class="photo-item">
+                        <div class="photo-img">
+                            <img src="/api/placeholder/250/120" alt="PAA Workshop">
+                            <div class="photo-tag">#PAAglowUpKits</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact Section -->
+    <section class="emergency-section">
+        <div class="container">
+            <div class="emergency-container">
+                <div class="emergency-box">
+                    <div class="emergency-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="emergency-content">
+                        <h3>Need Help Right Away?</h3>
+                        <p>For immediate assistance or referrals to our pediatric health partners:</p>
+                        <div class="emergency-links">
+                            <a href="#" class="emergency-link">Partner Clinics</a>
+                            <a href="#" class="emergency-link">Emergency Pediatric Support</a>
+                            <a href="#" class="emergency-link">Referral Form</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="/api/placeholder/80/80" alt="PAA Logo" class="footer-logo">
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="about.html" class="footer-link">About Us</a>
+                <a href="volunteer.html" class="footer-link">Volunteer</a>
+                <a href="calendar.html" class="footer-link">Calendar</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Contact Card Modals -->
+    <!-- Modal for Trinity -->
+    <div id="member1" class="modal">
+        <div class="modal-content">
+            <div class="polaroid-card">
+                <div class="modal-photo">
+                    <img src="/api/placeholder/300/180" alt="Trinity Dallas">
+                </div>
+                <div class="modal-info">
+                    <div class="modal-name">Trinity Dallas</div>
+                    <div class="modal-role">President</div>
+                    
+                    <div class="modal-contact">
+                        <a href="mailto:tdallas@my.dom.edu" class="contact-link">
+                            <i class="far fa-envelope"></i> tdallas@my.dom.edu
+                        </a>
+                        <a href="https://www.linkedin.com/in/trinity-dallas-662022220/" target="_blank" class="contact-link">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </a>
+                    </div>
+                    
+                    <div class="modal-message">So excited to connect with you soon!</div>
+                </div>
+            </div>
+            <div class="close-modal">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for Harmony -->
+    <div id="member2" class="modal">
+        <div class="modal-content">
+            <div class="polaroid-card">
+                <div class="modal-photo">
+                    <img src="/api/placeholder/300/180" alt="Harmony Perez">
+                </div>
+                <div class="modal-info">
+                    <div class="modal-name">Harmony Perez</div>
+                    <div class="modal-role">Vice President</div>
+                    
+                    <div class="modal-contact">
+                        <a href="mailto:hperez1@my.dom.edu" class="contact-link">
+                            <i class="far fa-envelope"></i> hperez1@my.dom.edu
+                        </a>
+                        <a href="https://www.linkedin.com/in/harmony-perez-5a2373280/" target="_blank" class="contact-link">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </a>
+                    </div>
+                    
+                    <div class="modal-message">Can't wait to hear from you!</div>
+                </div>
+            </div>
+            <div class="close-modal">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for Myles -->
+    <div id="member3" class="modal">
+        <div class="modal-content">
+            <div class="polaroid-card">
+                <div class="modal-photo">
+                    <img src="/api/placeholder/300/180" alt="Myles Waters">
+                </div>
+                <div class="modal-info">
+                    <div class="modal-name">Myles Waters</div>
+                    <div class="modal-role">Treasurer</div>
+                    
+                    <div class="modal-contact">
+                        <a href="mailto:mwaters@my.dom.edu" class="contact-link">
+                            <i class="far fa-envelope"></i> mwaters@my.dom.edu
+                        </a>
+                        <a href="https://www.linkedin.com/in/myleswaters/" target="_blank" class="contact-link">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </a>
+                    </div>
+                    
+                    <div class="modal-message">Drop me a line, happy to help!</div>
+                </div>
+            </div>
+            <div class="close-modal">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional modals for other members would follow the same pattern -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle nameplates click events
+            const boardMembers = document.querySelectorAll('.board-member');
+            const modals = document.querySelectorAll('.modal');
+            const closeButtons = document.querySelectorAll('.close-modal');
+            
+            boardMembers.forEach(member => {
+                member.addEventListener('click', function() {
+                    const modalId = this.getAttribute('data-modal');
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.style.display = 'flex';
+                    }
+                });
+            });
+            
+            // Close modal on close button click
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Close modal on outside click
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(event) {
+                    if (event.target === this) {
+                        this.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // Here you would typically send the form data to a server
+                    // For now, just show a success message
+                    const formContainer = document.querySelector('.form-container');
+                    formContainer.innerHTML = `
+                        <div style="text-align: center; padding: 30px;">
+                            <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--pink); margin-bottom: 20px;"></i>
+                            <h3 style="font-family: 'Quicksand', sans-serif; font-size: 1.5rem; margin-bottom: 15px;">Your note's in the mailbox!</h3>
+                            <p style="font-family: 'Open Sans', sans-serif;">We'll be in touch soon. Thanks for reaching out!</p>
+                        </div>
+                    `;
+                });
+            }
+            
+            // Animation for banner subtitle
+            const subtitle = document.querySelector('.banner-subtitle');
+            if (subtitle) {
+                setTimeout(() => {
+                    subtitle.style.opacity = '1';
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
