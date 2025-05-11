@@ -412,274 +412,72 @@
             box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
         }
         
-       /* Enhanced Timeline Section */
-.timeline-section {
-    padding: 7rem 2rem;
-    background-color: var(--fef9f0);
-    overflow: hidden;
-    position: relative;
-}
-
-.timeline-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,30 C40,20 60,20 70,30 C80,40 80,60 70,70 C60,80 40,80 30,70 C20,60 20,40 30,30 Z" fill="none" stroke="%23ffe497" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.5"/></svg>');
-    background-size: 200px 200px;
-    opacity: 0.3;
-    z-index: 0;
-}
-
-.timeline-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background: linear-gradient(to right, var(--yellow), var(--teal), var(--light-pink), var(--purple), var(--mint));
-    opacity: 0.6;
-}
-
-.timeline-container {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: var(--medium-shadow);
-    transform: rotate(1deg);
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: all 0.4s ease;
-}
-
-.timeline-container:hover {
-    transform: rotate(1.5deg) translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.12), 0 0 20px rgba(255, 228, 151, 0.2);
-}
-
-.timeline-container::before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 50px;
-    width: 60px;
-    height: 30px;
-    background-color: var(--purple);
-    opacity: 0.6;
-    transform: rotate(-5deg);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-.timeline-container::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    right: 70px;
-    width: 80px;
-    height: 30px;
-    background-color: var(--yellow);
-    opacity: 0.7;
-    transform: rotate(5deg);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-.timeline-container:hover::before {
-    transform: rotate(-7deg) translateY(-3px);
-    width: 65px;
-}
-
-.timeline-container:hover::after {
-    transform: rotate(7deg) translateY(3px);
-    width: 85px;
-}
-
-.timeline-path {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.timeline-path svg {
-    width: 100%;
-    height: 100%;
-}
-
-.timeline-path path {
-    fill: none;
-    stroke: var(--light-pink);
-    stroke-width: 20;
-    stroke-linecap: round;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    animation: drawPath 3s ease forwards;
-    filter: drop-shadow(0 3px 3px rgba(0,0,0,0.1));
-}
-
-@keyframes drawPath {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-.timeline-events {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 550px;
-}
-
-.timeline-event {
-    position: absolute;
-    width: 240px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 5;
-}
-
-.timeline-event.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.timeline-event:hover {
-    transform: translateY(-15px) scale(1.05);
-    z-index: 10;
-}
-
-.timeline-card {
-    background-color: white;
-    padding: 1.8rem;
-    border-radius: 12px;
-    box-shadow: var(--medium-shadow);
-    text-align: center;
-    position: relative;
-    transition: all 0.4s ease;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.timeline-event:hover .timeline-card {
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15), 0 0 20px rgba(255, 111, 145, 0.2);
-}
-
-.timeline-tape {
-    position: absolute;
-    width: 50px;
-    height: 20px;
-    background-color: rgba(255, 111, 145, 0.5);
-    z-index: 2;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-.timeline-tape-left {
-    top: -8px;
-    left: 25px;
-    transform: rotate(-10deg);
-    background-color: rgba(255, 111, 145, 0.5);
-}
-
-.timeline-tape-right {
-    top: -8px;
-    right: 25px;
-    transform: rotate(10deg);
-    background-color: rgba(194, 239, 233, 0.7);
-}
-
-.timeline-event:hover .timeline-tape-left {
-    transform: rotate(-15deg) translateY(-2px);
-    width: 55px;
-    background-color: rgba(255, 111, 145, 0.7);
-}
-
-.timeline-event:hover .timeline-tape-right {
-    transform: rotate(15deg) translateY(-2px);
-    width: 55px;
-    background-color: rgba(194, 239, 233, 0.9);
-}
-
-.timeline-pin {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--pink), var(--light-pink));
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    z-index: 10;
-    transition: all 0.3s ease;
-    border: 2px solid white;
-}
-
-.timeline-event:hover .timeline-pin {
-    transform: scale(1.2) translate(-50%, 50%) !important;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.25), 0 0 15px rgba(255, 111, 145, 0.3);
-}
-
-.timeline-year {
-    font-weight: 700;
-    color: var(--pink);
-    margin-bottom: 0.8rem;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 1.3rem;
-    position: relative;
-    display: inline-block;
-}
-
-.timeline-year::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, var(--light-pink), transparent);
-    transition: all 0.3s ease;
-}
-
-.timeline-event:hover .timeline-year {
-    color: var(--vibrant-pink);
-    transform: scale(1.05);
-}
-
-.timeline-title {
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-    transition: all 0.3s ease;
-    line-height: 1.5;
-}
-
-.timeline-event:hover .timeline-title {
-    color: var(--green);
-}
-
-.timeline-doodle {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background-color: #f5f5f5;
-    border: 3px solid white;
-    border-radius: 8px;
-    box-shadow: var(--soft-shadow);
-    z-index: 3;
-    transform: rotate(-5deg);
-    transition: all 0.4s ease;
-    overflow: hidden;
-}
-
-.timeline-event:hover .timeline-doodle {
-    transform: rotate(5deg) scale(1.15) !important;
-    box-shadow: var(--medium-shadow);
-}
+        /* Timeline Section */
+        .timeline-section {
+            padding: 80px 0;
+            background-color: var(--soft-purple);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transform: rotate(1deg);
+            transition: var(--transition-medium);
+        }
+        
+        .timeline-container:hover {
+            transform: rotate(1.5deg) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-events {
+            position: relative;
+            width: 100%;
+            height: 550px;
+        }
+        
+        .timeline-event {
+            position: absolute;
+            width: 240px;
+            transition: var(--transition-medium);
+        }
+        
+        .timeline-card {
+            background-color: white;
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            transition: var(--transition-medium);
+        }
+        
+        .timeline-event:hover .timeline-card {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--blush-pink);
+            margin-bottom: 0.8rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+        
         /* Leaders Section */
         .leaders-section {
             padding: 80px 0;
@@ -1627,13 +1425,12 @@
     <!-- Timeline Section - Scrapbook Style -->
     <section class="timeline-section">
         <div class="container">
-            <h2 class="section-heading">Our Journey</h2>
+            <div class="section-title">
+                <div class="section-label">Our Journey</div>
+                <h2>A Timeline of Impact</h2>
+                <p>Milestones in our mission to advocate for children.</p>
+            </div>
             <div class="timeline-container">
-                <div class="timeline-path">
-                    <svg viewBox="0 0 1000 500" preserveAspectRatio="none">
-                        <path d="M0,250 C200,100 300,400 500,250 C700,100 800,400 1000,250" stroke-linecap="round" />
-                    </svg>
-                </div>
                 <div class="timeline-events" id="timelineEvents">
                     <!-- Timeline events will be added by JavaScript -->
                 </div>
@@ -1839,76 +1636,67 @@
                 });
             });
             
-             // Timeline Events
-    const timelineEvents = document.getElementById('timelineEvents');
-    const events = [
-        { 
-            year: 'Fall 2024',
-            title: 'Founded Pediatric Advocacy Alliance',
-            position: { top: '20%', left: '5%' }
-        },
-        { 
-            year: 'Winter 2025',
-            title: 'Advocacy Training and Skill Building',
-            position: { top: '40%', left: '23%' }
-        },
-        { 
-            year: 'Winter 2025',
-            title: 'Expanding Presence and Recognition',
-            position: { top: '15%', left: '42%' }
-        },
-        { 
-            year: 'Winter 2025',
-            title: 'Partnered with Dominican Nursing for CBL',
-            position: { top: '45%', left: '60%' }
-        },
-        { 
-            year: 'Fall 2025',
-            title: 'Expanding Efforts On and Off Campus',
-            position: { top: '20%', left: '80%' }
-        }
-    ];
+            // Timeline Events
+            const timelineEvents = document.getElementById('timelineEvents');
+            const events = [
+                { 
+                    year: 'Fall 2024',
+                    title: 'Founded Pediatric Advocacy Alliance',
+                    position: { top: '20%', left: '5%' }
+                },
+                { 
+                    year: 'Winter 2025',
+                    title: 'Advocacy Training and Skill Building',
+                    position: { top: '40%', left: '23%' }
+                },
+                { 
+                    year: 'Winter 2025',
+                    title: 'Expanding Presence and Recognition',
+                    position: { top: '15%', left: '42%' }
+                },
+                { 
+                    year: 'Winter 2025',
+                    title: 'Partnered with Dominican Nursing for CBL',
+                    position: { top: '45%', left: '60%' }
+                },
+                { 
+                    year: 'Fall 2025',
+                    title: 'Expanding Efforts On and Off Campus',
+                    position: { top: '20%', left: '80%' }
+                }
+            ];
             
-    events.forEach((event, index) => {
-        const eventElement = document.createElement('div');
-        eventElement.className = 'timeline-event';
-        eventElement.style.top = event.position.top;
-        eventElement.style.left = event.position.left;
-        eventElement.id = `event${index + 1}`;
+            events.forEach((event, index) => {
+                const eventElement = document.createElement('div');
+                eventElement.className = 'timeline-event';
+                eventElement.style.top = event.position.top;
+                eventElement.style.left = event.position.left;
+                eventElement.id = `event${index + 1}`;
                 
-        const pinPosition = index % 2 === 0 ? { bottom: '-10px', left: '50%' } : { top: '-10px', left: '50%' };
-        const doodlePosition = index % 2 === 0 ? { top: '-40px', right: '-20px' } : { bottom: '-40px', left: '-20px' };
+                eventElement.innerHTML = `
+                    <div class="timeline-card">
+                        <div class="timeline-year">${event.year}</div>
+                        <div class="timeline-title">${event.title}</div>
+                    </div>
+                `;
                 
-        eventElement.innerHTML = `
-            <div class="timeline-pin" style="transform: translate(-50%, 50%); ${Object.entries(pinPosition).map(([key, value]) => `${key}: ${value}`).join('; ')}"></div>
-            <div class="timeline-card">
-                <div class="timeline-tape timeline-tape-left"></div>
-                <div class="timeline-tape timeline-tape-right"></div>
-                <div class="timeline-year">${event.year}</div>
-                <div class="timeline-title">${event.title}</div>
-            </div>
-            <div class="timeline-doodle" style="${Object.entries(doodlePosition).map(([key, value]) => `${key}: ${value}`).join('; ')}">
-                <img src="/api/placeholder/50/50" alt="Timeline Doodle">
-            </div>
-        `;
-                
-        timelineEvents.appendChild(eventElement);
-    });
+                timelineEvents.appendChild(eventElement);
+            });
             
-    // Check timeline events visibility
-    const timelineEventElements = document.querySelectorAll('.timeline-event');
-    function checkTimelineScroll() {
-        timelineEventElements.forEach((event, index) => {
-            if (isInViewport(event)) {
-                setTimeout(() => {
-                    event.classList.add('visible');
-                }, index * 300);
+            // Check timeline events visibility
+            const timelineEventElements = document.querySelectorAll('.timeline-event');
+            function checkTimelineScroll() {
+                timelineEventElements.forEach((event, index) => {
+                    if (isInViewport(event)) {
+                        setTimeout(() => {
+                            event.classList.add('visible');
+                        }, index * 300);
+                    }
+                });
             }
-        });
-    }
             
-    window.addEventListener('scroll', checkTimelineScroll);
-    checkTimelineScroll();
+            window.addEventListener('scroll', checkTimelineScroll);
+            checkTimelineScroll();
             
             // Leaders Scrapbook
             const leaderData = [
