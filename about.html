@@ -528,8 +528,8 @@
         }
         
         .leader-polaroid {
-            width: 270px;
-            height: 320px;
+            width: 340px;
+            height: 400px;
             background-color: white;
             border: 18px solid white;
             box-shadow: var(--shadow);
@@ -588,8 +588,8 @@
             padding: 1.8rem;
             border-radius: 12px;
             transform: rotate(2deg);
-            margin-bottom: 2.5rem;
-            max-width: 320px;
+            margin-bottom: 1rem;
+            max-width: 390px;
             position: relative;
             box-shadow: var(--shadow);
             transition: var(--transition-medium);
@@ -606,39 +606,7 @@
             line-height: 1.6;
         }
         
-        .leader-links {
-            position: relative;
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            z-index: 1;
-        }
-        
-        .leader-link {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background-color: var(--blush-pink);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-medium);
-            font-size: 1.8rem;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-            pointer-events: auto;
-            z-index: 10;
-        }
-        
-        .leader-link:hover {
-            background-color: var(--baby-blue);
-            transform: translateY(-8px) scale(1.1);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
+        /* Removed leader-links and leader-link styles */
         
         .book-nav {
             display: flex;
@@ -1146,8 +1114,8 @@
             }
             
             .leader-polaroid {
-                width: 240px;
-                height: 290px;
+                width: 280px;
+                height: 340px;
             }
         }
         
@@ -1215,8 +1183,8 @@
             }
             
             .leader-polaroid {
-                width: 220px;
-                height: 260px;
+                width: 250px;
+                height: 300px;
             }
             
             .leader-name {
@@ -1307,8 +1275,8 @@
             }
             
             .leader-polaroid {
-                width: 200px;
-                height: 240px;
+                width: 220px;
+                height: 270px;
             }
             
             .leader-name {
@@ -1834,12 +1802,8 @@
                         <div class="leader-name" id="leaderName${index}">${leader.name}</div>
                     </div>
                     <div class="leader-title">${leader.title}</div>
-                    <div class="leader-fact-container" style="pointer-events: none;">
-                        <div class="leader-fact" style="pointer-events: auto;">${leader.fact}</div>
-                    </div>
-                    <div class="leader-links" style="z-index: 9999; position: relative;">
-                        ${leader.email ? `<a href="mailto:${leader.email}" class="leader-link" style="z-index: 10000;"><i class="fas fa-envelope"></i></a>` : ''}
-                        ${leader.linkedin ? `<a href="${leader.linkedin}" target="_blank" class="leader-link" style="z-index: 10000;"><i class="fab fa-linkedin-in"></i></a>` : ''}
+                    <div class="leader-fact-container">
+                        <div class="leader-fact">${leader.fact}</div>
                     </div>
                 `;
                 
