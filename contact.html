@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Pediatric Advocacy Alliance</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Caveat:wght@400;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&display=swap" rel="stylesheet">
     <style>
         /* ===== Base Styles ===== */
         :root {
@@ -17,6 +17,7 @@
             --soft-purple: #e6e0f4;
             --dark-text: #333333;
             --light-text: #666666;
+            --magenta: #E91E63;
             --shadow: 0 4px 12px rgba(0,0,0,0.05);
             --transition-fast: all 0.2s ease;
             --transition-medium: all 0.3s ease;
@@ -31,17 +32,15 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #fef9f0 0%, #f9d1d9 50%, #d1e0f6 100%);
-            background-attachment: fixed;
+            background-color: #faf9f8;
             color: var(--dark-text);
             line-height: 1.6;
             overflow-x: hidden;
-            cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="%23f9d1d9" d="M12 2L8 14H12V22L16 10H12V2Z"/></svg>') 16 16, auto;
         }
         
         h1, h2, h3, h4 {
-            font-family: 'Caveat', cursive;
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
         
         .container {
@@ -51,34 +50,63 @@
             padding: 0 20px;
         }
         
-        .handwritten {
-            font-family: 'Dancing Script', cursive;
+        .calligraphy {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
         }
         
-        .bubbly {
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 2px;
+        /* Wavy Border Sections */
+        .wave-border-top {
+            position: relative;
+            padding-top: 60px;
         }
         
-        /* Floating decoration elements */
-        .floating-decor {
-            position: fixed;
-            pointer-events: none;
-            opacity: 0.3;
-            font-size: 2rem;
-            color: var(--blush-pink);
-            animation: float 6s infinite ease-in-out;
-            z-index: 1;
+        .wave-border-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 Q30,0 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z' fill='%23fff'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
         }
         
-        .floating-decor:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-        .floating-decor:nth-child(2) { top: 20%; right: 8%; animation-delay: 1s; }
-        .floating-decor:nth-child(3) { bottom: 30%; left: 12%; animation-delay: 2s; }
-        .floating-decor:nth-child(4) { bottom: 10%; right: 15%; animation-delay: 3s; }
+        .wave-border-bottom {
+            position: relative;
+            padding-bottom: 60px;
+        }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+        .wave-border-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0,0 Q30,20 60,0 T120,0 T180,0 T240,0 T300,0 T360,0 T420,0 T480,0 T540,0 T600,0 T660,0 T720,0 T780,0 T840,0 T900,0 T960,0 T1020,0 T1080,0 T1140,0 T1200,0 L1200,40 L0,40 Z' fill='%23f9d1d9'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        
+        /* Decorative Arrows */
+        .decorative-arrow {
+            position: absolute;
+            width: 100px;
+            height: 40px;
+            opacity: 0.6;
+        }
+        
+        .arrow-left {
+            left: 10px;
+            transform: rotate(180deg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M0,20 L80,5 L80,15 L90,15 Q100,15 100,20 Q100,25 90,25 L80,25 L80,35 Z' fill='%23f9d1d9' /%3E%3C/svg%3E");
+        }
+        
+        .arrow-right {
+            right: 10px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M0,20 L80,5 L80,15 L90,15 Q100,15 100,20 Q100,25 90,25 L80,25 L80,35 Z' fill='%23f9d1d9' /%3E%3C/svg%3E");
         }
         
         /* Header (same as main site) */
@@ -89,6 +117,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 3px solid var(--blush-pink);
         }
         
         .header-container {
@@ -111,7 +140,6 @@
         .logo h1 {
             font-size: 1.5rem;
             font-weight: 500;
-            font-family: 'Playfair Display', serif;
         }
         
         nav ul {
@@ -138,7 +166,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: var(--blush-pink);
+            background-color: var(--magenta);
             transition: var(--transition-medium);
         }
         
@@ -147,137 +175,173 @@
         }
         
         nav ul li a:hover {
-            color: var(--blush-pink);
+            color: var(--magenta);
         }
         
         /* Hero Section */
         .hero-section {
-            padding: 150px 0 80px;
+            padding: 180px 0 100px;
             text-align: center;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") center/cover;
+            background: linear-gradient(135deg, #fdf8f5 0%, #f9e6eb 50%, var(--blush-pink) 100%);
+            position: relative;
+            border-bottom: 10px solid white;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50,50 m-20,0 a20,20 0 1,1 40,0 a20,20 0 1,1 -40,0' stroke='%23ffffff' stroke-width='1' fill='none' opacity='0.3'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+            opacity: 0.4;
+            z-index: 1;
+        }
+        
+        /* Floating Hearts */
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.3;
+            animation: floatHeart 6s infinite ease-in-out;
+            z-index: 2;
+        }
+        
+        .heart-1 { top: 10%; left: 10%; animation-delay: 0s; }
+        .heart-2 { top: 15%; right: 12%; animation-delay: 1s; transform: rotate(15deg); }
+        .heart-3 { bottom: 20%; left: 8%; animation-delay: 2s; transform: rotate(-15deg); }
+        
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
         
         .hero-title {
             font-size: 4.5rem;
-            color: var(--soft-purple);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            color: var(--dark-text);
             margin-bottom: 20px;
-            animation: bounceIn 0.8s ease-out;
+            animation: fadeIn 0.8s ease-out;
+            position: relative;
+            z-index: 3;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
         }
         
         .hero-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--dark-text);
             max-width: 600px;
             margin: 0 auto;
-            font-family: 'Dancing Script', cursive;
+            position: relative;
+            z-index: 3;
+            line-height: 1.7;
         }
         
-        @keyframes bounceIn {
-            0% { transform: scale(0); opacity: 0; }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        
-        /* Sticker decorations */
-        .sticker-cloud {
-            position: absolute;
-            width: 80px;
-            height: 40px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            opacity: 0.9;
-            z-index: 10;
-        }
-        
-        .sticker-cloud::before {
-            content: '';
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: white;
-            border-radius: 50%;
-            top: -15px;
-            left: 10px;
-        }
-        
-        .sticker-cloud::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            top: -20px;
-            right: 5px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         /* E-Board Contact Cards */
         .contact-cards-section {
-            padding: 80px 0;
+            padding: 100px 0;
+            background: linear-gradient(to bottom, white, #f9f7f5);
             position: relative;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
             position: relative;
         }
         
         .section-title h2 {
             font-size: 3.5rem;
-            color: var(--blush-pink);
+            color: var(--dark-text);
             margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blush-pink), var(--magenta));
         }
         
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--light-text);
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Pinyon Script', cursive;
         }
         
         .contact-cards-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
         
         .contact-card {
-            background: white;
+            background: linear-gradient(135deg, white, #fefbfc);
+            border: 3px dashed var(--blush-pink);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 500px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
             position: relative;
-            transform: rotate(-2deg);
             transition: var(--transition-medium);
-            border: 3px solid var(--pastel-yellow);
             opacity: 0;
-            transform: translateY(50px) rotate(-2deg);
+            transform: translateY(20px);
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(249,209,217,0.1) 0%, transparent 70%);
+            transition: var(--transition-slow);
+            transform: scale(0);
+        }
+        
+        .contact-card:hover::before {
+            transform: scale(1);
+        }
+        
+        .contact-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .contact-card:hover {
-            transform: translateY(-10px) rotate(0deg);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(249,209,217,0.3);
+            border-color: var(--magenta);
         }
         
-        .contact-card:nth-child(even) {
-            transform: rotate(2deg);
-            border-color: var(--baby-blue);
-        }
-        
-        .contact-card:nth-child(even):hover {
-            transform: translateY(-10px) rotate(0deg);
+        .card-sticker {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.8rem;
+            transform: rotate(12deg);
+            opacity: 0.8;
         }
         
         .card-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
+            text-align: center;
+            margin-bottom: 25px;
         }
         
         .profile-photo {
@@ -286,32 +350,30 @@
             border-radius: 15px;
             object-fit: cover;
             border: 5px solid var(--blush-pink);
-            transform: rotate(-5deg);
+            margin: 0 auto 15px;
+            display: block;
             transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
         }
         
         .contact-card:hover .profile-photo {
-            transform: rotate(0deg) scale(1.05);
-        }
-        
-        .card-info {
-            flex: 1;
+            transform: scale(1.05);
+            border-color: var(--magenta);
         }
         
         .card-name {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: var(--dark-text);
             margin-bottom: 5px;
-            background: linear-gradient(45deg, var(--blush-pink), var(--baby-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: 700;
         }
         
         .card-title {
             font-size: 1.1rem;
-            color: var(--light-text);
+            color: var(--magenta);
             font-weight: 600;
+            margin-bottom: 15px;
         }
         
         .card-email {
@@ -319,110 +381,121 @@
             text-decoration: none;
             font-size: 1rem;
             display: inline-block;
-            margin-bottom: 15px;
             transition: var(--transition-fast);
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: rgba(249,209,217,0.1);
         }
         
         .card-email:hover {
-            color: var(--baby-blue);
-            text-decoration: underline;
+            color: var(--magenta);
+            background: var(--blush-pink);
+            color: white;
         }
         
         .card-fun-fact {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.1rem;
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.3rem;
             color: var(--dark-text);
-            font-style: italic;
-            margin-top: 10px;
-        }
-        
-        /* Sticker decorations for cards */
-        .card-stickers {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            font-size: 1.8rem;
-            transform: rotate(15deg);
-        }
-        
-        .card-stickers:nth-child(2) {
-            bottom: -10px;
-            left: -10px;
-            top: auto;
-            right: auto;
-            transform: rotate(-15deg);
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px dashed rgba(249,209,217,0.5);
+            line-height: 1.6;
         }
         
         /* Contact Form Section */
         .contact-form-section {
-            padding: 80px 0;
-            background: linear-gradient(45deg, #ffffff, #fef9f0);
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--baby-blue) 0%, var(--soft-mint) 100%);
+            position: relative;
         }
         
         .form-container {
             max-width: 700px;
             margin: 0 auto;
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
+            padding: 60px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 5px solid var(--blush-pink);
             position: relative;
-            border: 3px dashed var(--blush-pink);
+        }
+        
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 3px dashed var(--magenta);
+            border-radius: 25px;
+            opacity: 0.3;
         }
         
         .form-title {
-            font-size: 3rem;
-            color: var(--baby-blue);
+            font-size: 2.8rem;
+            color: var(--dark-text);
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .form-title::after {
+            content: '📬';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: var(--dark-text);
-            font-weight: 500;
-            font-family: 'Caveat', cursive;
-            font-size: 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
         
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             border: 2px solid var(--cream);
-            border-radius: 15px;
+            border-radius: 12px;
             font-family: 'Montserrat', sans-serif;
             transition: var(--transition-fast);
-            background: #fafafa;
+            background: linear-gradient(135deg, #fafafa, #ffffff);
+            font-size: 1rem;
         }
         
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--blush-pink);
-            box-shadow: 0 0 0 3px rgba(249, 209, 217, 0.2);
+            border-color: var(--magenta);
+            box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
         }
         
         .form-group textarea {
-            height: 120px;
+            height: 140px;
             resize: vertical;
         }
         
         .submit-btn {
-            background: var(--blush-pink);
+            background: linear-gradient(135deg, var(--magenta), var(--blush-pink));
             color: white;
             border: none;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 18px 50px;
+            border-radius: 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
             cursor: pointer;
             transition: var(--transition-medium);
             width: 100%;
@@ -430,88 +503,104 @@
             overflow: hidden;
         }
         
-        .submit-btn:hover {
-            background: var(--baby-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
-        
-        .submit-btn::after {
-            content: '✉️';
+        .submit-btn::before {
+            content: '';
             position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: var(--transition-medium);
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
         }
         
-        .submit-btn:hover::after {
-            transform: translateY(-50%) translateX(10px) translateY(-5px);
+        .submit-btn:hover::before {
+            left: 100%;
         }
         
-        /* Other sections styling */
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
+        }
+        
+        /* Info Card Sections */
         .section {
-            padding: 60px 0;
+            padding: 80px 0;
+            position: relative;
         }
         
         .info-card {
-            background: white;
-            padding: 30px;
+            background: linear-gradient(135deg, white, #fefefe);
+            padding: 40px;
             border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
             text-align: center;
-            border: 3px solid transparent;
-            transition: var(--transition-medium);
-        }
-        
-        .info-card:hover {
-            border-color: var(--blush-pink);
-            transform: translateY(-5px);
-        }
-        
-        .info-card h3 {
-            font-size: 2.5rem;
-            color: var(--baby-blue);
-            margin-bottom: 15px;
-        }
-        
-        .info-card p {
-            color: var(--light-text);
-            margin-bottom: 20px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.1rem;
-        }
-        
-        .info-card a {
-            color: var(--blush-pink);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition-fast);
-        }
-        
-        .info-card a:hover {
-            color: var(--baby-blue);
-            text-decoration: underline;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--blush-pink);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
+            border: 3px solid var(--cream);
             transition: var(--transition-medium);
             position: relative;
             overflow: hidden;
         }
         
-        .btn:hover {
-            background: var(--baby-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--blush-pink), var(--magenta), var(--baby-blue));
+            opacity: 0;
+            transition: var(--transition-medium);
+        }
+        
+        .info-card:hover::before {
+            opacity: 1;
+        }
+        
+        .info-card:hover {
+            border-color: var(--blush-pink);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(249,209,217,0.2);
+        }
+        
+        .info-card h3 {
+            font-size: 2.2rem;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+        }
+        
+        .info-card p {
+            color: var(--light-text);
+            margin-bottom: 25px;
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.4rem;
+            line-height: 1.8;
+        }
+        
+        .info-card a {
+            color: var(--magenta);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+        
+        .info-card a:hover {
+            color: var(--blush-pink);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--magenta), var(--blush-pink));
+            color: white;
+            padding: 15px 40px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
         }
         
         .btn::before {
@@ -521,103 +610,122 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
         }
         
         .btn:hover::before {
             left: 100%;
         }
         
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+        }
+        
         /* Social Media Section */
         .social-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--pastel-yellow), var(--soft-mint));
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--pastel-yellow) 0%, var(--soft-mint) 100%);
+            position: relative;
         }
         
         .instagram-container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 40px auto;
             background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             border: 3px dashed var(--baby-blue);
-            transform: rotate(-2deg);
-            transition: var(--transition-medium);
+            position: relative;
         }
         
-        .instagram-container:hover {
-            transform: rotate(0deg);
+        .instagram-container::before {
+            content: '📸';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 1.5rem;
         }
         
         /* Footer */
         footer {
-            background: white;
-            padding: 40px 0 20px;
+            background: linear-gradient(to bottom, white, #f9f7f5);
+            padding: 60px 0 30px;
+            border-top: 5px solid var(--blush-pink);
             position: relative;
-            overflow: hidden;
-        }
-        
-        .footer-decorative-edge {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0,10 Q5,0 10,10 T20,10 T30,10 T40,10 T50,10 T60,10 T70,10 T80,10 T90,10 T100,10 L100,20 L0,20 Z' fill='%23f9d1d9'/%3E%3C/svg%3E");
-            background-size: 100px 20px;
-            background-repeat: repeat-x;
         }
         
         .footer-content {
             text-align: center;
-            padding-top: 40px;
         }
         
         .footer-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2rem;
             color: var(--dark-text);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .back-to-top {
             display: inline-block;
-            color: var(--blush-pink);
+            color: var(--magenta);
             text-decoration: none;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.2rem;
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.6rem;
             transition: var(--transition-fast);
+            position: relative;
         }
         
         .back-to-top:hover {
-            color: var(--baby-blue);
+            color: var(--blush-pink);
         }
         
         .back-to-top i {
-            margin-left: 5px;
+            margin-left: 8px;
             transition: var(--transition-fast);
         }
         
         .back-to-top:hover i {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
         
-        /* Animations */
-        @keyframes reveal {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Decorative Elements */
+        .decorative-shape {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
         }
         
-        .reveal {
-            animation: reveal 0.6s ease forwards;
+        .shape-1 {
+            top: 10%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, var(--blush-pink), transparent);
+            border-radius: 50%;
+        }
+        
+        .shape-2 {
+            top: 60%;
+            right: 8%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--baby-blue), var(--magenta));
+            transform: rotate(45deg);
+        }
+        
+        .shape-3 {
+            bottom: 20%;
+            left: 10%;
+            width: 40px;
+            height: 40px;
+            background: var(--soft-mint);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
         }
         
         /* Responsive Design */
@@ -630,48 +738,39 @@
                 font-size: 2.5rem;
             }
             
-            .contact-card {
-                max-width: 100%;
-            }
-            
-            .card-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+            .contact-cards-container {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
             }
             
             .form-container {
-                padding: 20px;
+                padding: 30px;
+            }
+            
+            .form-title::after {
+                display: none;
             }
             
             nav ul {
-                flex-direction: column;
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 80%;
-                background: white;
-                padding: 20px;
-                transition: var(--transition-medium);
+                display: none;
             }
             
-            nav ul.active {
-                left: 0;
+            .wave-border-top::before,
+            .wave-border-bottom::after {
+                height: 30px;
             }
             
-            nav ul li {
-                margin: 10px 0;
+            .wave-border-top {
+                padding-top: 30px;
+            }
+            
+            .wave-border-bottom {
+                padding-bottom: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Decorations -->
-    <div class="floating-decor">⭐</div>
-    <div class="floating-decor">💖</div>
-    <div class="floating-decor">☁️</div>
-    <div class="floating-decor">✨</div>
-    
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -696,104 +795,183 @@
     
     <!-- Hero Section -->
     <section class="hero-section">
+        <div class="floating-heart heart-1">💕</div>
+        <div class="floating-heart heart-2">❤️</div>
+        <div class="floating-heart heart-3">💖</div>
+        
         <div class="container">
-            <h1 class="hero-title bubbly">Let's Chat 💬</h1>
-            <p class="hero-subtitle">Whether you've got questions, ideas, or just want to connect, we're always happy to hear from you. Our inbox is always open 💌</p>
-            
-            <!-- Decorative elements -->
-            <div class="sticker-cloud" style="top: 20%; left: 5%;"></div>
-            <div class="sticker-cloud" style="top: 30%; right: 8%;"></div>
+            <h1 class="hero-title">Let's <span class="calligraphy">Chat</span></h1>
+            <p class="hero-subtitle">Whether you've got questions, ideas, or just want to connect, we're always happy to hear from you. Our inbox is always open.</p>
         </div>
     </section>
     
     <!-- E-Board Contact Cards -->
-    <section class="contact-cards-section">
+    <section class="contact-cards-section wave-border-top">
+        <div class="decorative-shape shape-1"></div>
+        <div class="decorative-arrow arrow-right" style="top: 10%;"></div>
+        
         <div class="container">
             <div class="section-title">
-                <h2 class="handwritten">Meet Our Amazing Team 🌟</h2>
+                <h2>Contact Our <span class="calligraphy">Team</span></h2>
                 <p class="section-subtitle">Each of our board members is here to help make your PAA experience amazing!</p>
             </div>
             
             <div class="contact-cards-container">
                 <!-- President -->
                 <div class="contact-card reveal" style="animation-delay: 0.1s;">
-                    <div class="card-stickers">💖</div>
+                    <div class="card-sticker">⭐</div>
                     <div class="card-header">
                         <img src="/api/placeholder/100/100" alt="President" class="profile-photo">
-                        <div class="card-info">
-                            <h3 class="card-name">Sarah Johnson</h3>
-                            <p class="card-title">President</p>
-                        </div>
+                        <h3 class="card-name">Sarah Johnson</h3>
+                        <p class="card-title">President</p>
                     </div>
-                    <a href="mailto:sarah@paa.edu" class="card-email">sarah@paa.dominican.edu</a>
-                    <p class="card-fun-fact">💕 Ask me about: Overall vision, chapter expansion, and big-picture initiatives!</p>
+                    <a href="mailto:sarah@paa.dominican.edu" class="card-email">sarah@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Overall vision, chapter expansion, and big-picture initiatives!</p>
                 </div>
                 
                 <!-- Vice President -->
                 <div class="contact-card reveal" style="animation-delay: 0.2s;">
-                    <div class="card-stickers">⭐</div>
+                    <div class="card-sticker">💫</div>
                     <div class="card-header">
                         <img src="/api/placeholder/100/100" alt="Vice President" class="profile-photo">
-                        <div class="card-info">
-                            <h3 class="card-name">Emily Chen</h3>
-                            <p class="card-title">Vice President</p>
-                        </div>
+                        <h3 class="card-name">Emily Chen</h3>
+                        <p class="card-title">Vice President</p>
                     </div>
-                    <a href="mailto:emily@paa.edu" class="card-email">emily@paa.dominican.edu</a>
-                    <p class="card-fun-fact">✨ Ask me about: Operations, member onboarding, and internal programs!</p>
+                    <a href="mailto:emily@paa.dominican.edu" class="card-email">emily@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Operations, member onboarding, and internal programs!</p>
                 </div>
                 
                 <!-- Volunteer Coordinator -->
                 <div class="contact-card reveal" style="animation-delay: 0.3s;">
-                    <div class="card-stickers">🌟</div>
+                    <div class="card-sticker">🌟</div>
                     <div class="card-header">
                         <img src="/api/placeholder/100/100" alt="Volunteer Coordinator" class="profile-photo">
-                        <div class="card-info">
-                            <h3 class="card-name">Michael Davis</h3>
-                            <p class="card-title">Volunteer Coordinator</p>
-                        </div>
+                        <h3 class="card-name">Michael Davis</h3>
+                        <p class="card-title">Volunteer Coordinator</p>
                     </div>
-                    <a href="mailto:michael@paa.edu" class="card-email">michael@paa.dominican.edu</a>
-                    <p class="card-fun-fact">🤲 Ask me about: Volunteer opportunities, community service, and hands-on projects!</p>
+                    <a href="mailto:michael@paa.dominican.edu" class="card-email">michael@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Volunteer opportunities, community service, and hands-on projects!</p>
                 </div>
                 
                 <!-- Events Director -->
                 <div class="contact-card reveal" style="animation-delay: 0.4s;">
-                    <div class="card-stickers">🎉</div>
+                    <div class="card-sticker">🎉</div>
                     <div class="card-header">
                         <img src="/api/placeholder/100/100" alt="Events Director" class="profile-photo">
-                        <div class="card-info">
-                            <h3 class="card-name">Jessica Rodriguez</h3>
-                            <p class="card-title">Events Director</p>
-                        </div>
+                        <h3 class="card-name">Jessica Rodriguez</h3>
+                        <p class="card-title">Events Director</p>
                     </div>
-                    <a href="mailto:jessica@paa.edu" class="card-email">jessica@paa.dominican.edu</a>
-                    <p class="card-fun-fact">🎈 Ask me about: Upcoming events, fundraisers, and social gatherings!</p>
+                    <a href="mailto:jessica@paa.dominican.edu" class="card-email">jessica@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Upcoming events, fundraisers, and social gatherings!</p>
                 </div>
                 
                 <!-- Communications Lead -->
                 <div class="contact-card reveal" style="animation-delay: 0.5s;">
-                    <div class="card-stickers">📱</div>
-                    <div class="card-stickers">💌</div>
+                    <div class="card-sticker">📱</div>
                     <div class="card-header">
                         <img src="/api/placeholder/100/100" alt="Communications Lead" class="profile-photo">
-                        <div class="card-info">
-                            <h3 class="card-name">Taylor Wilson</h3>
-                            <p class="card-title">Communications Lead</p>
-                        </div>
+                        <h3 class="card-name">Taylor Wilson</h3>
+                        <p class="card-title">Communications Lead</p>
                     </div>
-                    <a href="mailto:taylor@paa.edu" class="card-email">taylor@paa.dominican.edu</a>
-                    <p class="card-fun-fact">📸 Ask me about: Social media, newsletters, and staying connected with PAA!</p>
+                    <a href="mailto:taylor@paa.dominican.edu" class="card-email">taylor@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Social media, newsletters, and staying connected with PAA!</p>
+                </div>
+                
+                <!-- Treasurer -->
+                <div class="contact-card reveal" style="animation-delay: 0.6s;">
+                    <div class="card-sticker">💰</div>
+                    <div class="card-header">
+                        <img src="/api/placeholder/100/100" alt="Treasurer" class="profile-photo">
+                        <h3 class="card-name">Alex Thompson</h3>
+                        <p class="card-title">Treasurer</p>
+                    </div>
+                    <a href="mailto:alex@paa.dominican.edu" class="card-email">alex@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Fundraising, donations, and financial questions!</p>
+                </div>
+                
+                <!-- Program Manager -->
+                <div class="contact-card reveal" style="animation-delay: 0.7s;">
+                    <div class="card-sticker">📚</div>
+                    <div class="card-header">
+                        <img src="/api/placeholder/100/100" alt="Program Manager" class="profile-photo">
+                        <h3 class="card-name">Maria Garcia</h3>
+                        <p class="card-title">Program Manager</p>
+                    </div>
+                    <a href="mailto:maria@paa.dominican.edu" class="card-email">maria@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Educational programs, workshops, and community outreach!</p>
+                </div>
+                
+                <!-- Membership Coordinator -->
+                <div class="contact-card reveal" style="animation-delay: 0.8s;">
+                    <div class="card-sticker">🤝</div>
+                    <div class="card-header">
+                        <img src="/api/placeholder/100/100" alt="Membership Coordinator" class="profile-photo">
+                        <h3 class="card-name">David Kim</h3>
+                        <p class="card-title">Membership Coordinator</p>
+                    </div>
+                    <a href="mailto:david@paa.dominican.edu" class="card-email">david@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Member benefits, engagement activities, and retention!</p>
+                </div>
+                
+                <!-- Public Relations Lead -->
+                <div class="contact-card reveal" style="animation-delay: 0.9s;">
+                    <div class="card-sticker">📢</div>
+                    <div class="card-header">
+                        <img src="/api/placeholder/100/100" alt="Public Relations Lead" class="profile-photo">
+                        <h3 class="card-name">Samantha Lee</h3>
+                        <p class="card-title">Public Relations Lead</p>
+                    </div>
+                    <a href="mailto:samantha@paa.dominican.edu" class="card-email">samantha@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Partnerships, media relations, and community engagement!</p>
+                </div>
+                
+                <!-- External Affairs Coordinator -->
+                <div class="contact-card reveal" style="animation-delay: 1.0s;">
+                    <div class="card-sticker">🌐</div>
+                    <div class="card-header">
+                        <img src="/api/placeholder/100/100" alt="External Affairs Coordinator" class="profile-photo">
+                        <h3 class="card-name">Benjamin Park</h3>
+                        <p class="card-title">External Affairs Coordinator</p>
+                    </div>
+                    <a href="mailto:benjamin@paa.dominican.edu" class="card-email">benjamin@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: External partnerships, clinic relationships, and resource development!</p>
+                </div>
+                
+                <!-- Chapter Development Coordinator -->
+                <div class="contact-card reveal" style="animation-delay: 1.1s;">
+                    <div class="card-sticker">📈</div>
+                    <div class="card-header">
+                        <img src="/api/placeholder/100/100" alt="Chapter Development Coordinator" class="profile-photo">
+                        <h3 class="card-name">Emma Johnson</h3>
+                        <p class="card-title">Chapter Development Coordinator</p>
+                    </div>
+                    <a href="mailto:emma@paa.dominican.edu" class="card-email">emma@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Starting new chapters, chapter support, and expansion!</p>
+                </div>
+                
+                <!-- Advocacy Coordinator -->
+                <div class="contact-card reveal" style="animation-delay: 1.2s;">
+                    <div class="card-sticker">✊</div>
+                    <div class="card-header">
+                        <img src="/api/placeholder/100/100" alt="Advocacy Coordinator" class="profile-photo">
+                        <h3 class="card-name">Ryan Martinez</h3>
+                        <p class="card-title">Advocacy Coordinator</p>
+                    </div>
+                    <a href="mailto:ryan@paa.dominican.edu" class="card-email">ryan@paa.dominican.edu</a>
+                    <p class="card-fun-fact">Ask me about: Policy advocacy, healthcare initiatives, and legislative engagement!</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Contact Form Section -->
-    <section class="contact-form-section">
+    <section class="contact-form-section wave-border-top wave-border-bottom">
+        <div class="decorative-shape shape-2"></div>
+        <div class="decorative-arrow arrow-left" style="top: 15%;"></div>
+        
         <div class="container">
             <div class="form-container">
-                <h2 class="form-title handwritten">Write Us a Note 📬</h2>
+                <h2 class="form-title">Write Us a <span class="calligraphy">Note</span></h2>
                 <form id="contact-form" action="https://formspree.io/f/xbloglen" method="POST">
                     <div class="form-group">
                         <label for="name">Your Name</label>
@@ -829,23 +1007,22 @@
     </section>
     
     <!-- General Inbox Section -->
-    <section class="section">
+    <section class="section wave-border-top">
         <div class="container">
             <div class="info-card">
-                <h3 class="handwritten">Not Sure Who to Reach?</h3>
-                <p>Email our general inbox at <a href="mailto:paa@dominican.edu">paa@dominican.edu</a> and we'll pass it along 💗</p>
-                <div style="position: relative; display: inline-block;">
-                    <span style="font-size: 2rem; position: absolute; top: -10px; right: -25px;">📮</span>
-                </div>
+                <h3>Not Sure Who to <span class="calligraphy">Reach</span>?</h3>
+                <p>Email our general inbox at <a href="mailto:paa@dominican.edu">paa@dominican.edu</a> and we'll pass it along</p>
             </div>
         </div>
     </section>
     
     <!-- Let's Work Together Section -->
     <section class="section" style="background: linear-gradient(45deg, var(--soft-mint), var(--baby-blue));">
+        <div class="decorative-arrow arrow-right" style="top: 20%;"></div>
+        
         <div class="container">
             <div class="section-title">
-                <h2 class="handwritten">For Partners, Collaborators & Community Orgs 🎀</h2>
+                <h2>For Partners & <span class="calligraphy">Community Orgs</span></h2>
                 <p class="section-subtitle">We love partnering with clinics, schools, nonprofits, and businesses that support children and families!</p>
             </div>
             
@@ -853,39 +1030,35 @@
                 <div class="info-card" style="display: inline-block; margin: 0 auto;">
                     <p>We love partnering with clinics, schools, nonprofits, and businesses that support children and families. Email us to collaborate — we'd love to hear from you!</p>
                     <a href="mailto:partnerships@paa.dominican.edu" class="btn">Contact for Partnerships</a>
-                    <div style="margin-top: 20px; font-size: 2rem;">
-                        🤝 🧩 👯‍♀️
-                    </div>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Join the Club Section -->
-    <section class="section">
+    <section class="section wave-border-top">
+        <div class="decorative-shape shape-3"></div>
+        
         <div class="container">
             <div class="section-title">
-                <h2 class="handwritten">Become a Member! 🫶</h2>
+                <h2>Become a <span class="calligraphy">Member</span>!</h2>
                 <p class="section-subtitle">Want to join our Pediatric Advocacy fam? Whether you're new to advocacy or have lots of experience, we'd love to have you!</p>
             </div>
             
             <div style="text-align: center;">
                 <div class="info-card" style="display: inline-block; margin: 0 auto; background: linear-gradient(135deg, var(--pastel-yellow), var(--blush-pink));">
                     <a href="#" class="btn" style="background: white; color: var(--dark-text);">Fill Out the Interest Form</a>
-                    <div style="margin-top: 20px; font-size: 2rem;">
-                        ⭐ 📋 🎒 📓
-                    </div>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Social Media Section -->
-    <section class="social-section">
+    <section class="social-section wave-border-top">
         <div class="container">
             <div class="section-title">
-                <h2 class="handwritten">See What We're Up To 📸</h2>
-                <p class="section-subtitle">Follow us @pediatricadvocacydu for all the behind-the-scenes moments, event recaps, and calls to action 💥</p>
+                <h2>See What We're <span class="calligraphy">Up To</span></h2>
+                <p class="section-subtitle">Follow us @pediatricadvocacydu for all the behind-the-scenes moments, event recaps, and calls to action</p>
             </div>
             
             <div class="instagram-container">
@@ -897,8 +1070,7 @@
     </section>
     
     <!-- Footer -->
-    <footer>
-        <div class="footer-decorative-edge"></div>
+    <footer class="wave-border-top">
         <div class="container footer-content">
             <p class="footer-text">Made with love by PAA — Dominican University 💕</p>
             <a href="#" class="back-to-top">Back to Top <i class="fas fa-arrow-up"></i></a>
@@ -924,11 +1096,11 @@
             // Create a temporary envelope animation
             const btn = this.querySelector('.submit-btn');
             const originalText = btn.innerHTML;
-            btn.innerHTML = 'Sending... ✈️';
+            btn.innerHTML = 'Sending...';
             
-            // Simulate form submission (replace with actual form handling)
+            // Simulate form submission
             setTimeout(() => {
-                btn.innerHTML = 'Sent! 💌';
+                btn.innerHTML = 'Sent!';
                 btn.style.background = 'var(--soft-mint)';
                 
                 setTimeout(() => {
@@ -937,9 +1109,6 @@
                     this.reset();
                 }, 2000);
             }, 1000);
-            
-            // Actual form submission would go here
-            // this.submit();
         });
         
         // Reveal on scroll
@@ -960,41 +1129,14 @@
         window.addEventListener('scroll', reveal);
         window.addEventListener('load', reveal);
         
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const nav = document.querySelector('nav ul');
-        
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', function() {
-                nav.classList.toggle('active');
+        // Add hover effects to cards
+        document.querySelectorAll('.contact-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('.card-sticker').style.transform = 'rotate(0deg) scale(1.2)';
             });
-        }
-        
-        // Add sparkle effect on button hover
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mousemove', function(e) {
-                const x = e.pageX - this.offsetLeft;
-                const y = e.pageY - this.offsetTop;
-                
-                const sparkle = document.createElement('span');
-                sparkle.style.position = 'absolute';
-                sparkle.style.left = x + 'px';
-                sparkle.style.top = y + 'px';
-                sparkle.style.pointerEvents = 'none';
-                sparkle.innerHTML = '✨';
-                sparkle.style.fontSize = '12px';
-                sparkle.style.opacity = '1';
-                sparkle.style.transition = 'all 0.5s ease';
-                
-                this.appendChild(sparkle);
-                
-                setTimeout(() => {
-                    sparkle.style.opacity = '0';
-                    sparkle.style.transform = 'translateY(-20px) scale(1.5)';
-                    setTimeout(() => {
-                        sparkle.remove();
-                    }, 500);
-                }, 100);
+            
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('.card-sticker').style.transform = 'rotate(12deg) scale(1)';
             });
         });
     </script>
