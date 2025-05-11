@@ -1,1396 +1,402 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAA - Partnering for Pediatric Advocacy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Castoro+Titling&display=swap" rel="stylesheet">
-    <style>
-        /* Updated Color Palette */
-        :root {
-            --pink: #f9d1d9;
-            --blue: #d1e0f6;
-            --yellow: #fcf5d9;
-            --cream: #fef9f0;
-            --mint: #e6f0e4;
-            --text-color: #333;
-            --header-transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            background-color: var(--cream);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* Font Styles */
-        .calligraphy {
-            font-family: 'Pinyon Script', cursive;
-            font-weight: 400;
-            font-size: 1.3em;
-        }
-
-        .castoro {
-            font-family: 'Castoro Titling', serif;
-        }
-
-        /* Navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: var(--header-transition);
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            background-color: var(--cream);
-            transition: var(--header-transition);
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--pink);
-            transition: var(--header-transition);
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: white;
-            border-top: 1px solid var(--pink);
-            border-bottom: 1px solid var(--pink);
-            transition: var(--header-transition);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            padding: 0;
-        }
-
-        nav li {
-            position: relative;
-        }
-
-        nav a {
-            display: block;
-            padding: 15px 25px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: var(--header-transition);
-        }
-
-        nav a:hover {
-            color: var(--pink);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 60vh;
-            background-image: url('/api/placeholder/1200/600');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 241, 179, 0.5);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #333;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #333;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-heading h2 {
-            font-size: 2.5rem;
-            color: var(--text-color);
-            margin-bottom: 15px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Why Partner Section */
-        .why-partner {
-            background-color: white;
-            padding: 80px 0;
-        }
-
-        .why-partner-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .why-partner-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .why-partner-text p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            max-width: 600px;
-        }
-
-        .quote-card {
-            flex: 1;
-            min-width: 300px;
-            background-color: var(--mint);
-            padding: 30px;
-            border-radius: 10px;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .quote-card::before {
-            content: """;
-            font-size: 80px;
-            color: var(--pink);
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            opacity: 0.2;
-            font-family: Georgia, serif;
-        }
-
-        .quote-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .quote-author {
-            font-weight: 600;
-            text-align: right;
-        }
-
-        /* Washi tape decoration */
-        .washi-tape {
-            position: absolute;
-            width: 120px;
-            height: 30px;
-            opacity: 0.7;
-            transform: rotate(-45deg);
-            z-index: 1;
-        }
-
-        .washi-tape-1 {
-            top: 20px;
-            left: -20px;
-            background-color: var(--yellow);
-        }
-
-        .washi-tape-2 {
-            bottom: 20px;
-            right: -20px;
-            background-color: var(--blue);
-            transform: rotate(45deg);
-        }
-
-        /* Partner Logos Section */
-        .partners {
-            background-color: var(--cream);
-            padding: 80px 0;
-        }
-
-        .partner-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .partner-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .partner-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .partner-logo {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            margin: 0 auto 15px;
-            transition: all 0.3s ease;
-        }
-
-        .partner-name {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--text-color);
-        }
-
-        .partner-description {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-            height: 0;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .partner-card:hover .partner-description {
-            height: auto;
-            opacity: 1;
-        }
-
-        .partner-link {
-            display: inline-block;
-            padding: 8px 20px;
-            background-color: var(--pink);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .partner-card:hover .partner-link {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Collaboration Section */
-        .collaboration {
-            background-color: white;
-            padding: 80px 0;
-        }
-
-        .collab-boxes {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .collab-box {
-            background-color: var(--blue);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .collab-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .collab-box i {
-            font-size: 3rem;
-            color: var(--text-color);
-            margin-bottom: 15px;
-        }
-
-        .collab-box h3 {
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .collab-box p {
-            font-size: 0.9rem;
-            display: none;
-        }
-
-        .collab-box:hover p {
-            display: block;
-        }
-
-        /* Carousel for event photos */
-        .carousel-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            position: relative;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(255,255,255,0.8);
-            padding: 15px;
-            text-align: center;
-        }
-
-        .carousel-buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .carousel-btn {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-btn.active {
-            background-color: var(--pink);
-        }
-
-        /* Partner Spotlights */
-        .spotlights {
-            background-color: var(--yellow);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .spotlight-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .spotlight-slides {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .spotlight-slide {
-            min-width: 100%;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .spotlight-logo {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            margin: 0 auto 20px;
-            background-color: white;
-            padding: 15px;
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .spotlight-quote {
-            font-style: italic;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .spotlight-author {
-            font-weight: 600;
-        }
-
-        .spotlight-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-
-        .spotlight-btn {
-            background-color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .spotlight-btn:hover {
-            background-color: var(--pink);
-            color: white;
-        }
-
-        /* Digital Scrapbook */
-        .scrapbook {
-            padding: 50px 0;
-            background-color: white;
-        }
-
-        .scrapbook-row {
-            display: flex;
-            overflow-x: auto;
-            gap: 30px;
-            padding: 20px 0;
-            scrollbar-width: none; /* Hide scrollbar for Firefox */
-        }
-
-        .scrapbook-row::-webkit-scrollbar {
-            display: none; /* Hide scrollbar for Chrome/Safari */
-        }
-
-        .scrapbook-item {
-            min-width: 250px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .scrapbook-item:hover {
-            transform: rotate(2deg) scale(1.05);
-        }
-
-        .polaroid {
-            background-color: white;
-            padding: 15px 15px 60px 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .polaroid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .polaroid-caption {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-family: 'Pinyon Script', cursive;
-            font-size: 1.2rem;
-        }
-
-        .sticker {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: var(--pink);
-            color: white;
-            padding: 10px;
-            border-radius: 50%;
-            transform: rotate(15deg);
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            z-index: 2;
-        }
-
-        .paperclip {
-            position: absolute;
-            top: -5px;
-            left: 20px;
-            width: 30px;
-            height: 60px;
-            border: 2px solid #aaa;
-            border-radius: 5px 5px 0 0;
-            transform: rotate(-10deg);
-            z-index: 2;
-        }
-
-        .sticky-note {
-            position: absolute;
-            bottom: -20px;
-            right: -10px;
-            background-color: var(--yellow);
-            padding: 15px;
-            width: 120px;
-            transform: rotate(5deg);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.8rem;
-            z-index: 2;
-        }
-
-        /* Quote Wall */
-        .quote-wall {
-            padding: 80px 0;
-            background-color: var(--mint);
-        }
-
-        .quotes-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .quote-wall-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
-        }
-
-        .quote-wall-card::before {
-            content: """;
-            font-size: 80px;
-            color: var(--pink);
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            opacity: 0.2;
-            font-family: Georgia, serif;
-        }
-
-        .quote-wall-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .quote-wall-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .quote-wall-logo {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            margin-right: 15px;
-            background-color: #f9f9f9;
-            padding: 5px;
-            border-radius: 5px;
-        }
-
-        .quote-wall-name {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 1.2rem;
-        }
-
-        /* Chicagoland Map */
-        .map {
-            padding: 80px 0;
-            background-color: white;
-        }
-
-        .map-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .map-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .map-pin {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-color: var(--pink);
-            border-radius: 50% 50% 50% 0;
-            transform: rotate(-45deg);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .map-pin::after {
-            content: '';
-            width: 14px;
-            height: 14px;
-            background-color: white;
-            position: absolute;
-            border-radius: 50%;
-            top: 8px;
-            left: 8px;
-        }
-
-        .map-pin:hover {
-            transform: rotate(-45deg) scale(1.2);
-        }
-
-        .map-popup {
-            position: absolute;
-            background-color: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            width: 200px;
-            z-index: 10;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-
-        .map-popup.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .map-popup-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--text-color);
-        }
-
-        .map-popup-description {
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .map-popup-image {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        /* Get Featured CTA */
-        .get-featured {
-            padding: 80px 0;
-            background-color: var(--yellow);
-        }
-
-        .featured-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .featured-container h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--text-color);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .featured-container p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--pink);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
-        /* Contact Form */
-        .contact {
-            padding: 80px 0;
-            background-color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 241, 179, 0.3);
-            z-index: 1;
-        }
-
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .contact-title h2 {
-            font-size: 2.5rem;
-            color: var(--text-color);
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .contact-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group.full-width {
-            grid-column: span 2;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-
-        .checkbox-item input {
-            margin-right: 5px;
-        }
-
-        .form-submit {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: white;
-            padding: 50px 0 20px;
-            border-top: 1px solid var(--pink);
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-column h3 {
-            color: var(--pink);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--pink);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #f1f1f1;
-            font-size: 0.9rem;
-        }
-
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-heading h2 {
-                font-size: 2rem;
-            }
-
-            .contact-form {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-
-            .partner-cards {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-
-            .quotes-container {
-                grid-template-columns: 1fr;
-            }
-
-            .collab-boxes {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .section-heading h2 {
-                font-size: 1.8rem;
-            }
-
-            .collab-boxes {
-                grid-template-columns: 1fr;
-            }
-
-            .spotlight-logo {
-                width: 80px;
-                height: 80px;
-            }
-
-            .spotlight-controls {
-                position: static;
-                margin-top: 20px;
-                transform: none;
-            }
-        }
-    </style>
+</style>
 </head>
-
 <body>
-    <!-- Header Navigation -->
-    <header id="main-header">
-        <div class="logo-container">
-            <a href="index.html" id="logo-link">
-                <img src="/api/placeholder/120/120" alt="PAA Logo" class="logo">
-            </a>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/api/placeholder/50/50" alt="PAA Logo">
+                <h1>Pediatric Advocacy Alliance</h1>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="calendar.html">Events</a></li>
+                    <li><a href="cbl hub.html">Programs</a></li>
+                    <li><a href="partnership.html" class="active">Partnerships</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="about.html">About Us</a>
-                </li>
-                <li>
-                    <a href="volunteer.html">Volunteer</a>
-                </li>
-                <li>
-                    <a href="calendar.html">Calendar</a>
-                </li>
-                <li>
-                    <a href="cbl.html">CBL Hub</a>
-                </li>
-                <li>
-                    <a href="highlights.html">Past Highlights</a>
-                </li>
-                <li>
-                    <a href="partnership.html">Partnership</a>
-                </li>
-                <li>
-                    <a href="donate.html">Donate</a>
-                </li>
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Partnering for <span class="calligraphy">Pediatric</span> Advocacy</h1>
-            <p>Thank you to the incredible organizations who help us advocate, uplift, and serve.</p>
-        </div>
-    </section>
-
-    <!-- Why Partner With Us Section -->
-    <section class="why-partner">
-        <div class="container">
-            <div class="section-heading fade-in">
-                <h2>Why Partner With Us?</h2>
-            </div>
-            <div class="why-partner-content">
-                <div class="why-partner-text fade-in">
-                    <p>PAA partners with schools, clinics, libraries, and nonprofits to uplift child and family well-being through community-centered service and education.</p>
-                    <p>Our student-led initiatives bring fresh energy, passionate engagement, and meaningful connections to every partnership. Together, we create sustainable impact that benefits both the communities we serve and the future healthcare professionals in our organization.</p>
-                </div>
-                <div class="quote-card fade-in">
-                    <div class="washi-tape washi-tape-1"></div>
-                    <div class="washi-tape washi-tape-2"></div>
-                    <p class="quote-text">"PAA brought energy, passion, and meaningful results to our mission. Their student volunteers connect beautifully with our families and bring fresh perspectives to our programs."</p>
-                    <p class="quote-author">— Local Partner</p>
+    <section class="hero-section">
+        <div class="stitched-divider"></div>
+        <div class="clipboard-bg"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Together, We Create Change</h1>
+                <p class="hero-subtitle">Whether you're a school, clinic, nonprofit, or mission-driven company — your partnership can power real pediatric impact.</p>
+                <div class="hero-buttons">
+                    <a href="#partnership-menu" class="btn hero-btn-primary">Explore Ways to Partner</a>
+                    <a href="#partnership-form" class="btn hero-btn-secondary">Start a Conversation</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Our Community Partners Section -->
-    <section class="partners">
-        <div class="container">
-            <div class="section-heading fade-in">
-                <h2>Our Community <span class="calligraphy">Partners</span></h2>
-            </div>
-            <div class="partner-cards">
-                <div class="partner-card fade-in">
-                    <img src="/api/placeholder/120/120" alt="Partner Logo" class="partner-logo">
-                    <h3 class="partner-name">Shriners Children's</h3>
-                    <p class="partner-description">Partnered on Bundles of Joy Drive</p>
-                    <a href="#" class="partner-link">Learn More</a>
+            
+            <div class="hero-visual">
+                <div class="paper-stack"></div>
+                <div class="polaroid-container">
+                    <img src="/api/placeholder/300/180" alt="Partnership event" class="polaroid-image">
+                    <div class="polaroid-caption">Spring 2025 Family Health Fair</div>
                 </div>
-                <div class="partner-card fade-in">
-                    <img src="/api/placeholder/120/120" alt="Partner Logo" class="partner-logo">
-                    <h3 class="partner-name">Dominican University</h3>
-                    <p class="partner-description">Campus partner for educational initiatives</p>
-                    <a href="#" class="partner-link">Learn More</a>
+                <div class="sticker-visual">
+                    <img src="/api/placeholder/80/80" alt="Linked hands icon">
                 </div>
-                <div class="partner-card fade-in">
-                    <img src="/api/placeholder/120/120" alt="Partner Logo" class="partner-logo">
-                    <h3 class="partner-name">Maryville Academy</h3>
-                    <p class="partner-description">Youth welfare collaboration</p>
-                    <a href="#" class="partner-link">Learn More</a>
-                </div>
-                <div class="partner-card fade-in">
-                    <img src="/api/placeholder/120/120" alt="Partner Logo" class="partner-logo">
-                    <h3 class="partner-name">River Forest UMC</h3>
-                    <p class="partner-description">Community center for PAA events</p>
-                    <a href="#" class="partner-link">Learn More</a>
-                </div>
-                <div class="partner-card fade-in">
-                    <img src="/api/placeholder/120/120" alt="Partner Logo" class="partner-logo">
-                    <h3 class="partner-name">Filla Heart 4 Kids</h3>
-                    <p class="partner-description">Joint pediatric initiatives</p>
-                    <a href="#" class="partner-link">Learn More</a>
-                </div>
-                <div class="partner-card fade-in">
-                    <img src="/api/placeholder/120/120" alt="Partner Logo" class="partner-logo">
-                    <h3 class="partner-name">Erie Neighborhood House</h3>
-                    <p class="partner-description">Family resource partner</p>
-                    <a href="#" class="partner-link">Learn More</a>
+                <div class="folder-tab">
+                    <span>Collaboration Over Competition</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What Collaboration Looks Like Section -->
-    <section class="collaboration">
+    <!-- Partnership Menu Section -->
+    <section class="partnership-menu">
         <div class="container">
-            <div class="section-heading fade-in">
-                <h2>What Collaboration <span class="calligraphy">Looks Like</span></h2>
+            <div class="section-title">
+                <div class="decorative-tape"></div>
+                <h2>Ways to Work With Us</h2>
+                <div class="accent-line"></div>
+                <p>Check out these flexible options for organizations that share our mission of improving children's health and wellbeing.</p>
             </div>
-            <div class="collab-boxes">
-                <div class="collab-box fade-in">
-                    <i class="fas fa-gift"></i>
-                    <h3>Donation Drives</h3>
-                    <p>Collecting essentials for children and families in need</p>
-                </div>
-                <div class="collab-box fade-in">
-                    <i class="fas fa-envelope-open-text"></i>
-                    <h3>Letter-Writing Campaigns</h3>
-                    <p>Connecting through personal messages of support</p>
-                </div>
-                <div class="collab-box fade-in">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Volunteer Days</h3>
-                    <p>Bringing students and community together in service</p>
-                </div>
-                <div class="collab-box fade-in">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>Educational Workshops</h3>
-                    <p>Sharing knowledge and building skills</p>
-                </div>
-            </div>
-
-            <!-- Event Photos Carousel -->
-            <div class="carousel-container fade-in">
-                <div class="carousel">
-                    <div class="carousel-slide">
-                        <img src="/api/placeholder/800/400" alt="Event Photo">
-                        <div class="carousel-caption">
-                            <h3>Holiday Toy Drive 2024</h3>
-                        </div>
+            
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <span class="badge popular">Popular</span>
+                    <div class="menu-item-icon">
+                        <i class="fas fa-box-open"></i>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="/api/placeholder/800/400" alt="Event Photo">
-                        <div class="carousel-caption">
-                            <h3>Family Resource Fair</h3>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="/api/placeholder/800/400" alt="Event Photo">
-                        <div class="carousel-caption">
-                            <h3>Community Health Day</h3>
-                        </div>
-                    </div>
+                    <h3 class="menu-item-title">Host a Donation Drive</h3>
+                    <p class="menu-item-desc">Rally your community to collect essential items for children in need, from diapers to school supplies.</p>
+                    <a href="#" class="btn">Learn More</a>
                 </div>
-                <div class="carousel-buttons">
-                    <div class="carousel-btn active" data-slide="0"></div>
-                    <div class="carousel-btn" data-slide="1"></div>
-                    <div class="carousel-btn" data-slide="2"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partner Spotlights Section -->
-    <section class="spotlights">
-        <div class="container">
-            <div class="section-heading fade-in">
-                <h2>Partner <span class="calligraphy">Spotlights</span></h2>
-            </div>
-            <div class="spotlight-container fade-in">
-                <div class="spotlight-slides">
-                    <div class="spotlight-slide">
-                        <img src="/api/placeholder/120/120" alt="Partner Logo" class="spotlight-logo">
-                        <p class="spotlight-quote">"Working with PAA made us feel re-energized. Their events bring real impact to real people."</p>
-                        <p class="spotlight-author">— Cradles to Crayons</p>
-                    </div>
-                    <div class="spotlight-slide">
-                        <img src="/api/placeholder/120/120" alt="Partner Logo" class="spotlight-logo">
-                        <p class="spotlight-quote">"PAA students bring so much creativity and compassion to our collaborative events. They truly elevate our work."</p>
-                        <p class="spotlight-author">— Chicago Children's Museum</p>
-                    </div>
-                    <div class="spotlight-slide">
-                        <img src="/api/placeholder/120/120" alt="Partner Logo" class="spotlight-logo">
-                        <p class="spotlight-quote">"Their dedication to pediatric advocacy aligns perfectly with our mission. We're grateful for this ongoing partnership."</p>
-                        <p class="spotlight-author">— Children's Health Alliance</p>
-                    </div>
-                </div>
-                <div class="spotlight-controls">
-                    <button class="spotlight-btn prev-btn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="spotlight-btn next-btn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Digital Scrapbook Row -->
-    <section class="scrapbook">
-        <div class="container">
-            <div class="section-heading fade-in">
-                <h2>Partnership <span class="calligraphy">Memories</span></h2>
-            </div>
-            <div class="scrapbook-row">
-                <div class="scrapbook-item fade-in">
-                    <div class="polaroid">
-                        <div class="paperclip"></div>
-                        <img src="/api/placeholder/250/200" alt="Scrapbook Memory">
-                        <div class="polaroid-caption">Holiday Drive 2024</div>
-                    </div>
-                    <div class="sticker">New Partner!</div>
-                </div>
-                <div class="scrapbook-item fade-in">
-                    <div class="polaroid">
-                        <div class="paperclip"></div>
-                        <img src="/api/placeholder/250/200" alt="Scrapbook Memory">
-                        <div class="polaroid-caption">Healthcare Fair</div>
-                    </div>
-                    <div class="sticky-note">2024 Impact Partner</div>
-                </div>
-                <div class="scrapbook-item fade-in">
-                    <div class="polaroid">
-                        <div class="paperclip"></div>
-                        <img src="/api/placeholder/250/200" alt="Scrapbook Memory">
-                        <div class="polaroid-caption">Family Fun Day</div>
-                    </div>
-                </div>
-                <div class="scrapbook-item fade-in">
-                    <div class="polaroid">
-                        <div class="paperclip"></div>
-                        <img src="/api/placeholder/250/200" alt="Scrapbook Memory">
-                        <div class="polaroid-caption">Workshop Series</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quote Wall Section -->
-    <section class="quote-wall">
-        <div class="container">
-            <div class="section-heading fade-in">
-                <h2>Our Partners <span class="calligraphy">Say</span></h2>
-            </div>
-            <div class="quotes-container">
-                <div class="quote-wall-card fade-in">
-                    <p class="quote-wall-text">"The PAA students bring such genuine enthusiasm to their service. It's inspiring to see the next generation of healthcare leaders so committed to community care."</p>
-                    <div class="quote-wall-author">
-                        <img src="/api/placeholder/50/50" alt="Partner Logo" class="quote-wall-logo">
-                        <p class="quote-wall-name">Children's Memorial Foundation</p>
-                    </div>
-                </div>
-                <div class="quote-wall-card fade-in">
-                    <p class="quote-wall-text">"Our partnership with PAA has allowed us to reach more families than ever before. Their student volunteers connect so naturally with the children we serve."</p>
-                    <div class="quote-wall-author">
-                        <img src="/api/placeholder/50/50" alt="Partner Logo" class="quote-wall-logo">
-                        <p class="quote-wall-name">Family Resource Center</p>
-                    </div>
-                </div>
-                <div class="quote-wall-card fade-in">
-                    <p class="quote-wall-text">"What sets PAA apart is their ability to listen first and then act. They take the time to understand our needs before designing initiatives that truly make a difference."</p>
-                    <div class="quote-wall-author">
-                        <img src="/api/placeholder/50/50" alt="Partner Logo" class="quote-wall-logo">
-                        <p class="quote-wall-name">Community Health Network</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Chicagoland Map Section -->
-    <section class="map">
-        <div class="container">
-            <div class="section-heading fade-in">
-                <h2>Our <span class="calligraphy">Chicagoland</span> Impact</h2>
-            </div>
-            <div class="map-container fade-in">
-                <img src="/api/placeholder/800/500" alt="Chicagoland Map" class="map-image">
                 
-                <!-- Map Pins -->
-                <div class="map-pin" style="top: 40%; left: 30%;" data-popup="popup1"></div>
-                <div class="map-pin" style="top: 35%; left: 50%;" data-popup="popup2"></div>
-                <div class="map-pin" style="top: 60%; left: 45%;" data-popup="popup3"></div>
-                <div class="map-pin" style="top: 25%; left: 70%;" data-popup="popup4"></div>
+                <div class="menu-item">
+                    <div class="menu-item-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="menu-item-title">Sponsor a PAA Initiative</h3>
+                    <p class="menu-item-desc">Provide financial support for our programs, events, or campaigns while gaining visibility for your organization.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
                 
-                <!-- Map Popups -->
-                <div class="map-popup" id="popup1">
-                    <h3 class="map-popup-title">River Forest UMC</h3>
-                    <p class="map-popup-description">Community center for monthly wellness workshops</p>
-                    <img src="/api/placeholder/170/100" alt="Location Image" class="map-popup-image">
+                <div class="menu-item">
+                    <span class="badge new">New</span>
+                    <div class="menu-item-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="menu-item-title">Co-Plan a Workshop</h3>
+                    <p class="menu-item-desc">Collaborate with our education team to create and deliver valuable workshops for parents, providers, or youth.</p>
+                    <a href="#" class="btn">Learn More</a>
                 </div>
-                <div class="map-popup" id="popup2">
-                    <h3 class="map-popup-title">Shriners Children's</h3>
-                    <p class="map-popup-description">Partner for pediatric support initiatives</p>
-                    <img src="/api/placeholder/170/100" alt="Location Image" class="map-popup-image">
+                
+                <div class="menu-item">
+                    <div class="menu-item-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="menu-item-title">Join Our Pediatric Conference</h3>
+                    <p class="menu-item-desc">Be part of our annual health conference to connect with pediatric advocates from all sectors.</p>
+                    <a href="#" class="btn">Learn More</a>
                 </div>
-                <div class="map-popup" id="popup3">
-                    <h3 class="map-popup-title">Erie Neighborhood House</h3>
-                    <p class="map-popup-description">Family resource partner</p>
-                    <img src="/api/placeholder/170/100" alt="Location Image" class="map-popup-image">
+                
+                <div class="menu-item">
+                    <span class="badge flexible">Flexible</span>
+                    <div class="menu-item-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="menu-item-title">Fund a Mini-Grant</h3>
+                    <p class="menu-item-desc">Support creative solutions to pediatric challenges by funding small grants for community initiatives.</p>
+                    <a href="#" class="btn">Learn More</a>
                 </div>
-                <div class="map-popup" id="popup4">
-                    <h3 class="map-popup-title">Dominican University</h3>
-                    <p class="map-popup-description">Campus partner for educational initiatives</p>
-                    <img src="/api/placeholder/170/100" alt="Location Image" class="map-popup-image">
+                
+                <div class="menu-item">
+                    <div class="menu-item-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="menu-item-title">Invite Us to Speak</h3>
+                    <p class="menu-item-desc">Book our experts to present on children's health topics at your events, meetings, or conferences.</p>
+                    <a href="#" class="btn">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Get Featured CTA Section -->
-    <section class="get-featured">
+    <!-- Partner Spotlight Section -->
+    <section class="partner-spotlight">
         <div class="container">
-            <div class="featured-container fade-in">
-                <h2>Want to be featured here?</h2>
-                <p>Share your story or photos with us after your partnership.</p>
-                <a href="#" class="btn">Submit Your Impact</a>
+            <div class="section-title">
+                <h2>Partner Spotlight</h2>
+                <div class="accent-line"></div>
+                <p>Celebrating the amazing organizations that help us make a difference</p>
+            </div>
+            
+            <div class="spotlight-container">
+                <div class="spotlight-photo">
+                    <div class="polaroid">
+                        <img src="/api/placeholder/360/240" alt="Community Hospital">
+                        <div class="polaroid-caption">River Forest Community Hospital, Spring 2025</div>
+                    </div>
+                </div>
+                
+                <div class="spotlight-content">
+                    <h3 class="spotlight-title">River Forest Community Hospital</h3>
+                    <div class="spotlight-text">
+                        <p>Our partnership with River Forest Community Hospital has enabled us to expand our infant wellness program to reach over 300 families in the past year alone.</p>
+                        <p>Through collaborative workshops, donation drives, and their generous support, we've been able to provide essential resources and education to new parents.</p>
+                    </div>
+                    <div class="spotlight-quote">
+                        Working with PAA has amplified our community impact and brought joy to both our staff and patients.
+                    </div>
+                    <p class="spotlight-author">- Dr. Sarah Johnson, Pediatric Director</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact">
+    <!-- Impact Snapshot Section -->
+    <section class="impact-snapshot">
         <div class="container">
-            <div class="contact-container fade-in">
-                <div class="contact-title">
-                    <h2>Ready to <span class="calligraphy">Collaborate</span>?</h2>
-                    <p>Let's create something meaningful together</p>
+            <div class="section-title">
+                <h2>Our Collaborations by the Numbers</h2>
+                <div class="accent-line"></div>
+                <p>Together with our partners, we're building a healthier future for children</p>
+            </div>
+            
+            <div class="impact-dashboard">
+                <div class="impact-stat">
+                    <div class="stat-number" data-count="42">0</div>
+                    <div class="stat-label">Partner Organizations</div>
                 </div>
-                <form class="contact-form">
+                
+                <div class="impact-stat">
+                    <div class="stat-number" data-count="15000">0</div>
+                    <div class="stat-label">Diapers Donated</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="stat-number" data-count="326">0</div>
+                    <div class="stat-label">CPR Certifications</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="stat-number" data-count="178">0</div>
+                    <div class="stat-label">Families Enrolled in Medicaid</div>
+                </div>
+            </div>
+            
+            <div class="impact-map">
+                <div class="map-pin"></div>
+                <div class="map-pin"></div>
+                <div class="map-pin"></div>
+                <div class="map-pin"></div>
+                <div class="map-pin"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Form Section -->
+    <section class="partnership-form">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's Get Started</h2>
+                <div class="accent-line"></div>
+                <p>Ready to make a difference together? Fill out this form and we'll be in touch soon!</p>
+            </div>
+            
+            <div class="form-container">
+                <div class="form-deco">
+                    <div class="form-deco-inner">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                </div>
+                
+                <div class="form-quote">
+                    Every big movement starts with a conversation.
+                </div>
+                
+                <form id="partnership-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="org-name">Organization Name</label>
                         <input type="text" id="org-name" name="org-name" required>
                     </div>
+                    
                     <div class="form-group">
-                        <label for="contact-name">Contact Name</label>
-                        <input type="text" id="contact-name" name="contact-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required>
                     </div>
+                    
                     <div class="form-group">
-                        <label for="phone">Phone (Optional)</label>
-                        <input type="tel" id="phone" name="phone">
+                        <label for="partnership-type">How would you like to partner?</label>
+                        <select id="partnership-type" name="partnership-type" required>
+                            <option value="">Choose an option...</option>
+                            <option value="donation-drive">Host a Donation Drive</option>
+                            <option value="sponsorship">Sponsor an Initiative</option>
+                            <option value="workshop">Co-Plan a Workshop</option>
+                            <option value="conference">Join Our Conference</option>
+                            <option value="mini-grant">Fund a Mini-Grant</option>
+                            <option value="speaking">Invite PAA to Speak</option>
+                            <option value="other">Other (Please explain)</option>
+                        </select>
                     </div>
-                    <div class="form-group full-width">
-                        <label>Partnership Type (select all that apply)</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="donation-drive" name="partnership-type" value="donation-drive">
-                                <label for="donation-drive">Donation Drive</label>
+                    
+                    <div class="form-group">
+                        <label for="availability">When are you available to talk?</label>
+                        <input type="text" id="availability" name="availability" placeholder="E.g., Weekday afternoons, Tuesdays at 3pm, etc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message" placeholder="Tell us more about your organization and partnership ideas..."></textarea>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Please add me to the PAA Partners newsletter to receive updates and opportunities.</label>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Start the Conversation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wall of Love Section -->
+    <section class="wall-of-love">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Amazing Partners</h2>
+                <div class="accent-line"></div>
+                <p>We're grateful to work alongside these incredible organizations</p>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-pin"></div>
+                    <img src="/api/placeholder/120/80" alt="Partner Logo">
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-pin"></div>
+                    <img src="/api/placeholder/120/80" alt="Partner Logo">
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-pin"></div>
+                    <img src="/api/placeholder/120/80" alt="Partner Logo">
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-pin"></div>
+                    <img src="/api/placeholder/120/80" alt="Partner Logo">
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-pin"></div>
+                    <img src="/api/placeholder/120/80" alt="Partner Logo">
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-pin"></div>
+                    <img src="/api/placeholder/120/80" alt="Partner Logo">
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-pin"></div>
+                    <img src="/api/placeholder/120/80" alt="Partner Logo">
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-pin"></div>
+                    <img src="/api/placeholder/120/80" alt="Partner Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Partners Say</h2>
+                <div class="accent-line"></div>
+                <p>Hear from the organizations we work with</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonials-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "PAA's dedication to children's wellbeing aligns perfectly with our mission. They bring creativity, expertise, and heart to every project we collaborate on. Their ability to connect with our families makes them an invaluable partner."
                             </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="volunteer-day" name="partnership-type" value="volunteer-day">
-                                <label for="volunteer-day">Volunteer Day</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="speaker" name="partnership-type" value="speaker">
-                                <label for="speaker">Speaker</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="workshop" name="partnership-type" value="workshop">
-                                <label for="workshop">Workshop</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="event" name="partnership-type" value="event">
-                                <label for="event">Event Sponsor</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="other" name="partnership-type" value="other">
-                                <label for="other">Other</label>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="author-photo">
+                                <div class="author-info">
+                                    <h4>Jennifer Torres</h4>
+                                    <p>Bright Futures Childcare Center</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group full-width">
-                        <label for="message">Anything else?</label>
-                        <textarea id="message" name="message" rows="5"></textarea>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Working with PAA has amplified our impact in ways we couldn't have imagined. Their organization, attention to detail, and passion for pediatric advocacy have made our joint initiatives incredibly successful."
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="author-photo">
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>Community Health Foundation</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-submit">
-                        <button type="submit" class="btn">Let's Partner!</button>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "The PAA team brings both professional expertise and genuine warmth to our partnership. They've helped us connect with families we weren't reaching before, and their training programs have empowered our staff."
+                            </div>
+                            <div class="testimonial-author">
+                                <img src="/api/placeholder/50/50" alt="Author" class="author-photo">
+                                <div class="author-info">
+                                    <h4>Dr. Samantha Johnson</h4>
+                                    <p>Pediatric Wellness Clinic</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <div class="control-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="control-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-dots">
+                    <div class="dot active" data-slide="0"></div>
+                    <div class="dot" data-slide="1"></div>
+                    <div class="dot" data-slide="2"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1398,46 +404,51 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-container">
                 <div class="footer-column">
                     <h3>About PAA</h3>
                     <ul class="footer-links">
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="leadership.html">Leadership</a></li>
-                        <li><a href="mission.html">Mission & Vision</a></li>
-                        <li><a href="chapters.html">Find a Chapter</a></li>
-                        <li><a href="create-chapter.html">Start a Chapter</a></li>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Impact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Get Involved</h3>
                     <ul class="footer-links">
-                        <li><a href="volunteer.html">Volunteer Opportunities</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="events.html">Upcoming Events</a></li>
-                        <li><a href="partnership.html">Partner With Us</a></li>
-                        <li><a href="cbl.html">Community-Based Learning</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                        <li><a href="#">Join Our Team</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="resources.html">Educational Materials</a></li>
-                        <li><a href="advocacy.html">Advocacy Tools</a></li>
-                        <li><a href="calendar.html">Event Calendar</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Calendar</a></li>
+                        <li><a href="#">CBL Hub</a></li>
+                        <li><a href="#">Educational Materials</a></li>
+                        <li><a href="#">FAQs</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Connect With Us</h3>
+                    <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><a href="https://www.instagram.com/pediatricadvocacydu/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="https://www.linkedin.com/in/paadu/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="mailto:pediatricadvocacyalliance@mydomedu.onmicrosoft.com" target="_blank"><i class="fas fa-envelope"></i> Email Us</a></li>
+                        <li><a href="#">Email Us</a></li>
+                        <li><a href="#">Phone: (123) 456-7890</a></li>
+                        <li><a href="#">Campus Location</a></li>
+                        <li><a href="#">Contact Form</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
                 <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
             </div>
         </div>
@@ -1445,121 +456,1509 @@
 
     <!-- JavaScript -->
     <script>
-        // Sticky Header Functionality
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('main-header');
-            const logo = document.querySelector('.logo');
-            const logoContainer = document.querySelector('.logo-container');
-            
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-                logo.style.width = '80px';
-                logo.style.height = '80px';
-                logoContainer.style.padding = '5px 0';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                logo.style.width = '120px';
-                logo.style.height = '120px';
-                logoContainer.style.padding = '15px 0';
-            }
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
         });
-
-        // Scroll Reveal Animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
+        
+        // Impact Stats Counter Animation
+        const stats = document.querySelectorAll('.stat-number');
+        
+        function animateStats() {
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000; // 2 seconds
+                const step = target / duration * 10; // Update every 10ms
+                let current = 0;
+                
+                const counterAnimation = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(counterAnimation);
+                    }
+                    stat.textContent = Math.floor(current).toLocaleString();
+                }, 10);
+            });
+        }
+        
+        // Map Pins Animation
+        const pins = document.querySelectorAll('.map-pin');
+        
+        function animatePins() {
+            pins.forEach(pin => {
+                pin.classList.add('visible');
+            });
+        }
+        
+        // Testimonial Slider
+        const track = document.querySelector('.testimonials-track');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const dots = document.querySelectorAll('.dot');
+        
+        let currentSlide = 0;
+        const slideWidth = 100; // 100% width
+        
+        function goToSlide(index) {
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
             
+            currentSlide = index;
+            track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            
+            // Update dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+        
+        prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+        
+        // Form Submission (placeholder)
+        const partnershipForm = document.getElementById('partnership-form');
+        
+        partnershipForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Normally you would send this to a server
+            alert("Thank you for your interest in partnering with PAA! We'll be in touch soon.");
+            
+            // Reset the form
+            this.reset();
+        });
+        
+        // Intersection Observer for scroll animations
+        const animateOnScroll = () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
+                        // If this is the stats section
+                        if (entry.target.classList.contains('impact-dashboard')) {
+                            animateStats();
+                        }
+                        
+                        // If this is the map section
+                        if (entry.target.classList.contains('impact-map')) {
+                            animatePins();
+                        }
+                        
+                        // Add visible class to animate
                         entry.target.classList.add('visible');
                     }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.2 });
             
-            fadeElements.forEach(element => {
-                observer.observe(element);
+            // Observe elements that should animate on scroll
+            document.querySelectorAll('.impact-dashboard, .impact-map, .impact-stat').forEach(el => {
+                observer.observe(el);
+            });
+        };
+        
+        // Initialize animations on scroll
+        animateOnScroll();
+        
+        // Initialize tooltip for partnership cards
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        menuItems.forEach(item => {
+            item.addEventListener('mouseover', function() {
+                this.style.zIndex = "10";
             });
             
-            // Event Photos Carousel
-            const carousel = document.querySelector('.carousel');
-            const slides = document.querySelectorAll('.carousel-slide');
-            const buttons = document.querySelectorAll('.carousel-btn');
-            let currentSlide = 0;
+            item.addEventListener('mouseout', function() {
+                this.style.zIndex = "1";
+            });
+        });
+        
+        // Create sparkle effect on button hover
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mousemove', function(e) {
+                const x = e.pageX - this.offsetLeft;
+                const y = e.pageY - this.offsetTop;
+                
+                const sparkle = document.createElement('span');
+                sparkle.style.position = 'absolute';
+                sparkle.style.left = x + 'px';
+                sparkle.style.top = y + 'px';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.width = '4px';
+                sparkle.style.height = '4px';
+                sparkle.style.borderRadius = '50%';
+                sparkle.style.backgroundColor = 'white';
+                sparkle.style.opacity = '1';
+                sparkle.style.transition = 'all 0.5s ease';
+                sparkle.style.zIndex = '10';
+                
+                this.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.style.opacity = '0';
+                    sparkle.style.transform = 'translateY(-20px) scale(1.5)';
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 500);
+                }, 100);
+            });
+        });
+        
+        // Add scroll-triggered wave effect to sections
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
             
-            function showSlide(n) {
-                carousel.style.transform = `translateX(-${n * 100}%)`;
-                buttons.forEach((btn, i) => {
-                    btn.classList.toggle('active', i === n);
-                });
-                currentSlide = n;
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.75) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Apply initial styles for scroll effect
+        document.querySelectorAll('section').forEach(section => {
+            if (!section.classList.contains('hero-section')) {
+                section.style.opacity = '0.7';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             }
-            
-            buttons.forEach((btn, i) => {
-                btn.addEventListener('click', () => showSlide(i));
+        });
+        
+        // Animate partnership form inputs on focus
+        document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-5px)';
+                this.parentElement.style.transition = 'transform 0.3s ease';
             });
             
-            // Auto slide every 5 seconds
-            setInterval(() => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }, 5000);
-            
-            // Partner Spotlights Carousel
-            const spotlightSlides = document.querySelector('.spotlight-slides');
-            const spotlightItems = document.querySelectorAll('.spotlight-slide');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            let currentSpotlight = 0;
-            
-            function showSpotlight(n) {
-                spotlightSlides.style.transform = `translateX(-${n * 100}%)`;
-                currentSpotlight = n;
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Add checkmark animation to form submit button
+        const submitBtn = document.querySelector('.form-submit .btn');
+        
+        submitBtn.addEventListener('click', function() {
+            // Only if form is valid
+            if (partnershipForm.checkValidity()) {
+                const originalText = this.innerHTML;
+                this.innerHTML = 'Sent ✓';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
             }
+        });
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial testimonial
+            goToSlide(0);
             
-            prevBtn.addEventListener('click', () => {
-                currentSpotlight = (currentSpotlight - 1 + spotlightItems.length) % spotlightItems.length;
-                showSpotlight(currentSpotlight);
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                currentSpotlight = (currentSpotlight + 1) % spotlightItems.length;
-                showSpotlight(currentSpotlight);
-            });
-            
-            // Auto rotate spotlights every 7 seconds
-            setInterval(() => {
-                currentSpotlight = (currentSpotlight + 1) % spotlightItems.length;
-                showSpotlight(currentSpotlight);
-            }, 7000);
-            
-            // Map Pins Interaction
-            const mapPins = document.querySelectorAll('.map-pin');
-            const mapPopups = document.querySelectorAll('.map-popup');
-            
-            mapPins.forEach(pin => {
-                pin.addEventListener('mouseenter', () => {
-                    const popupId = pin.getAttribute('data-popup');
-                    const popup = document.getElementById(popupId);
-                    
-                    // Position popup near pin
-                    const pinRect = pin.getBoundingClientRect();
-                    const mapRect = document.querySelector('.map-container').getBoundingClientRect();
-                    
-                    popup.style.top = (pin.offsetTop - 120) + 'px';
-                    popup.style.left = (pin.offsetLeft + 30) + 'px';
-                    
-                    // Hide all popups first
-                    mapPopups.forEach(p => p.classList.remove('active'));
-                    
-                    // Show current popup
-                    popup.classList.add('active');
-                });
-            });
-            
-            document.querySelector('.map-container').addEventListener('mouseleave', () => {
-                mapPopups.forEach(popup => popup.classList.remove('active'));
+            // Trigger animations if elements are already in viewport
+            document.querySelectorAll('.impact-dashboard, .impact-map').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    if (el.classList.contains('impact-dashboard')) {
+                        animateStats();
+                    }
+                    if (el.classList.contains('impact-map')) {
+                        animatePins();
+                    }
+                }
             });
         });
     </script>
 </body>
-</html>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnerships - Pediatric Advocacy Alliance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Caveat:wght@400;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Base Styles ===== */
+        :root {
+            --blush-pink: #f9d1d9;
+            --baby-blue: #d1e0f6;
+            --pastel-yellow: #fcf5d9;
+            --cream: #fef9f0;
+            --soft-mint: #e6f0e4;
+            --soft-purple: #e6e0f4;
+            --dark-text: #333333;
+            --light-text: #666666;
+            --shadow: 0 4px 12px rgba(0,0,0,0.05);
+            --transition-fast: all 0.2s ease;
+            --transition-medium: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .calligraphy {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+        }
+
+        .handwritten {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            background-color: var(--blush-pink);
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-medium);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .accent-line {
+            height: 3px;
+            width: 80px;
+            background: var(--blush-pink);
+            margin: 10px auto 20px;
+            border-radius: 2px;
+        }
+
+        /* Decorative elements */
+        .decorative-tape {
+            position: absolute;
+            width: 120px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.6);
+            transform: rotate(-5deg);
+            top: -15px;
+            left: calc(50% - 60px);
+            z-index: -1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .sticker {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: var(--pastel-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transform: rotate(10deg);
+            box-shadow: var(--shadow);
+            z-index: 2;
+        }
+
+        .paperclip {
+            position: absolute;
+            width: 20px;
+            height: 45px;
+            border: 3px solid var(--baby-blue);
+            border-radius: 10px 10px 0 0;
+            top: -10px;
+            left: -5px;
+            z-index: 5;
+        }
+
+        .paperclip::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            border: 3px solid var(--baby-blue);
+            border-radius: 5px 5px 0 0;
+            bottom: -10px;
+            left: -3px;
+        }
+
+        /* ===== Header & Navigation ===== */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--blush-pink);
+            transition: var(--transition-medium);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--blush-pink);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero-section {
+            padding: 130px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--cream) 50%, var(--soft-mint) 100%);
+        }
+
+        .hero-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .hero-content {
+            flex: 0 0 55%;
+            padding-right: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+            position: relative;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.2s;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: var(--dark-text);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.4s;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards 0.6s;
+        }
+
+        .hero-btn-primary {
+            animation: slideInLeft 0.8s forwards 0.6s;
+            opacity: 0;
+        }
+
+        .hero-btn-secondary {
+            background-color: white;
+            animation: slideInRight 0.8s forwards 0.6s;
+            opacity: 0;
+        }
+
+        .hero-visual {
+            flex: 0 0 40%;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .paper-stack {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transform: rotate(2deg);
+        }
+
+        .paper-stack::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--pastel-yellow);
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        .paper-stack::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--baby-blue);
+            border-radius: 15px;
+            z-index: -2;
+        }
+
+        .polaroid-container {
+            position: absolute;
+            width: 80%;
+            padding: 15px 15px 50px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: rotate(-5deg);
+            top: 50px;
+            left: 50px;
+            z-index: 5;
+        }
+
+        .polaroid-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .polaroid-caption {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+        }
+
+        .sticker-visual {
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            background-color: var(--soft-mint);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            transform: rotate(10deg);
+            z-index: 6;
+            overflow: hidden;
+        }
+
+        .sticker-visual img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        .folder-tab {
+            position: absolute;
+            top: -20px;
+            right: 40px;
+            width: 160px;
+            height: 40px;
+            background-color: var(--baby-blue);
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-2deg);
+            z-index: 7;
+        }
+
+        .folder-tab span {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.2rem;
+            color: var(--dark-text);
+        }
+
+        .clipboard-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" opacity="0.03"><path d="M0 0 h40 v40 h-40z" fill="none" stroke="%23333" stroke-width="1"/><path d="M10 10 h20 v20 h-20z" fill="none" stroke="%23333" stroke-width="1"/></svg>');
+            background-repeat: repeat;
+            z-index: 0;
+        }
+
+        .stitched-divider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"><path d="M0 5 h3 m2 0 h3 m2 0 h3 m2 0 h3 m2 0" stroke="%23f9d1d9" stroke-width="2" stroke-linecap="round"/></svg>');
+            background-repeat: repeat-x;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ===== Partnership Menu Section ===== */
+        .partnership-menu {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .menu-item {
+            background-color: var(--cream);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition-medium);
+            position: relative;
+            border-left: 5px solid var(--blush-pink);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .menu-item-icon {
+            font-size: 2.5rem;
+            color: var(--blush-pink);
+            margin-bottom: 15px;
+        }
+
+        .menu-item-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-desc {
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--pastel-yellow);
+            color: var(--dark-text);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge.popular {
+            background-color: var(--blush-pink);
+            color: white;
+        }
+
+        .badge.new {
+            background-color: var(--soft-mint);
+        }
+
+        .badge.flexible {
+            background-color: var(--baby-blue);
+        }
+
+        /* ===== Partner Spotlight Section ===== */
+        .partner-spotlight {
+            padding: 80px 0;
+            background-color: var(--cream);
+            position: relative;
+        }
+
+        .spotlight-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .spotlight-photo {
+            flex: 0 0 400px;
+            position: relative;
+        }
+
+        .polaroid {
+            background-color: white;
+            padding: 20px 20px 60px;
+            box-shadow: var(--shadow);
+            transform: rotate(-3deg);
+            position: relative;
+            transition: var(--transition-medium);
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .polaroid-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+        }
+
+        .spotlight-content {
+            flex: 0 0 400px;
+        }
+
+        .spotlight-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .spotlight-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--blush-pink);
+        }
+
+        .spotlight-text {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .spotlight-text::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--baby-blue);
+        }
+
+        .spotlight-quote {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--light-text);
+            margin: 30px 0;
+            position: relative;
+            padding: 0 30px;
+        }
+
+        .spotlight-quote::before,
+        .spotlight-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--blush-pink);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .spotlight-quote::before {
+            top: -30px;
+            left: 0;
+        }
+
+        .spotlight-quote::after {
+            bottom: -50px;
+            right: 0;
+        }
+
+        .spotlight-author {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        /* ===== Impact Snapshot Section ===== */
+        .impact-snapshot {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .impact-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .impact-stat {
+            text-align: center;
+            background-color: var(--cream);
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .impact-stat.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--blush-pink);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+        }
+
+        .impact-map {
+            margin: 60px auto;
+            max-width: 800px;
+            height: 400px;
+            background-color: var(--pastel-yellow);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-pin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--blush-pink);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .map-pin::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: var(--blush-pink);
+            border-radius: 50%;
+            opacity: 0.3;
+            transform: translate(-50%, -50%);
+        }
+
+        .map-pin.visible {
+            transform: scale(1);
+        }
+
+        .map-pin:nth-child(1) { top: 30%; left: 20%; transition-delay: 0.1s; }
+        .map-pin:nth-child(2) { top: 40%; left: 50%; transition-delay: 0.2s; }
+        .map-pin:nth-child(3) { top: 60%; left: 30%; transition-delay: 0.3s; }
+        .map-pin:nth-child(4) { top: 50%; left: 70%; transition-delay: 0.4s; }
+        .map-pin:nth-child(5) { top: 70%; left: 60%; transition-delay: 0.5s; }
+
+        /* ===== Partnership Form Section ===== */
+        .partnership-form {
+            padding: 80px 0;
+            background-color: var(--cream);
+            position: relative;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 2px dashed var(--baby-blue);
+        }
+
+        .form-deco {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 100px;
+            height: 100px;
+            background-color: var(--soft-mint);
+            border-radius: 50%;
+            transform: rotate(10deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            z-index: 1;
+        }
+
+        .form-deco-inner {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-deco-inner i {
+            font-size: 2rem;
+            color: var(--blush-pink);
+        }
+
+        .form-quote {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--light-text);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition-fast);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--baby-blue);
+            box-shadow: 0 0 0 3px rgba(209, 224, 246, 0.3);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .form-checkbox input {
+            margin-right: 10px;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        /* ===== Wall of Love Section ===== */
+        .wall-of-love {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 30px;
+            margin: 40px auto;
+        }
+
+        .partner-card {
+            background-color: var(--cream);
+            height: 150px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition-medium);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px) rotate(0deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .partner-card img {
+            max-width: 100%;
+            max-height: 80px;
+            filter: grayscale(0.2);
+            transition: var(--transition-medium);
+        }
+
+        .partner-card:hover img {
+            filter: grayscale(0);
+        }
+
+        .partner-card:nth-child(odd) {
+            transform: rotate(-2deg);
+        }
+
+        .partner-card:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .partner-pin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            top: -8px;
+            left: calc(50% - 10px);
+            background-color: var(--blush-pink);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* ===== Testimonials Section ===== */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--cream);
+        }
+
+        .testimonials-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transform: rotate(var(--rotate, -1deg));
+        }
+
+        .testimonial-card:nth-child(even) {
+            --rotate: 1deg;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-text::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: var(--blush-pink);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 3px solid var(--baby-blue);
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition-fast);
+        }
+
+        .control-btn:hover {
+            background-color: var(--blush-pink);
+            color: white;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .dot.active {
+            background-color: var(--blush-pink);
+            transform: scale(1.3);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background-color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--blush-pink);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: var(--light-text);
+            transition: var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: var(--blush-pink);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--cream);
+            border-radius: 50%;
+            margin: 0 5px;
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: var(--transition-medium);
+        }
+        
+        .social-link:hover {
+            background-color: var(--blush-pink);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ===== Responsive Styles ===== */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-content {
+                flex: 0 0 100%;
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .hero-visual {
+                flex: 0 0 100%;
+                height: 400px;
+            }
+            
+            .polaroid-container {
+                left: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 20px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                box-shadow: var(--shadow);
+                transition: var(--transition-medium);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-visual {
+                height: 350px;
+            }
+            
+            .polaroid-container {
+                left: 20px;
+                top: 30px;
+                width: 70%;
+            }
+            
+            .spotlight-container {
+                flex-direction: column;
+            }
+            
+            .spotlight-photo {
+                margin-bottom: 30px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-visual {
+                height: 300px;
+            }
+            
+            .folder-tab {
+                width: 140px;
+                height: 35px;
+                right: 20px;
+            }
+            
+            .folder-tab span {
+                font-size: 1rem;
+            }
+            
+            .sticker-visual {
+                width: 80px;
+                height: 80px;
+                bottom: 20px;
+                right: 10px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
