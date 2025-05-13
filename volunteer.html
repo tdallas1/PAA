@@ -4,1452 +4,1051 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer - Pediatric Advocacy Alliance</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Castoro+Titling&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&display=swap" rel="stylesheet">
     <style>
-        /* Updated Color Palette */
+        /* ===== Base Styles ===== */
         :root {
-            --pink: #ff6f91;
-            --green: #3e5f4a;
-            --light-pink: #ffc6d3;
-            --yellow: #ffe497;
-            --purple: #d4c1ec;
-            --teal: #c2efe9;
-            --cream: #FFFCF9;
-            --text-color: #333;
-            --header-transition: all 0.3s ease;
+            --blush-pink: #f9d1d9;
+            --baby-blue: #d1e0f6;
+            --pastel-yellow: #fcf5d9;
+            --cream: #fef9f0;
+            --soft-mint: #e6f0e4;
+            --soft-purple: #e6e0f4;
+            --dark-text: #333333;
+            --light-text: #666666;
+            --shadow: 0 4px 12px rgba(0,0,0,0.05);
+            --transition-fast: all 0.2s ease;
+            --transition-medium: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
         }
-
+        
         body {
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--cream);
-            color: var(--text-color);
+            color: var(--dark-text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
-
-        /* Font Styles */
-        .calligraphy {
-            font-family: 'Pinyon Script', cursive;
-            font-weight: 400;
-            font-size: 1.3em;
-        }
-
-        .castoro {
-            font-family: 'Castoro Titling', serif;
-        }
-
-        /* Navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: var(--header-transition);
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            background-color: var(--cream);
-            transition: var(--header-transition);
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--light-pink);
-            transition: var(--header-transition);
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: white;
-            border-top: 1px solid var(--light-pink);
-            border-bottom: 1px solid var(--light-pink);
-            transition: var(--header-transition);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            padding: 0;
-        }
-
-        nav li {
-            position: relative;
-        }
-
-        nav a {
-            display: block;
-            padding: 15px 25px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: var(--header-transition);
-        }
-
-        nav a:hover {
-            color: var(--pink);
-        }
-
-        nav li:hover .dropdown {
-            display: block;
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            z-index: 1;
-            border-radius: 0 0 5px 5px;
-            border-top: 3px solid var(--light-pink);
-        }
-
-        .dropdown a {
-            padding: 12px 20px;
-            display: block;
-            border-bottom: 1px solid #f1f1f1;
-        }
-
-        .dropdown a:last-child {
-            border-bottom: none;
-        }
-
-        /* Page Banner */
-        .page-banner {
-            height: 50vh;
-            background-image: url('background35.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .banner-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .banner-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
-
-        .banner-content p {
-            font-size: 1.2rem;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-
+        
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 50px;
+        
+        .calligraphy {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
         }
-
-        .section-heading h2 {
-            font-size: 2.5rem;
-            color: var(--pink);
-            margin-bottom: 15px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Button Styles */
+        
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--pink);
-            color: white;
-            text-decoration: none;
+            padding: 12px 28px;
             border-radius: 30px;
+            background-color: var(--blush-pink);
+            color: var(--dark-text);
+            text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            cursor: pointer;
+            transition: var(--transition-medium);
             border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            font-size: 1rem;
         }
-
+        
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
-
-        .btn-secondary {
-            background-color: var(--green);
+        
+        .btn.secondary {
+            background-color: var(--soft-mint);
         }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--pink);
-            color: var(--pink);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--pink);
-            color: white;
-        }
-
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        /* Volunteer Intro Section */
-        .volunteer-intro {
-            background-color: white;
-            padding: 80px 0;
+        
+        .section-title {
             text-align: center;
+            margin-bottom: 2.5rem;
         }
-
-        .intro-content {
-            max-width: 800px;
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            max-width: 700px;
             margin: 0 auto;
         }
-
-        .intro-content p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        /* Opportunity Cards */
-        .opportunity-section {
-            background-color: var(--cream);
+        
+        section {
             padding: 80px 0;
         }
-
-        .opportunity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .opportunity-card {
+        
+        /* ===== Header & Navigation ===== */
+        header {
             background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .opportunity-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .card-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .card-image img {
+            box-shadow: var(--shadow);
+            position: fixed;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.3s ease;
+            top: 0;
+            z-index: 1000;
         }
-
-        .opportunity-card:hover .card-image img {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: 30px;
-            flex: 1;
+        
+        .header-container {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
         }
-
-        .card-content h3 {
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
             font-size: 1.5rem;
-            color: var(--pink);
-            margin-bottom: 15px;
+            font-weight: 500;
             font-family: 'Playfair Display', serif;
         }
-
-        .card-details {
-            margin-bottom: 20px;
-            flex: 1;
-        }
-
-        .detail-item {
+        
+        nav ul {
             display: flex;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            align-items: flex-start;
+            list-style: none;
         }
-
-        .detail-icon {
-            color: var(--pink);
-            margin-right: 10px;
-            font-size: 1rem;
-            min-width: 20px;
-            text-align: center;
+        
+        nav ul li {
+            margin-left: 30px;
         }
-
-        .card-action {
-            margin-top: auto;
-        }
-
-        /* Process Steps */
-        .process-section {
-            background-color: var(--purple);
-            background-image: url('background30.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 80px 0;
-        }
-
-        .steps-container {
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: var(--transition-fast);
             position: relative;
-            max-width: 900px;
-            margin: 0 auto;
         }
-
-        .step-line {
+        
+        nav ul li a:after {
+            content: '';
             position: absolute;
-            top: 50px;
-            bottom: 50px;
-            left: 50%;
-            width: 6px;
-            background-color: var(--light-pink);
-            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--blush-pink);
+            transition: var(--transition-medium);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--blush-pink);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== Hero Section ===== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--cream) 100%);
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(45deg, var(--blush-pink) 25%, transparent 25%, transparent 50%, var(--blush-pink) 50%, var(--blush-pink) 75%, transparent 75%, transparent);
+            background-size: 100px 100px;
+            opacity: 0.05;
             z-index: 1;
         }
-
-        .step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 50px;
+        
+        .hero-content {
             position: relative;
             z-index: 2;
-        }
-
-        .step:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background-color: var(--pink);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            flex-shrink: 0;
-            margin: 0 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .step-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            max-width: 400px;
-        }
-
-        .step-content h3 {
-            color: var(--pink);
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            background-color: white;
-            padding: 80px 0;
-        }
-
-        .testimonial-slider {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
         }
-
-        .testimonial-slide {
-            background-color: var(--cream);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            display: none;
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
         }
-
-        .testimonial-slide.active {
-            display: block;
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark-text);
         }
-
-        .testimonial-slide::before {
-            content: """;
-            font-size: 80px;
-            color: var(--light-pink);
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            opacity: 0.2;
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-author {
+        
+        .hero-buttons {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
         }
-
-        .author-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-bottom: 15px;
-            border: 3px solid var(--light-pink);
+        
+        /* ===== How You Can Help Section ===== */
+        .help-section {
+            padding: 100px 0;
+            background-color: white;
         }
-
-        .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        
+        .volunteer-role {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: var(--transition-medium);
+            box-shadow: var(--shadow);
         }
-
-        .author-name {
-            font-weight: 600;
-            color: var(--pink);
+        
+        .volunteer-role:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .role-type-1 {
+            position: relative;
+            padding-left: 45px;
+            border-left: 15px solid var(--blush-pink);
+        }
+        
+        .role-type-2 {
+            text-align: center;
+            background-color: white;
+            border: 2px dashed var(--baby-blue);
+        }
+        
+        .role-type-3 {
+            background-color: var(--soft-mint);
+            padding: 40px;
+        }
+        
+        .role-label {
+            display: inline-block;
+            font-family: 'Pinyon Script', cursive;
+            color: var(--light-text);
+            font-size: 1.2rem;
             margin-bottom: 5px;
         }
-
-        .author-role {
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
-
-        .slider-nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            background-color: var(--light-pink);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .slider-dot.active {
-            background-color: var(--pink);
-            transform: scale(1.2);
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            background-color: var(--cream);
-            padding: 80px 0;
-        }
-
-        .accordion {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .accordion-item {
-            background-color: white;
-            border-radius: 10px;
+        
+        .volunteer-role h3 {
+            font-size: 1.8rem;
             margin-bottom: 15px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            color: var(--dark-text);
         }
-
-        .accordion-header {
-            padding: 15px 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: white;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: background-color 0.3s ease;
+        
+        .volunteer-role p {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
         }
-
-        .accordion-header:hover {
-            background-color: rgba(255, 111, 145, 0.05);
-        }
-
-        .accordion-header i {
-            color: var(--pink);
-            transition: transform 0.3s ease;
-        }
-
-        .accordion-content {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .accordion-item.active .accordion-content {
-            padding: 0 20px 20px;
-            max-height: 300px;
-        }
-
-        .accordion-item.active .accordion-header i {
-            transform: rotate(180deg);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background-color: var(--teal);
-            text-align: center;
+        
+        /* ===== Testimonials Section ===== */
+        .testimonials-section {
+            background-color: var(--cream);
             padding: 100px 0;
         }
-
-        .cta-content {
+        
+        .testimonial {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 60px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
         }
-
-        .cta-content h2 {
-            font-size: 2.5rem;
-            color: var(--green);
+        
+        .testimonial.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial:last-child {
+            margin-bottom: 0;
+        }
+        
+        .testimonial-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            line-height: 1.6;
             margin-bottom: 20px;
+            color: var(--dark-text);
+            position: relative;
+        }
+        
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--blush-pink);
+            opacity: 0.5;
+            position: absolute;
             font-family: 'Playfair Display', serif;
         }
-
-        .cta-content p {
-            margin-bottom: 30px;
-            font-size: 1.2rem;
+        
+        .testimonial-quote::before {
+            left: -20px;
+            top: -20px;
         }
-
-        /* Application Form */
-        .application-section {
-            background-color: white;
-            padding: 80px 0;
+        
+        .testimonial-quote::after {
+            right: -20px;
+            bottom: -40px;
         }
-
-        .form-container {
+        
+        .testimonial-name {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.4rem;
+            color: var(--light-text);
+        }
+        
+        /* ===== CBL Info Section ===== */
+        .cbl-section {
+            background-color: var(--pastel-yellow);
+            padding: 100px 0;
+        }
+        
+        .cbl-container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: var(--cream);
+            background-color: white;
+            border-radius: 20px;
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
         }
-
-        .form-group {
+        
+        .cbl-container h2 {
+            font-size: 2.2rem;
             margin-bottom: 20px;
+            text-align: center;
         }
-
+        
+        .cbl-container p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .cbl-container p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .cbl-points {
+            margin: 25px 0;
+        }
+        
+        .cbl-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .cbl-point::before {
+            content: '•';
+            color: var(--blush-pink);
+            font-size: 1.5rem;
+            margin-right: 10px;
+            line-height: 1.2;
+        }
+        
+        /* ===== Application Form ===== */
+        .application-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 2px dashed var(--blush-pink);
+            position: relative;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: 500;
-            color: var(--text-color);
+            color: var(--dark-text);
         }
-
+        
         .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
+        .form-group select,
         .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--baby-blue);
+            border-radius: 15px;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition-fast);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blush-pink);
+            box-shadow: 0 0 0 3px rgba(249, 209, 217, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
             resize: vertical;
-            min-height: 100px;
         }
-
-        .checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 10px;
+        
+        .form-submit {
+            text-align: center;
         }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            margin-right: 20px;
+        
+        .submit-btn {
+            background: linear-gradient(to right, var(--blush-pink), var(--baby-blue));
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
         }
-
-        .checkbox-item input {
-            margin-right: 5px;
-            width: auto;
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(to right, var(--baby-blue), var(--blush-pink));
         }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
+        
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
         }
-
-        .form-row .form-group {
-            flex: 1;
+        
+        .submit-btn:hover::after {
+            left: 100%;
         }
-
-        /* Footer */
+        
+        .thankyou-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: var(--soft-mint);
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .thankyou-message h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .thankyou-message p {
+            font-size: 1.1rem;
+            color: var(--light-text);
+        }
+        
+        /* ===== Final CTA Section ===== */
+        .cta-section {
+            background-color: var(--soft-purple);
+            padding: 70px 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+        
+        /* ===== Footer ===== */
         footer {
             background-color: white;
-            background-image: url('background11.jpg');
-            background-size: cover;
-            background-position: center;
             padding: 50px 0 20px;
-            border-top: 1px solid var(--light-pink);
         }
-
-        .footer-content {
+        
+        .footer-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
+            justify-content: space-between;
         }
-
+        
         .footer-column {
             flex: 1;
-            min-width: 250px;
+            min-width: 200px;
+            margin-bottom: 30px;
         }
-
+        
         .footer-column h3 {
-            color: var(--pink);
-            margin-bottom: 20px;
             font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
         }
-
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--blush-pink);
+        }
+        
         .footer-links {
             list-style: none;
-            padding: 0;
         }
-
+        
         .footer-links li {
             margin-bottom: 10px;
         }
-
+        
         .footer-links a {
             text-decoration: none;
-            color: var(--text-color);
-            transition: color 0.3s ease;
+            color: var(--light-text);
+            transition: var(--transition-fast);
         }
-
+        
         .footer-links a:hover {
-            color: var(--pink);
+            color: var(--blush-pink);
         }
-
-        .copyright {
+        
+        .footer-bottom {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #f1f1f1;
-            font-size: 0.9rem;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
         }
-
-        /* Media Queries */
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--cream);
+            border-radius: 50%;
+            margin: 0 5px;
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: var(--transition-medium);
+        }
+        
+        .social-link:hover {
+            background-color: var(--blush-pink);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* ===== Animations ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ===== Responsive Styles ===== */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .testimonial-quote {
+                font-size: 1.4rem;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 20px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                box-shadow: var(--shadow);
+                transition: var(--transition-medium);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
             nav ul {
                 flex-direction: column;
-                width: 100%;
+                padding: 20px;
             }
-
-            nav li {
-                width: 100%;
-                text-align: center;
+            
+            nav ul li {
+                margin: 0 0 15px 0;
             }
-
-            .dropdown {
-                position: static;
-                width: 100%;
-            }
-
-            .banner-content h1 {
+            
+            .hero-content h1 {
                 font-size: 2.5rem;
             }
-
-            .step {
+            
+            .hero-buttons {
                 flex-direction: column;
-                align-items: flex-start;
-                margin-left: 30px;
+                align-items: center;
+                gap: 15px;
             }
-
-            .step:nth-child(even) {
-                flex-direction: column;
-                align-items: flex-start;
+            
+            .section-title h2 {
+                font-size: 2.2rem;
             }
-
-            .step-number {
-                margin: 0 0 20px 0;
+            
+            .role-type-1 {
+                padding-left: 25px;
             }
-
-            .step-line {
-                left: 30px;
-                transform: none;
+            
+            .role-type-3 {
+                padding: 25px;
             }
-
-            .form-row {
-                flex-direction: column;
-                gap: 0;
+            
+            .volunteer-role h3 {
+                font-size: 1.5rem;
+            }
+            
+            .testimonial-quote {
+                font-size: 1.2rem;
+            }
+            
+            .cbl-container {
+                padding: 25px;
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .testimonial-quote {
+                font-size: 1.1rem;
+            }
+            
+            .testimonial-quote::before,
+            .testimonial-quote::after {
+                font-size: 2rem;
+            }
+            
+            .testimonial-name {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- Header Navigation -->
-    <header id="main-header">
-        <div class="logo-container">
-            <a href="index.html" id="logo-link">
-                <img src="paa-logo.png" alt="PAA Logo" class="logo">
-            </a>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/api/placeholder/50/50" alt="PAA Logo">
+                <h1>Pediatric Advocacy Alliance</h1>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="calendar.html">Events</a></li>
+                    <li><a href="cbl hub.html">Programs</a></li>
+                    <li><a href="partnership.html">Partnerships</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="about.html">About Us</a>
-                </li>
-                <li>
-                    <a href="volunteer.html">Volunteer</a>
-                </li>
-                <li>
-                    <a href="calendar.html">Calendar</a>
-                </li>
-                <li>
-                    <a href="cbl.html">CBL Hub</a>
-                </li>
-                <li>
-                    <a href="highlights.html">Past Highlights</a>
-                </li>
-                <li>
-                    <a href="partnership.html">Partnership</a>
-                </li>
-                <li>
-                    <a href="donate.html">Donate</a>
-                </li>
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </nav>
     </header>
-    
-    <!-- Page Banner -->
-    <section class="page-banner">
-        <div class="banner-overlay"></div>
-        <div class="banner-content">
-            <h1>Volunteer With Us</h1>
-            <p>Join our community of dedicated advocates making a difference in children's lives</p>
-            <a href="#application" class="btn">Apply Now</a>
-        </div>
-    </section>
-    
-    <!-- Volunteer Intro Section -->
-    <section class="volunteer-intro">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <div class="section-heading">
-                <h2>Why <span class="calligraphy">Volunteer</span> With PAA?</h2>
-                <p>Make a meaningful impact while gaining valuable experience</p>
-            </div>
-            <div class="intro-content">
-                <p>Volunteering with Pediatric Advocacy Alliance offers a unique opportunity to combine your passion for helping children with valuable hands-on experience. Whether you're pursuing a career in healthcare, education, social work, or simply have a heart for service, PAA provides a supportive environment where you can develop skills, build relationships, and create meaningful change.</p>
-                <p>Our volunteers come from diverse backgrounds but share a common dedication to improving children's lives. As a volunteer, you'll work alongside like-minded peers and professionals, gain insight into pediatric healthcare challenges, and directly contribute to programs that support vulnerable children and families in our community.</p>
-                <div class="btn-container">
-                    <a href="#opportunities" class="btn">View Opportunities</a>
-                    <a href="#application" class="btn btn-secondary">Apply Now</a>
+            <div class="hero-content">
+                <h1>Volunteer With Purpose</h1>
+                <p>Whether you're giving one hour or ten, your time can create real change.</p>
+                <div class="hero-buttons">
+                    <a href="#opportunities" class="btn">See Opportunities</a>
+                    <a href="#application" class="btn secondary">Apply to Volunteer</a>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Volunteer Opportunities Section -->
-    <section id="opportunities" class="opportunity-section">
+
+    <!-- How You Can Help Section -->
+    <section id="opportunities" class="help-section">
         <div class="container">
-            <div class="section-heading">
-                <h2>Volunteer <span class="calligraphy">Opportunities</span></h2>
-                <p>Find the perfect way to contribute your time and talents</p>
+            <div class="section-title">
+                <h2>How You Can Help</h2>
+                <p>From one-time events to ongoing projects, we have roles to match your schedule, skills, and interests.</p>
             </div>
-            <div class="opportunity-grid">
-                <div class="opportunity-card">
-                    <div class="card-image">
-                        <img src="GardenCleanUp.png" alt="Hospital Buddy Program">
-                    </div>
-                    <div class="card-content">
-                        <h3>Garden Clean-Up Day</h3>
-                        <div class="card-details">
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="far fa-clock"></i></span>
-                                <span>Time Commitment: 3 hours</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
-                                <span>Schedule: Friday, April 26, 9:00 AM – Noon (Backup: May 3)</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
-                                <span>Location: 6650 W. Irving Park Rd, Chicago</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
-                                <span>Help clean up the outdoor garden space at Maryville Crisis Nursery and get it ready for planting!</span>
-                            </div>
-                        </div>
-                        <div class="card-action">
-                            <a href="#application" class="btn btn-outline">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="opportunity-card">
-                    <div class="card-image">
-                        <img src="GardenPlantingDay.png" alt="Family Resource Navigator">
-                    </div>
-                    <div class="card-content">
-                        <h3>Garden Planting Day</h3>
-                        <div class="card-details">
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="far fa-clock"></i></span>
-                                <span>Time Commitment: 3 hours</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
-                                <span>Schedule: Friday, May 17, 9:00 AM – Noon (Backup: May 24)</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
-                                <span>Location: 6650 W. Irving Park Rd, Chicago</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
-                                <span>Join us as we plant flowers and fresh vegetables in the nursery garden!</span>
-                            </div>
-                        </div>
-                        <div class="card-action">
-                            <a href="#application" class="btn btn-outline">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="opportunity-card">
-                    <div class="card-image">
-                        <img src="PaintingProject.png" alt="Community Outreach Team">
-                    </div>
-                    <div class="card-content">
-                        <h3>Crisis Nursery Painting Project</h3>
-                        <div class="card-details">
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="far fa-clock"></i></span>
-                                <span>Time Commitment: Flexible</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
-                                <span>Schedule: Ongoing</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
-                                <span>Location: Maryville Crisis Nursery</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
-                                <span>Represent Help repaint cinder block walls and metal doors in designated rooms at the nursery. Great for volunteers with painting experience!</span>
-                            </div>
-                        </div>
-                        <div class="card-action">
-                            <a href="#application" class="btn btn-outline">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="opportunity-card">
-                    <div class="card-image">
-                        <img src="Virtual Encouragement Letters.png" alt="Advocacy & Research Team">
-                    </div>
-                    <div class="card-content">
-                        <h3>Virtual Encouragement Letters</h3>
-                        <div class="card-details">
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="far fa-clock"></i></span>
-                                <span>Time Commitment: 15–30 mins</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
-                                <span>Schedule: Flexible, ongoing</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
-                                <span>Location: Remote</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
-                                <span>Write a short, kind letter or message to be printed and included in our Bundles of Joy for new moms.</span>
-                            </div>
-                        </div>
-                        <div class="card-action">
-                            <a href="#application" class="btn btn-outline">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="opportunity-card">
-                    <div class="card-image">
-                        <img src="VirtualStorytimeSubmissions.png" alt="Special Events Committee">
-                    </div>
-                    <div class="card-content">
-                        <h3>Virtual Storytime Submissions</h3>
-                        <div class="card-details">
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="far fa-clock"></i></span>
-                                <span>Time Commitment: ~30 mins</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
-                                <span>Schedule: Ongoing</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
-                                <span>Location: Remote</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
-                                <span>Record yourself reading a children’s book to share with pediatric patients through our United Way partner.</span>
-                            </div>
-                        </div>
-                        <div class="card-action">
-                            <a href="#application" class="btn btn-outline">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="opportunity-card">
-                    <div class="card-image">
-                        <img src="WeekendMealBags.png" alt="Social Media & Communications">
-                    </div>
-                    <div class="card-content">
-                        <h3>Fill a Heart 4 Kids – Weekend Meal Bags</h3>
-                        <div class="card-details">
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="far fa-clock"></i></span>
-                                <span>Time Commitment: Flexible (1–2 hours)</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-calendar-alt"></i></span>
-                                <span>Schedule: Varies</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-map-marker-alt"></i></span>
-                                <span>Location: On campus or with partner site</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon"><i class="fas fa-info-circle"></i></span>
-                                <span>Help us pack meal bags for children without consistent access to food. Great for small groups or solo volunteers.</span>
-                            </div>
-                        </div>
-                        <div class="card-action">
-                            <a href="#application" class="btn btn-outline">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
+
+            <!-- Role 1: Left highlight bar -->
+            <div class="volunteer-role role-type-1 reveal">
+                <span class="role-label">One-Time Commitment</span>
+                <h3>Event Volunteer</h3>
+                <p>Join us for health fairs, fundraisers, and awareness campaigns. Perfect for those with busy schedules who want to make an impact in just a few hours.</p>
+                <a href="#application" class="btn">Sign Up</a>
             </div>
-        </div>
-    </section>
-    
-    <!-- Volunteer Process Section -->
-    <section class="process-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>How to <span class="calligraphy">Get Involved</span></h2>
-                <p>From application to active volunteering in four simple steps</p>
+
+            <!-- Role 2: Centered white box -->
+            <div class="volunteer-role role-type-2 reveal">
+                <span class="role-label">Recurring Commitment</span>
+                <h3>Clinic Assistant</h3>
+                <p>Support our Saturday clinics by helping with intake, child engagement, and family support. Ideal for nursing and pre-med students seeking hands-on experience.</p>
+                <a href="#application" class="btn">Learn More</a>
             </div>
-            <div class="steps-container">
-                <div class="step-line"></div>
-                
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Submit Your Application</h3>
-                        <p>Complete our online volunteer application form with your contact information, availability, areas of interest, and relevant experience or skills. We welcome volunteers from all backgrounds and experience levels!</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3> Meet Your Volunteer Coordinator</h3>
-                        <p>Once you’re signed up, a Volunteer Coordinator will reach out to welcome you and help match you with upcoming events and opportunities that fit your interests.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Get Briefed</h3>
-                        <p>Before your first event, we’ll share everything you need to know, like safety tips, event details, and how to make the most of your impact. It’s short, simple, and done via email or text. If you signed up to volunteer closely with children at external sites (like hospitals or clinics) your Volunteer Coordinator will walk you through any extra requirements, such as vaccination records, background checks, or site-specific forms.</p>
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Begin Your Volunteer Journey</h3>
-                        <p>Start making a difference! Just come ready to help and bring good energy. You'll be connected with your volunteer team and begin contributing to PAA programs. Ongoing support and additional opportunities will be available throughout your volunteer experience.</p>
-                    </div>
-                </div>
+
+            <!-- Role 3: Full pastel background -->
+            <div class="volunteer-role role-type-3 reveal">
+                <span class="role-label">Project-Based</span>
+                <h3>Resource Developer</h3>
+                <p>Help create educational materials for families and children. Use your creativity to design activities, write guides, or translate resources into multiple languages.</p>
+                <a href="#application" class="btn">Join Our Team</a>
             </div>
-        </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Volunteer <span class="calligraphy">Stories</span></h2>
-                <p>Hear from our community of dedicated advocates</p>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-slide active" id="testimonial1">
-                    <div class="testimonial-text">
-                        "My first event with PAA was kinda random, I just signed up to help out. But then I ended up staying for everything. I’ve done Hospital visits, helped with drives, and even wrote to lawmakers. I never thought I’d be this involved, but I love it!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="isaac.jpg" alt="Testimonial Author">
-                        </div>
-                        <div class="author-name">Isaac Rivera</div>
-                        <div class="author-role">Regular Volunteer, Nursing Student</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide" id="testimonial2">
-                    <div class="testimonial-text">
-                        "I got involved with PAA because I’ve always loved working with kids, but I didn’t expect how supported and inspired I’d feel. Helping out at community events and seeing the impact we made, I realized how powerful student advocacy really is."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="Alyssa.jpg" alt="Testimonial Author">
-                        </div>
-                        <div class="author-name">Alyssa Morales</div>
-                        <div class="author-role">Sophomore, Education Major</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide" id="testimonial3">
-                    <div class="testimonial-text">
-                        "The first time I volunteered, I helped pass out flyers door to door for a donation drive. I was paired with someone I barely knew, but we ended up having the best conversations that day. It felt really exciting talking to people in the neighborhood about this new org we were part of. Now every time PAA has a new event, I text my old partner like, 'Are you going to the new PAA thing?' It just became our thing."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="Jasmine.jpg" alt="Testimonial Author">
-                        </div>
-                        <div class="author-name">Jasmine Ramirez</div>
-                        <div class="author-role">Pre-Nursing Student</div>
-                    </div>
-                </div>
-                
-                <div class="slider-nav">
-                    <div class="slider-dot active" data-slide="testimonial1"></div>
-                    <div class="slider-dot" data-slide="testimonial2"></div>
-                    <div class="slider-dot" data-slide="testimonial3"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Frequently <span class="calligraphy">Asked Questions</span></h2>
-                <p>Answers to common questions about volunteering with PAA</p>
-            </div>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Do I need prior experience to volunteer with PAA?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>No prior experience is required for most volunteer roles! We welcome students from all backgrounds and provide comprehensive training for each position. Your enthusiasm, reliability, and commitment to our mission are the most important qualifications. Some specialized roles may benefit from specific skills or experience, but we have opportunities for everyone regardless of background.</p>
-                    </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        What is the minimum time commitment for volunteers?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>We ask for a minimum commitment of 3-4 hours per month for at least one semester (about 4 months). This ensures continuity in our programs and allows you to have a meaningful volunteer experience. Many of our roles offer flexible scheduling to accommodate student academic calendars. Some specialized positions or committees may require additional time commitments, which will be clearly communicated during the application process.</p>
-                    </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Are there any requirements I need to fulfill before volunteering?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>All volunteers must complete an orientation session and role-specific training. Depending on your volunteer position, you may also need to complete a background check (provided at no cost to you), provide proof of certain vaccinations (especially for hospital-based roles), and complete child safety training. These requirements help ensure the safety and well-being of the children and families we serve.</p>
-                    </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        Can I receive academic credit or service hours for volunteering?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Yes! Many volunteers use their PAA experience to fulfill service-learning requirements, practicum hours, or community service credits. We're happy to complete any necessary documentation for your academic program. Please let us know about your specific requirements during the application process, and we'll work with you to ensure your volunteer experience aligns with your academic goals.</p>
-                    </div>
-                </div>
-                
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        What support will I receive as a volunteer?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>PAA is committed to supporting our volunteers throughout their experience with us. You'll receive thorough initial training, ongoing guidance from experienced team leaders, regular check-ins, and opportunities for additional skill development. We also host volunteer appreciation events, offer letters of recommendation for dedicated volunteers, and provide networking opportunities with healthcare professionals and community organizations.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Make a Difference?</h2>
-                <p>Join our dedicated community of volunteers and help create a brighter future for children in need.</p>
+
+            <!-- Role 4: Left highlight bar -->
+            <div class="volunteer-role role-type-1 reveal">
+                <span class="role-label">Leadership Opportunity</span>
+                <h3>Volunteer Coordinator</h3>
+                <p>Lead a team of volunteers for a specific project or event. Great for building leadership experience and making a deeper impact in our community.</p>
                 <a href="#application" class="btn">Apply Now</a>
             </div>
         </div>
     </section>
-    
-    <!-- Application Form Section -->
-    <section id="application" class="application-section">
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
         <div class="container">
-            <div class="section-heading">
-                <h2>Volunteer <span class="calligraphy">Application</span></h2>
-                <p>Take the first step toward making a difference today</p>
+            <div class="section-title">
+                <h2>Why Our Volunteers Stay</h2>
+                <p>Hear from students who have found purpose and community through PAA.</p>
             </div>
-            <div class="form-container">
-                <form id="volunteer-application-form">
-                    <div class="form-group">
-                        <label for="full-name">Full Name *</label>
-                        <input type="text" id="full-name" name="full-name" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="major">Major/Field of Study</label>
-                        <input type="text" id="major" name="major">
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="graduation-year">Expected Graduation Year</label>
-                            <input type="text" id="graduation-year" name="graduation-year">
-                        </div>
-                        <div class="form-group">
-                            <label for="availability-start">Available Start Date *</label>
-                            <input type="date" id="availability-start" name="availability-start" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Areas of Interest (select all that apply) *</label>
-                        <div class="checkbox-group">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="Maryville-Crisis-Nursery-Voluneteer" name="interest" value="Maryville-Crisis-Nursery-Voluneteer">
-                                <label for="Maryville-Crisis-Nursery-Voluneteer">Maryville Crisis Nursery Voluneteer</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="CBL-Volunteer" name="interest" value="CBL-Volunteer">
-                                <label for="CBL-Volunteer">CBL Volunteer</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="outreach-Opportunites" name="interest" value="outreach-Opportunites">
-                                <label for="outreach-Opportunites">Community Outreach Opportunites</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="advocacy-Opportunites" name="interest" value="advocacy-Opportunites">
-                                <label for="advocacy-Opportunites">Advocacy & Research Opportunites</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="events-committee" name="interest" value="events-committee">
-                                <label for="events-committee">Special Events Committee</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="social-media" name="interest" value="social-media">
-                                <label for="social-media">Social Media & Communications</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="availability">Weekly Availability *</label>
-                        <textarea id="availability" name="availability" placeholder="Please indicate which days and times you are typically available to volunteer." required></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="experience">Relevant Experience</label>
-                        <textarea id="experience" name="experience" placeholder="Please share any relevant experience, skills, or qualifications you have (prior volunteer work, coursework, certifications, etc.)."></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="motivation">Motivation for Volunteering</label>
-                        <textarea id="motivation" name="motivation" placeholder="Why are you interested in volunteering with PAA? What do you hope to contribute and gain from this experience?" ></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="hear-about">How did you hear about PAA?</label>
-                        <select id="hear-about" name="hear-about">
-                            <option value="">Please select</option>
-                            <option value="social-media">Social Media</option>
-                            <option value="friend">Friend or Classmate</option>
-                            <option value="faculty">Faculty/Staff Member</option>
-                            <option value="campus-event">Campus Event</option>
-                            <option value="website">Website</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="btn">Submit Application</button>
-                </form>
+
+            <div class="testimonial reveal">
+                <p class="testimonial-quote">Volunteering with PAA connected me with my community in ways I never expected. The children's resilience inspires me every day, and I've gained clinical skills that will help me throughout my nursing career.</p>
+                <p class="testimonial-name">Maria Jacobs, Nursing '25</p>
+            </div>
+
+            <div class="testimonial reveal">
+                <p class="testimonial-quote">What started as a way to fulfill my CBL hours turned into the most meaningful part of my college experience. The PAA team welcomed me from day one, and I've made lifelong friends while serving our community.</p>
+                <p class="testimonial-name">James Thompson, Public Health '24</p>
+            </div>
+
+            <div class="testimonial reveal">
+                <p class="testimonial-quote">Being a volunteer coordinator taught me leadership skills I couldn't learn in a classroom. Managing teams, solving problems on the fly, and seeing our direct impact has been transformative.</p>
+                <p class="testimonial-name">Sarah Williams, Psychology '23</p>
             </div>
         </div>
     </section>
-    
+
+    <!-- CBL Info Section -->
+    <section class="cbl-section">
+        <div class="container">
+            <div class="cbl-container reveal">
+                <h2>Nursing Students + Expectations</h2>
+                <p>PAA is proud to offer volunteer experiences that count toward CBL hours. Ask your professor about signing up through the department portal.</p>
+                
+                <div class="cbl-points">
+                    <div class="cbl-point">Typical volunteers commit to 2–3 hours/month. We also offer flexible one-time event roles.</div>
+                    <div class="cbl-point">All volunteers receive orientation training and CPR/First Aid certification opportunities.</div>
+                    <div class="cbl-point">Nursing and pre-med students can request hands-on clinical placements supervised by licensed professionals.</div>
+                </div>
+                
+                <p>Need your hours documented? We provide detailed verification of service hours and responsibilities for your program requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="application" class="application-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join <span class="calligraphy">the</span> Team</h2>
+                <p>Tell us about yourself and how you'd like to help. We'll match you with opportunities that fit your interests and availability.</p>
+            </div>
+
+            <div class="form-container reveal">
+                <form id="volunteer-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="major">Major / Year</label>
+                        <input type="text" id="major" name="major" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="why-volunteer">Why do you want to volunteer?</label>
+                        <textarea id="why-volunteer" name="why-volunteer" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interests">What are you most interested in?</label>
+                        <select id="interests" name="interests" required>
+                            <option value="">Choose an option...</option>
+                            <option value="event-volunteer">Event Volunteer</option>
+                            <option value="clinic-assistant">Clinic Assistant</option>
+                            <option value="resource-developer">Resource Developer</option>
+                            <option value="volunteer-coordinator">Volunteer Coordinator</option>
+                            <option value="other">Other (Please specify in your message)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                    </div>
+                </form>
+                
+                <div class="thankyou-message" id="thankyou-message">
+                    <h3>Thank You for Applying!</h3>
+                    <p>We've received your application and will contact you within 48 hours to discuss next steps. Get ready to make a difference!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <p>Still have questions? Email us at volunteer@paa.dominican.edu or DM us on Instagram!</p>
+                <a href="mailto:volunteer@paa.dominican.edu" class="btn">Email Our Volunteer Coordinator</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-container">
                 <div class="footer-column">
                     <h3>About PAA</h3>
                     <ul class="footer-links">
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="leadership.html">Leadership</a></li>
-                        <li><a href="mission.html">Mission & Vision</a></li>
-                        <li><a href="chapters.html">Find a Chapter</a></li>
-                        <li><a href="create-chapter.html">Start a Chapter</a></li>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Impact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Get Involved</h3>
                     <ul class="footer-links">
-                        <li><a href="volunteer.html">Volunteer Opportunities</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="events.html">Upcoming Events</a></li>
-                        <li><a href="partnership.html">Partner With Us</a></li>
-                        <li><a href="cbl.html">Community-Based Learning</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                        <li><a href="#">Join Our Team</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="resources.html">Educational Materials</a></li>
-                        <li><a href="advocacy.html">Advocacy Tools</a></li>
-                        <li><a href="calendar.html">Event Calendar</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="#">Calendar</a></li>
+                        <li><a href="#">CBL Hub</a></li>
+                        <li><a href="#">Educational Materials</a></li>
+                        <li><a href="#">FAQs</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Connect With Us</h3>
+                    <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><a href="https://www.facebook.com/PediatricAdvocacyAlliance" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-                        <li><a href="https://www.instagram.com/paa_official" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="https://www.twitter.com/PAAofficial" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="https://www.linkedin.com/company/pediatric-advocacy-alliance" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                        <li><a href="#">Email Us</a></li>
+                        <li><a href="#">Phone: (123) 456-7890</a></li>
+                        <li><a href="#">Campus Location</a></li>
+                        <li><a href="#">Contact Form</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
                 <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Interactive Elements -->
+    <!-- JavaScript -->
     <script>
-        // Sticky Header Functionality
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('main-header');
-            const logo = document.querySelector('.logo');
-            const logoContainer = document.querySelector('.logo-container');
-            
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
-                logo.style.width = '80px';
-                logo.style.height = '80px';
-                logoContainer.style.padding = '5px 0';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                logo.style.width = '120px';
-                logo.style.height = '120px';
-                logoContainer.style.padding = '15px 0';
-            }
-        });
-
-        // Testimonial Slider Functionality
-        const sliderDots = document.querySelectorAll('.slider-dot');
-        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('nav');
         
-        sliderDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const slideId = this.getAttribute('data-slide');
-                
-                // Hide all slides and remove active class from dots
-                testimonialSlides.forEach(slide => {
-                    slide.classList.remove('active');
-                });
-                sliderDots.forEach(dot => {
-                    dot.classList.remove('active');
-                });
-                
-                // Show selected slide and add active class to clicked dot
-                document.getElementById(slideId).classList.add('active');
-                this.classList.add('active');
-            });
+        mobileMenuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
         });
         
-        // Automatic slide rotation
-        let currentSlide = 0;
-        const testimonialInterval = setInterval(function() {
-            currentSlide = (currentSlide + 1) % testimonialSlides.length;
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
             
-            // Hide all slides and remove active class from dots
-            testimonialSlides.forEach(slide => {
-                slide.classList.remove('active');
-            });
-            sliderDots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-            
-            // Show next slide and add active class to corresponding dot
-            testimonialSlides[currentSlide].classList.add('active');
-            sliderDots[currentSlide].classList.add('active');
-        }, 8000);
-        
-        // FAQ Accordion Functionality
-        const accordionItems = document.querySelectorAll('.accordion-item');
-        
-        accordionItems.forEach(item => {
-            const header = item.querySelector('.accordion-header');
-            
-            header.addEventListener('click', function() {
-                // Toggle active class on clicked item
-                item.classList.toggle('active');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
                 
-                // Close other open accordion items (optional)
-                accordionItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
             });
-        });
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
         
         // Form Submission
-        const volunteerForm = document.getElementById('volunteer-application-form');
+        const volunteerForm = document.getElementById('volunteer-form');
+        const thankYouMessage = document.getElementById('thankyou-message');
         
         volunteerForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate form
-            const interestCheckboxes = document.querySelectorAll('input[name="interest"]:checked');
-            if (interestCheckboxes.length === 0) {
-                alert('Please select at least one area of interest.');
-                return;
-            }
-            
-            // Here you would typically send the form data to a server
-            // For demonstration purposes, we'll just show a success message
-            alert('Thank you for your application! We\'ll be in touch soon about next steps.');
-            
-            // Optional: Reset form after submission
-            volunteerForm.reset();
-            
-            // Optional: Scroll back to top
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            // Animate form fields clearing (optional animation)
+            const formInputs = this.querySelectorAll('input, textarea, select');
+            formInputs.forEach((input, index) => {
+                setTimeout(() => {
+                    input.style.transition = 'all 0.3s ease';
+                    input.style.borderColor = 'var(--soft-mint)';
+                }, index * 100);
             });
+            
+            // Hide form and show thank you message
+            setTimeout(() => {
+                this.style.display = 'none';
+                thankYouMessage.style.display = 'block';
+                
+                // Animate thank you message
+                thankYouMessage.style.animation = 'fadeUp 0.6s ease forwards';
+            }, 800);
         });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100, // Offset for header
-                        behavior: 'smooth'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
