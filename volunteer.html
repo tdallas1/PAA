@@ -389,6 +389,96 @@
             line-height: 1.2;
         }
         
+        /* ===== Where Our Volunteers Go Section ===== */
+        .volunteer-impact-section {
+            background: linear-gradient(135deg, var(--soft-purple) 0%, var(--cream) 100%);
+            padding: 100px 0;
+        }
+        
+        .impact-container {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+        
+        .impact-left {
+            flex: 1;
+        }
+        
+        .impact-left h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+        
+        .impact-points {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .impact-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .impact-icon {
+            color: var(--blush-pink);
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+        
+        .impact-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--dark-text);
+        }
+        
+        .impact-text p {
+            color: var(--light-text);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .impact-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .impact-stat {
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--blush-pink);
+        }
+        
+        .stat-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+        
+        .stat-source {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.2rem;
+            color: var(--light-text);
+        }
+        
         /* ===== Application Form ===== */
         .application-section {
             padding: 100px 0;
@@ -640,6 +730,15 @@
             .testimonial-quote {
                 font-size: 1.4rem;
             }
+            
+            .impact-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .stat-number {
+                font-size: 3.5rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -713,6 +812,22 @@
             .form-container {
                 padding: 25px;
             }
+            
+            .impact-point {
+                align-items: flex-start;
+            }
+            
+            .impact-icon {
+                margin-top: 5px;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+            
+            .stat-text {
+                font-size: 1.1rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -739,6 +854,36 @@
             
             .testimonial-name {
                 font-size: 1.2rem;
+            }
+            
+            .impact-left h2 {
+                font-size: 1.8rem;
+            }
+            
+            .impact-point {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .impact-icon {
+                display: none;
+            }
+            
+            .impact-text h3 {
+                font-size: 1.2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .stat-text {
+                font-size: 1rem;
+            }
+            
+            .stat-source {
+                font-size: 1rem;
             }
         }
     </style>
@@ -865,6 +1010,47 @@
                 </div>
                 
                 <p>Need your hours documented? We provide detailed verification of service hours and responsibilities for your program requirements.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Where Our Volunteers Go Section -->
+    <section class="volunteer-impact-section">
+        <div class="container">
+            <div class="impact-container reveal">
+                <div class="impact-left">
+                    <h2>Where Our Volunteers Go</h2>
+                    <div class="impact-points">
+                        <div class="impact-point">
+                            <span class="impact-icon"><i class="fas fa-user-md"></i></span>
+                            <div class="impact-text">
+                                <h3>Our volunteers have gone on to...</h3>
+                                <p>Top nursing programs, medical schools, and public health fellowships around the country.</p>
+                            </div>
+                        </div>
+                        <div class="impact-point">
+                            <span class="impact-icon"><i class="fas fa-award"></i></span>
+                            <div class="impact-text">
+                                <h3>Community fellowships & advocacy internships</h3>
+                                <p>PAA volunteers are sought after for their hands-on experience and commitment to children's health.</p>
+                            </div>
+                        </div>
+                        <div class="impact-point">
+                            <span class="impact-icon"><i class="fas fa-chart-line"></i></span>
+                            <div class="impact-text">
+                                <h3>Leadership growth starts here.</h3>
+                                <p>From coordinating small teams to managing campus-wide initiatives, our volunteers develop real-world leadership skills.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact-right">
+                    <div class="impact-stat reveal">
+                        <p class="stat-number">92%</p>
+                        <p class="stat-text">of volunteers said their role with PAA shaped their future career goals.</p>
+                        <p class="stat-source calligraphy">— 2024 Alumni Survey</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
