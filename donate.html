@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Pediatric Advocacy Alliance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Base Styles ===== */
+        :root {
+            --blush-pink: #f9d1d9;
+            --blush-pink-bright: #ffb6c1;
+            --baby-blue: #d1e0f6;
+            --periwinkle: #c1d1f0;
+            --pastel-yellow: #fcf5d9;
+            --butter-yellow: #fff0ac;
+            --cream: #fef9f0;
+            --soft-mint: #e6f0e4;
+            --mint-bright: #d4f5d4;
+            --soft-lavender: #e4d7f6;
+            --lavender-bright: #d9c2f0;
+            --dark-text: #333333;
+            --light-text: #666666;
+            --shadow: 0 4px 12px rgba(0,0,0,0.05);
+            --shadow-pink: 0 4px 12px rgba(249, 209, 217, 0.2);
+            --shadow-blue: 0 4px 12px rgba(209, 224, 246, 0.2);
+            --shadow-mint: 0 4px 12px rgba(230, 240, 228, 0.2);
+            --shadow-yellow: 0 4px 12px rgba(252, 245, 217, 0.2);
+            --shadow-lavender: 0 4px 12px rgba(228, 215, 246, 0.2);
+            --transition-fast: all 0.2s ease;
+            --transition-medium: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .calligraphy {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 30px;
+            background-color: var(--blush-pink);
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition-medium);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-pink);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(249, 209, 217, 0.3);
+        }
+        
+        .btn:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            border: 2px solid var(--blush-pink);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--blush-pink-bright);
+            color: white;
+            border-color: var(--blush-pink-bright);
+        }
+        
+        .btn-blue {
+            background-color: var(--baby-blue);
+            box-shadow: var(--shadow-blue);
+        }
+        
+        .btn-blue:hover {
+            box-shadow: 0 6px 15px rgba(209, 224, 246, 0.3);
+        }
+        
+        .btn-mint {
+            background-color: var(--soft-mint);
+            box-shadow: var(--shadow-mint);
+        }
+        
+        .btn-mint:hover {
+            box-shadow: 0 6px 15px rgba(230, 240, 228, 0.3);
+        }
+        
+        .btn-yellow {
+            background-color: var(--pastel-yellow);
+            box-shadow: var(--shadow-yellow);
+        }
+        
+        .btn-yellow:hover {
+            box-shadow: 0 6px 15px rgba(252, 245, 217, 0.3);
+        }
+        
+        .btn-lavender {
+            background-color: var(--soft-lavender);
+            box-shadow: var(--shadow-lavender);
+        }
+        
+        .btn-lavender:hover {
+            box-shadow: 0 6px 15px rgba(228, 215, 246, 0.3);
+        }
+        
+        .btn-large {
+            padding: 16px 38px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        /* ===== Header & Navigation ===== */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+        
+        nav ul li a:hover {
+            color: var(--blush-pink);
+        }
+        
+        nav ul li a.active {
+            color: var(--blush-pink);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== Hero Section ===== */
+        .hero-section {
+            background-color: var(--soft-mint);
+            padding: 170px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--dark-text);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-decoration {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .decoration-heart {
+            width: 300px;
+            height: 300px;
+            right: 5%;
+            top: 15%;
+            background-color: var(--blush-pink);
+            border-radius: 50%;
+            transform: rotate(-10deg);
+        }
+        
+        .decoration-hands {
+            width: 250px;
+            height: 250px;
+            left: 5%;
+            bottom: 15%;
+            background-color: var(--baby-blue);
+            border-radius: 40% 60% 60% 40%;
+            transform: rotate(10deg);
+        }
+        
+        /* ===== Impact Highlights ===== */
+        .impact-section {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .impact-container {
+            margin-top: 40px;
+        }
+        
+        .impact-item {
+            background-color: white;
+            border-radius: 18px;
+            padding: 35px 40px;
+            margin-bottom: 25px;
+            position: relative;
+            transition: var(--transition-medium);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .impact-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .impact-item:nth-child(1) {
+            background-color: var(--blush-pink-bright);
+            box-shadow: var(--shadow-pink);
+        }
+        
+        .impact-item:nth-child(2) {
+            background-color: var(--periwinkle);
+            box-shadow: var(--shadow-blue);
+        }
+        
+        .impact-item:nth-child(3) {
+            background-color: var(--butter-yellow);
+            box-shadow: var(--shadow-yellow);
+        }
+        
+        .impact-item:nth-child(4) {
+            background-color: var(--mint-bright);
+            box-shadow: var(--shadow-mint);
+        }
+        
+        .impact-item:nth-child(5) {
+            background-color: var(--lavender-bright);
+            box-shadow: var(--shadow-lavender);
+        }
+        
+        .impact-icon-wrapper {
+            flex: 0 0 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .impact-icon {
+            font-size: 2rem;
+            color: var(--dark-text);
+        }
+        
+        .impact-content {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .impact-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.7rem;
+            color: var(--dark-text);
+        }
+        
+        .impact-item p {
+            font-size: 1rem;
+            color: var(--dark-text);
+            max-width: 85%;
+        }
+        
+        .impact-decoration {
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        /* ===== Ways to Give ===== */
+        .ways-section {
+            padding: 80px 0;
+            background-color: var(--cream);
+            position: relative;
+        }
+        
+        .ways-container {
+            margin-top: 40px;
+        }
+        
+        .giving-option {
+            background-color: rgba(255, 255, 255, 0.7);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f9d1d9' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            border-radius: 32px;
+            padding: 40px;
+            margin-bottom: 35px;
+            position: relative;
+            transition: var(--transition-medium);
+            overflow: hidden;
+        }
+        
+        .giving-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+        
+        .giving-option-header {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px dashed rgba(0,0,0,0.06);
+        }
+        
+        .giving-option:nth-child(1) {
+            border-left: 5px solid var(--blush-pink-bright);
+        }
+        
+        .giving-option:nth-child(2) {
+            border-left: 5px solid var(--periwinkle);
+        }
+        
+        .giving-option:nth-child(3) {
+            border-left: 5px solid var(--mint-bright);
+        }
+        
+        .giving-option:nth-child(4) {
+            border-left: 5px solid var(--butter-yellow);
+        }
+        
+        .giving-tab {
+            position: absolute;
+            top: -40px;
+            left: -5px;
+            padding: 8px 22px 8px 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 0 20px 20px 0;
+            color: white;
+            text-transform: uppercase;
+        }
+        
+        .giving-option:nth-child(1) .giving-tab {
+            background-color: var(--blush-pink-bright);
+        }
+        
+        .giving-option:nth-child(2) .giving-tab {
+            background-color: var(--periwinkle);
+        }
+        
+        .giving-option:nth-child(3) .giving-tab {
+            background-color: var(--mint-bright);
+            color: var(--dark-text);
+        }
+        
+        .giving-option:nth-child(4) .giving-tab {
+            background-color: var(--butter-yellow);
+            color: var(--dark-text);
+        }
+        
+        .giving-option h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .giving-option h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: currentColor;
+            opacity: 0.2;
+            border-radius: 10px;
+        }
+        
+        .giving-option p {
+            margin-bottom: 1.8rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .giving-option-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .giving-option:nth-child(1) .btn {
+            background-color: var(--blush-pink-bright);
+        }
+        
+        .giving-option:nth-child(2) .btn {
+            background-color: var(--periwinkle);
+        }
+        
+        .giving-option:nth-child(3) .btn {
+            background-color: var(--mint-bright);
+            color: var(--dark-text);
+        }
+        
+        .giving-option:nth-child(4) .btn {
+            background-color: var(--butter-yellow);
+            color: var(--dark-text);
+        }
+        
+        /* ===== Testimonial Section ===== */
+        .testimonial-section {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+            padding: 50px;
+            border-radius: 20px;
+            background-color: var(--baby-blue);
+            position: relative;
+            box-shadow: var(--shadow-blue);
+        }
+        
+        .testimonial-container::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 50px;
+            height: 50px;
+            background-color: var(--baby-blue);
+            z-index: -1;
+        }
+        
+        .testimonial-quote-marks {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            line-height: 0;
+            color: rgba(0,0,0,0.07);
+        }
+        
+        .quote-open {
+            top: 70px;
+            left: 20px;
+        }
+        
+        .quote-close {
+            bottom: 30px;
+            right: 20px;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1.8rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        
+        .testimonial-role {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+        
+        .mini-testimonials {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .mini-testimonial {
+            flex: 0 1 300px;
+            background-color: var(--cream);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: left;
+            position: relative;
+            transition: var(--transition-medium);
+            box-shadow: var(--shadow);
+        }
+        
+        .mini-testimonial:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mini-testimonial:nth-child(1) {
+            border-bottom: 3px solid var(--blush-pink-bright);
+        }
+        
+        .mini-testimonial:nth-child(2) {
+            border-bottom: 3px solid var(--mint-bright);
+        }
+        
+        .mini-quote {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .mini-author {
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 0.9rem;
+        }
+        
+        .mini-role {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+        
+        /* ===== Donation Form Section ===== */
+        .donation-form-section {
+            padding: 80px 0;
+            background-color: var(--cream);
+        }
+        
+        .donation-form-container {
+            max-width: 700px;
+            margin: 40px auto 0;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-row {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition-fast);
+        }
+        
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--blush-pink);
+            box-shadow: 0 0 0 3px rgba(249, 209, 217, 0.3);
+        }
+        
+        .donation-amount {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .amount-option {
+            flex: 1;
+            min-width: 80px;
+        }
+        
+        .amount-radio {
+            display: none;
+        }
+        
+        .amount-label {
+            display: block;
+            padding: 12px;
+            text-align: center;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .amount-radio:checked + .amount-label {
+            background-color: var(--blush-pink);
+            color: white;
+        }
+        
+        .custom-amount {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 10px;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== Final CTA Section ===== */
+        .final-cta-section {
+            padding: 80px 0;
+            background-color: var(--soft-lavender);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta-decoration {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 1;
+        }
+        
+        .decoration-circle-1 {
+            width: 300px;
+            height: 300px;
+            right: -50px;
+            top: -50px;
+            background-color: var(--blush-pink);
+            border-radius: 50%;
+        }
+        
+        .decoration-circle-2 {
+            width: 250px;
+            height: 250px;
+            left: -50px;
+            bottom: -50px;
+            background-color: var(--baby-blue);
+            border-radius: 50%;
+        }
+        
+        .final-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-cta-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+        }
+        
+        .final-cta-content p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        /* Additional donor stories section */
+        .donor-stories-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .donor-stories-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .donor-story {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--cream);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            transition: var(--transition-medium);
+            box-shadow: var(--shadow);
+        }
+        
+        .donor-story:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+        
+        .donor-story:nth-child(1) {
+            border-top: 5px solid var(--blush-pink-bright);
+        }
+        
+        .donor-story:nth-child(2) {
+            border-top: 5px solid var(--mint-bright);
+        }
+        
+        .donor-amount {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .donor-story h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .donor-story p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .donor-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .donor-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+        
+        .donor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .donor-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        
+        .donor-role {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+        
+        /* ===== Footer ===== */
+        footer {
+            background-color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--blush-pink);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: var(--light-text);
+            transition: var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: var(--blush-pink);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--cream);
+            border-radius: 50%;
+            margin: 0 5px;
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: var(--transition-medium);
+        }
+        
+        .social-link:hover {
+            background-color: var(--blush-pink);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* ===== Animation Classes ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+        
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+        
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+        
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+        
+        .reveal-delay-5 {
+            transition-delay: 0.5s;
+        }
+        
+        /* Wavy divider */
+        .wave-divider {
+            width: 100%;
+            height: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            position: relative;
+            top: -1px;
+        }
+        
+        .wave-divider-bottom {
+            width: 100%;
+            height: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23fef9f0'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            position: relative;
+            transform: rotate(180deg);
+            bottom: -1px;
+        }
+        
+        .wave-divider-lavender {
+            width: 100%;
+            height: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23e4d7f6'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            position: relative;
+            top: -1px;
+        }
+        
+        /* Stitched border */
+        .stitched-border {
+            border: 2px dashed var(--blush-pink);
+            border-radius: 20px;
+            position: relative;
+            padding: 35px;
+            margin: 40px 0;
+        }
+        
+        .stitched-border::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 0 20px;
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.2rem;
+        }
+        
+        /* ===== Responsive Styles ===== */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 20px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                box-shadow: var(--shadow);
+                transition: var(--transition-medium);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonial-quote {
+                font-size: 1.1rem;
+            }
+            
+            .donation-form-container {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .giving-option {
+                padding: 30px 20px;
+            }
+            
+            .testimonial-container {
+                padding: 30px 20px;
+            }
+            
+            .testimonial-quote {
+                font-size: 1rem;
+            }
+            
+            .donation-amount {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="/api/placeholder/50/50" alt="PAA Logo">
+                <h1>Pediatric Advocacy Alliance</h1>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="calendar.html">Events</a></li>
+                    <li><a href="cbl hub.html">Programs</a></li>
+                    <li><a href="partnership.html">Partnerships</a></li>
+                    <li><a href="donate.html" class="active">Donate</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-decoration decoration-heart"></div>
+        <div class="hero-decoration decoration-hands"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Every Gift Makes a <span class="calligraphy">Difference</span></h1>
+                <p>Your support helps us bring safety, joy, and dignity to children and families in need. Together, we can create lasting change.</p>
+                <div class="hero-buttons">
+                    <a href="#donation-form" class="btn btn-large">Donate Now</a>
+                    <a href="#impact" class="btn btn-secondary btn-large">What Your Donation Supports</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Wave Divider -->
+    <div class="wave-divider"></div>
+    
+    <!-- Impact Highlights Section -->
+    <section id="impact" class="impact-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>What Your <span class="calligraphy">Gift</span> Supports</h2>
+                <p>Your generosity directly impacts children and families in our community. Every dollar makes a difference in these key areas:</p>
+            </div>
+            
+            <div class="impact-container">
+                <div class="impact-item reveal reveal-delay-1">
+                    <div class="impact-icon-wrapper">
+                        <i class="impact-icon fas fa-baby"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3>Essentials for New Mothers</h3>
+                        <p>Provides diapers, formula, and care packages for new mothers and infants in need.</p>
+                    </div>
+                    <div class="impact-decoration" style="background-color: var(--blush-pink);"></div>
+                </div>
+                
+                <div class="impact-item reveal reveal-delay-2">
+                    <div class="impact-icon-wrapper">
+                        <i class="impact-icon fas fa-shield-alt"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3>Pediatric Safety Items</h3>
+                        <p>Delivers safety equipment, car seats, and childproofing supplies to families with limited resources.</p>
+                    </div>
+                    <div class="impact-decoration" style="background-color: var(--baby-blue);"></div>
+                </div>
+                
+                <div class="impact-item reveal reveal-delay-3">
+                    <div class="impact-icon-wrapper">
+                        <i class="impact-icon fas fa-bullhorn"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3>Advocacy Campaigns</h3>
+                        <p>Funds educational materials and outreach efforts to promote children's health and welfare policies.</p>
+                    </div>
+                    <div class="impact-decoration" style="background-color: var(--soft-mint);"></div>
+                </div>
+                
+                <div class="impact-item reveal reveal-delay-4">
+                    <div class="impact-icon-wrapper">
+                        <i class="impact-icon fas fa-book-reader"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3>Educational Resources</h3>
+                        <p>Creates accessible learning materials for families on child development and health topics.</p>
+                    </div>
+                    <div class="impact-decoration" style="background-color: var(--pastel-yellow);"></div>
+                </div>
+                
+                <div class="impact-item reveal reveal-delay-5">
+                    <div class="impact-icon-wrapper">
+                        <i class="impact-icon fas fa-bus"></i>
+                    </div>
+                    <div class="impact-content">
+                        <h3>Event Accessibility</h3>
+                        <p>Provides transportation, childcare, translation, and food at community events and workshops.</p>
+                    </div>
+                    <div class="impact-decoration" style="background-color: var(--soft-lavender);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Wave Divider -->
+    <div class="wave-divider-bottom"></div>
+    
+    <!-- Ways to Give Section -->
+    <section class="ways-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>How You Can <span class="calligraphy">Help</span></h2>
+                <p>There are many ways to support our mission. Choose the giving option that works best for you.</p>
+            </div>
+            
+            <div class="ways-container">
+                <div class="giving-option reveal reveal-delay-1">
+                    <div class="giving-tab">Featured</div>
+                    <div class="giving-option-header">
+                        <h3>One-Time Donation</h3>
+                    </div>
+                    <p>Make a secure online donation through Dominican University's giving platform. Your gift will be directed to the Pediatric Advocacy Alliance and will immediately support our programs serving children and families in need.</p>
+                    <div class="giving-option-footer">
+                        <a href="#donation-form" class="btn">Donate Now</a>
+                    </div>
+                </div>
+                
+                <div class="giving-option reveal reveal-delay-2">
+                    <div class="giving-tab">Sustaining</div>
+                    <div class="giving-option-header">
+                        <h3>Monthly Giving</h3>
+                    </div>
+                    <p>Become a sustaining supporter by setting up a recurring monthly donation. Your ongoing commitment helps us plan effectively and create lasting impact for children in our community. Even $10 a month makes a significant difference!</p>
+                    <div class="giving-option-footer">
+                        <a href="#donation-form" class="btn">Become a Monthly Donor</a>
+                    </div>
+                </div>
+                
+                <div class="giving-option reveal reveal-delay-3">
+                    <div class="giving-tab">Supplies</div>
+                    <div class="giving-option-header">
+                        <h3>In-Kind Donations</h3>
+                    </div>
+                    <p>Donate essential items that directly support children and families, including diapers, baby formula, children's books, art supplies, hygiene products, and school supplies. Contact us to arrange a drop-off or pick-up of your in-kind donations.</p>
+                    <div class="giving-option-footer">
+                        <a href="contact.html" class="btn">Coordinate a Donation</a>
+                    </div>
+                </div>
+                
+                <div class="giving-option reveal reveal-delay-4">
+                    <div class="giving-tab">Community</div>
+                    <div class="giving-option-header">
+                        <h3>Host a Drive</h3>
+                    </div>
+                    <p>Organize a donation drive in your workplace, neighborhood, or among friends. We'll provide you with promotional materials, collection guidelines, and pick-up services. It's a meaningful way to multiply your impact and engage your community.</p>
+                    <div class="giving-option-footer">
+                        <a href="contact.html" class="btn">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>kind donations.</p>
+                    <div class="giving-option-footer">
+                        <a href="contact.html" class="btn">Coordinate a Donation</a>
+                    </div>
+                </div>
+                
+                <div class="giving-option reveal">
+                    <div class="giving-option-header">
+                        <div class="giving-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Host a Drive</h3>
+                    </div>
+                    <p>Organize a donation drive in your workplace, neighborhood, or among friends. We'll provide you with promotional materials, collection guidelines, and pick-up services. It's a meaningful way to multiply your impact and engage your community.</p>
+                    <div class="giving-option-footer">
+                        <a href="contact.html" class="btn">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Why I <span class="calligraphy">Give</span></h2>
+                <p>Hear from our donors about why they choose to support the Pediatric Advocacy Alliance.</p>
+            </div>
+            
+            <div class="testimonial-container reveal">
+                <div class="testimonial-quote-marks quote-open">"</div>
+                <p class="testimonial-quote">"I give to PAA because I've seen firsthand how their work transforms lives. As a student volunteer, I watched families receive essential support during vulnerable moments. Now as an alumna, I continue to give monthly because I know every dollar creates ripples of positive change for children in our community."</p>
+                <div class="testimonial-author">Maria Rodriguez</div>
+                <div class="testimonial-role">Class of 2022, Monthly Donor since 2023</div>
+                <div class="testimonial-quote-marks quote-close">"</div>
+            </div>
+            
+            <div class="mini-testimonials">
+                <div class="mini-testimonial reveal reveal-delay-1">
+                    <p class="mini-quote">"I gave $25 and helped build 10 newborn care kits for mothers in our community. Such a small amount made such a big difference!"</p>
+                    <div class="mini-author">Jamie Wilson</div>
+                    <div class="mini-role">First-time Donor</div>
+                </div>
+                <div class="mini-testimonial reveal reveal-delay-2">
+                    <p class="mini-quote">"Our campus club hosted a diaper drive with PAA. We collected over 2,000 diapers in one week! The resources PAA provided made it so easy to organize."</p>
+                    <div class="mini-author">Zach Thompson</div>
+                    <div class="mini-role">Student Volunteer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Donor Stories Section -->
+    <section class="donor-stories-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Donor <span class="calligraphy">Stories</span></h2>
+                <p>Every gift makes an impact. See how our donors are helping to make a difference.</p>
+            </div>
+            
+            <div class="donor-stories-container">
+                <div class="donor-story reveal reveal-delay-1">
+                    <div class="donor-amount">$100 Gift</div>
+                    <h3>10 Safety Kits Distributed</h3>
+                    <p>Your gift of $100 provided ten home safety kits to families with young children, helping to prevent accidents and create safer home environments.</p>
+                    <div class="donor-info">
+                        <div class="donor-avatar">
+                            <img src="/api/placeholder/50/50" alt="Donor">
+                        </div>
+                        <div>
+                            <div class="donor-name">Sarah M.</div>
+                            <div class="donor-role">Quarterly Donor</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="donor-story reveal reveal-delay-2">
+                    <div class="donor-amount">Monthly $25</div>
+                    <h3>Year-Round Resource Access</h3>
+                    <p>A monthly donation of $25 helps maintain our family resource center, ensuring families have consistent access to essential information and support services.</p>
+                    <div class="donor-info">
+                        <div class="donor-avatar">
+                            <img src="/api/placeholder/50/50" alt="Donor">
+                        </div>
+                        <div>
+                            <div class="donor-name">Michael T.</div>
+                            <div class="donor-role">PAA Partner since 2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Wave Divider -->
+    <div class="wave-divider-lavender"></div>
+    
+    <!-- Donation Form Section -->
+    <section id="donation-form" class="donation-form-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Make Your <span class="calligraphy">Gift</span> Today</h2>
+                <p>Your generous contribution will directly support our mission to advocate for children's health, safety, and wellbeing.</p>
+            </div>
+            
+            <div class="donation-form-container reveal">
+                <form id="donate-form">
+                    <div class="form-row">
+                        <label class="form-label">Select Donation Amount</label>
+                        <div class="donation-amount">
+                            <div class="amount-option">
+                                <input type="radio" name="donation_amount" id="amount-25" class="amount-radio" value="25">
+                                <label for="amount-25" class="amount-label">$25</label>
+                            </div>
+                            <div class="amount-option">
+                                <input type="radio" name="donation_amount" id="amount-50" class="amount-radio" value="50">
+                                <label for="amount-50" class="amount-label">$50</label>
+                            </div>
+                            <div class="amount-option">
+                                <input type="radio" name="donation_amount" id="amount-100" class="amount-radio" value="100" checked>
+                                <label for="amount-100" class="amount-label">$100</label>
+                            </div>
+                            <div class="amount-option">
+                                <input type="radio" name="donation_amount" id="amount-250" class="amount-radio" value="250">
+                                <label for="amount-250" class="amount-label">$250</label>
+                            </div>
+                            <div class="custom-amount">
+                                <input type="radio" name="donation_amount" id="amount-custom" class="amount-radio" value="custom">
+                                <label for="amount-custom" class="amount-label">Custom</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row" id="custom-amount-container" style="display: none;">
+                        <label class="form-label">Enter Custom Amount</label>
+                        <input type="text" class="form-input" placeholder="$ Enter amount">
+                    </div>
+                    
+                    <div class="form-row">
+                        <label class="form-label">Donation Frequency</label>
+                        <select class="form-select">
+                            <option value="one-time">One-time Donation</option>
+                            <option value="monthly">Monthly Donation</option>
+                            <option value="quarterly">Quarterly Donation</option>
+                            <option value="annually">Annual Donation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label class="form-label">Donation Designation</label>
+                        <select class="form-select">
+                            <option value="general">General Support (Greatest Need)</option>
+                            <option value="essentials">New Mother Essentials Program</option>
+                            <option value="safety">Pediatric Safety Initiative</option>
+                            <option value="advocacy">Advocacy Campaigns</option>
+                            <option value="education">Educational Resources</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input">
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-large">Complete Donation</button>
+                    </div>
+                    
+                    <div class="secure-badge">
+                        <i class="fas fa-lock"></i> Your donation is secure. Dominican University uses encrypted payment processing.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
+        <div class="final-cta-decoration decoration-circle-1"></div>
+        <div class="final-cta-decoration decoration-circle-2"></div>
+        <div class="container">
+            <div class="final-cta-content reveal">
+                <h2>Looking to Give <span class="calligraphy">Differently</span>?</h2>
+                <p>Want to organize a supply drive, sponsor a campaign, or donate in honor of someone special? We'd love to work with you to create a meaningful giving experience.</p>
+                <a href="contact.html" class="btn btn-lavender">Contact Our Fundraising Team</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>About PAA</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Impact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                        <li><a href="#">Join Our Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Calendar</a></li>
+                        <li><a href="#">CBL Hub</a></li>
+                        <li><a href="#">Educational Materials</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Email Us</a></li>
+                        <li><a href="#">Phone: (123) 456-7890</a></li>
+                        <li><a href="#">Campus Location</a></li>
+                        <li><a href="#">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+        
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.reveal');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial check on page load
+        window.addEventListener('load', revealOnScroll);
+        
+        // Custom amount toggle
+        const customAmountRadio = document.getElementById('amount-custom');
+        const customAmountContainer = document.getElementById('custom-amount-container');
+        
+        if (customAmountRadio && customAmountContainer) {
+            customAmountRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    customAmountContainer.style.display = 'block';
+                }
+            });
+            
+            const otherAmounts = document.querySelectorAll('.amount-radio:not(#amount-custom)');
+            otherAmounts.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.checked) {
+                        customAmountContainer.style.display = 'none';
+                    }
+                });
+            });
+        }
+        
+        // Form submission (prevent default for demo)
+        const donateForm = document.getElementById('donate-form');
+        if (donateForm) {
+            donateForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your donation! In a real implementation, this would process your payment securely.');
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Button animation enhancement
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
