@@ -240,108 +240,100 @@
 
         header.scrolled .advocacy-script {
             font-size: 1.1rem;
-        }
-        
         .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 30px;
-            transition: all 0.3s ease;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* changed from center to top-align */
+    padding: 18px 30px;
+    transition: all 0.3s ease;
+    flex-wrap: wrap; /* allows better responsiveness if needed */
+    gap: 20px; /* optional: gives breathing room between logo + nav */
+}
 
-        .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            margin-right: 15px;
-        }
+.logo {
+    display: flex;
+    align-items: flex-start;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: default;
+    flex-shrink: 0;
+    max-width: 250px;
+}
 
-        .logo-link:hover {
-            transform: translateY(-2px) scale(1.02);
-        }
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-right: 15px;
+}
 
-        .logo-link:hover img {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            transform: rotate(2deg);
-        }
-        
-        .logo img {
-            height: 55px;
-            width: 55px;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 3px solid white;
-            transition: all 0.3s ease;
-            object-fit: cover;
-        }
-        
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            pointer-events: none;
-        }
+.logo-link:hover {
+    transform: translateY(-2px) scale(1.02);
+}
 
-       .logo-title {
+.logo-link:hover img {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: rotate(2deg);
+}
+
+.logo img {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 3px solid white;
+    transition: all 0.3s ease;
+    object-fit: cover;
+}
+
+.logo-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    pointer-events: none;
     line-height: 1.1;
 }
 
-        .pediatric-text, .alliance-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin: 0;
-            line-height: 1.2;
-        }
+.logo-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
-        .advocacy-script {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem;
-            color: var(--blush-pink);
-            font-weight: 500;
-            margin: 0 5px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 35px;
-            align-items: center;
-        }
-        
-        nav ul li {
-            position: relative;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark-text);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 8px 15px;
-            border-radius: 8px;
-            display: block;
-        }
+.pediatric-text, .alliance-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin: 0;
+    line-height: 1.2;
+}
 
+.advocacy-script {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: var(--blush-pink);
+    font-weight: 500;
+    margin: 0 0 0 5px;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    align-items: center;
+    flex-wrap: wrap; /* allow breaking for small screens if needed */
+    margin: 0;
+    padding: 0;
+}
         /* Animated underline effect */
         nav ul li a:after {
             content: '';
