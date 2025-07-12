@@ -278,7 +278,51 @@
             flex-direction: column;
             align-items: flex-start;
         }
+.logo-link {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+}
 
+.logo-link img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 3px solid white;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover img {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transform: rotate(2deg);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.pediatric-text,
+.alliance-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin: 0;
+}
+
+.advocacy-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--blush-pink);
+  margin: 0;
+}
         .logo h1 {
             font-size: 1.6rem;
             font-weight: 600;
@@ -2165,35 +2209,34 @@
 </head>
 <body>
     <!-- Header & Navigation -->
-    <header id="main-header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=60&h=60&fit=crop&crop=center" alt="PAA Logo">
-                <div class="logo-text">
-                    <div>
-                        <span class="pediatric-text">Pediatric</span>
-                        <span class="advocacy-script">Advocacy</span>
-                        <span class="alliance-text">Alliance</span>
-                    </div>
-                </div>
-            </a>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="calendar.html">Events</a></li>
-                    <li><a href="cbl hub.html">Programs</a></li>
-                    <li><a href="partnership.html">Partnerships</a></li>
-                    <li><a href="donate.html">Donate</a></li>
-                    <li><a href="volunteer.html">Volunteer</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+   <header id="main-header">
+  <div class="container header-container">
+    <a href="index.html" class="logo-link">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=60&h=60&fit=crop&crop=center" alt="PAA Logo">
+    </a>
+    <div class="logo-text">
+      <span class="pediatric-text">Pediatric</span>
+      <span class="advocacy-script">Advocacy</span>
+      <span class="alliance-text">Alliance</span>
+    </div>
+
+    <div class="mobile-menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="calendar.html">Events</a></li>
+        <li><a href="cbl hub.html">Programs</a></li>
+        <li><a href="partnership.html">Partnerships</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
     
     <!-- Hero Banner -->
     <section class="hero-banner">
