@@ -229,12 +229,17 @@
             padding: 8px 0;
         }
 
-        header.scrolled .logo img {
+        header.scrolled .logo-link img {
             height: 40px;
         }
 
-        header.scrolled .logo h1 {
+        header.scrolled .pediatric-text,
+        header.scrolled .alliance-text {
             font-size: 1.3rem;
+        }
+
+        header.scrolled .advocacy-script {
+            font-size: 1.1rem;
         }
         
         .header-container {
@@ -250,14 +255,23 @@
             align-items: center;
             text-decoration: none;
             transition: all 0.3s ease;
-            cursor: pointer;
+            cursor: default;
         }
 
-        .logo:hover {
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .logo-link:hover {
             transform: translateY(-2px) scale(1.02);
         }
 
-        .logo:hover img {
+        .logo-link:hover img {
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             transform: rotate(2deg);
         }
@@ -266,7 +280,6 @@
             height: 55px;
             width: 55px;
             border-radius: 50%;
-            margin-right: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border: 3px solid white;
             transition: all 0.3s ease;
@@ -277,30 +290,30 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            pointer-events: none;
         }
 
-        .logo h1 {
+        .logo-title {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .pediatric-text, .alliance-text {
+            font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
             font-weight: 600;
             color: var(--dark-text);
             margin: 0;
             line-height: 1.2;
-            transition: all 0.3s ease;
         }
 
-        .logo .advocacy-script {
+        .advocacy-script {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             color: var(--blush-pink);
             font-weight: 500;
-            margin-top: -2px;
-        }
-
-        .logo .alliance-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--dark-text);
+            margin: 0 5px;
         }
         
         nav ul {
@@ -2167,16 +2180,18 @@
     <!-- Header & Navigation -->
     <header id="main-header">
         <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=60&h=60&fit=crop&crop=center" alt="PAA Logo">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=60&h=60&fit=crop&crop=center" alt="PAA Logo">
+                </a>
                 <div class="logo-text">
-                    <div>
+                    <div class="logo-title">
                         <span class="pediatric-text">Pediatric</span>
                         <span class="advocacy-script">Advocacy</span>
                         <span class="alliance-text">Alliance</span>
                     </div>
                 </div>
-            </a>
+            </div>
             <div class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
