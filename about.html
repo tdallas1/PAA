@@ -4,26 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pediatric Advocacy Alliance - Dominican University</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Kalam:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Modern Variables */
+        /* ===== Base Styles ===== */
         :root {
             --hot-rose: #f25c8f;
             --coral-pink: #ff97aa;
+            --blush-pink: #f9d1d9;
+            --baby-blue: #d1e0f6;
+            --pastel-yellow: #fcf5d9;
             --soft-lavender: #e8e1ff;
             --cream-bg: #fff8f2;
+            --cream: #fef9f0;
             --light-cream: #fff1f7;
+            --soft-mint: #e6f0e4;
+            --soft-purple: #e6e0f4;
             --white: #ffffff;
             --dark-text: #2c2c2c;
             --gray-text: #666666;
+            --light-text: #666666;
             --light-gray: #f5f5f5;
             --shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
             --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
             --shadow-strong: 0 12px 40px rgba(0,0,0,0.15);
+            --shadow: 0 4px 12px rgba(0,0,0,0.05);
+            --photo-shadow: 0 8px 25px rgba(0,0,0,0.15);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-fast: all 0.2s ease;
             --transition-medium: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
             --border-radius: 12px;
         }
         
@@ -34,7 +44,7 @@
         }
         
         body {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--cream-bg);
             color: var(--dark-text);
             line-height: 1.6;
@@ -54,86 +64,205 @@
             padding: 0 20px;
         }
 
-        /* Updated Header - Using PAA1 Style */
+        .calligraphy {
+            font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+        }
+
+        .handwritten {
+            font-family: 'Kalam', cursive;
+            font-weight: 400;
+        }
+
+        .handwritten-script {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 500;
+        }
+
+        /* ===== Header & Navigation (PAA1 Style) ===== */
         header {
-            background-color: var(--white);
-            box-shadow: var(--shadow-soft);
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(254,249,240,0.95) 100%);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(249,209,217,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 40%, rgba(209,224,246,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 40% 80%, rgba(230,240,228,0.1) 2px, transparent 2px);
+            background-size: 30px 30px, 25px 25px, 35px 35px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            padding: 8px 0;
+        }
+
+        header.scrolled .logo img {
+            height: 40px;
+        }
+
+        header.scrolled .logo h1 {
+            font-size: 1.3rem;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 18px 30px;
+            transition: all 0.3s ease;
         }
         
         .logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .logo:hover img {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: rotate(2deg);
         }
         
         .logo img {
-            height: 50px;
-            margin-right: 10px;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            margin-right: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid white;
+            transition: all 0.3s ease;
+            object-fit: cover;
         }
         
-        .logo h1 {
-            font-size: 1.5rem;
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+
+        .pediatric-text,
+        .alliance-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin: 0;
+        }
+
+        .advocacy-script {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
             font-weight: 500;
-            color: var(--hot-rose);
+            color: var(--blush-pink);
+            margin: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+        
+        nav ul li {
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 15px;
+            border-radius: 8px;
+            display: block;
+        }
+
+        /* Animated underline effect */
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 2px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--blush-pink), var(--baby-blue));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 1px;
+        }
+
+        nav ul li a:hover:after {
+            width: 80%;
+        }
+
+        /* Soft highlighter hover background */
+        nav ul li a:hover {
+            background: linear-gradient(135deg, rgba(249,209,217,0.2), rgba(209,224,246,0.2));
+            color: var(--dark-text);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Subtle sticker-like shadow for nav items */
+        nav ul li {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+        }
+
+        nav ul li:hover {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
         }
         
         .mobile-menu-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark-text);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark-text);
-            font-weight: 500;
-            transition: var(--transition-fast);
-            position: relative;
-        }
-        
-        nav ul li a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--hot-rose);
-            transition: var(--transition-medium);
-        }
-        
-        nav ul li a:hover:after {
-            width: 100%;
-        }
-        
-        nav ul li a:hover {
-            color: var(--hot-rose);
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
-        /* Hero Section */
+        .mobile-menu-toggle:hover {
+            background: rgba(249,209,217,0.2);
+            transform: scale(1.1);
+        }
+
+        /* Scroll indicator shadow */
+        header:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent);
+            pointer-events: none;
+        }
+
+        /* ===== Hero Section ===== */
         .hero-section {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(242, 92, 143, 0.85), rgba(255, 151, 170, 0.75)), url('/api/placeholder/1920/1080');
+            background: linear-gradient(135deg, rgba(242, 92, 143, 0.85), rgba(255, 151, 170, 0.75)), url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1920&h=1080&fit=crop&crop=center');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -394,6 +523,272 @@
             box-shadow: var(--shadow-medium);
         }
 
+        /* ===== Pillars Section (from PAA2) ===== */
+        .pillars-section {
+            padding: 80px 0;
+            background: var(--soft-mint);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pillars-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 440px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 70px;
+        }
+        
+        .pillar {
+            width: 130px;
+            height: 330px;
+            background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+            border-radius: 18px 18px 0 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            box-shadow: var(--shadow);
+        }
+        
+        .pillar:hover {
+            transform: translateY(-25px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .pillar-icon {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition-medium);
+        }
+
+        .pillar-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .pillar:hover .pillar-icon {
+            transform: scale(1.2);
+            background-color: var(--blush-pink);
+        }
+        
+        .pillar-title {
+            font-weight: 600;
+            margin-top: 15px;
+            color: var(--dark-text);
+            text-align: center;
+            transition: var(--transition-fast);
+        }
+        
+        .pillar:hover .pillar-title {
+            color: var(--blush-pink);
+        }
+        
+        .pillar-tooltip {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50px);
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            width: 250px;
+            text-align: center;
+            z-index: 20;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .pillar.active .pillar-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .house-base {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to bottom, #dddddd, #c5c5c5);
+            z-index: 1;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* ===== Leaders Section (from PAA2) ===== */
+        .leaders-section {
+            padding: 80px 0;
+            background: var(--cream);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .book-container {
+            max-width: 900px;
+            height: 650px;
+            margin: 0 auto;
+            position: relative;
+            perspective: 2000px;
+        }
+        
+        .book {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(10deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 10px;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+            box-shadow: var(--shadow);
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .page-content {
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .leader-polaroid {
+            width: 340px;
+            height: 400px;
+            background-color: white;
+            border: 18px solid white;
+            box-shadow: var(--shadow);
+            position: relative;
+            transform: rotate(-3deg);
+            margin-bottom: 2.5rem;
+            transition: var(--transition-medium);
+        }
+        
+        .leader-polaroid:hover {
+            transform: rotate(2deg) translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .leader-photo {
+            width: 100%;
+            height: 100%;
+            background-color: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .leader-name-container {
+            position: relative;
+            width: 100%;
+            height: 70px;
+            margin-bottom: 1.8rem;
+        }
+        
+        .leader-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--blush-pink);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .leader-name.show {
+            opacity: 1;
+        }
+        
+        .leader-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+            text-align: center;
+        }
+        
+        .leader-fact-container {
+            background-color: var(--pastel-yellow);
+            padding: 1.8rem;
+            border-radius: 12px;
+            transform: rotate(2deg);
+            margin-bottom: 1rem;
+            max-width: 390px;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition-medium);
+        }
+        
+        .leader-fact-container:hover {
+            transform: rotate(-1deg) translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .leader-fact {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .book-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .book-btn {
+            padding: 1rem 2.5rem;
+            background-color: var(--blush-pink);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: white;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .book-btn:hover {
+            background-color: var(--baby-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
         /* Values Row */
         .values-section {
             padding: 60px 0;
@@ -642,6 +1037,30 @@
             .about-decoration {
                 display: none;
             }
+
+            .pillars-container {
+                height: 300px;
+            }
+            
+            .pillar {
+                width: 100px;
+                height: 250px;
+            }
+            
+            .pillar-icon {
+                width: 50px;
+                height: 50px;
+                margin-top: 25px;
+            }
+            
+            .book-container {
+                height: 550px;
+            }
+            
+            .leader-polaroid {
+                width: 280px;
+                height: 340px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -715,6 +1134,28 @@
                 width: 100%;
                 max-width: 300px;
             }
+
+            .pillars-container {
+                flex-direction: column;
+                height: auto;
+                align-items: center;
+                padding-bottom: 40px;
+            }
+            
+            .pillar {
+                margin-bottom: 40px;
+                width: 130px;
+                height: 280px;
+            }
+            
+            .leader-polaroid {
+                width: 250px;
+                height: 300px;
+            }
+            
+            .leader-name {
+                font-size: 1.8rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -743,17 +1184,31 @@
             .footer-links {
                 gap: 1rem;
             }
+
+            .leader-polaroid {
+                width: 220px;
+                height: 270px;
+            }
+            
+            .leader-name {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header Navigation - Updated to PAA1 Style -->
-    <header>
+    <!-- Header Navigation (PAA1 Style) -->
+    <header id="main-header">
         <div class="container header-container">
             <div class="logo">
-                <img src="/api/placeholder/50/50" alt="PAA Logo">
-                <h1>Pediatric Advocacy Alliance</h1>
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=60&h=60&fit=crop&crop=center" alt="PAA Logo">
+                <div class="logo-text">
+                    <span class="pediatric-text">Pediatric</span>
+                    <span class="advocacy-script">Advocacy</span>
+                    <span class="alliance-text">Alliance</span>
+                </div>
             </div>
+
             <div class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
@@ -884,6 +1339,66 @@
         </div>
     </section>
 
+    <!-- Pillars Section (from PAA2) -->
+    <section class="pillars-section">
+        <div class="house-base"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our <span class="calligraphy">Pillars</span></h2>
+                <p>The core values that guide everything we do.</p>
+            </div>
+            <div class="pillars-container">
+                <div class="pillar" id="pillar1">
+                    <div class="pillar-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="pillar-title">Advocacy</h3>
+                    <div class="pillar-tooltip">Speaking up for the health, rights, and well-being of children, especially those in underserved communities.</div>
+                </div>
+                <div class="pillar" id="pillar2">
+                    <div class="pillar-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="pillar-title">Education</h3>
+                    <div class="pillar-tooltip">Providing resources, training, and information to families, caregivers, and future change-makers and healthcare professionals.</div>
+                </div>
+                <div class="pillar" id="pillar3">
+                    <div class="pillar-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="pillar-title">Outreach</h3>
+                    <div class="pillar-tooltip">Engaging directly with communities through events, workshops, volunteering, and partnerships.</div>
+                </div>
+                <div class="pillar" id="pillar4">
+                    <div class="pillar-icon">
+                        <i class="fas fa-fist-raised"></i>
+                    </div>
+                    <h3 class="pillar-title">Empowerment</h3>
+                    <div class="pillar-tooltip">Equipping students, children and families with the knowledge and tools to create positive, lasting change for children's health and rights.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaders Section (from PAA2) -->
+    <section class="leaders-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our <span class="calligraphy">Leaders</span></h2>
+                <p>The passionate individuals behind our mission.</p>
+            </div>
+            <div class="book-container">
+                <div class="book" id="leaderBook">
+                    <!-- Pages will be added by JavaScript -->
+                </div>
+            </div>
+            <div class="book-nav">
+                <button class="book-btn" id="prevBtn">Previous Page</button>
+                <button class="book-btn" id="nextBtn">Next Page</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Values Row -->
     <section class="values-section">
         <div class="container">
@@ -928,7 +1443,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="/api/placeholder/80/80" alt="PAA Logo" class="footer-logo">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=80&h=80&fit=crop&crop=center" alt="PAA Logo" class="footer-logo">
             <div class="footer-links">
                 <a href="index.html" class="footer-link">Home</a>
                 <a href="about.html" class="footer-link">About Us</a>
@@ -980,11 +1495,24 @@
                 element.style.transition = 'all 0.6s ease';
             });
             
+            // Enhanced scroll handler with navbar effects
+            function handleScroll() {
+                checkScroll();
+                
+                // Navbar scroll effect
+                const header = document.getElementById('main-header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+            
             // Check on scroll
-            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('scroll', handleScroll);
             
             // Initial check
-            checkScroll();
+            handleScroll();
 
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1038,6 +1566,171 @@
             document.querySelectorAll('section').forEach(section => {
                 observer.observe(section);
             });
+
+            // Pillar Tooltips
+            const pillars = document.querySelectorAll('.pillar');
+            pillars.forEach(pillar => {
+                pillar.addEventListener('click', () => {
+                    if (pillar.classList.contains('active')) {
+                        pillar.classList.remove('active');
+                    } else {
+                        // Remove active class from all pillars
+                        pillars.forEach(p => p.classList.remove('active'));
+                        // Add active class to clicked pillar
+                        pillar.classList.add('active');
+                    }
+                });
+            });
+
+            // Leaders Scrapbook
+            const leaderData = [
+                {
+                    name: 'Trinity Dallas',
+                    title: 'President',
+                    fact: 'Double majoring in Nursing and Business Management.'
+                },
+                {
+                    name: 'Harmony Perez',
+                    title: 'Vice President',
+                    fact: 'Experience in behavioral and molecular neuroscience research.'
+                },
+                {
+                    name: 'Myles Waters',
+                    title: 'Treasurer',
+                    fact: 'Double majoring in Computer Information Systems and Black World Studies.'
+                },
+                {
+                    name: 'Elsy Hernandez Lozano',
+                    title: 'Secretary',
+                    fact: 'Biology major with minors in Chemistry and Sociology of Health.'
+                },
+                {
+                    name: 'Daisy Tenemaza',
+                    title: 'Events Coordinator',
+                    fact: 'Double majoring in Biochemistry and Spanish.'
+                },
+                {
+                    name: 'Nataly Dominguez',
+                    title: 'Events Coordinator',
+                    fact: 'Nursing major with a passion for child health.'
+                },
+                {
+                    name: 'Samantha Acosta',
+                    title: 'Volunteer Coordinator',
+                    fact: 'Biochemistry major with experience as Patient Care Technician.'
+                },
+                {
+                    name: 'Elizabeth John',
+                    title: 'Volunteer Coordinator',
+                    fact: 'Biology major with minors in Chemistry and Health Communication.'
+                },
+                {
+                    name: 'Juliana Macias',
+                    title: 'Membership Engagement Chair',
+                    fact: 'Double majoring in Psychology and Social Work.'
+                },
+                {
+                    name: 'Lizbeth Lopez',
+                    title: 'Community Engagement Chair',
+                    fact: 'Junior Biochemistry Honors student on the Pre-Dental track.'
+                },
+                {
+                    name: 'Chloe Flores',
+                    title: 'Marketing & Communications',
+                    fact: 'Junior Nursing major bringing creativity, consistency, and energy to PAA.'
+                }
+            ];
+            
+            const leaderBook = document.getElementById('leaderBook');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentPage = 0;
+            
+            // Create pages
+            leaderData.forEach((leader, index) => {
+                const page = document.createElement('div');
+                page.className = 'page';
+                page.style.zIndex = 100 - index;
+                page.style.transform = `rotateY(0deg)`;
+                
+                const pageContent = document.createElement('div');
+                pageContent.className = 'page-content';
+                
+                pageContent.innerHTML = `
+                    <div class="leader-polaroid">
+                        <div class="leader-photo"></div>
+                    </div>
+                    <div class="leader-name-container">
+                        <div class="leader-name" id="leaderName${index}">${leader.name}</div>
+                    </div>
+                    <div class="leader-title">${leader.title}</div>
+                    <div class="leader-fact-container">
+                        <div class="leader-fact">${leader.fact}</div>
+                    </div>
+                `;
+                
+                page.appendChild(pageContent);
+                leaderBook.appendChild(page);
+            });
+            
+            // Get all pages
+            const pages = document.querySelectorAll('.page');
+            
+            // Update book display
+            function updateBook() {
+                pages.forEach((page, index) => {
+                    if (index < currentPage) {
+                        // Pages before current are turned to the left
+                        page.style.transform = 'rotateY(-180deg)';
+                    } else if (index === currentPage) {
+                        // Current page is in the process of turning
+                        page.style.transform = 'rotateY(0deg)';
+                        page.style.zIndex = 100 - index;
+                        
+                        // Animate name with handwriting effect
+                        const nameElement = document.getElementById(`leaderName${index}`);
+                        if (nameElement) {
+                            nameElement.style.opacity = '0';
+                            setTimeout(() => {
+                                nameElement.style.transition = 'opacity 0.8s ease';
+                                nameElement.style.opacity = '1';
+                            }, 500);
+                        }
+                    } else {
+                        // Pages after current are flat
+                        page.style.transform = 'rotateY(0deg)';
+                        page.style.zIndex = 100 - index;
+                    }
+                });
+            }
+            
+            // Next button
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < pages.length - 1) {
+                    currentPage++;
+                    updateBook();
+                }
+            });
+            
+            // Previous button
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 0) {
+                    currentPage--;
+                    updateBook();
+                }
+            });
+            
+            // Initialize book
+            updateBook();
+            
+            // Animate first leader name
+            const firstNameElement = document.getElementById('leaderName0');
+            if (firstNameElement) {
+                setTimeout(() => {
+                    firstNameElement.style.transition = 'opacity 0.8s ease';
+                    firstNameElement.style.opacity = '1';
+                }, 1000);
+            }
         });
 
         // Add CSS for fade-in animation
