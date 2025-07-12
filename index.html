@@ -408,77 +408,174 @@
             margin-top: -15px;
         }
 
-        /* Ribbon banner at bottom */
+        /* Fabric ribbon banner styling */
         .hero-btn .patch-ribbon {
             position: absolute;
-            bottom: -8px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--dark-text);
             color: white;
-            padding: 4px 16px;
-            border-radius: 12px;
+            padding: 6px 20px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             white-space: nowrap;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             z-index: 3;
+            border: 1px dashed rgba(255,255,255,0.4);
+            
+            /* Fabric texture */
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(255,255,255,0.05) 1px,
+                    rgba(255,255,255,0.05) 2px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(0,0,0,0.05) 1px,
+                    rgba(0,0,0,0.05) 2px
+                );
+            
+            /* Angled ribbon ends */
+            clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0% 50%);
+            
+            transition: all 0.3s ease;
         }
 
-        /* Ribbon shape with small notches */
+        /* Left folded end (depth effect) */
         .hero-btn .patch-ribbon:before {
             content: '';
             position: absolute;
-            top: 100%;
-            left: 8px;
-            width: 0;
-            height: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid var(--dark-text);
+            top: 0;
+            left: -3px;
+            width: 12px;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+            z-index: -1;
         }
 
+        /* Right folded end (depth effect) */
         .hero-btn .patch-ribbon:after {
             content: '';
             position: absolute;
-            top: 100%;
-            right: 8px;
-            width: 0;
-            height: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid var(--dark-text);
+            top: 0;
+            right: -3px;
+            width: 12px;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+            z-index: -1;
         }
 
-        /* Individual patch styling */
+        /* Ribbon hover effect - subtle fabric shimmer */
+        .hero-btn:hover .patch-ribbon {
+            background-image: 
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(255,255,255,0.05) 1px,
+                    rgba(255,255,255,0.05) 2px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(0,0,0,0.05) 1px,
+                    rgba(0,0,0,0.05) 2px
+                );
+            transform: translateX(-50%) translateY(-1px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+
+        /* Individual ribbon colors with fabric texture */
         .hero-btn:nth-child(1) .patch-ribbon {
-            background: #8b4b6b;
+            background-color: #8b4b6b;
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(255,255,255,0.08) 1px,
+                    rgba(255,255,255,0.08) 2px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(0,0,0,0.08) 1px,
+                    rgba(0,0,0,0.08) 2px
+                );
         }
 
         .hero-btn:nth-child(1) .patch-ribbon:before,
         .hero-btn:nth-child(1) .patch-ribbon:after {
-            border-top-color: #8b4b6b;
+            background: rgba(139, 75, 107, 0.6);
         }
 
         .hero-btn:nth-child(2) .patch-ribbon {
-            background: #6b5b95;
+            background-color: #6b5b95;
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(255,255,255,0.08) 1px,
+                    rgba(255,255,255,0.08) 2px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(0,0,0,0.08) 1px,
+                    rgba(0,0,0,0.08) 2px
+                );
         }
 
         .hero-btn:nth-child(2) .patch-ribbon:before,
         .hero-btn:nth-child(2) .patch-ribbon:after {
-            border-top-color: #6b5b95;
+            background: rgba(107, 91, 149, 0.6);
         }
 
         .hero-btn:nth-child(3) .patch-ribbon {
-            background: #b8860b;
+            background-color: #b8860b;
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(255,255,255,0.08) 1px,
+                    rgba(255,255,255,0.08) 2px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 1px,
+                    rgba(0,0,0,0.08) 1px,
+                    rgba(0,0,0,0.08) 2px
+                );
         }
 
         .hero-btn:nth-child(3) .patch-ribbon:before,
         .hero-btn:nth-child(3) .patch-ribbon:after {
-            border-top-color: #b8860b;
+            background: rgba(184, 134, 11, 0.6);
+        }
+
+        /* Enhanced stitching effect on ribbon edges */
+        .hero-btn .patch-ribbon {
+            border: 1px dashed rgba(255,255,255,0.6);
+            border-top: 1px dashed rgba(255,255,255,0.8);
+            border-bottom: 1px dashed rgba(255,255,255,0.8);
         }
         
         .floating-element {
