@@ -205,76 +205,188 @@
         
         /* ===== Header & Navigation ===== */
         header {
-            background-color: white;
-            box-shadow: var(--shadow);
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(254,249,240,0.95) 100%);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(249,209,217,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 40%, rgba(209,224,246,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 40% 80%, rgba(230,240,228,0.1) 2px, transparent 2px);
+            background-size: 30px 30px, 25px 25px, 35px 35px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            padding: 8px 0;
+        }
+
+        header.scrolled .logo img {
+            height: 40px;
+        }
+
+        header.scrolled .logo h1 {
+            font-size: 1.3rem;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 18px 30px;
+            transition: all 0.3s ease;
         }
         
         .logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .logo:hover img {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: rotate(2deg);
         }
         
         .logo img {
-            height: 50px;
-            margin-right: 10px;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            margin-right: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid white;
+            transition: all 0.3s ease;
+            object-fit: cover;
         }
         
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .logo h1 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin: 0;
+            line-height: 1.2;
+            transition: all 0.3s ease;
+        }
+
+        .logo .advocacy-script {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: var(--blush-pink);
             font-weight: 500;
+            margin-top: -2px;
+        }
+
+        .logo .alliance-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--dark-text);
         }
         
         nav ul {
             display: flex;
             list-style: none;
+            gap: 35px;
+            align-items: center;
         }
         
         nav ul li {
-            margin-left: 30px;
+            position: relative;
         }
         
         nav ul li a {
             text-decoration: none;
             color: var(--dark-text);
-            font-weight: 500;
-            transition: var(--transition-fast);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 8px 15px;
+            border-radius: 8px;
+            display: block;
         }
-        
+
+        /* Animated underline effect */
         nav ul li a:after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--blush-pink);
-            transition: var(--transition-medium);
+            bottom: 2px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--blush-pink), var(--baby-blue));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 1px;
         }
-        
+
         nav ul li a:hover:after {
-            width: 100%;
+            width: 80%;
         }
-        
+
+        /* Soft highlighter hover background */
         nav ul li a:hover {
-            color: var(--blush-pink);
+            background: linear-gradient(135deg, rgba(249,209,217,0.2), rgba(209,224,246,0.2));
+            color: var(--dark-text);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Subtle sticker-like shadow for nav items */
+        nav ul li {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+        }
+
+        nav ul li:hover {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
         }
         
         .mobile-menu-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(249,209,217,0.2);
+            transform: scale(1.1);
+        }
+
+        /* Scroll indicator shadow */
+        header:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.05), transparent);
+            pointer-events: none;
         }
         .custom-subscribe-btn {
             background-color: #f6cfdc;
@@ -2053,12 +2165,18 @@
 </head>
 <body>
     <!-- Header & Navigation -->
-    <header>
+    <header id="main-header">
         <div class="container header-container">
-            <div class="logo">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=50&h=50&fit=crop&crop=center" alt="PAA Logo">
-                <h1>Pediatric Advocacy Alliance</h1>
-            </div>
+            <a href="index.html" class="logo">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=60&h=60&fit=crop&crop=center" alt="PAA Logo">
+                <div class="logo-text">
+                    <div>
+                        <span class="pediatric-text">Pediatric</span>
+                        <span class="advocacy-script">Advocacy</span>
+                        <span class="alliance-text">Alliance</span>
+                    </div>
+                </div>
+            </a>
             <div class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
@@ -2681,10 +2799,18 @@
             });
         }
 
-        // Enhanced scroll handler
+        // Enhanced scroll handler with navbar effects
         function handleScroll() {
             revealOnScroll();
             handleMemorialScroll();
+            
+            // Navbar scroll effect
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         }
         
         window.addEventListener('scroll', handleScroll);
