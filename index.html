@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pediatric Advocacy Alliance - Students Uniting for Children's Health</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Kalam:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ===== Base Styles ===== */
         :root {
@@ -18,6 +18,7 @@
             --dark-text: #333333;
             --light-text: #666666;
             --shadow: 0 4px 12px rgba(0,0,0,0.05);
+            --photo-shadow: 0 8px 25px rgba(0,0,0,0.15);
             --transition-fast: all 0.2s ease;
             --transition-medium: all 0.3s ease;
             --transition-slow: all 0.5s ease;
@@ -52,6 +53,16 @@
         .calligraphy {
             font-family: 'Pinyon Script', cursive;
             font-weight: 400;
+        }
+
+        .handwritten {
+            font-family: 'Kalam', cursive;
+            font-weight: 400;
+        }
+
+        .handwritten-script {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 500;
         }
         
         .btn {
@@ -106,6 +117,78 @@
         .section-title p {
             color: var(--light-text);
             font-size: 1.1rem;
+        }
+
+        /* Polaroid Photo Frame Styles */
+        .polaroid-frame {
+            background: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: var(--photo-shadow);
+            transform: rotate(-2deg);
+            transition: var(--transition-medium);
+            position: relative;
+            border-radius: 3px;
+        }
+
+        .polaroid-frame:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .polaroid-frame:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .polaroid-frame img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .polaroid-caption {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            text-align: center;
+            font-family: 'Kalam', cursive;
+            font-size: 0.9rem;
+            color: var(--dark-text);
+        }
+
+        /* Taped Photo Styles */
+        .taped-photo {
+            position: relative;
+            display: inline-block;
+        }
+
+        .taped-photo:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 50px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transform: rotate(-10deg);
+            z-index: 5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .taped-photo:after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 15px;
+            width: 40px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transform: rotate(15deg);
+            z-index: 5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         /* Reveal animation */
@@ -194,20 +277,20 @@
             cursor: pointer;
         }
         .custom-subscribe-btn {
-  background-color: #f6cfdc;
-  color: white;
-  padding: 14px 30px;
-  border-radius: 40px;
-  border: none;
-  font-weight: bold;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+            background-color: #f6cfdc;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 40px;
+            border: none;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.custom-subscribe-btn:hover {
-  background-color: #f9b5c9;
-}
+        .custom-subscribe-btn:hover {
+            background-color: #f9b5c9;
+        }
 
         /* ===== Hero Banner ===== */
         .hero-banner {
@@ -236,6 +319,14 @@
             font-size: 1.2rem;
             margin-bottom: 2rem;
             color: var(--dark-text);
+        }
+
+        .hero-accent {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--blush-pink);
+            margin-top: 1rem;
+            font-weight: 600;
         }
         
         .hero-buttons {
@@ -431,15 +522,15 @@
             color: white;
         }
         
-     /* ===== Squiggly Divider ===== */
-.squiggly-divider {
-  width: 100%;
-  height: 80px;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23f9d1d9' d='M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z'/%3E%3C/svg%3E") no-repeat center;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-}
+        /* ===== Squiggly Divider ===== */
+        .squiggly-divider {
+            width: 100%;
+            height: 80px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23f9d1d9' d='M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z'/%3E%3C/svg%3E") no-repeat center;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
         
         /* ===== Impact Section ===== */
         .impact-section {
@@ -549,58 +640,350 @@
             text-align: center;
             padding: 0 10px;
         }
+
+        /* ===== Notable Members Section ===== */
+        .notable-members-section {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+        }
+
+        .members-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .members-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .members-header .handwritten-script {
+            font-size: 1.6rem;
+            color: var(--blush-pink);
+            margin: 1rem 0;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .member-card {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--photo-shadow);
+            transition: var(--transition-medium);
+            cursor: pointer;
+            transform: rotate(-1deg);
+        }
+
+        .member-card:nth-child(even) {
+            transform: rotate(1deg);
+        }
+
+        .member-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--blush-pink), var(--baby-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-info {
+            padding: 15px;
+            text-align: center;
+            background: white;
+            min-height: 80px;
+        }
+
+        .member-name {
+            font-family: 'Kalam', cursive;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--dark-text);
+        }
+
+        .member-role {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            margin-bottom: 5px;
+        }
+
+        .member-patch {
+            font-size: 0.75rem;
+            color: var(--blush-pink);
+            font-weight: 500;
+        }
+
+        /* Photo Grid Styles */
+        .photo-grid-section {
+            padding: 40px 0;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .photo-card {
+            position: relative;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
         
-       /* ===== Values Banner ===== */
-.values-banner {
-    background-color: var(--blush-pink);
-    height: 120px; /* Set exact height */
-    overflow: hidden;
-    position: relative;
-}
+        /* ===== Values Banner ===== */
+        .values-banner {
+            background-color: var(--blush-pink);
+            height: 120px;
+            overflow: hidden;
+            position: relative;
+        }
 
-.values-banner:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-    z-index: 0;
-}
+        .values-banner:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
 
-.values-track {
-    display: flex;
-    white-space: nowrap;
-    animation: scroll-left 20s linear infinite;
-    gap: 80px;
-    align-items: center;
-    height: 100%;
-}
+        .values-track {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll-left 20s linear infinite;
+            gap: 80px;
+            align-items: center;
+            height: 100%;
+        }
 
-@keyframes scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
-.value-item {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.8rem;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 1;
-    padding: 0 50px;
-}
+        .value-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.8rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1;
+            padding: 0 50px;
+        }
 
-.value-logo {
-    height: 100px; /* 1.5x would be ~98, 2x would be ~130 – adjust as needed */
-    width: auto;
-    margin: 0 20px;
-}
+        .value-logo {
+            height: 100px;
+            width: auto;
+            margin: 0 20px;
+        }
+
+        /* ===== Memorial Letters Section ===== */
+        .memorial-section {
+            padding: 80px 0;
+            background-color: #2a2a2a;
+            position: relative;
+            overflow: hidden;
+            transition: all 1s ease;
+        }
+
+        .memorial-section.active {
+            background-color: #1a1a1a;
+        }
+
+        .memorial-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .memorial-section.active .memorial-background {
+            opacity: 1;
+        }
+
+        .floating-candle {
+            position: absolute;
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(to top, #ffd700, #fff8dc);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: candleFlicker 3s ease-in-out infinite;
+        }
+
+        .floating-candle:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #ffa500, transparent);
+            border-radius: 50%;
+            animation: flameFlicker 2s ease-in-out infinite;
+        }
+
+        .floating-star {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #fff8dc;
+            border-radius: 50%;
+            animation: starTwinkle 4s ease-in-out infinite;
+        }
+
+        .floating-lantern {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            animation: lanternFloat 8s ease-in-out infinite;
+            border: 1px solid rgba(255, 215, 0, 0.5);
+        }
+
+        @keyframes candleFlicker {
+            0%, 100% { opacity: 0.8; transform: translateY(0) scale(1); }
+            50% { opacity: 1; transform: translateY(-5px) scale(1.1); }
+        }
+
+        @keyframes flameFlicker {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.2); }
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        @keyframes lanternFloat {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+            25% { transform: translateY(-10px) translateX(5px); opacity: 0.8; }
+            50% { transform: translateY(-5px) translateX(-5px); opacity: 1; }
+            75% { transform: translateY(-15px) translateX(3px); opacity: 0.7; }
+        }
+
+        .memorial-content {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            color: white;
+        }
+
+        .memorial-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #fff8dc;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .memorial-subtitle {
+            font-size: 1.2rem;
+            color: #d3d3d3;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .letters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .letter-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition-medium);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            color: var(--dark-text);
+        }
+
+        .letter-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .letter-preview {
+            font-family: 'Kalam', cursive;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+
+        .letter-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: var(--blush-pink);
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .memorial-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .memorial-btn {
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark-text);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .memorial-btn:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
         
         /* ===== Newsletter Section ===== */
         .newsletter-section {
@@ -651,6 +1034,13 @@
             color: white;
             margin: 0;
             font-size: 1.2rem;
+        }
+
+        .newsletter-accent {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1rem;
+            color: white;
+            margin-top: 5px;
         }
         
         .newsletter-content {
@@ -731,6 +1121,27 @@
             overflow: hidden;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f9d1d9' fill-opacity='0.2'%3E%3Cpath d='M0 0l30 15v15H0zM0 30l30 15v15H0zM30 0l30 15v15H30zM30 30l30 15v15H30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
+
+        .campaign-photos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .campaign-polaroid {
+            width: 200px;
+        }
+
+        .campaign-polaroid img {
+            background: linear-gradient(45deg, var(--baby-blue), var(--soft-mint));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
         
         .campaign-container {
             display: flex;
@@ -759,6 +1170,12 @@
         .campaign-image {
             height: 200px;
             overflow: hidden;
+            background: linear-gradient(45deg, var(--blush-pink), var(--baby-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
         }
         
         .campaign-image img {
@@ -810,6 +1227,13 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
         }
+
+        .campaign-handwritten {
+            font-family: 'Kalam', cursive;
+            color: var(--blush-pink);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
         
         .campaign-content p {
             margin-bottom: 20px;
@@ -853,20 +1277,28 @@
             background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.3' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
         }
         
-       .cta-section:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw; /* Ensures it spans the entire viewport width */
-    height: 50px; /* Adjust height if needed */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30'%3E%3Cpath d='M0,30 C150,10 350,10 500,20 C650,30 800,30 950,20 C1050,15 1150,10 1200,5 L1200,0 L0,0 Z' fill='%23ffffff'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: cover; /* Stretch the SVG to fill full width */
-    z-index: 1;
-}        
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 50px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30'%3E%3Cpath d='M0,30 C150,10 350,10 500,20 C650,30 800,30 950,20 C1050,15 1150,10 1200,5 L1200,0 L0,0 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 1;
+        }
+        
         .cta-container {
             text-align: center;
+        }
+
+        .cta-handwritten {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: var(--blush-pink);
+            margin-bottom: 1rem;
         }
         
         .main-buttons {
@@ -959,6 +1391,13 @@
         .numbers-container {
             text-align: center;
         }
+
+        .numbers-handwritten {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--blush-pink);
+            margin-bottom: 1rem;
+        }
         
         .numbers-grid {
             display: grid;
@@ -1030,120 +1469,20 @@
         }
         
         /* ===== CTA Envelope Section ===== */
-       .envelope-section {
-    padding: 80px 0;
-    background-color: var(--cream);
-    position: relative;
-    overflow: hidden;
-    background-image: url(background1.jpg); /* or base64 */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-       }
-        
-        .envelope {
-            width: 100%;
-            height: 100%;
+        .envelope-section {
+            padding: 80px 0;
+            background-color: var(--cream);
             position: relative;
-            transform-style: preserve-3d;
-            transition: transform 1s ease;
-        }
-        
-        .envelope-front, .envelope-back, .envelope-top, .envelope-left, .envelope-right, .envelope-paper {
-            position: absolute;
-            backface-visibility: hidden;
-        }
-        
-        .envelope-front, .envelope-back {
-            width: 100%;
-            height: 100%;
-            background-color: var(--blush-pink);
-            border-radius: 5px;
-        }
-        
-        .envelope-front {
-            transform: rotateY(0deg);
-            z-index: 2;
             overflow: hidden;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f9d1d9' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
-        
-        .envelope-back {
-            transform: rotateY(180deg);
-        }
-        
-        .envelope-top {
-            width: 100%;
-            height: 100px;
-            top: -50px;
-            background-color: var(--blush-pink);
-            transform-origin: bottom;
-            transform: rotateX(0deg);
-            border-radius: 5px 5px 0 0;
-            z-index: 3;
-            transition: transform 0.5s ease;
-        }
-        
-        .envelope-left, .envelope-right {
-            width: 0;
-            height: 0;
-            top: 0;
-            border-top: 100px solid transparent;
-            border-bottom: 100px solid var(--blush-pink);
-        }
-        
-        .envelope-left {
-            left: 0;
-            border-left: 150px solid transparent;
-            border-right: 0;
-        }
-        
-        .envelope-right {
-            right: 0;
-            border-right: 150px solid transparent;
-            border-left: 0;
-        }
-        
-        .envelope-paper {
-            width: 90%;
-            height: 90%;
-            background-color: white;
-            left: 5%;
-            top: 5%;
-            z-index: 1;
-            transform: translateZ(-1px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border-radius: 5px;
-            transition: transform 0.5s ease 0.5s;
-        }
-        
-        .envelope-paper h3 {
-            margin-bottom: 15px;
-        }
-        
-        .envelope-paper p {
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-        }
-        
-       /* Envelope Flap Animations */
-.envelope.hover-open,
-.envelope.locked-open {
-  transform: rotateY(180deg);
-}
 
-.envelope-top.hover-open,
-.envelope-top.locked-open {
-  transform: rotateX(180deg);
-}
-
-.envelope-paper.hover-open,
-.envelope-paper.locked-open {
-  transform: translateZ(50px) translateY(-30px);
-}
+        .envelope-handwritten {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--blush-pink);
+            margin-bottom: 2rem;
+        }
         
         .floating-heart {
             position: absolute;
@@ -1215,6 +1554,13 @@
             height: 3px;
             background-color: var(--blush-pink);
         }
+
+        .footer-handwritten {
+            font-family: 'Kalam', cursive;
+            color: var(--blush-pink);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
         
         .footer-links {
             list-style: none;
@@ -1255,6 +1601,13 @@
             margin-top: 30px;
             border-top: 1px solid #eee;
         }
+
+        .footer-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            color: var(--blush-pink);
+            margin-bottom: 15px;
+        }
         
         .social-links {
             display: flex;
@@ -1294,6 +1647,19 @@
             
             .story-box, .campaign-card {
                 min-width: 250px;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .letters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .memorial-title {
+                font-size: 2.5rem;
             }
         }
         
@@ -1356,6 +1722,28 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+
+            .memorial-title {
+                font-size: 2rem;
+            }
+
+            .memorial-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .campaign-photos {
+                gap: 15px;
+            }
+
+            .campaign-polaroid {
+                width: 150px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1393,10 +1781,22 @@
             .number-card h3 {
                 font-size: 1.8rem;
             }
-            
-            .envelope-wrapper {
-                width: 250px;
-                height: 180px;
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+
+            .member-photo {
+                height: 120px;
+                font-size: 2rem;
+            }
+
+            .memorial-title {
+                font-size: 1.8rem;
+            }
+
+            .memorial-subtitle {
+                font-size: 1rem;
             }
         }
     </style>
@@ -1404,88 +1804,88 @@
 <body>
     <!-- Header & Navigation -->
     <header>
-    <div class="container header-container">
-        <div class="logo">
-            <img src="/api/placeholder/50/50" alt="PAA Logo">
-            <h1>Pediatric Advocacy Alliance</h1>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=50&h=50&fit=crop&crop=center" alt="PAA Logo">
+                <h1>Pediatric Advocacy Alliance</h1>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="calendar.html">Events</a></li>
+                    <li><a href="cbl hub.html">Programs</a></li>
+                    <li><a href="partnership.html">Partnerships</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="mobile-menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="calendar.html">Events</a></li>
-                <li><a href="cbl hub.html">Programs</a></li>
-                <li><a href="partnership.html">Partnerships</a></li>
-                <li><a href="donate.html">Donate</a></li>
-                <li><a href="volunteer.html">Volunteer</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    </header>
     
-   <!-- Hero Banner -->
-<section class="hero-banner">
-    <div class="hero-content">
-        <h1>Pediatric <span class="calligraphy">Advocacy</span> Alliance</h1>
-        <p>Students uniting to uplift children and champion care through education, advocacy, and community service.</p>
-        <div class="hero-buttons">
-            <a href="volunteer.html" class="hero-btn">
-                <i class="fas fa-hands-helping"></i>
-                <span>Get Involved</span>
-            </a>
-            <a href="chapter.html" class="hero-btn">
-                <i class="fas fa-users"></i>
-                <span>Start a Chapter</span>
-            </a>
-            <a href="about.html" class="hero-btn">
-                <i class="fas fa-info-circle"></i>
-                <span>About PAA</span>
-            </a>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Pediatric <span class="calligraphy">Advocacy</span> Alliance</h1>
+            <p>Students uniting to uplift children and champion care through education, advocacy, and community service.</p>
+            <div class="hero-accent handwritten-script">with love, PAA</div>
+            <div class="hero-buttons">
+                <a href="volunteer.html" class="hero-btn">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>Get Involved</span>
+                </a>
+                <a href="chapter.html" class="hero-btn">
+                    <i class="fas fa-users"></i>
+                    <span>Start a Chapter</span>
+                </a>
+                <a href="about.html" class="hero-btn">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About PAA</span>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="floating-element heart"><i class="fas fa-heart"></i></div>
-    <div class="floating-element hand"><i class="fas fa-hand-holding-heart"></i></div>
-    <div class="floating-element star"><i class="fas fa-star"></i></div>
-</section>
+        <div class="floating-element heart"><i class="fas fa-heart"></i></div>
+        <div class="floating-element hand"><i class="fas fa-hand-holding-heart"></i></div>
+        <div class="floating-element star"><i class="fas fa-star"></i></div>
+    </section>
     
-<!-- Our Story Section -->
-<section class="story-section">
-    <div class="container">
-        <div class="section-title reveal">
-            <h2>Our <span class="calligraphy">Story</span></h2>
-            <p>Learn about our mission and what drives us to make a difference.</p>
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our <span class="calligraphy">Story</span></h2>
+                <p>Learn about our mission and what drives us to make a difference.</p>
+            </div>
+            <div class="story-container">
+                <div class="story-box reveal">
+                    <div class="story-icon"><i class="fas fa-users"></i></div>
+                    <div class="story-sticker"><i class="fas fa-book"></i></div>
+                    <h3>Who We Are</h3>
+                    <p>The Pediatric Advocacy Alliance is a student-led organization dedicated to improving children's health and wellbeing through education, advocacy, and service. Founded by healthcare students, we work to address the unique needs of children in our communities.</p>
+                    <a href="about.html" class="btn">Learn More</a>
+                </div>
+                <div class="story-box reveal">
+                    <div class="story-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="story-sticker"><i class="fas fa-heart"></i></div>
+                    <h3>What We Do</h3>
+                    <p>We organize community health initiatives, educational workshops, donation drives, and volunteer opportunities that directly impact children's lives. Our programs are designed to address healthcare disparities and promote health equity for all children.</p>
+                    <a href="calendar.html" class="btn">Learn More</a>
+                </div>
+                <div class="story-box reveal">
+                    <div class="story-icon"><i class="fas fa-globe"></i></div>
+                    <div class="story-sticker"><i class="fas fa-star"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to empower students to become effective advocates for children's health and wellbeing. We believe that by combining education, advocacy, and direct service, we can create lasting positive change in pediatric healthcare and family support systems.</p>
+                    <a href="cbl hub.html" class="btn">Learn More</a>
+                </div>
+            </div>
         </div>
-        <div class="story-container">
-            <div class="story-box reveal">
-                <div class="story-icon"><i class="fas fa-users"></i></div>
-                <div class="story-sticker"><i class="fas fa-book"></i></div>
-                <h3>Who We Are</h3>
-                <p>The Pediatric Advocacy Alliance is a student-led organization dedicated to improving children's health and wellbeing through education, advocacy, and service. Founded by healthcare students, we work to address the unique needs of children in our communities.</p>
-                <a href="about.html" class="btn">Learn More</a>
-            </div>
-            <div class="story-box reveal">
-                <div class="story-icon"><i class="fas fa-hands-helping"></i></div>
-                <div class="story-sticker"><i class="fas fa-heart"></i></div>
-                <h3>What We Do</h3>
-                <p>We organize community health initiatives, educational workshops, donation drives, and volunteer opportunities that directly impact children's lives. Our programs are designed to address healthcare disparities and promote health equity for all children.</p>
-                <a href="calendar.html" class="btn">Learn More</a>
-            </div>
-            <div class="story-box reveal">
-                <div class="story-icon"><i class="fas fa-globe"></i></div>
-                <div class="story-sticker"><i class="fas fa-star"></i></div>
-                <h3>Our Mission</h3>
-                <p>Our mission is to empower students to become effective advocates for children's health and wellbeing. We believe that by combining education, advocacy, and direct service, we can create lasting positive change in pediatric healthcare and family support systems.</p>
-                <a href="cbl hub.html" class="btn">Learn More</a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-    
     <!-- Squiggly Divider -->
     <div class="squiggly-divider"></div>
     
@@ -1512,34 +1912,180 @@
             </div>
         </div>
     </section>
+
+    <!-- Notable Members Section -->
+    <section class="notable-members-section">
+        <div class="container">
+            <div class="members-header reveal">
+                <h2>Our Amazing <span class="calligraphy">Team</span></h2>
+                <div class="handwritten-script">Past Event Leaders</div>
+                <p>Meet the dedicated students who have led our initiatives and made a lasting impact.</p>
+            </div>
+            <div class="members-grid reveal">
+                <div class="member-card" data-member="sarah">
+                    <div class="member-photo">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">Sarah Chen</div>
+                        <div class="member-role">Bundles of Joy Lead</div>
+                        <div class="member-patch">Community Service Patch</div>
+                    </div>
+                </div>
+                <div class="member-card" data-member="marcus">
+                    <div class="member-photo">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">Marcus Rodriguez</div>
+                        <div class="member-role">Health Fair Coordinator</div>
+                        <div class="member-patch">Leadership Excellence</div>
+                    </div>
+                </div>
+                <div class="member-card" data-member="emily">
+                    <div class="member-photo">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">Emily Johnson</div>
+                        <div class="member-role">Literacy Program Lead</div>
+                        <div class="member-patch">Education Advocate</div>
+                    </div>
+                </div>
+                <div class="member-card" data-member="david">
+                    <div class="member-photo">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">David Park</div>
+                        <div class="member-role">Volunteer Coordinator</div>
+                        <div class="member-patch">Service Champion</div>
+                    </div>
+                </div>
+                <div class="member-card" data-member="maria">
+                    <div class="member-photo">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">Maria Santos</div>
+                        <div class="member-role">Advocacy Campaign Lead</div>
+                        <div class="member-patch">Voice for Change</div>
+                    </div>
+                </div>
+                <div class="member-card" data-member="james">
+                    <div class="member-photo">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="member-info">
+                        <div class="member-name">James Wilson</div>
+                        <div class="member-role">Fundraising Director</div>
+                        <div class="member-patch">Impact Maker</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-grid-section">
+                <div class="members-header">
+                    <div class="handwritten-script">Patch Earners Wall</div>
+                    <p>Celebrating our members who have earned recognition for their outstanding service.</p>
+                </div>
+                <div class="photo-grid reveal">
+                    <div class="photo-card taped-photo">
+                        <div class="polaroid-frame">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop&crop=faces" alt="Team Event">
+                            <div class="polaroid-caption handwritten">Health Fair 2024</div>
+                        </div>
+                    </div>
+                    <div class="photo-card taped-photo">
+                        <div class="polaroid-frame">
+                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop&crop=center" alt="Volunteer Event">
+                            <div class="polaroid-caption handwritten">Book Drive Success</div>
+                        </div>
+                    </div>
+                    <div class="photo-card taped-photo">
+                        <div class="polaroid-frame">
+                            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop&crop=center" alt="Community Service">
+                            <div class="polaroid-caption handwritten">Community Outreach</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- Values Banner -->
-<div class="values-banner">
-    <div class="values-track">
-        <div class="value-item">Leadership</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
-        <div class="value-item">Empowerment</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
-        <div class="value-item">Community</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
-        <div class="value-item">Generosity</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
-        <div class="value-item">Advocacy</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
+    <div class="values-banner">
+        <div class="values-track">
+            <div class="value-item">Leadership</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
+            <div class="value-item">Empowerment</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
+            <div class="value-item">Community</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
+            <div class="value-item">Generosity</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
+            <div class="value-item">Advocacy</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
 
-        <!-- Repeat loop for visual continuity -->
-        <div class="value-item">Leadership</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
-        <div class="value-item">Empowerment</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
-        <div class="value-item">Community</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
-        <div class="value-item">Generosity</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
-        <div class="value-item">Advocacy</div>
-        <div class="value-item"><img src="paa-logo.png" alt="Logo" class="value-logo"></div>
+            <!-- Repeat loop for visual continuity -->
+            <div class="value-item">Leadership</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
+            <div class="value-item">Empowerment</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
+            <div class="value-item">Community</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
+            <div class="value-item">Generosity</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
+            <div class="value-item">Advocacy</div>
+            <div class="value-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=100&h=100&fit=crop&crop=center" alt="Logo" class="value-logo"></div>
+        </div>
     </div>
-</div>
+
+    <!-- Memorial Letters Section -->
+    <section class="memorial-section" id="memorial-section">
+        <div class="memorial-background">
+            <div class="floating-candle" style="top: 20%; left: 15%;"></div>
+            <div class="floating-candle" style="top: 60%; left: 80%;"></div>
+            <div class="floating-candle" style="top: 40%; left: 70%;"></div>
+            <div class="floating-star" style="top: 30%; left: 25%;"></div>
+            <div class="floating-star" style="top: 70%; left: 40%;"></div>
+            <div class="floating-star" style="top: 50%; left: 90%;"></div>
+            <div class="floating-star" style="top: 80%; left: 10%;"></div>
+            <div class="floating-lantern" style="top: 35%; left: 50%;"></div>
+            <div class="floating-lantern" style="top: 65%; left: 20%;"></div>
+            <div class="floating-lantern" style="top: 25%; left: 75%;"></div>
+        </div>
+        <div class="container memorial-content">
+            <h2 class="memorial-title">Letters to the Little Ones</h2>
+            <p class="memorial-subtitle">A space for heartfelt messages to the children we advocate for, the families we support, and the lives we remember.</p>
+            
+            <div class="letters-grid">
+                <div class="letter-card">
+                    <div class="letter-preview">
+                        "Dear little fighter, your strength inspires us every day. Even when the world feels too big and scary, remember that there are people who believe in you and are working to make things better..."
+                    </div>
+                    <div class="letter-signature">- Sarah, PAA Volunteer</div>
+                </div>
+                <div class="letter-card">
+                    <div class="letter-preview">
+                        "To the brave mama in the NICU, I see you. I see your tired eyes and your fierce love. You are not alone in this journey. There are hands ready to help and hearts that understand..."
+                    </div>
+                    <div class="letter-signature">- Emily, Nursing Student</div>
+                </div>
+                <div class="letter-card">
+                    <div class="letter-preview">
+                        "Sweet angel, though we never met, your story changed everything. Because of you, we fight harder, love deeper, and never take a single moment for granted..."
+                    </div>
+                    <div class="letter-signature">- Marcus, PAA Leader</div>
+                </div>
+            </div>
+
+            <div class="memorial-buttons">
+                <a href="#" class="memorial-btn" onclick="openLetterForm()">Write a letter</a>
+                <a href="#" class="memorial-btn">Read more letters</a>
+            </div>
+        </div>
+    </section>
     
     <!-- Newsletter Section -->
     <section class="newsletter-section">
@@ -1553,6 +2099,7 @@
                     <div class="newsletter-card">
                         <div class="newsletter-header">
                             <h3>PAA Bi-Weekly Update</h3>
+                            <div class="newsletter-accent">with love from our team</div>
                         </div>
                         <div class="newsletter-content">
                             <div class="newsletter-line"></div>
@@ -1566,15 +2113,13 @@
                 <div class="newsletter-signup reveal">
                     <h3>Join Our Mailing List</h3>
                     <p>Stay updated on upcoming events, volunteer opportunities, and ways to make a difference in children's lives.</p>
-<form id="subscribe-form" action="https://formspree.io/f/xbloglen" method="POST">
-  <input type="email" name="email" placeholder="Enter your email" required>
-  <button type="submit" class="custom-subscribe-btn">Subscribe</button>
-  <p id="form-message" style="display: none; color: green; margin-top: 10px;">
-    Thank you! You’ve been subscribed 💌
-  </p>
-</form>
-
-
+                    <form id="subscribe-form" action="https://formspree.io/f/xbloglen" method="POST">
+                        <input type="email" name="email" placeholder="Enter your email" required class="newsletter-input">
+                        <button type="submit" class="custom-subscribe-btn">Subscribe<i class="fas fa-paper-plane paper-plane"></i></button>
+                        <p id="form-message" style="display: none; color: green; margin-top: 10px;">
+                            Thank you! You've been subscribed
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1587,16 +2132,29 @@
                 <h2>Campaign <span class="calligraphy">Highlights</span></h2>
                 <p>Our current initiatives making a difference in children's lives.</p>
             </div>
+            
+            <div class="campaign-photos reveal">
+                <div class="campaign-polaroid polaroid-frame">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop&crop=center" alt="Bundles of Joy Event">
+                    <div class="polaroid-caption handwritten">Bundles of Joy Collection</div>
+                </div>
+                <div class="campaign-polaroid polaroid-frame">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=300&fit=crop&crop=center" alt="Reading Event">
+                    <div class="polaroid-caption handwritten">Reading to Kids</div>
+                </div>
+            </div>
+
             <div class="campaign-container">
                 <div class="campaign-card reveal">
                     <div class="campaign-image">
-                        <img src="/api/placeholder/500/300" alt="Bundles of Joy">
+                        <i class="fas fa-baby"></i>
                     </div>
                     <div class="campaign-corner">
                         <i class="fas fa-baby"></i>
                     </div>
                     <div class="campaign-content">
                         <h3>Bundles of Joy</h3>
+                        <div class="campaign-handwritten handwritten">spreading love, one bundle at a time</div>
                         <p>Providing essential supplies for new and expectant mothers in need. Each bundle contains diapers, wipes, clothing, and more to support families during a critical time.</p>
                         <div class="progress-bar">
                             <div class="progress-fill"></div>
@@ -1610,13 +2168,14 @@
                 </div>
                 <div class="campaign-card reveal">
                     <div class="campaign-image">
-                        <img src="/api/placeholder/500/300" alt="Early Literacy Project">
+                        <i class="fas fa-book-open"></i>
                     </div>
                     <div class="campaign-corner">
                         <i class="fas fa-book"></i>
                     </div>
                     <div class="campaign-content">
                         <h3>Early Literacy Project</h3>
+                        <div class="campaign-handwritten handwritten">opening worlds through words</div>
                         <p>Promoting reading skills and a love of books in young children. We collect and distribute age-appropriate books and organize reading sessions at local pediatric clinics and community centers.</p>
                         <div class="progress-bar">
                             <div class="progress-fill"></div>
@@ -1637,6 +2196,7 @@
         <div class="container cta-container">
             <div class="section-title reveal">
                 <h2>Ready to Make a <span class="calligraphy">Difference</span>?</h2>
+                <div class="cta-handwritten handwritten-script">together, we can change the world</div>
                 <p>Join our mission to improve children's health and wellbeing.</p>
             </div>
             <div class="main-buttons">
@@ -1670,6 +2230,7 @@
         <div class="container numbers-container">
             <div class="section-title reveal">
                 <h2>PAA By the <span class="calligraphy">Numbers</span></h2>
+                <div class="numbers-handwritten handwritten-script">celebrating our impact together</div>
                 <p>Our impact in the community and beyond.</p>
             </div>
             <div class="numbers-grid">
@@ -1710,13 +2271,13 @@
         <div class="container envelope-container">
             <div class="section-title reveal">
                 <h2>Connect <span class="calligraphy">With Us</span></h2>
+                <div class="envelope-handwritten handwritten-script">let's make magic happen</div>
                 <p>Let's work together to make a positive impact on children's lives.</p>
             </div>
-                        <h3>Let's Connect!</h3>
-                        <p>Reach out to learn more about our programs and how you can get involved.</p>
-                        <a href="#" class="btn">Contact Us</a>
-                    </div>
-                </div>
+            <div style="text-align: center; padding: 40px 0;">
+                <h3>Let's Connect!</h3>
+                <p>Reach out to learn more about our programs and how you can get involved.</p>
+                <a href="contact.html" class="btn">Contact Us</a>
             </div>
             <div class="floating-heart"><i class="fas fa-heart"></i></div>
             <div class="floating-heart"><i class="fas fa-heart"></i></div>
@@ -1730,6 +2291,7 @@
             <div class="footer-container">
                 <div class="footer-column">
                     <h3>About</h3>
+                    <div class="footer-handwritten handwritten">learn our story</div>
                     <ul class="footer-links">
                         <li><a href="#">Our Mission</a></li>
                         <li><a href="#">Our Team</a></li>
@@ -1739,6 +2301,7 @@
                 </div>
                 <div class="footer-column">
                     <h3>Get Involved</h3>
+                    <div class="footer-handwritten handwritten">join the movement</div>
                     <ul class="footer-links">
                         <li><a href="#">Volunteer</a></li>
                         <li><a href="#">Donate</a></li>
@@ -1748,6 +2311,7 @@
                 </div>
                 <div class="footer-column">
                     <h3>Resources</h3>
+                    <div class="footer-handwritten handwritten">helpful links</div>
                     <ul class="footer-links">
                         <li><a href="#">Events Calendar</a></li>
                         <li><a href="#">Newsletter Archive</a></li>
@@ -1757,6 +2321,7 @@
                 </div>
                 <div class="footer-column">
                     <h3>Connect</h3>
+                    <div class="footer-handwritten handwritten">stay in touch</div>
                     <ul class="footer-links">
                         <li><a href="#">Contact Us</a></li>
                         <li><a href="#">Email: info@paa.org</a></li>
@@ -1766,6 +2331,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
+                <div class="footer-signature handwritten-script">with love, PAA</div>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -1808,11 +2374,25 @@
                 }
             }
         }
+
+        // Memorial Section Scroll Effect
+        function handleMemorialScroll() {
+            const memorialSection = document.getElementById('memorial-section');
+            const rect = memorialSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Trigger when section is 50% visible
+            if (rect.top < windowHeight * 0.5 && rect.bottom > windowHeight * 0.5) {
+                memorialSection.classList.add('active');
+            } else {
+                memorialSection.classList.remove('active');
+            }
+        }
         
         // Counter Animation for Impact Section
         function startCounters() {
             const counters = document.querySelectorAll('.count-up');
-            const speed = 200; // The lower the value, the faster the animation
+            const speed = 200;
             
             counters.forEach(counter => {
                 const targetValue = +counter.getAttribute('data-target');
@@ -1823,14 +2403,11 @@
                     currentValue += increment;
                     
                     if (currentValue < targetValue) {
-                        // Display with no decimal places for integers
                         counter.innerText = Math.floor(currentValue);
                         requestAnimationFrame(updateCounter);
                     } else {
-                        // Make sure we end precisely at the target value
                         counter.innerText = targetValue;
                         
-                        // Add the '+' to the first counter after it's done counting
                         if (targetValue === 300) {
                             setTimeout(() => {
                                 counter.innerText = targetValue + '+';
@@ -1842,61 +2419,74 @@
                 requestAnimationFrame(updateCounter);
             });
         }
+
+        // Enhanced scroll handler
+        function handleScroll() {
+            revealOnScroll();
+            handleMemorialScroll();
+        }
         
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
         
-        // Newsletter Form Submission (placeholder)
-        const newsletterForm = document.querySelector('.newsletter-form');
+        // Newsletter Form Submission
+        const newsletterForm = document.getElementById('subscribe-form');
         
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for subscribing to our newsletter!');
+            const formMessage = document.getElementById('form-message');
+            formMessage.style.display = 'block';
+            formMessage.innerHTML = 'Thank you! You\'ve been subscribed 💌';
             this.reset();
         });
+
+        // Member Card Interactions
+        const memberCards = document.querySelectorAll('.member-card');
         
-  const envelope = document.querySelector('#envelope .envelope');
-  const flap = document.querySelector('#envelope .envelope-top');
-  const paper = document.querySelector('#envelope .envelope-paper');
-  const wrapper = document.getElementById('envelope');
+        memberCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const memberData = this.dataset.member;
+                // Add click interaction for member details
+                console.log('Clicked member:', memberData);
+            });
+        });
 
-  let isLockedOpen = false;
-  let hoverTimeoutId;
+        // Letter Form Function
+        function openLetterForm() {
+            // Open form in new window/tab - integrate with Google Forms or Tally
+            const formUrl = 'https://forms.gle/YOUR_GOOGLE_FORM_ID'; // Replace with actual form URL
+            window.open(formUrl, '_blank', 'width=600,height=700');
+        }
 
-  wrapper.addEventListener('click', () => {
-    isLockedOpen = !isLockedOpen;
+        // Add some interactive elements for photos
+        const photoCards = document.querySelectorAll('.photo-card');
+        
+        photoCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(0deg)';
+                this.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.zIndex = '';
+            });
+        });
 
-    if (isLockedOpen) {
-      envelope.classList.add('locked-open');
-      flap.classList.add('locked-open');
-      paper.classList.add('locked-open');
-    } else {
-      envelope.classList.remove('locked-open');
-      flap.classList.remove('locked-open');
-      paper.classList.remove('locked-open');
-    }
-
-    clearTimeout(hoverTimeoutId);
-  });
-
-  wrapper.addEventListener('mouseenter', () => {
-    if (!isLockedOpen) {
-      clearTimeout(hoverTimeoutId);
-      envelope.classList.add('hover-open');
-      flap.classList.add('hover-open');
-      paper.classList.add('hover-open');
-    }
-  });
-
-  wrapper.addEventListener('mouseleave', () => {
-    if (!isLockedOpen) {
-      hoverTimeoutId = setTimeout(() => {
-        envelope.classList.remove('hover-open');
-        flap.classList.remove('hover-open');
-        paper.classList.remove('hover-open');
-      }, 700);
-    }
-  });
-</script>
+        // Add interactive elements to polaroid frames
+        const polaroids = document.querySelectorAll('.polaroid-frame');
+        
+        polaroids.forEach(polaroid => {
+            polaroid.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotate(0deg) scale(1.05)';
+                this.style.zIndex = '10';
+            });
+            
+            polaroid.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.zIndex = '';
+            });
+        });
+    </script>
 </body>
 </html>
