@@ -520,8 +520,8 @@
             font-size: 3rem;
             margin-bottom: 15px;
             color: var(--dark-text);
-            font-family: 'Bebas Neue', sans-serif;
-            font-weight: 400;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
             letter-spacing: 1px;
         }
 
@@ -646,18 +646,14 @@
             min-width: 320px;
             max-width: 320px;
             flex-shrink: 0;
-            border: 8px solid transparent;
-            background-image: 
-                repeating-linear-gradient(
-                    45deg,
-                    #000 0px,
-                    #000 6px,
-                    #fff 6px,
-                    #fff 12px
-                ),
-                linear-gradient(#fff, #fff);
-            background-origin: border-box;
-            background-clip: border-box, padding-box;
+            border: 8px solid;
+            border-image: repeating-linear-gradient(
+                45deg,
+                #000 0px,
+                #000 6px,
+                #fff 6px,
+                #fff 12px
+            ) 8;
         }
 
         .testimonial-stars {
