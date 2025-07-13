@@ -5,6 +5,1946 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programs That Make a Difference - Pediatric Advocacy Alliance</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Kalam:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Base Styles ===== */
+        :root {
+            --blush-pink: #ffb3d9;
+            --baby-blue: #b3e0ff;
+            --pastel-yellow: #fff9b3;
+            --cream: #fff8f0;
+            --soft-mint: #b3ffcc;
+            --soft-purple: #d9b3ff;
+            --lavender: #e6ccff;
+            --peach: #ffccb3;
+            --coral: #ff9999;
+            --sky-blue: #87ceeb;
+            --dark-text: #4a4a4a;
+            --light-text: #666666;
+            --white: #ffffff;
+            --shadow: 0 8px 20px rgba(0,0,0,0.1);
+            --cute-shadow: 0 6px 16px rgba(255,182,193,0.3);
+            --transition-fast: all 0.2s ease;
+            --transition-medium: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #fff0f8 100%);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Polka dot background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(255,182,193,0.15) 3px, transparent 3px),
+                radial-gradient(circle at 25px 25px, rgba(179,224,255,0.15) 2px, transparent 2px),
+                radial-gradient(circle at 45px 10px, rgba(179,255,204,0.15) 2.5px, transparent 2.5px),
+                radial-gradient(circle at 70px 35px, rgba(255,249,179,0.15) 2px, transparent 2px);
+            background-size: 50px 50px, 60px 60px, 70px 70px, 55px 55px;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .calligraphy {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 500;
+        }
+        
+        /* ===== Header & Navigation (from PAA1) ===== */
+        header {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,240,0.95) 100%);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255,182,193,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 40%, rgba(179,224,255,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 40% 80%, rgba(179,255,204,0.1) 2px, transparent 2px);
+            background-size: 30px 30px, 25px 25px, 35px 35px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(255,182,193,0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        .logo-link img {
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(255,182,193,0.3);
+            border: 3px solid white;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .logo-link:hover img {
+            box-shadow: 0 8px 25px rgba(255,182,193,0.4);
+            transform: rotate(2deg);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+
+        .pediatric-text,
+        .alliance-text {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin: 0;
+        }
+
+        .advocacy-script {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--blush-pink);
+            margin: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: block;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 2px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--blush-pink), var(--baby-blue));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 1px;
+        }
+
+        nav ul li a:hover:after {
+            width: 80%;
+        }
+
+        nav ul li a:hover {
+            background: linear-gradient(135deg, rgba(255,182,193,0.2), rgba(179,224,255,0.2));
+            color: var(--dark-text);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(255,182,193,0.2);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            color: var(--blush-pink);
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(255,182,193,0.2);
+            transform: scale(1.1);
+        }
+        
+        /* ===== Hero Section ===== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--baby-blue) 50%, var(--soft-mint) 100%);
+            padding: 150px 0 100px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 8px solid white;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--blush-pink) 0px, 
+                var(--blush-pink) 10px,
+                var(--baby-blue) 10px, 
+                var(--baby-blue) 20px,
+                var(--soft-mint) 20px,
+                var(--soft-mint) 30px,
+                var(--pastel-yellow) 30px,
+                var(--pastel-yellow) 40px
+            ) 1;
+        }
+        
+        /* Zigzag polka dot pattern overlay */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 15px 15px, rgba(255,255,255,0.3) 4px, transparent 4px),
+                radial-gradient(circle at 45px 35px, rgba(255,255,255,0.2) 3px, transparent 3px),
+                radial-gradient(circle at 25px 55px, rgba(255,255,255,0.25) 3.5px, transparent 3.5px);
+            background-size: 60px 60px, 80px 80px, 70px 70px;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background: rgba(255,255,255,0.9);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: var(--cute-shadow);
+            border: 4px solid white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--dark-text);
+            text-shadow: 2px 2px 4px rgba(255,182,193,0.3);
+            font-weight: 800;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin: 0 auto 40px;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+        
+        /* ===== Programs Overview ===== */
+        .programs-section {
+            padding: 60px 0;
+        }
+        
+        .program-block {
+            width: 100%;
+            padding: 60px 0;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        /* Cute patterns for each program with striped borders */
+        .program-block:nth-child(1) {
+            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--coral) 100%);
+            background-image: 
+                radial-gradient(circle at 3px 3px, rgba(255,255,255,0.3) 2px, transparent 2px);
+            background-size: 25px 25px;
+            border-top: 6px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--coral) 0px, var(--coral) 8px,
+                white 8px, white 16px,
+                var(--blush-pink) 16px, var(--blush-pink) 24px
+            ) 1;
+        }
+        
+        .program-block:nth-child(2) {
+            background: linear-gradient(135deg, var(--soft-mint) 0%, var(--sky-blue) 100%);
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 8px,
+                    rgba(255,255,255,0.2) 8px,
+                    rgba(255,255,255,0.2) 16px
+                );
+            border-top: 6px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--soft-mint) 0px, var(--soft-mint) 10px,
+                white 10px, white 20px,
+                var(--sky-blue) 20px, var(--sky-blue) 30px
+            ) 1;
+        }
+        
+        .program-block:nth-child(3) {
+            background: linear-gradient(135deg, var(--baby-blue) 0%, var(--lavender) 100%);
+            background-image: 
+                linear-gradient(90deg, rgba(255,255,255,0.2) 50%, transparent 50%),
+                linear-gradient(rgba(255,255,255,0.1) 50%, transparent 50%);
+            background-size: 20px 20px;
+            border-top: 6px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--baby-blue) 0px, var(--baby-blue) 12px,
+                white 12px, white 18px,
+                var(--lavender) 18px, var(--lavender) 30px
+            ) 1;
+        }
+        
+        .program-block:nth-child(4) {
+            background: linear-gradient(135deg, var(--pastel-yellow) 0%, var(--peach) 100%);
+            background-image: 
+                radial-gradient(circle at 4px 4px, rgba(255,255,255,0.4) 3px, transparent 3px),
+                radial-gradient(circle at 20px 20px, rgba(255,255,255,0.2) 2px, transparent 2px);
+            background-size: 30px 30px, 40px 40px;
+            border-top: 6px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--pastel-yellow) 0px, var(--pastel-yellow) 15px,
+                white 15px, white 22px,
+                var(--peach) 22px, var(--peach) 37px
+            ) 1;
+        }
+        
+        .program-block:nth-child(5) {
+            background: linear-gradient(135deg, var(--soft-purple) 0%, var(--blush-pink) 100%);
+            background-image: 
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 6px,
+                    rgba(255,255,255,0.15) 6px,
+                    rgba(255,255,255,0.15) 12px
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 6px,
+                    rgba(255,255,255,0.1) 6px,
+                    rgba(255,255,255,0.1) 12px
+                );
+            border-top: 6px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--soft-purple) 0px, var(--soft-purple) 11px,
+                white 11px, white 17px,
+                var(--blush-pink) 17px, var(--blush-pink) 28px
+            ) 1;
+        }
+        
+        .program-block:nth-child(6) {
+            background: linear-gradient(135deg, var(--peach) 0%, var(--soft-mint) 100%);
+            background-image: 
+                radial-gradient(circle at 5px 5px, rgba(255,255,255,0.3) 2.5px, transparent 2.5px);
+            background-size: 35px 35px;
+            border-top: 6px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--peach) 0px, var(--peach) 9px,
+                white 9px, white 15px,
+                var(--soft-mint) 15px, var(--soft-mint) 24px
+            ) 1;
+        }
+        
+        .program-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .program-block:nth-child(even) .program-content {
+            flex-direction: row-reverse;
+        }
+        
+        .program-info {
+            flex: 1;
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: var(--cute-shadow);
+            border: 3px solid white;
+            position: relative;
+        }
+
+        /* Cute decorative elements on program cards - removed emoji */
+        .program-info::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 50px;
+            height: 50px;
+            background: var(--pastel-yellow);
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            border: 4px solid white;
+            /* Stitched effect */
+            border-style: dashed;
+        }
+
+        .program-block:nth-child(2) .program-info::before { 
+            background: var(--blush-pink);
+            border-color: var(--coral);
+        }
+        .program-block:nth-child(3) .program-info::before { 
+            background: var(--baby-blue);
+            border-color: var(--sky-blue);
+        }
+        .program-block:nth-child(4) .program-info::before { 
+            background: var(--soft-purple);
+            border-color: var(--lavender);
+        }
+        .program-block:nth-child(5) .program-info::before { 
+            background: var(--soft-mint);
+            border-color: var(--baby-blue);
+        }
+        .program-block:nth-child(6) .program-info::before { 
+            background: var(--peach);
+            border-color: var(--coral);
+        }
+        
+        .program-label {
+            font-size: 1.3rem;
+            color: var(--blush-pink);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .program-name {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+            color: var(--dark-text);
+        }
+        
+        .program-name::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--blush-pink), var(--baby-blue), var(--soft-mint));
+            border-radius: 3px;
+        }
+        
+        .program-description {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+        
+        .program-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--cute-shadow);
+            border: 3px dashed white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            /* Stitched button effect */
+            box-shadow: 
+                inset 0 0 0 2px white,
+                inset 0 0 0 4px var(--coral),
+                0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .program-block:nth-child(2) .program-btn {
+            background: linear-gradient(135deg, var(--baby-blue), var(--sky-blue));
+            box-shadow: 
+                inset 0 0 0 2px white,
+                inset 0 0 0 4px var(--sky-blue),
+                0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .program-block:nth-child(3) .program-btn {
+            background: linear-gradient(135deg, var(--soft-mint), var(--baby-blue));
+            box-shadow: 
+                inset 0 0 0 2px white,
+                inset 0 0 0 4px var(--baby-blue),
+                0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .program-block:nth-child(4) .program-btn {
+            background: linear-gradient(135deg, var(--pastel-yellow), var(--peach));
+            box-shadow: 
+                inset 0 0 0 2px white,
+                inset 0 0 0 4px var(--peach),
+                0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .program-block:nth-child(5) .program-btn {
+            background: linear-gradient(135deg, var(--soft-purple), var(--lavender));
+            box-shadow: 
+                inset 0 0 0 2px white,
+                inset 0 0 0 4px var(--lavender),
+                0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .program-block:nth-child(6) .program-btn {
+            background: linear-gradient(135deg, var(--peach), var(--coral));
+            box-shadow: 
+                inset 0 0 0 2px white,
+                inset 0 0 0 4px var(--coral),
+                0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .program-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255,182,193,0.4);
+        }
+        
+        .program-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .program-btn:hover::after {
+            opacity: 1;
+            right: 10px;
+        }
+        
+        .program-image {
+            flex: 0 0 400px;
+            position: relative;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--cute-shadow);
+            border: 4px solid white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Cute sticker effects - no emojis */
+        .tape-effect {
+            position: absolute;
+            width: 80px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--pastel-yellow), white);
+            top: -15px;
+            right: 20px;
+            border: 3px dashed rgba(255,182,193,0.5);
+            transform: rotate(-15deg);
+            box-shadow: var(--shadow);
+            z-index: 2;
+            border-radius: 8px;
+        }
+        
+        .tape-effect::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--blush-pink);
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        
+        /* ===== Focus Filter Section ===== */
+        .filter-section {
+            background: linear-gradient(135deg, var(--pastel-yellow) 0%, var(--peach) 100%);
+            padding: 80px 0;
+            position: relative;
+            border-top: 8px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--peach) 0px, var(--peach) 12px,
+                white 12px, white 20px,
+                var(--pastel-yellow) 20px, var(--pastel-yellow) 32px,
+                white 32px, white 40px
+            ) 1;
+        }
+        
+        .filter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 8px 8px, rgba(255,255,255,0.4) 3px, transparent 3px);
+            background-size: 50px 50px;
+            opacity: 0.6;
+        }
+        
+        .filter-title {
+            text-align: center;
+            margin-bottom: 50px;
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--cute-shadow);
+            border: 3px solid white;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 50px;
+        }
+        
+        .filter-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color: var(--dark-text);
+        }
+        
+        .filter-title .calligraphy {
+            font-size: 1.6rem;
+            color: var(--blush-pink);
+            font-weight: 600;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            display: inline-block;
+            padding: 18px 35px;
+            background: linear-gradient(135deg, white, var(--cream));
+            color: var(--dark-text);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: var(--cute-shadow);
+            transition: var(--transition-medium);
+            border: 3px solid var(--blush-pink);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn:nth-child(1) { border-color: var(--blush-pink); }
+        .filter-btn:nth-child(2) { border-color: var(--baby-blue); }
+        .filter-btn:nth-child(3) { border-color: var(--soft-mint); }
+        .filter-btn:nth-child(4) { border-color: var(--soft-purple); }
+        
+        .filter-btn:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 12px 30px rgba(255,182,193,0.4);
+        }
+
+        .filter-btn:nth-child(1):hover {
+            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
+            color: white;
+        }
+
+        .filter-btn:nth-child(2):hover {
+            background: linear-gradient(135deg, var(--baby-blue), var(--sky-blue));
+            color: white;
+        }
+
+        .filter-btn:nth-child(3):hover {
+            background: linear-gradient(135deg, var(--soft-mint), var(--baby-blue));
+            color: white;
+        }
+
+        .filter-btn:nth-child(4):hover {
+            background: linear-gradient(135deg, var(--soft-purple), var(--lavender));
+            color: white;
+        }
+        
+        /* ===== Program Idea Submission Section ===== */
+        .submission-section {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-mint) 100%);
+            padding: 80px 0;
+            position: relative;
+            border-top: 8px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--soft-mint) 0px, var(--soft-mint) 14px,
+                white 14px, white 24px,
+                var(--baby-blue) 24px, var(--baby-blue) 38px,
+                white 38px, white 48px
+            ) 1;
+        }
+        
+        .submission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(179,255,204,0.1) 10px,
+                    rgba(179,255,204,0.1) 20px
+                );
+            z-index: 1;
+        }
+        
+        .submission-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: var(--cute-shadow);
+            border: 4px solid var(--baby-blue);
+            position: relative;
+            z-index: 2;
+        }
+
+        .submission-container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 60px;
+            height: 60px;
+            background: var(--pastel-yellow);
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            border: 4px dashed white;
+        }
+        
+        .submission-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .submission-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            color: var(--dark-text);
+        }
+
+        .submission-title .calligraphy {
+            font-size: 1.6rem;
+            color: var(--blush-pink);
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--dark-text);
+            font-weight: 700;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.3rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 3px solid var(--baby-blue);
+            border-radius: 15px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            transition: var(--transition-fast);
+            background: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blush-pink);
+            box-shadow: 0 0 0 4px rgba(255,182,193,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            /* Stitched button effect */
+            border: 3px dashed white;
+            box-shadow: 
+                inset 0 0 0 2px white,
+                inset 0 0 0 4px var(--coral),
+                0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--coral), var(--blush-pink));
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255,182,193,0.4);
+        }
+
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover::after {
+            opacity: 1;
+            right: 15px;
+        }
+        
+        /* ===== Testimonials Section ===== */
+        .testimonials-section {
+            background: linear-gradient(135deg, var(--soft-mint) 0%, var(--baby-blue) 100%);
+            padding: 80px 0;
+            position: relative;
+            border-top: 8px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--baby-blue) 0px, var(--baby-blue) 16px,
+                white 16px, white 28px,
+                var(--soft-mint) 28px, var(--soft-mint) 44px,
+                white 44px, white 56px
+            ) 1;
+        }
+        
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 6px 6px, rgba(255,255,255,0.3) 2px, transparent 2px),
+                radial-gradient(circle at 30px 30px, rgba(255,255,255,0.2) 1.5px, transparent 1.5px);
+            background-size: 40px 40px, 60px 60px;
+            opacity: 0.7;
+        }
+        
+        .testimonials-title {
+            text-align: center;
+            margin-bottom: 60px;
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--cute-shadow);
+            border: 3px solid white;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 60px;
+        }
+        
+        .testimonials-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color: var(--dark-text);
+        }
+        
+        .testimonials-title .calligraphy {
+            font-size: 1.6rem;
+            color: var(--blush-pink);
+            font-weight: 600;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255,255,255,0.95);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--cute-shadow);
+            position: relative;
+            border: 3px solid var(--pastel-yellow);
+            transform: rotate(-1deg);
+            transition: var(--transition-medium);
+        }
+        
+        .testimonial-card:nth-child(even) {
+            transform: rotate(1deg);
+            border-color: var(--baby-blue);
+        }
+
+        .testimonial-card:nth-child(3n) {
+            border-color: var(--soft-mint);
+        }
+
+        .testimonial-card:nth-child(4n) {
+            border-color: var(--blush-pink);
+        }
+
+        .testimonial-card:nth-child(5n) {
+            border-color: var(--soft-purple);
+        }
+
+        .testimonial-card:nth-child(6n) {
+            border-color: var(--peach);
+        }
+        
+        .testimonial-card:hover {
+            transform: rotate(0deg) translateY(-8px);
+            box-shadow: 0 15px 35px rgba(255,182,193,0.3);
+        }
+
+        /* Cute sticker decorations - no emojis */
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 50px;
+            height: 50px;
+            background: var(--pastel-yellow);
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            border: 4px dashed white;
+        }
+
+        .testimonial-card:nth-child(2)::before { background: var(--baby-blue); }
+        .testimonial-card:nth-child(3)::before { background: var(--soft-mint); }
+        .testimonial-card:nth-child(4)::before { background: var(--blush-pink); }
+        .testimonial-card:nth-child(5)::before { background: var(--soft-purple); }
+        .testimonial-card:nth-child(6)::before { background: var(--peach); }
+        
+        .testimonial-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-weight: 500;
+            color: var(--dark-text);
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--dark-text);
+        }
+        
+        .testimonial-title {
+            color: var(--light-text);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* ===== Final CTA Section ===== */
+        .final-cta-section {
+            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--soft-purple) 50%, var(--baby-blue) 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            border-top: 8px solid;
+            border-image: repeating-linear-gradient(
+                90deg, 
+                var(--blush-pink) 0px, var(--blush-pink) 18px,
+                white 18px, white 30px,
+                var(--soft-purple) 30px, var(--soft-purple) 48px,
+                white 48px, white 60px,
+                var(--baby-blue) 60px, var(--baby-blue) 78px,
+                white 78px, white 90px
+            ) 1;
+        }
+        
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 4px 4px, rgba(255,255,255,0.25) 3px, transparent 3px);
+            background-size: 45px 45px;
+            opacity: 0.5;
+        }
+        
+        .final-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            position: relative;
+            z-index: 2;
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            box-shadow: var(--cute-shadow);
+            border: 4px solid white;
+        }
+
+        .final-cta-content::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: var(--pastel-yellow);
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            border: 4px dashed white;
+        }
+        
+        .final-cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: var(--dark-text);
+            font-weight: 800;
+            margin-top: 20px;
+        }
+        
+        .final-cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: var(--dark-text);
+            font-weight: 500;
+            line-height: 1.7;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 20px 45px;
+            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: var(--transition-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            /* Stitched button effect */
+            border: 3px dashed white;
+            box-shadow: 
+                inset 0 0 0 2px white,
+                inset 0 0 0 4px var(--coral),
+                0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .cta-btn:hover {
+            background: linear-gradient(135deg, var(--coral), var(--blush-pink));
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(255,182,193,0.4);
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover::after {
+            opacity: 1;
+            right: 15px;
+        }
+        
+        /* ===== Footer ===== */
+        footer {
+            background: linear-gradient(135deg, white 0%, var(--cream) 100%);
+            padding: 60px 0 30px;
+            margin-top: 50px;
+            border-top: 4px solid var(--blush-pink);
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.7);
+            padding: 25px;
+            border-radius: 15px;
+            margin-right: 15px;
+            border: 2px solid var(--baby-blue);
+        }
+
+        .footer-column:last-child {
+            margin-right: 0;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blush-pink), var(--baby-blue));
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: var(--light-text);
+            transition: var(--transition-fast);
+            font-weight: 500;
+            padding: 5px 0;
+            display: block;
+            border-radius: 8px;
+            padding-left: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--blush-pink);
+            background: rgba(255,182,193,0.1);
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 2px solid var(--baby-blue);
+            background: rgba(255,255,255,0.8);
+            border-radius: 15px;
+            padding: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-medium);
+            font-size: 20px;
+            box-shadow: var(--shadow);
+            border: 3px solid white;
+        }
+
+        .social-link:nth-child(2) {
+            background: linear-gradient(135deg, var(--baby-blue), var(--sky-blue));
+        }
+
+        .social-link:nth-child(3) {
+            background: linear-gradient(135deg, var(--soft-mint), var(--baby-blue));
+        }
+
+        .social-link:nth-child(4) {
+            background: linear-gradient(135deg, var(--soft-purple), var(--lavender));
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(255,182,193,0.4);
+        }
+        
+        /* ===== Responsive Design ===== */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .program-content {
+                flex-direction: column !important;
+                gap: 30px;
+            }
+            
+            .program-image {
+                flex: none;
+                width: 100%;
+            }
+            
+            .program-image img {
+                width: 100%;
+                height: 250px;
+            }
+
+            .filter-buttons {
+                gap: 15px;
+            }
+
+            .footer-column {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(255,255,255,0.98);
+                box-shadow: var(--shadow);
+                z-index: 999;
+                border-radius: 0 0 20px 20px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+            }
+            
+            nav ul li {
+                width: 100%;
+            }
+
+            nav ul li a {
+                text-align: center;
+                padding: 12px 20px;
+                background: rgba(255,182,193,0.1);
+                border-radius: 15px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 30px 20px;
+            }
+
+            .program-info {
+                padding: 30px 20px;
+            }
+
+            .program-name {
+                font-size: 2.2rem;
+            }
+            
+            .filter-buttons {
+                gap: 15px;
+            }
+            
+            .filter-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .submission-container {
+                padding: 30px 20px;
+            }
+
+            .final-cta-content {
+                padding: 40px 25px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .footer-column {
+                margin-right: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .program-name {
+                font-size: 1.8rem;
+            }
+            
+            .program-description {
+                font-size: 1.1rem;
+            }
+            
+            .filter-title h2,
+            .testimonials-title h2,
+            .submission-title h2,
+            .final-cta-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+        
+        /* ===== Scroll Animations ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cute floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-5px) rotate(-1deg); }
+            75% { transform: translateY(-15px) rotate(0.5deg); }
+        }
+
+        .program-info::before,
+        .testimonial-card::before,
+        .submission-container::before,
+        .final-cta-content::before {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Delay animations for staggered effect */
+        .program-block:nth-child(2) .program-info::before { animation-delay: 0.5s; }
+        .program-block:nth-child(3) .program-info::before { animation-delay: 1s; }
+        .program-block:nth-child(4) .program-info::before { animation-delay: 1.5s; }
+        .program-block:nth-child(5) .program-info::before { animation-delay: 2s; }
+        .program-block:nth-child(6) .program-info::before { animation-delay: 2.5s; }
+
+        .testimonial-card:nth-child(2)::before { animation-delay: 0.3s; }
+        .testimonial-card:nth-child(3)::before { animation-delay: 0.6s; }
+        .testimonial-card:nth-child(4)::before { animation-delay: 0.9s; }
+        .testimonial-card:nth-child(5)::before { animation-delay: 1.2s; }
+        .testimonial-card:nth-child(6)::before { animation-delay: 1.5s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=60&h=60&fit=crop&crop=center" alt="PAA Logo">
+            </a>
+            <div class="logo-text">
+                <span class="pediatric-text">Pediatric</span>
+                <span class="advocacy-script">Advocacy</span>
+                <span class="alliance-text">Alliance</span>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="calendar.html">Events</a></li>
+                    <li><a href="cbl hub.html">Programs</a></li>
+                    <li><a href="partnership.html">Partnerships</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Programs That Make a Difference</h1>
+                <p class="hero-subtitle">From classrooms to clinics, we bring change where kids and families need it most.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Programs Overview Section -->
+    <section class="programs-section">
+        <!-- Bundles of Joy Program -->
+        <div class="program-block reveal">
+            <div class="program-content">
+                <div class="program-info">
+                    <div class="program-label calligraphy">Est. Spring 2025</div>
+                    <h2 class="program-name">Bundles of Joy</h2>
+                    <p class="program-description">We create care packages for new and expecting mothers, filled with essentials for both baby and mom. From diapers and onesies to self-care items, each bundle is packed with love and practical support for those transitioning into parenthood.</p>
+                    <a href="#" class="program-btn">Learn More</a>
+                </div>
+                <div class="program-image">
+                    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=300&fit=crop&crop=center" alt="Bundles of Joy assembly">
+                    <div class="tape-effect"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PAA Reads Program -->
+        <div class="program-block reveal">
+            <div class="program-content">
+                <div class="program-info">
+                    <div class="program-label calligraphy">Seasonal Favorite</div>
+                    <h2 class="program-name">PAA Reads</h2>
+                    <p class="program-description">Our literacy initiative brings PAA members into local schools and libraries to read with children ages 5-10. We also organize book donation drives and create reading corner setups in underserved communities, fostering a lifelong love of reading.</p>
+                    <a href="#" class="program-btn">Get Involved</a>
+                </div>
+                <div class="program-image">
+                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop&crop=center" alt="Reading with children">
+                    <div class="tape-effect"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Community Health Outreach -->
+        <div class="program-block reveal">
+            <div class="program-content">
+                <div class="program-info">
+                    <div class="program-label calligraphy">Core Program</div>
+                    <h2 class="program-name">Community Health Outreach</h2>
+                    <p class="program-description">We partner with local healthcare providers to offer health screenings, vaccination clinics, and educational workshops in communities with limited healthcare access. Our campus nursing students get real-world experience while serving families in need.</p>
+                    <a href="#" class="program-btn">Sign Up</a>
+                </div>
+                <div class="program-image">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center" alt="Health screening event">
+                    <div class="tape-effect"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Glow Up for Good -->
+        <div class="program-block reveal">
+            <div class="program-content">
+                <div class="program-info">
+                    <div class="program-label calligraphy">Annual Flagship</div>
+                    <h2 class="program-name">Glow Up for Good</h2>
+                    <p class="program-description">Our signature event transforms a campus space into a spa day for underserved youth. Participants enjoy nail art, face masks, hairstyling, and confidence-building workshops. It's a day of pampering and self-care that reminds every child they deserve to feel special.</p>
+                    <a href="#" class="program-btn">Learn More</a>
+                </div>
+                <div class="program-image">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop&crop=center" alt="Glow Up for Good event">
+                    <div class="tape-effect"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Policy & Advocacy -->
+        <div class="program-block reveal">
+            <div class="program-content">
+                <div class="program-info">
+                    <div class="program-label calligraphy">Leadership Builder</div>
+                    <h2 class="program-name">Policy & Advocacy</h2>
+                    <p class="program-description">PAA members engage in legislative advocacy for children's health and welfare. We organize Capitol visits, letter-writing campaigns, and community forums. Students develop leadership skills while fighting for systemic change that impacts children's lives.</p>
+                    <a href="#" class="program-btn">Get Involved</a>
+                </div>
+                <div class="program-image">
+                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10e?w=400&h=300&fit=crop&crop=center" alt="Advocacy training session">
+                    <div class="tape-effect"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Education Partners -->
+        <div class="program-block reveal">
+            <div class="program-content">
+                <div class="program-info">
+                    <div class="program-label calligraphy">Partnership Program</div>
+                    <h2 class="program-name">Education Partners</h2>
+                    <p class="program-description">We collaborate with K-12 schools to provide after-school tutoring, college prep workshops, and career day presentations. PAA members mentor students, share healthcare career paths, and help bridge educational gaps in underserved communities.</p>
+                    <a href="#" class="program-btn">Sign Up</a>
+                </div>
+                <div class="program-image">
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=300&fit=crop&crop=center" alt="Tutoring session">
+                    <div class="tape-effect"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Focus Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-title">
+                <h2>What Kind of Work Do We Do?</h2>
+                <div class="calligraphy">Find your passion, make your mark</div>
+            </div>
+            
+            <div class="filter-buttons">
+                <a href="#advocacy" class="filter-btn">
+                    Advocacy
+                </a>
+                <a href="#education" class="filter-btn">
+                    Education
+                </a>
+                <a href="#leadership" class="filter-btn">
+                    Leadership
+                </a>
+                <a href="#service" class="filter-btn">
+                    Service
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Program Idea Submission Section -->
+    <section class="submission-section">
+        <div class="container">
+            <div class="submission-container">
+                <div class="submission-title">
+                    <h2>Got a Program Idea?</h2>
+                    <div class="calligraphy">We'd love to hear from you!</div>
+                </div>
+                
+                <form id="program-idea-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="program-idea">Program Idea</label>
+                        <textarea id="program-idea" name="program-idea" required placeholder="Tell us about your program idea..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="why-matters">Why does this matter?</label>
+                        <textarea id="why-matters" name="why-matters" required placeholder="How would this program help children and families?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send to PAA Board</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-title">
+                <h2>In Their Words</h2>
+                <div class="calligraphy">What PAA means to our community</div>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <blockquote class="testimonial-quote">
+                        "Helping lead the Glow Up for Good event made me realize how small acts of care can make someone feel seen. Watching those kids light up when they got their nails painted was everything."
+                    </blockquote>
+                    <cite class="testimonial-author calligraphy">— Harmony, VP</cite>
+                    <div class="testimonial-title">Glow Up for Good Coordinator</div>
+                </div>
+                
+                <div class="testimonial-card reveal">
+                    <blockquote class="testimonial-quote">
+                        "PAA Reads gave my daughter a love for books she never had before. The college students made reading feel special and fun. Thank you for believing in our kids."
+                    </blockquote>
+                    <cite class="testimonial-author calligraphy">— Maria L., Parent</cite>
+                    <div class="testimonial-title">PAA Reads Participant</div>
+                </div>
+                
+                <div class="testimonial-card reveal">
+                    <blockquote class="testimonial-quote">
+                        "Through PAA's advocacy program, I found my voice. We actually got the school board to implement mental health resources. That's real change happening because students cared enough to act."
+                    </blockquote>
+                    <cite class="testimonial-author calligraphy">— James K., Senior</cite>
+                    <div class="testimonial-title">Policy & Advocacy Lead</div>
+                </div>
+                
+                <div class="testimonial-card reveal">
+                    <blockquote class="testimonial-quote">
+                        "The partnerships PAA builds are incredible. Having student mentors from the university changed everything for my son. They showed him college is possible."
+                    </blockquote>
+                    <cite class="testimonial-author calligraphy">— Dr. Reyes</cite>
+                    <div class="testimonial-title">Community Partner, Lincoln Elementary</div>
+                </div>
+                
+                <div class="testimonial-card reveal">
+                    <blockquote class="testimonial-quote">
+                        "As a nursing student, the Community Health Outreach program has been invaluable. Real clinical experience while serving families who really need it? That's what healthcare should be."
+                    </blockquote>
+                    <cite class="testimonial-author calligraphy">— Sarah M., Nursing Major</cite>
+                    <div class="testimonial-title">Health Outreach Volunteer</div>
+                </div>
+                
+                <div class="testimonial-card reveal">
+                    <blockquote class="testimonial-quote">
+                        "Getting a Bundle of Joy when my baby was born meant more than you know. Those essentials made such a difference during a really tough time. PAA gets what families need."
+                    </blockquote>
+                    <cite class="testimonial-author calligraphy">— Ashley T., New Mom</cite>
+                    <div class="testimonial-title">Bundles of Joy Recipient</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
+        <div class="final-cta-content">
+            <h2>Want to bring these programs to your class, department, or community?</h2>
+            <p>Whether you're a faculty member, community leader, or organization looking to partner with PAA, we'd love to explore how we can work together to serve children and families.</p>
+            <a href="contact.html" class="cta-btn">Contact Us to Collaborate</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>About PAA</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">History</a></li>
+                        <li><a href="#">Impact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                        <li><a href="#">Join Our Team</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Calendar</a></li>
+                        <li><a href="#">CBL Hub</a></li>
+                        <li><a href="#">Educational Materials</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Email Us</a></li>
+                        <li><a href="#">Phone: (123) 456-7890</a></li>
+                        <li><a href="#">Campus Location</a></li>
+                        <li><a href="#">Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+        
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 50) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', revealOnScroll);
+        
+        // Initial check on page load
+        revealOnScroll();
+        
+        // Form submission
+        document.getElementById('program-idea-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form button
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual form handling)
+            setTimeout(() => {
+                submitBtn.textContent = 'Sent to PAA Board!';
+                submitBtn.style.background = 'linear-gradient(135deg, var(--soft-mint), var(--baby-blue))';
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 2000);
+            }, 1000);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Create floating animations for decorative elements
+        function createFloatingAnimation() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                const floatAmount = Math.random() * 5 + 3;
+                const duration = Math.random() * 1 + 3;
+                
+                button.style.setProperty('--float-amount', `${floatAmount}px`);
+                button.addEventListener('mouseenter', function() {
+                    this.style.animation = `float ${duration}s ease-in-out infinite`;
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.animation = '';
+                });
+            });
+        }
+        
+        // Apply floating animation setup
+        createFloatingAnimation();
+        
+        // Add pattern animation on hover for program cards
+        const programCards = document.querySelectorAll('.program-block');
+        programCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'background-position 0.3s ease';
+                this.style.backgroundPosition = '10px 10px';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.backgroundPosition = '0 0';
+            });
+        });
+
+        // Add cute sparkle effects on button clicks - no emojis
+        document.querySelectorAll('.program-btn, .filter-btn, .submit-btn, .cta-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Create sparkle effect with colored dots
+                for (let i = 0; i < 6; i++) {
+                    const sparkle = document.createElement('div');
+                    sparkle.style.position = 'absolute';
+                    sparkle.style.left = e.clientX + 'px';
+                    sparkle.style.top = e.clientY + 'px';
+                    sparkle.style.pointerEvents = 'none';
+                    sparkle.style.width = '8px';
+                    sparkle.style.height = '8px';
+                    sparkle.style.backgroundColor = ['#ffb3d9', '#b3e0ff', '#b3ffcc', '#fff9b3', '#d9b3ff'][Math.floor(Math.random() * 5)];
+                    sparkle.style.borderRadius = '50%';
+                    sparkle.style.zIndex = '9999';
+                    
+                    const xMovement = (Math.random() - 0.5) * 100;
+                    const yMovement = (Math.random() - 0.5) * 100;
+                    
+                    sparkle.animate([
+                        { transform: 'translate(0, 0) scale(0)', opacity: 1 },
+                        { transform: `translate(${xMovement}px, ${yMovement}px) scale(1)`, opacity: 0 }
+                    ], {
+                        duration: 1000,
+                        easing: 'ease-out'
+                    });
+                    
+                    document.body.appendChild(sparkle);
+                    
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs That Make a Difference - Pediatric Advocacy Alliance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Caveat:wght@400;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* ===== Base Styles ===== */
