@@ -452,14 +452,35 @@
             color: var(--dark-text);
         }
 
-        /* ===== Filter Section ===== */
-        .filter-section {
-            background-color: var(--sage-green);
-            padding: 60px 0;
+        /* ===== Submission Section - Two Column Layout ===== */
+        .submission-section {
+            padding: 0;
             position: relative;
+            background: none;
         }
 
-        .filter-section::before {
+        .submission-container {
+            max-width: none;
+            margin: 0;
+            background: none;
+            padding: 0;
+            border: none;
+            position: relative;
+            display: flex;
+            min-height: 600px;
+        }
+
+        .submission-left {
+            flex: 1;
+            background: linear-gradient(135deg, var(--bubblegum-pink) 0%, var(--cherry-red) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submission-left::before {
             content: '';
             position: absolute;
             top: 0;
@@ -468,162 +489,123 @@
             height: 100%;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             background-size: 60px 60px;
+            opacity: 0.5;
         }
 
-        .filter-title {
+        .submission-placeholder {
+            color: var(--white);
             text-align: center;
-            margin-bottom: 40px;
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.8;
+            z-index: 2;
+            position: relative;
         }
 
-        .filter-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--white);
-        }
-
-        .filter-title .handwritten-script {
-            font-size: 1.6rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .filter-buttons {
+        .submission-right {
+            flex: 1;
+            background-color: var(--white);
+            padding: 80px 60px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            display: inline-block;
-            padding: 18px 35px;
-            background-color: var(--white);
-            color: var(--dark-text);
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            box-shadow: var(--shadow);
-            transition: var(--transition-medium);
-            position: relative;
-            border: 3px dashed var(--bubblegum-pink);
-            font-size: 1.1rem;
-        }
-
-        .filter-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            background-color: var(--bubblegum-pink);
-            color: var(--white);
-            border-color: var(--white);
-        }
-
-        /* ===== Submission Section ===== */
-        .submission-section {
-            background-color: var(--cream);
-            padding: 80px 0;
-            position: relative;
-        }
-
-        .submission-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background-color: var(--white);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            border: 3px dashed var(--cherry-red);
-            position: relative;
-        }
-
-        .submission-container::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            right: 40px;
-            width: 70px;
-            height: 30px;
-            background-color: rgba(192,132,252,0.7);
-            transform: rotate(12deg);
-            border-radius: 3px;
-            box-shadow: var(--shadow);
         }
 
         .submission-title {
-            text-align: center;
-            margin-bottom: 40px;
+            text-align: left;
+            margin-bottom: 50px;
         }
 
         .submission-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 15px;
             color: var(--dark-text);
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
 
-        .submission-title .handwritten-script {
+        .submission-subtitle {
+            font-family: 'Dancing Script', cursive;
             font-size: 1.4rem;
-            color: var(--bubblegum-pink);
+            color: var(--light-text);
+            line-height: 1.6;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: var(--dark-text);
             font-weight: 600;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 15px;
-            border: 2px solid var(--cream);
-            border-radius: 10px;
+            padding: 18px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
             font-family: 'Montserrat', sans-serif;
-            transition: var(--transition-fast);
-            background-color: #fafafa;
+            transition: all 0.3s ease;
+            background-color: #f9fafb;
             font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--bubblegum-pink);
-            box-shadow: 0 0 0 3px rgba(244,114,182,0.2);
+            box-shadow: 0 0 0 3px rgba(244,114,182,0.1), 0 4px 8px rgba(0,0,0,0.08);
+            background-color: var(--white);
+            transform: translateY(-1px);
         }
 
         .form-group textarea {
             height: 120px;
             resize: vertical;
+            line-height: 1.6;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 18px;
+            padding: 20px;
             background-color: var(--bubblegum-pink);
             color: var(--white);
             border: none;
-            border-radius: 30px;
-            font-size: 1.2rem;
-            font-weight: 600;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: var(--transition-medium);
-            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(244,114,182,0.3);
             position: relative;
             overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .submit-btn:hover {
-            background-color: var(--bright-lilac);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(244,114,182,0.3);
+            background-color: var(--cherry-red);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(244,114,182,0.4);
         }
 
-        /* ===== Testimonials Section ===== */
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ===== Testimonials Section - Pipsticks Style ===== */
         .testimonials-section {
+            background-color: #A8E6CF;
             padding: 80px 0;
             position: relative;
         }
@@ -634,69 +616,101 @@
         }
 
         .testimonials-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 15px;
             color: var(--dark-text);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .testimonials-title .handwritten-script {
             font-size: 1.6rem;
-            color: var(--light-text);
+            color: var(--dark-text);
         }
 
         .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
+            display: flex;
+            gap: 40px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
+            overflow-x: auto;
+            padding-bottom: 20px;
         }
 
         .testimonial-card {
             background-color: var(--white);
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
+            padding: 25px 20px;
             position: relative;
-            border: 3px solid var(--baby-blue);
-            transform: rotate(-1deg);
-            transition: var(--transition-medium);
+            min-width: 320px;
+            max-width: 320px;
+            flex-shrink: 0;
+            border: 8px solid transparent;
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    #000 0px,
+                    #000 6px,
+                    #fff 6px,
+                    #fff 12px
+                ),
+                linear-gradient(#fff, #fff);
+            background-origin: border-box;
+            background-clip: border-box, padding-box;
         }
 
-        .testimonial-card:nth-child(even) {
-            transform: rotate(1deg);
-            border-color: var(--sage-green);
+        .testimonial-stars {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
-        .testimonial-card:nth-child(3n) {
-            border-color: var(--bubblegum-pink);
+        .testimonial-stars .star {
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .testimonial-card:hover {
-            transform: rotate(0deg) translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-        }
+        .testimonial-stars .star:nth-child(1) { color: #3B82F6; } /* Blue */
+        .testimonial-stars .star:nth-child(2) { color: #10B981; } /* Green */
+        .testimonial-stars .star:nth-child(3) { color: #F59E0B; } /* Yellow */
+        .testimonial-stars .star:nth-child(4) { color: #EF4444; } /* Red */
+        .testimonial-stars .star:nth-child(5) { color: #EC4899; } /* Pink */
 
         .testimonial-quote {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.7;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.5;
             color: var(--dark-text);
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .testimonial-author {
-            font-weight: 600;
-            font-size: 1.2rem;
-            font-family: 'Dancing Script', cursive;
-            color: var(--cherry-red);
+            font-weight: 800;
+            font-size: 14px;
+            color: var(--dark-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        .testimonial-title {
-            color: var(--light-text);
-            font-size: 0.9rem;
-            margin-top: 5px;
+        .testimonial-location {
+            color: var(--dark-text);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
         }
 
         /* ===== Final CTA Section ===== */
@@ -1166,38 +1180,18 @@
         </div>
     </section>
     
-    <!-- Focus Filter Section -->
-    <section class="filter-section">
-        <div class="container">
-            <div class="filter-title reveal">
-                <h2>What Kind of Work Do We Do?</h2>
-                <div class="handwritten-script">Find your passion, make your mark</div>
-            </div>
-            
-            <div class="filter-buttons">
-                <a href="#advocacy" class="filter-btn">
-                    Advocacy
-                </a>
-                <a href="#education" class="filter-btn">
-                    Education
-                </a>
-                <a href="#leadership" class="filter-btn">
-                    Leadership
-                </a>
-                <a href="#service" class="filter-btn">
-                    Service
-                </a>
-            </div>
-        </div>
-    </section>
-    
     <!-- Program Idea Submission Section -->
     <section class="submission-section">
-        <div class="container">
-            <div class="submission-container reveal">
+        <div class="submission-container reveal">
+            <div class="submission-left">
+                <div class="submission-placeholder">
+                    Future photo or design background
+                </div>
+            </div>
+            <div class="submission-right">
                 <div class="submission-title">
                     <h2>Got a Program Idea?</h2>
-                    <div class="handwritten-script">We'd love to hear from you!</div>
+                    <div class="submission-subtitle">We'd love to hear your vision for a program that supports kids and families.</div>
                 </div>
                 
                 <form id="program-idea-form">
@@ -1231,57 +1225,53 @@
     <section class="testimonials-section">
         <div class="container">
             <div class="testimonials-title reveal">
-                <h2>In Their <span class="calligraphy">Words</span></h2>
-                <div class="handwritten-script">What PAA means to our community</div>
+                <h2>In Their Words</h2>
             </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
                     <blockquote class="testimonial-quote">
-                        "Helping lead the Glow Up for Good event made me realize how small acts of care can make someone feel seen. Watching those kids light up when they got their nails painted was everything."
+                        Helping lead the Glow Up for Good event made me realize how small acts of care can make someone feel seen. Watching those kids light up was everything.
                     </blockquote>
-                    <cite class="testimonial-author">— Harmony, VP</cite>
-                    <div class="testimonial-title">Glow Up for Good Coordinator</div>
+                    <div class="testimonial-author">HARMONY</div>
+                    <div class="testimonial-location">ILLINOIS, USA</div>
                 </div>
                 
                 <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
                     <blockquote class="testimonial-quote">
-                        "PAA Reads gave my daughter a love for books she never had before. The college students made reading feel special and fun. Thank you for believing in our kids."
+                        PAA Reads gave my daughter a love for books she never had before. The college students made reading feel special and fun. Thank you for believing in our kids.
                     </blockquote>
-                    <cite class="testimonial-author">— Maria L., Parent</cite>
-                    <div class="testimonial-title">PAA Reads Participant</div>
+                    <div class="testimonial-author">MARIA L.</div>
+                    <div class="testimonial-location">ILLINOIS, USA</div>
                 </div>
                 
                 <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
                     <blockquote class="testimonial-quote">
-                        "Through PAA's advocacy program, I found my voice. We actually got the school board to implement mental health resources. That's real change happening because students cared enough to act."
+                        Through PAA's advocacy program, I found my voice. We actually got the school board to implement mental health resources. That's real change happening.
                     </blockquote>
-                    <cite class="testimonial-author">— James K., Senior</cite>
-                    <div class="testimonial-title">Policy & Advocacy Lead</div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <blockquote class="testimonial-quote">
-                        "The partnerships PAA builds are incredible. Having student mentors from the university changed everything for my son. They showed him college is possible."
-                    </blockquote>
-                    <cite class="testimonial-author">— Dr. Reyes</cite>
-                    <div class="testimonial-title">Community Partner, Lincoln Elementary</div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <blockquote class="testimonial-quote">
-                        "As a nursing student, the Community Health Outreach program has been invaluable. Real clinical experience while serving families who really need it? That's what healthcare should be."
-                    </blockquote>
-                    <cite class="testimonial-author">— Sarah M., Nursing Major</cite>
-                    <div class="testimonial-title">Health Outreach Volunteer</div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <blockquote class="testimonial-quote">
-                        "Getting a Bundle of Joy when my baby was born meant more than you know. Those essentials made such a difference during a really tough time. PAA gets what families need."
-                    </blockquote>
-                    <cite class="testimonial-author">— Ashley T., New Mom</cite>
-                    <div class="testimonial-title">Bundles of Joy Recipient</div>
+                    <div class="testimonial-author">JAMES K.</div>
+                    <div class="testimonial-location">ILLINOIS, USA</div>
                 </div>
             </div>
         </div>
@@ -1448,18 +1438,6 @@
             
             section.addEventListener('mouseleave', function() {
                 this.style.backgroundPosition = '0 0';
-            });
-        });
-
-        // Add floating animation to filter buttons
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        filterButtons.forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.animation = 'float 2s ease-in-out infinite';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.animation = '';
             });
         });
 
