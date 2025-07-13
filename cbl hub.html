@@ -5,1960 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programs That Make a Difference - Pediatric Advocacy Alliance</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Kalam:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Kalam:wght@300;400;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ===== Base Styles ===== */
         :root {
-            --blush-pink: #ffb3d9;
-            --baby-blue: #b3e0ff;
-            --pastel-yellow: #fff9b3;
-            --cream: #fff8f0;
-            --soft-mint: #b3ffcc;
-            --soft-purple: #d9b3ff;
-            --lavender: #e6ccff;
-            --peach: #ffccb3;
-            --coral: #ff9999;
-            --sky-blue: #87ceeb;
-            --dark-text: #4a4a4a;
-            --light-text: #666666;
+            --cherry-red: #dc2626;
+            --baby-blue: #bfdbfe;
+            --bubblegum-pink: #f472b6;
+            --bright-lilac: #c084fc;
+            --sage-green: #86efac;
+            --cream: #f7f3e8;
             --white: #ffffff;
-            --shadow: 0 8px 20px rgba(0,0,0,0.1);
-            --cute-shadow: 0 6px 16px rgba(255,182,193,0.3);
-            --transition-fast: all 0.2s ease;
-            --transition-medium: all 0.3s ease;
-            --transition-slow: all 0.5s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Nunito', sans-serif;
-            background: linear-gradient(135deg, var(--cream) 0%, #fff0f8 100%);
-            color: var(--dark-text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        /* Polka dot background pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 2px 2px, rgba(255,182,193,0.15) 3px, transparent 3px),
-                radial-gradient(circle at 25px 25px, rgba(179,224,255,0.15) 2px, transparent 2px),
-                radial-gradient(circle at 45px 10px, rgba(179,255,204,0.15) 2.5px, transparent 2.5px),
-                radial-gradient(circle at 70px 35px, rgba(255,249,179,0.15) 2px, transparent 2px);
-            background-size: 50px 50px, 60px 60px, 70px 70px, 55px 55px;
-            z-index: -1;
-            pointer-events: none;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Nunito', sans-serif;
-            font-weight: 700;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .calligraphy {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 500;
-        }
-        
-        /* ===== Header & Navigation (from PAA1) ===== */
-        header {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,248,240,0.95) 100%);
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(255,182,193,0.1) 2px, transparent 2px),
-                radial-gradient(circle at 80% 40%, rgba(179,224,255,0.1) 2px, transparent 2px),
-                radial-gradient(circle at 40% 80%, rgba(179,255,204,0.1) 2px, transparent 2px);
-            background-size: 30px 30px, 25px 25px, 35px 35px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(255,182,193,0.2);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 30px;
-            transition: all 0.3s ease;
-        }
-        
-        .logo-link {
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
-            margin-right: 15px;
-            text-decoration: none;
-        }
-
-        .logo-link img {
-            height: 55px;
-            width: 55px;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(255,182,193,0.3);
-            border: 3px solid white;
-            object-fit: cover;
-            transition: all 0.3s ease;
-        }
-
-        .logo-link:hover img {
-            box-shadow: 0 8px 25px rgba(255,182,193,0.4);
-            transform: rotate(2deg);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.2;
-        }
-
-        .pediatric-text,
-        .alliance-text {
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--dark-text);
-            margin: 0;
-        }
-
-        .advocacy-script {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: var(--blush-pink);
-            margin: 0;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 35px;
-            align-items: center;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark-text);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: block;
-        }
-
-        nav ul li a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 2px;
-            left: 50%;
-            background: linear-gradient(90deg, var(--blush-pink), var(--baby-blue));
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-            border-radius: 1px;
-        }
-
-        nav ul li a:hover:after {
-            width: 80%;
-        }
-
-        nav ul li a:hover {
-            background: linear-gradient(135deg, rgba(255,182,193,0.2), rgba(179,224,255,0.2));
-            color: var(--dark-text);
-            transform: translateY(-1px);
-            box-shadow: 0 3px 10px rgba(255,182,193,0.2);
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            color: var(--blush-pink);
-        }
-
-        .mobile-menu-toggle:hover {
-            background: rgba(255,182,193,0.2);
-            transform: scale(1.1);
-        }
-        
-        /* ===== Hero Section ===== */
-        .hero-section {
-            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--baby-blue) 50%, var(--soft-mint) 100%);
-            padding: 150px 0 100px;
-            margin-top: 80px;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 8px solid white;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--blush-pink) 0px, 
-                var(--blush-pink) 10px,
-                var(--baby-blue) 10px, 
-                var(--baby-blue) 20px,
-                var(--soft-mint) 20px,
-                var(--soft-mint) 30px,
-                var(--pastel-yellow) 30px,
-                var(--pastel-yellow) 40px
-            ) 1;
-        }
-        
-        /* Zigzag polka dot pattern overlay */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 15px 15px, rgba(255,255,255,0.3) 4px, transparent 4px),
-                radial-gradient(circle at 45px 35px, rgba(255,255,255,0.2) 3px, transparent 3px),
-                radial-gradient(circle at 25px 55px, rgba(255,255,255,0.25) 3.5px, transparent 3.5px);
-            background-size: 60px 60px, 80px 80px, 70px 70px;
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            background: rgba(255,255,255,0.9);
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: var(--cute-shadow);
-            border: 4px solid white;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero-title {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: var(--dark-text);
-            text-shadow: 2px 2px 4px rgba(255,182,193,0.3);
-            font-weight: 800;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.4rem;
-            margin: 0 auto 40px;
-            color: var(--dark-text);
-            font-weight: 500;
-        }
-        
-        /* ===== Programs Overview ===== */
-        .programs-section {
-            padding: 60px 0;
-        }
-        
-        .program-block {
-            width: 100%;
-            padding: 60px 0;
-            position: relative;
-            margin-bottom: 30px;
-        }
-        
-        /* Cute patterns for each program with striped borders */
-        .program-block:nth-child(1) {
-            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--coral) 100%);
-            background-image: 
-                radial-gradient(circle at 3px 3px, rgba(255,255,255,0.3) 2px, transparent 2px);
-            background-size: 25px 25px;
-            border-top: 6px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--coral) 0px, var(--coral) 8px,
-                white 8px, white 16px,
-                var(--blush-pink) 16px, var(--blush-pink) 24px
-            ) 1;
-        }
-        
-        .program-block:nth-child(2) {
-            background: linear-gradient(135deg, var(--soft-mint) 0%, var(--sky-blue) 100%);
-            background-image: 
-                repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 8px,
-                    rgba(255,255,255,0.2) 8px,
-                    rgba(255,255,255,0.2) 16px
-                );
-            border-top: 6px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--soft-mint) 0px, var(--soft-mint) 10px,
-                white 10px, white 20px,
-                var(--sky-blue) 20px, var(--sky-blue) 30px
-            ) 1;
-        }
-        
-        .program-block:nth-child(3) {
-            background: linear-gradient(135deg, var(--baby-blue) 0%, var(--lavender) 100%);
-            background-image: 
-                linear-gradient(90deg, rgba(255,255,255,0.2) 50%, transparent 50%),
-                linear-gradient(rgba(255,255,255,0.1) 50%, transparent 50%);
-            background-size: 20px 20px;
-            border-top: 6px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--baby-blue) 0px, var(--baby-blue) 12px,
-                white 12px, white 18px,
-                var(--lavender) 18px, var(--lavender) 30px
-            ) 1;
-        }
-        
-        .program-block:nth-child(4) {
-            background: linear-gradient(135deg, var(--pastel-yellow) 0%, var(--peach) 100%);
-            background-image: 
-                radial-gradient(circle at 4px 4px, rgba(255,255,255,0.4) 3px, transparent 3px),
-                radial-gradient(circle at 20px 20px, rgba(255,255,255,0.2) 2px, transparent 2px);
-            background-size: 30px 30px, 40px 40px;
-            border-top: 6px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--pastel-yellow) 0px, var(--pastel-yellow) 15px,
-                white 15px, white 22px,
-                var(--peach) 22px, var(--peach) 37px
-            ) 1;
-        }
-        
-        .program-block:nth-child(5) {
-            background: linear-gradient(135deg, var(--soft-purple) 0%, var(--blush-pink) 100%);
-            background-image: 
-                repeating-linear-gradient(
-                    -45deg,
-                    transparent,
-                    transparent 6px,
-                    rgba(255,255,255,0.15) 6px,
-                    rgba(255,255,255,0.15) 12px
-                ),
-                repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 6px,
-                    rgba(255,255,255,0.1) 6px,
-                    rgba(255,255,255,0.1) 12px
-                );
-            border-top: 6px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--soft-purple) 0px, var(--soft-purple) 11px,
-                white 11px, white 17px,
-                var(--blush-pink) 17px, var(--blush-pink) 28px
-            ) 1;
-        }
-        
-        .program-block:nth-child(6) {
-            background: linear-gradient(135deg, var(--peach) 0%, var(--soft-mint) 100%);
-            background-image: 
-                radial-gradient(circle at 5px 5px, rgba(255,255,255,0.3) 2.5px, transparent 2.5px);
-            background-size: 35px 35px;
-            border-top: 6px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--peach) 0px, var(--peach) 9px,
-                white 9px, white 15px,
-                var(--soft-mint) 15px, var(--soft-mint) 24px
-            ) 1;
-        }
-        
-        .program-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .program-block:nth-child(even) .program-content {
-            flex-direction: row-reverse;
-        }
-        
-        .program-info {
-            flex: 1;
-            background: rgba(255,255,255,0.95);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: var(--cute-shadow);
-            border: 3px solid white;
-            position: relative;
-        }
-
-        /* Cute decorative elements on program cards - removed emoji */
-        .program-info::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            width: 50px;
-            height: 50px;
-            background: var(--pastel-yellow);
-            border-radius: 50%;
-            box-shadow: var(--shadow);
-            border: 4px solid white;
-            /* Stitched effect */
-            border-style: dashed;
-        }
-
-        .program-block:nth-child(2) .program-info::before { 
-            background: var(--blush-pink);
-            border-color: var(--coral);
-        }
-        .program-block:nth-child(3) .program-info::before { 
-            background: var(--baby-blue);
-            border-color: var(--sky-blue);
-        }
-        .program-block:nth-child(4) .program-info::before { 
-            background: var(--soft-purple);
-            border-color: var(--lavender);
-        }
-        .program-block:nth-child(5) .program-info::before { 
-            background: var(--soft-mint);
-            border-color: var(--baby-blue);
-        }
-        .program-block:nth-child(6) .program-info::before { 
-            background: var(--peach);
-            border-color: var(--coral);
-        }
-        
-        .program-label {
-            font-size: 1.3rem;
-            color: var(--blush-pink);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .program-name {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-            font-weight: 800;
-            color: var(--dark-text);
-        }
-        
-        .program-name::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--blush-pink), var(--baby-blue), var(--soft-mint));
-            border-radius: 3px;
-        }
-        
-        .program-description {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            line-height: 1.8;
-            font-weight: 500;
-        }
-        
-        .program-btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: var(--transition-medium);
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--cute-shadow);
-            border: 3px dashed white;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            /* Stitched button effect */
-            box-shadow: 
-                inset 0 0 0 2px white,
-                inset 0 0 0 4px var(--coral),
-                0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .program-block:nth-child(2) .program-btn {
-            background: linear-gradient(135deg, var(--baby-blue), var(--sky-blue));
-            box-shadow: 
-                inset 0 0 0 2px white,
-                inset 0 0 0 4px var(--sky-blue),
-                0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .program-block:nth-child(3) .program-btn {
-            background: linear-gradient(135deg, var(--soft-mint), var(--baby-blue));
-            box-shadow: 
-                inset 0 0 0 2px white,
-                inset 0 0 0 4px var(--baby-blue),
-                0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .program-block:nth-child(4) .program-btn {
-            background: linear-gradient(135deg, var(--pastel-yellow), var(--peach));
-            box-shadow: 
-                inset 0 0 0 2px white,
-                inset 0 0 0 4px var(--peach),
-                0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .program-block:nth-child(5) .program-btn {
-            background: linear-gradient(135deg, var(--soft-purple), var(--lavender));
-            box-shadow: 
-                inset 0 0 0 2px white,
-                inset 0 0 0 4px var(--lavender),
-                0 8px 20px rgba(0,0,0,0.1);
-        }
-
-        .program-block:nth-child(6) .program-btn {
-            background: linear-gradient(135deg, var(--peach), var(--coral));
-            box-shadow: 
-                inset 0 0 0 2px white,
-                inset 0 0 0 4px var(--coral),
-                0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        .program-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(255,182,193,0.4);
-        }
-        
-        .program-btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 12px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .program-btn:hover::after {
-            opacity: 1;
-            right: 10px;
-        }
-        
-        .program-image {
-            flex: 0 0 400px;
-            position: relative;
-        }
-        
-        .program-image img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: var(--cute-shadow);
-            border: 4px solid white;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Cute sticker effects - no emojis */
-        .tape-effect {
-            position: absolute;
-            width: 80px;
-            height: 35px;
-            background: linear-gradient(135deg, var(--pastel-yellow), white);
-            top: -15px;
-            right: 20px;
-            border: 3px dashed rgba(255,182,193,0.5);
-            transform: rotate(-15deg);
-            box-shadow: var(--shadow);
-            z-index: 2;
-            border-radius: 8px;
-        }
-        
-        .tape-effect::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            background: var(--blush-pink);
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-        
-        /* ===== Focus Filter Section ===== */
-        .filter-section {
-            background: linear-gradient(135deg, var(--pastel-yellow) 0%, var(--peach) 100%);
-            padding: 80px 0;
-            position: relative;
-            border-top: 8px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--peach) 0px, var(--peach) 12px,
-                white 12px, white 20px,
-                var(--pastel-yellow) 20px, var(--pastel-yellow) 32px,
-                white 32px, white 40px
-            ) 1;
-        }
-        
-        .filter-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 8px 8px, rgba(255,255,255,0.4) 3px, transparent 3px);
-            background-size: 50px 50px;
-            opacity: 0.6;
-        }
-        
-        .filter-title {
-            text-align: center;
-            margin-bottom: 50px;
-            background: rgba(255,255,255,0.9);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--cute-shadow);
-            border: 3px solid white;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 50px;
-        }
-        
-        .filter-title h2 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-            color: var(--dark-text);
-        }
-        
-        .filter-title .calligraphy {
-            font-size: 1.6rem;
-            color: var(--blush-pink);
-            font-weight: 600;
-        }
-        
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            display: inline-block;
-            padding: 18px 35px;
-            background: linear-gradient(135deg, white, var(--cream));
-            color: var(--dark-text);
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            box-shadow: var(--cute-shadow);
-            transition: var(--transition-medium);
-            border: 3px solid var(--blush-pink);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .filter-btn:nth-child(1) { border-color: var(--blush-pink); }
-        .filter-btn:nth-child(2) { border-color: var(--baby-blue); }
-        .filter-btn:nth-child(3) { border-color: var(--soft-mint); }
-        .filter-btn:nth-child(4) { border-color: var(--soft-purple); }
-        
-        .filter-btn:hover {
-            transform: translateY(-8px) scale(1.1);
-            box-shadow: 0 12px 30px rgba(255,182,193,0.4);
-        }
-
-        .filter-btn:nth-child(1):hover {
-            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
-            color: white;
-        }
-
-        .filter-btn:nth-child(2):hover {
-            background: linear-gradient(135deg, var(--baby-blue), var(--sky-blue));
-            color: white;
-        }
-
-        .filter-btn:nth-child(3):hover {
-            background: linear-gradient(135deg, var(--soft-mint), var(--baby-blue));
-            color: white;
-        }
-
-        .filter-btn:nth-child(4):hover {
-            background: linear-gradient(135deg, var(--soft-purple), var(--lavender));
-            color: white;
-        }
-        
-        /* ===== Program Idea Submission Section ===== */
-        .submission-section {
-            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-mint) 100%);
-            padding: 80px 0;
-            position: relative;
-            border-top: 8px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--soft-mint) 0px, var(--soft-mint) 14px,
-                white 14px, white 24px,
-                var(--baby-blue) 24px, var(--baby-blue) 38px,
-                white 38px, white 48px
-            ) 1;
-        }
-        
-        .submission-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 10px,
-                    rgba(179,255,204,0.1) 10px,
-                    rgba(179,255,204,0.1) 20px
-                );
-            z-index: 1;
-        }
-        
-        .submission-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.95);
-            padding: 50px;
-            border-radius: 25px;
-            box-shadow: var(--cute-shadow);
-            border: 4px solid var(--baby-blue);
-            position: relative;
-            z-index: 2;
-        }
-
-        .submission-container::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 60px;
-            height: 60px;
-            background: var(--pastel-yellow);
-            border-radius: 50%;
-            box-shadow: var(--shadow);
-            border: 4px dashed white;
-        }
-        
-        .submission-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .submission-title h2 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            font-weight: 800;
-            color: var(--dark-text);
-        }
-
-        .submission-title .calligraphy {
-            font-size: 1.6rem;
-            color: var(--blush-pink);
-            font-weight: 600;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 12px;
-            color: var(--dark-text);
-            font-weight: 700;
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.3rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            border: 3px solid var(--baby-blue);
-            border-radius: 15px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 1.1rem;
-            transition: var(--transition-fast);
-            background: rgba(255,255,255,0.9);
-            font-weight: 500;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--blush-pink);
-            box-shadow: 0 0 0 4px rgba(255,182,193,0.2);
-            transform: translateY(-2px);
-        }
-        
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition-medium);
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            /* Stitched button effect */
-            border: 3px dashed white;
-            box-shadow: 
-                inset 0 0 0 2px white,
-                inset 0 0 0 4px var(--coral),
-                0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        .submit-btn:hover {
-            background: linear-gradient(135deg, var(--coral), var(--blush-pink));
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255,182,193,0.4);
-        }
-
-        .submit-btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .submit-btn:hover::after {
-            opacity: 1;
-            right: 15px;
-        }
-        
-        /* ===== Testimonials Section ===== */
-        .testimonials-section {
-            background: linear-gradient(135deg, var(--soft-mint) 0%, var(--baby-blue) 100%);
-            padding: 80px 0;
-            position: relative;
-            border-top: 8px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--baby-blue) 0px, var(--baby-blue) 16px,
-                white 16px, white 28px,
-                var(--soft-mint) 28px, var(--soft-mint) 44px,
-                white 44px, white 56px
-            ) 1;
-        }
-        
-        .testimonials-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 6px 6px, rgba(255,255,255,0.3) 2px, transparent 2px),
-                radial-gradient(circle at 30px 30px, rgba(255,255,255,0.2) 1.5px, transparent 1.5px);
-            background-size: 40px 40px, 60px 60px;
-            opacity: 0.7;
-        }
-        
-        .testimonials-title {
-            text-align: center;
-            margin-bottom: 60px;
-            background: rgba(255,255,255,0.9);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--cute-shadow);
-            border: 3px solid white;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 60px;
-        }
-        
-        .testimonials-title h2 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-            color: var(--dark-text);
-        }
-        
-        .testimonials-title .calligraphy {
-            font-size: 1.6rem;
-            color: var(--blush-pink);
-            font-weight: 600;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .testimonial-card {
-            background: rgba(255,255,255,0.95);
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: var(--cute-shadow);
-            position: relative;
-            border: 3px solid var(--pastel-yellow);
-            transform: rotate(-1deg);
-            transition: var(--transition-medium);
-        }
-        
-        .testimonial-card:nth-child(even) {
-            transform: rotate(1deg);
-            border-color: var(--baby-blue);
-        }
-
-        .testimonial-card:nth-child(3n) {
-            border-color: var(--soft-mint);
-        }
-
-        .testimonial-card:nth-child(4n) {
-            border-color: var(--blush-pink);
-        }
-
-        .testimonial-card:nth-child(5n) {
-            border-color: var(--soft-purple);
-        }
-
-        .testimonial-card:nth-child(6n) {
-            border-color: var(--peach);
-        }
-        
-        .testimonial-card:hover {
-            transform: rotate(0deg) translateY(-8px);
-            box-shadow: 0 15px 35px rgba(255,182,193,0.3);
-        }
-
-        /* Cute sticker decorations - no emojis */
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            width: 50px;
-            height: 50px;
-            background: var(--pastel-yellow);
-            border-radius: 50%;
-            box-shadow: var(--shadow);
-            border: 4px dashed white;
-        }
-
-        .testimonial-card:nth-child(2)::before { background: var(--baby-blue); }
-        .testimonial-card:nth-child(3)::before { background: var(--soft-mint); }
-        .testimonial-card:nth-child(4)::before { background: var(--blush-pink); }
-        .testimonial-card:nth-child(5)::before { background: var(--soft-purple); }
-        .testimonial-card:nth-child(6)::before { background: var(--peach); }
-        
-        .testimonial-quote {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 25px;
-            line-height: 1.8;
-            font-weight: 500;
-            color: var(--dark-text);
-        }
-        
-        .testimonial-author {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--dark-text);
-        }
-        
-        .testimonial-title {
-            color: var(--light-text);
-            font-size: 1rem;
-            font-weight: 600;
-        }
-        
-        /* ===== Final CTA Section ===== */
-        .final-cta-section {
-            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--soft-purple) 50%, var(--baby-blue) 100%);
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            border-top: 8px solid;
-            border-image: repeating-linear-gradient(
-                90deg, 
-                var(--blush-pink) 0px, var(--blush-pink) 18px,
-                white 18px, white 30px,
-                var(--soft-purple) 30px, var(--soft-purple) 48px,
-                white 48px, white 60px,
-                var(--baby-blue) 60px, var(--baby-blue) 78px,
-                white 78px, white 90px
-            ) 1;
-        }
-        
-        .final-cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 4px 4px, rgba(255,255,255,0.25) 3px, transparent 3px);
-            background-size: 45px 45px;
-            opacity: 0.5;
-        }
-        
-        .final-cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 50px 40px;
-            position: relative;
-            z-index: 2;
-            background: rgba(255,255,255,0.95);
-            border-radius: 25px;
-            box-shadow: var(--cute-shadow);
-            border: 4px solid white;
-        }
-
-        .final-cta-content::before {
-            content: '';
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background: var(--pastel-yellow);
-            border-radius: 50%;
-            box-shadow: var(--shadow);
-            border: 4px dashed white;
-        }
-        
-        .final-cta-content h2 {
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            color: var(--dark-text);
-            font-weight: 800;
-            margin-top: 20px;
-        }
-        
-        .final-cta-content p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            color: var(--dark-text);
-            font-weight: 500;
-            line-height: 1.7;
-        }
-        
-        .cta-btn {
-            display: inline-block;
-            padding: 20px 45px;
-            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: var(--transition-medium);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-            /* Stitched button effect */
-            border: 3px dashed white;
-            box-shadow: 
-                inset 0 0 0 2px white,
-                inset 0 0 0 4px var(--coral),
-                0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        .cta-btn:hover {
-            background: linear-gradient(135deg, var(--coral), var(--blush-pink));
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(255,182,193,0.4);
-        }
-
-        .cta-btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            width: 14px;
-            height: 14px;
-            background: white;
-            border-radius: 50%;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-btn:hover::after {
-            opacity: 1;
-            right: 15px;
-        }
-        
-        /* ===== Footer ===== */
-        footer {
-            background: linear-gradient(135deg, white 0%, var(--cream) 100%);
-            padding: 60px 0 30px;
-            margin-top: 50px;
-            border-top: 4px solid var(--blush-pink);
-        }
-        
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-            margin-bottom: 30px;
-            background: rgba(255,255,255,0.7);
-            padding: 25px;
-            border-radius: 15px;
-            margin-right: 15px;
-            border: 2px solid var(--baby-blue);
-        }
-
-        .footer-column:last-child {
-            margin-right: 0;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-            font-weight: 700;
-            color: var(--dark-text);
-        }
-        
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--blush-pink), var(--baby-blue));
-            border-radius: 2px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            text-decoration: none;
-            color: var(--light-text);
-            transition: var(--transition-fast);
-            font-weight: 500;
-            padding: 5px 0;
-            display: block;
-            border-radius: 8px;
-            padding-left: 10px;
-        }
-        
-        .footer-links a:hover {
-            color: var(--blush-pink);
-            background: rgba(255,182,193,0.1);
-            transform: translateX(5px);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 2px solid var(--baby-blue);
-            background: rgba(255,255,255,0.8);
-            border-radius: 15px;
-            padding: 30px;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            gap: 15px;
-        }
-        
-        .social-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--blush-pink), var(--coral));
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition-medium);
-            font-size: 20px;
-            box-shadow: var(--shadow);
-            border: 3px solid white;
-        }
-
-        .social-link:nth-child(2) {
-            background: linear-gradient(135deg, var(--baby-blue), var(--sky-blue));
-        }
-
-        .social-link:nth-child(3) {
-            background: linear-gradient(135deg, var(--soft-mint), var(--baby-blue));
-        }
-
-        .social-link:nth-child(4) {
-            background: linear-gradient(135deg, var(--soft-purple), var(--lavender));
-        }
-        
-        .social-link:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 8px 20px rgba(255,182,193,0.4);
-        }
-        
-        /* ===== Responsive Design ===== */
-        @media (max-width: 992px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .program-content {
-                flex-direction: column !important;
-                gap: 30px;
-            }
-            
-            .program-image {
-                flex: none;
-                width: 100%;
-            }
-            
-            .program-image img {
-                width: 100%;
-                height: 250px;
-            }
-
-            .filter-buttons {
-                gap: 15px;
-            }
-
-            .footer-column {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            nav {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: rgba(255,255,255,0.98);
-                box-shadow: var(--shadow);
-                z-index: 999;
-                border-radius: 0 0 20px 20px;
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-            }
-            
-            nav ul li {
-                width: 100%;
-            }
-
-            nav ul li a {
-                text-align: center;
-                padding: 12px 20px;
-                background: rgba(255,182,193,0.1);
-                border-radius: 15px;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-content {
-                padding: 30px 20px;
-            }
-
-            .program-info {
-                padding: 30px 20px;
-            }
-
-            .program-name {
-                font-size: 2.2rem;
-            }
-            
-            .filter-buttons {
-                gap: 15px;
-            }
-            
-            .filter-btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .submission-container {
-                padding: 30px 20px;
-            }
-
-            .final-cta-content {
-                padding: 40px 25px;
-            }
-
-            .footer-container {
-                flex-direction: column;
-            }
-
-            .footer-column {
-                margin-right: 0;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .program-name {
-                font-size: 1.8rem;
-            }
-            
-            .program-description {
-                font-size: 1.1rem;
-            }
-            
-            .filter-title h2,
-            .testimonials-title h2,
-            .submission-title h2,
-            .final-cta-content h2 {
-                font-size: 2.2rem;
-            }
-
-            .filter-btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-
-            .social-links {
-                gap: 10px;
-            }
-
-            .social-link {
-                width: 45px;
-                height: 45px;
-                font-size: 18px;
-            }
-        }
-        
-        /* ===== Scroll Animations ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Cute floating animation */
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(1deg); }
-            50% { transform: translateY(-5px) rotate(-1deg); }
-            75% { transform: translateY(-15px) rotate(0.5deg); }
-        }
-
-        .program-info::before,
-        .testimonial-card::before,
-        .submission-container::before,
-        .final-cta-content::before {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        /* Delay animations for staggered effect */
-        .program-block:nth-child(2) .program-info::before { animation-delay: 0.5s; }
-        .program-block:nth-child(3) .program-info::before { animation-delay: 1s; }
-        .program-block:nth-child(4) .program-info::before { animation-delay: 1.5s; }
-        .program-block:nth-child(5) .program-info::before { animation-delay: 2s; }
-        .program-block:nth-child(6) .program-info::before { animation-delay: 2.5s; }
-
-        .testimonial-card:nth-child(2)::before { animation-delay: 0.3s; }
-        .testimonial-card:nth-child(3)::before { animation-delay: 0.6s; }
-        .testimonial-card:nth-child(4)::before { animation-delay: 0.9s; }
-        .testimonial-card:nth-child(5)::before { animation-delay: 1.2s; }
-        .testimonial-card:nth-child(6)::before { animation-delay: 1.5s; }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="index.html" class="logo-link">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=60&h=60&fit=crop&crop=center" alt="PAA Logo">
-            </a>
-            <div class="logo-text">
-                <span class="pediatric-text">Pediatric</span>
-                <span class="advocacy-script">Advocacy</span>
-                <span class="alliance-text">Alliance</span>
-            </div>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="calendar.html">Events</a></li>
-                    <li><a href="cbl hub.html">Programs</a></li>
-                    <li><a href="partnership.html">Partnerships</a></li>
-                    <li><a href="donate.html">Donate</a></li>
-                    <li><a href="volunteer.html">Volunteer</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Programs That Make a Difference</h1>
-                <p class="hero-subtitle">From classrooms to clinics, we bring change where kids and families need it most.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Programs Overview Section -->
-    <section class="programs-section">
-        <!-- Bundles of Joy Program -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Est. Spring 2025</div>
-                    <h2 class="program-name">Bundles of Joy</h2>
-                    <p class="program-description">We create care packages for new and expecting mothers, filled with essentials for both baby and mom. From diapers and onesies to self-care items, each bundle is packed with love and practical support for those transitioning into parenthood.</p>
-                    <a href="#" class="program-btn">Learn More</a>
-                </div>
-                <div class="program-image">
-                    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=300&fit=crop&crop=center" alt="Bundles of Joy assembly">
-                    <div class="tape-effect"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- PAA Reads Program -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Seasonal Favorite</div>
-                    <h2 class="program-name">PAA Reads</h2>
-                    <p class="program-description">Our literacy initiative brings PAA members into local schools and libraries to read with children ages 5-10. We also organize book donation drives and create reading corner setups in underserved communities, fostering a lifelong love of reading.</p>
-                    <a href="#" class="program-btn">Get Involved</a>
-                </div>
-                <div class="program-image">
-                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop&crop=center" alt="Reading with children">
-                    <div class="tape-effect"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Community Health Outreach -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Core Program</div>
-                    <h2 class="program-name">Community Health Outreach</h2>
-                    <p class="program-description">We partner with local healthcare providers to offer health screenings, vaccination clinics, and educational workshops in communities with limited healthcare access. Our campus nursing students get real-world experience while serving families in need.</p>
-                    <a href="#" class="program-btn">Sign Up</a>
-                </div>
-                <div class="program-image">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center" alt="Health screening event">
-                    <div class="tape-effect"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Glow Up for Good -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Annual Flagship</div>
-                    <h2 class="program-name">Glow Up for Good</h2>
-                    <p class="program-description">Our signature event transforms a campus space into a spa day for underserved youth. Participants enjoy nail art, face masks, hairstyling, and confidence-building workshops. It's a day of pampering and self-care that reminds every child they deserve to feel special.</p>
-                    <a href="#" class="program-btn">Learn More</a>
-                </div>
-                <div class="program-image">
-                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop&crop=center" alt="Glow Up for Good event">
-                    <div class="tape-effect"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Policy & Advocacy -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Leadership Builder</div>
-                    <h2 class="program-name">Policy & Advocacy</h2>
-                    <p class="program-description">PAA members engage in legislative advocacy for children's health and welfare. We organize Capitol visits, letter-writing campaigns, and community forums. Students develop leadership skills while fighting for systemic change that impacts children's lives.</p>
-                    <a href="#" class="program-btn">Get Involved</a>
-                </div>
-                <div class="program-image">
-                    <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10e?w=400&h=300&fit=crop&crop=center" alt="Advocacy training session">
-                    <div class="tape-effect"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Education Partners -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Partnership Program</div>
-                    <h2 class="program-name">Education Partners</h2>
-                    <p class="program-description">We collaborate with K-12 schools to provide after-school tutoring, college prep workshops, and career day presentations. PAA members mentor students, share healthcare career paths, and help bridge educational gaps in underserved communities.</p>
-                    <a href="#" class="program-btn">Sign Up</a>
-                </div>
-                <div class="program-image">
-                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&h=300&fit=crop&crop=center" alt="Tutoring session">
-                    <div class="tape-effect"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Focus Filter Section -->
-    <section class="filter-section">
-        <div class="container">
-            <div class="filter-title">
-                <h2>What Kind of Work Do We Do?</h2>
-                <div class="calligraphy">Find your passion, make your mark</div>
-            </div>
-            
-            <div class="filter-buttons">
-                <a href="#advocacy" class="filter-btn">
-                    Advocacy
-                </a>
-                <a href="#education" class="filter-btn">
-                    Education
-                </a>
-                <a href="#leadership" class="filter-btn">
-                    Leadership
-                </a>
-                <a href="#service" class="filter-btn">
-                    Service
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Program Idea Submission Section -->
-    <section class="submission-section">
-        <div class="container">
-            <div class="submission-container">
-                <div class="submission-title">
-                    <h2>Got a Program Idea?</h2>
-                    <div class="calligraphy">We'd love to hear from you!</div>
-                </div>
-                
-                <form id="program-idea-form">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="program-idea">Program Idea</label>
-                        <textarea id="program-idea" name="program-idea" required placeholder="Tell us about your program idea..."></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="why-matters">Why does this matter?</label>
-                        <textarea id="why-matters" name="why-matters" required placeholder="How would this program help children and families?"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Send to PAA Board</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="testimonials-title">
-                <h2>In Their Words</h2>
-                <div class="calligraphy">What PAA means to our community</div>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card reveal">
-                    <blockquote class="testimonial-quote">
-                        "Helping lead the Glow Up for Good event made me realize how small acts of care can make someone feel seen. Watching those kids light up when they got their nails painted was everything."
-                    </blockquote>
-                    <cite class="testimonial-author calligraphy">— Harmony, VP</cite>
-                    <div class="testimonial-title">Glow Up for Good Coordinator</div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <blockquote class="testimonial-quote">
-                        "PAA Reads gave my daughter a love for books she never had before. The college students made reading feel special and fun. Thank you for believing in our kids."
-                    </blockquote>
-                    <cite class="testimonial-author calligraphy">— Maria L., Parent</cite>
-                    <div class="testimonial-title">PAA Reads Participant</div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <blockquote class="testimonial-quote">
-                        "Through PAA's advocacy program, I found my voice. We actually got the school board to implement mental health resources. That's real change happening because students cared enough to act."
-                    </blockquote>
-                    <cite class="testimonial-author calligraphy">— James K., Senior</cite>
-                    <div class="testimonial-title">Policy & Advocacy Lead</div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <blockquote class="testimonial-quote">
-                        "The partnerships PAA builds are incredible. Having student mentors from the university changed everything for my son. They showed him college is possible."
-                    </blockquote>
-                    <cite class="testimonial-author calligraphy">— Dr. Reyes</cite>
-                    <div class="testimonial-title">Community Partner, Lincoln Elementary</div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <blockquote class="testimonial-quote">
-                        "As a nursing student, the Community Health Outreach program has been invaluable. Real clinical experience while serving families who really need it? That's what healthcare should be."
-                    </blockquote>
-                    <cite class="testimonial-author calligraphy">— Sarah M., Nursing Major</cite>
-                    <div class="testimonial-title">Health Outreach Volunteer</div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <blockquote class="testimonial-quote">
-                        "Getting a Bundle of Joy when my baby was born meant more than you know. Those essentials made such a difference during a really tough time. PAA gets what families need."
-                    </blockquote>
-                    <cite class="testimonial-author calligraphy">— Ashley T., New Mom</cite>
-                    <div class="testimonial-title">Bundles of Joy Recipient</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Final CTA Section -->
-    <section class="final-cta-section">
-        <div class="final-cta-content">
-            <h2>Want to bring these programs to your class, department, or community?</h2>
-            <p>Whether you're a faculty member, community leader, or organization looking to partner with PAA, we'd love to explore how we can work together to serve children and families.</p>
-            <a href="contact.html" class="cta-btn">Contact Us to Collaborate</a>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>About PAA</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Our Team</a></li>
-                        <li><a href="#">History</a></li>
-                        <li><a href="#">Impact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Get Involved</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Volunteer</a></li>
-                        <li><a href="#">Donate</a></li>
-                        <li><a href="#">Partner With Us</a></li>
-                        <li><a href="#">Join Our Team</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Calendar</a></li>
-                        <li><a href="#">CBL Hub</a></li>
-                        <li><a href="#">Educational Materials</a></li>
-                        <li><a href="#">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Email Us</a></li>
-                        <li><a href="#">Phone: (123) 456-7890</a></li>
-                        <li><a href="#">Campus Location</a></li>
-                        <li><a href="#">Contact Form</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                </div>
-                <p>&copy; 2025 Pediatric Advocacy Alliance. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- JavaScript -->
-    <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const nav = document.querySelector('nav');
-        
-        mobileMenuToggle.addEventListener('click', function() {
-            nav.classList.toggle('active');
-        });
-        
-        // Scroll reveal animation
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 50) {
-                    element.classList.add('active');
-                }
-            });
-        }
-        
-        // Add scroll event listener
-        window.addEventListener('scroll', revealOnScroll);
-        
-        // Initial check on page load
-        revealOnScroll();
-        
-        // Form submission
-        document.getElementById('program-idea-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form button
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            // Show loading state
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                submitBtn.textContent = 'Sent to PAA Board!';
-                submitBtn.style.background = 'linear-gradient(135deg, var(--soft-mint), var(--baby-blue))';
-                
-                // Reset form after delay
-                setTimeout(() => {
-                    this.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = '';
-                    submitBtn.disabled = false;
-                }, 2000);
-            }, 1000);
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Create floating animations for decorative elements
-        function createFloatingAnimation() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            filterButtons.forEach(button => {
-                const floatAmount = Math.random() * 5 + 3;
-                const duration = Math.random() * 1 + 3;
-                
-                button.style.setProperty('--float-amount', `${floatAmount}px`);
-                button.addEventListener('mouseenter', function() {
-                    this.style.animation = `float ${duration}s ease-in-out infinite`;
-                });
-                
-                button.addEventListener('mouseleave', function() {
-                    this.style.animation = '';
-                });
-            });
-        }
-        
-        // Apply floating animation setup
-        createFloatingAnimation();
-        
-        // Add pattern animation on hover for program cards
-        const programCards = document.querySelectorAll('.program-block');
-        programCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transition = 'background-position 0.3s ease';
-                this.style.backgroundPosition = '10px 10px';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.backgroundPosition = '0 0';
-            });
-        });
-
-        // Add cute sparkle effects on button clicks - no emojis
-        document.querySelectorAll('.program-btn, .filter-btn, .submit-btn, .cta-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Create sparkle effect with colored dots
-                for (let i = 0; i < 6; i++) {
-                    const sparkle = document.createElement('div');
-                    sparkle.style.position = 'absolute';
-                    sparkle.style.left = e.clientX + 'px';
-                    sparkle.style.top = e.clientY + 'px';
-                    sparkle.style.pointerEvents = 'none';
-                    sparkle.style.width = '8px';
-                    sparkle.style.height = '8px';
-                    sparkle.style.backgroundColor = ['#ffb3d9', '#b3e0ff', '#b3ffcc', '#fff9b3', '#d9b3ff'][Math.floor(Math.random() * 5)];
-                    sparkle.style.borderRadius = '50%';
-                    sparkle.style.zIndex = '9999';
-                    
-                    const xMovement = (Math.random() - 0.5) * 100;
-                    const yMovement = (Math.random() - 0.5) * 100;
-                    
-                    sparkle.animate([
-                        { transform: 'translate(0, 0) scale(0)', opacity: 1 },
-                        { transform: `translate(${xMovement}px, ${yMovement}px) scale(1)`, opacity: 0 }
-                    ], {
-                        duration: 1000,
-                        easing: 'ease-out'
-                    });
-                    
-                    document.body.appendChild(sparkle);
-                    
-                    setTimeout(() => {
-                        sparkle.remove();
-                    }, 1000);
-                }
-            });
-        });
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programs That Make a Difference - Pediatric Advocacy Alliance</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&family=Pinyon+Script&family=Caveat:wght@400;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ===== Base Styles ===== */
-        :root {
-            --blush-pink: #f9d1d9;
-            --baby-blue: #d1e0f6;
-            --pastel-yellow: #fcf5d9;
-            --cream: #fef9f0;
-            --soft-mint: #e6f0e4;
-            --soft-purple: #e6e0f4;
-            --dark-text: #333333;
-            --light-text: #666666;
+            --dark-text: #1f2937;
+            --light-text: #6b7280;
             --shadow: 0 4px 12px rgba(0,0,0,0.05);
-            --tape-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            --photo-shadow: 0 8px 25px rgba(0,0,0,0.15);
             --transition-fast: all 0.2s ease;
             --transition-medium: all 0.3s ease;
             --transition-slow: all 0.5s ease;
@@ -1994,184 +55,250 @@
             font-family: 'Pinyon Script', cursive;
             font-weight: 400;
         }
+
+        .handwritten {
+            font-family: 'Kalam', cursive;
+            font-weight: 400;
+        }
+
+        .handwritten-script {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 500;
+        }
         
-        /* ===== Header & Navigation ===== */
+        /* ===== Header & Navigation (from PAA1) ===== */
         header {
-            background-color: white;
-            box-shadow: var(--shadow);
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(247,243,232,0.95) 100%);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(244,114,182,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 40%, rgba(191,219,254,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 40% 80%, rgba(134,239,172,0.1) 2px, transparent 2px);
+            background-size: 30px 30px, 25px 25px, 35px 35px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            padding: 8px 0;
+        }
+
+        header.scrolled .logo img {
+            height: 40px;
+        }
+
+        header.scrolled .logo h1 {
+            font-size: 1.3rem;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 18px 30px;
+            transition: all 0.3s ease;
         }
         
         .logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .logo:hover img {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: rotate(2deg);
         }
         
         .logo img {
-            height: 50px;
-            margin-right: 10px;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            margin-right: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid white;
+            transition: all 0.3s ease;
+            object-fit: cover;
         }
         
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 500;
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+
+        .pediatric-text,
+        .alliance-text {
             font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin: 0;
+        }
+
+        .advocacy-script {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--bubblegum-pink);
+            margin: 0;
         }
         
         nav ul {
             display: flex;
             list-style: none;
+            gap: 35px;
+            align-items: center;
         }
         
         nav ul li {
-            margin-left: 30px;
+            position: relative;
         }
         
         nav ul li a {
             text-decoration: none;
             color: var(--dark-text);
-            font-weight: 500;
-            transition: var(--transition-fast);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 8px 15px;
+            border-radius: 8px;
+            display: block;
         }
-        
+
         nav ul li a:after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--blush-pink);
-            transition: var(--transition-medium);
+            bottom: 2px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--bubblegum-pink), var(--baby-blue));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 1px;
         }
-        
+
         nav ul li a:hover:after {
-            width: 100%;
+            width: 80%;
         }
-        
+
         nav ul li a:hover {
-            color: var(--blush-pink);
+            background: linear-gradient(135deg, rgba(244,114,182,0.2), rgba(191,219,254,0.2));
+            color: var(--dark-text);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        nav ul li {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+        }
+
+        nav ul li:hover {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
         }
         
         .mobile-menu-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
-        
+
+        .mobile-menu-toggle:hover {
+            background: rgba(244,114,182,0.2);
+            transform: scale(1.1);
+        }
+
         /* ===== Hero Section ===== */
         .hero-section {
-            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--cream) 60%);
-            padding: 150px 0 100px;
-            margin-top: 80px;
+            background-color: var(--cream);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f472b6' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+            padding: 200px 0 100px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-        
-        /* Polka dot pattern for hero */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.2) 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: 1;
         }
         
         .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
             position: relative;
-            z-index: 2;
-            text-align: center;
+            z-index: 5;
         }
         
-        .hero-title {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: var(--dark-text);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 0 auto 40px;
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
             color: var(--dark-text);
         }
         
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--dark-text);
+        }
 
-        /* ===== Programs Overview ===== */
-        .programs-section {
-            padding: 60px 0;
+        .hero-accent {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--bubblegum-pink);
+            margin-top: 1rem;
+            font-weight: 600;
         }
-        
-        .program-block {
-            width: 100%;
-            padding: 60px 0;
+
+        /* ===== Program Sections with Gingham ===== */
+        .program-section {
+            padding: 80px 0;
             position: relative;
         }
-        
-        /* Striped pattern (first program) */
-        .program-block:nth-child(odd) {
-            background-color: var(--blush-pink);
-            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+
+        /* Gingham Background Styles - Large Scale */
+        .gingham-pink {
+            background-color: var(--bubblegum-pink);
+            background-image: 
+                linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.2) 50%), 
+                linear-gradient(rgba(255,255,255,0.2) 50%, transparent 50%);
+            background-size: 40px 40px;
         }
-        
-        /* Chevron pattern (second program) */
-        .program-block:nth-child(2) {
-            background-color: var(--soft-mint);
-            background-image: url("data:image/svg+xml,%3Csvg width='12' height='6' viewBox='0 0 12 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 0L6 0 L12 6L6 6 L6 6 L0 6 L6 0' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            background-size: 24px 12px;
-        }
-        
-        /* Plaid pattern (third program) */
-        .program-block:nth-child(3) {
+
+        .gingham-blue {
             background-color: var(--baby-blue);
             background-image: 
-                linear-gradient(90deg, transparent 24px, rgba(255,255,255,0.05) 25px, rgba(255,255,255,0.05) 26px, transparent 27px, transparent 74px, rgba(255,255,255,0.05) 75px, rgba(255,255,255,0.05) 76px, transparent 77px, transparent),
-                linear-gradient(transparent 24px, rgba(255,255,255,0.05) 25px, rgba(255,255,255,0.05) 26px, transparent 27px, transparent 74px, rgba(255,255,255,0.05) 75px, rgba(255,255,255,0.05) 76px, transparent 77px, transparent),
-                linear-gradient(90deg, transparent 4px, rgba(255,255,255,0.03) 4px, rgba(255,255,255,0.03) 5px, transparent 5px, transparent);
-            background-size: 100px 100px, 100px 100px, 20px 20px;
+                linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.2) 50%), 
+                linear-gradient(rgba(255,255,255,0.2) 50%, transparent 50%);
+            background-size: 40px 40px;
         }
-        
-        /* Gingham pattern (fourth program) */
-        .program-block:nth-child(4) {
-            background-color: var(--soft-mint);
+
+        .gingham-lilac {
+            background-color: var(--bright-lilac);
             background-image: 
-                linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.1) 50%), 
-                linear-gradient(rgba(255,255,255,0.1) 50%, transparent 50%);
-            background-size: 30px 30px;
+                linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.2) 50%), 
+                linear-gradient(rgba(255,255,255,0.2) 50%, transparent 50%);
+            background-size: 40px 40px;
         }
-        
-        /* Cross-hatch pattern (fifth program) */
-        .program-block:nth-child(5) {
-            background-color: var(--pastel-yellow);
-            background-image: 
-                linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.05) 49%, rgba(255,255,255,0.05) 51%, transparent 52%),
-                linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.05) 49%, rgba(255,255,255,0.05) 51%, transparent 52%);
-            background-size: 20px 20px;
-        }
-        
-        /* Dots pattern (sixth program) */
-        .program-block:nth-child(6) {
-            background-color: var(--blush-pink);
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 25px 25px;
-        }
-        
+
         .program-content {
             display: flex;
             align-items: center;
@@ -2180,465 +307,480 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        .program-block:nth-child(even) .program-content {
+
+        .program-content.reverse {
             flex-direction: row-reverse;
         }
-        
+
         .program-info {
             flex: 1;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 3px solid rgba(255,255,255,0.8);
+            position: relative;
         }
-        
+
+        .program-info::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            width: 60px;
+            height: 25px;
+            background-color: rgba(244,114,182,0.6);
+            transform: rotate(-8deg);
+            border-radius: 3px;
+            box-shadow: var(--shadow);
+        }
+
         .program-label {
-            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
             color: var(--light-text);
             margin-bottom: 10px;
         }
-        
+
         .program-name {
             font-size: 2.5rem;
             margin-bottom: 20px;
+            color: var(--dark-text);
             position: relative;
             display: inline-block;
         }
-        
+
         .program-name::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--dark-text);
+            width: 60px;
+            height: 4px;
+            background-color: var(--cherry-red);
+            border-radius: 2px;
         }
-        
+
         .program-description {
             font-size: 1.1rem;
             margin-bottom: 30px;
             line-height: 1.8;
+            color: var(--dark-text);
         }
-        
+
         .program-btn {
             display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--dark-text);
-            color: white;
+            padding: 15px 35px;
+            background-color: var(--cherry-red);
+            color: var(--white);
             text-decoration: none;
             border-radius: 30px;
-            font-weight: 500;
+            font-weight: 600;
             transition: var(--transition-medium);
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
         }
-        
+
         .program-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(220,38,38,0.3);
         }
-        
-        .program-btn::after {
+
+        .program-btn:before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
-        }
-        
-        .program-btn:hover::after {
-            left: 100%;
-        }
-        
-        .program-image {
-            flex: 0 0 400px;
-            position: relative;
-        }
-        
-        .program-image img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Scrapbook tape effect */
-        .tape-effect {
-            position: absolute;
-            width: 60px;
-            height: 25px;
-            background-color: rgba(255, 255, 255, 0.8);
             top: -10px;
-            right: 20px;
-            border: 1px solid rgba(0,0,0,0.1);
-            transform: rotate(-15deg);
-            box-shadow: var(--tape-shadow);
-            z-index: 2;
+            left: -10px;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.5s ease;
         }
-        
-        .tape-effect::before {
-            content: '';
-            position: absolute;
+
+        .program-btn:hover:before {
+            transform: scale(5);
+        }
+
+        .program-image {
+            flex: 0 0 350px;
+            position: relative;
+        }
+
+        .polaroid-frame {
+            background: var(--white);
+            padding: 15px 15px 60px 15px;
+            box-shadow: var(--photo-shadow);
+            transform: rotate(-2deg);
+            transition: var(--transition-medium);
+            position: relative;
+            border-radius: 3px;
+        }
+
+        .polaroid-frame:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .polaroid-frame:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .polaroid-frame img {
             width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 3px,
-                rgba(0,0,0,0.05) 3px,
-                rgba(0,0,0,0.05) 4px
-            );
+            height: 250px;
+            object-fit: cover;
+            border-radius: 2px;
+            background: linear-gradient(45deg, var(--sage-green), var(--baby-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
         }
-        
-        /* ===== Focus Filter Section ===== */
+
+        .polaroid-caption {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            text-align: center;
+            font-family: 'Kalam', cursive;
+            font-size: 0.9rem;
+            color: var(--dark-text);
+        }
+
+        /* ===== Filter Section ===== */
         .filter-section {
-            background-color: var(--pastel-yellow);
+            background-color: var(--sage-green);
             padding: 60px 0;
             position: relative;
         }
-        
-        /* Wave pattern for filter section */
+
         .filter-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 20px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0,10 Q5,0 10,10 T20,10 T30,10 T40,10 T50,10 T60,10 T70,10 T80,10 T90,10 T100,10 L100,20 L0,20 Z' fill='%23e6f0e4'/%3E%3C/svg%3E");
-            background-size: 100px 20px;
-            background-repeat: repeat-x;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-size: 60px 60px;
         }
-        
+
         .filter-title {
             text-align: center;
             margin-bottom: 40px;
         }
-        
+
         .filter-title h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
+            color: var(--white);
         }
-        
-        .filter-title .calligraphy {
-            font-size: 1.8rem;
-            color: var(--light-text);
+
+        .filter-title .handwritten-script {
+            font-size: 1.6rem;
+            color: rgba(255,255,255,0.8);
         }
-        
+
         .filter-buttons {
             display: flex;
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
         }
-        
+
         .filter-btn {
             display: inline-block;
-            padding: 15px 30px;
-            background-color: white;
+            padding: 18px 35px;
+            background-color: var(--white);
             color: var(--dark-text);
             text-decoration: none;
             border-radius: 25px;
-            font-weight: 500;
+            font-weight: 600;
             box-shadow: var(--shadow);
             transition: var(--transition-medium);
             position: relative;
-            border: 2px dashed var(--blush-pink);
+            border: 3px dashed var(--bubblegum-pink);
+            font-size: 1.1rem;
         }
-        
+
         .filter-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            background-color: var(--blush-pink);
-            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background-color: var(--bubblegum-pink);
+            color: var(--white);
+            border-color: var(--white);
         }
-        
-        /* ===== Program Idea Submission Section ===== */
+
+        /* ===== Submission Section ===== */
         .submission-section {
             background-color: var(--cream);
             padding: 80px 0;
             position: relative;
         }
-        
-        /* Honeycomb pattern for submission section */
-        .submission-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f9d1d9' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            background-size: 60px 60px;
-            z-index: 1;
-        }
-        
+
         .submission-container {
             max-width: 700px;
             margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            border-radius: 15px;
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: 20px;
             box-shadow: var(--shadow);
-            border: 3px dashed var(--baby-blue);
+            border: 3px dashed var(--cherry-red);
             position: relative;
-            z-index: 2;
         }
-        
+
+        .submission-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: 40px;
+            width: 70px;
+            height: 30px;
+            background-color: rgba(192,132,252,0.7);
+            transform: rotate(12deg);
+            border-radius: 3px;
+            box-shadow: var(--shadow);
+        }
+
         .submission-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
-        
+
         .submission-title h2 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            color: var(--dark-text);
         }
-        
+
+        .submission-title .handwritten-script {
+            font-size: 1.4rem;
+            color: var(--bubblegum-pink);
+        }
+
         .form-group {
             margin-bottom: 25px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             color: var(--dark-text);
-            font-weight: 500;
-            font-family: 'Caveat', cursive;
-            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
         }
-        
+
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             border: 2px solid var(--cream);
-            border-radius: 8px;
+            border-radius: 10px;
             font-family: 'Montserrat', sans-serif;
             transition: var(--transition-fast);
             background-color: #fafafa;
+            font-size: 1rem;
         }
-        
+
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--blush-pink);
-            box-shadow: 0 0 0 3px rgba(249, 209, 217, 0.2);
+            border-color: var(--bubblegum-pink);
+            box-shadow: 0 0 0 3px rgba(244,114,182,0.2);
         }
-        
+
         .form-group textarea {
             height: 120px;
             resize: vertical;
         }
-        
+
         .submit-btn {
             width: 100%;
-            padding: 15px;
-            background-color: var(--blush-pink);
-            color: white;
+            padding: 18px;
+            background-color: var(--bubblegum-pink);
+            color: var(--white);
             border: none;
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition-medium);
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
         }
-        
+
         .submit-btn:hover {
-            background-color: var(--baby-blue);
+            background-color: var(--bright-lilac);
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(244,114,182,0.3);
         }
-        
+
         /* ===== Testimonials Section ===== */
         .testimonials-section {
-            background-color: var(--soft-mint);
             padding: 80px 0;
             position: relative;
         }
-        
-        /* Scallop pattern for testimonials */
-        .testimonials-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0,10 Q5,20 10,10 T20,10 T30,10 T40,10 T50,10 T60,10 T70,10 T80,10 T90,10 T100,10 L100,0 L0,0 Z' fill='%23fef9f0'/%3E%3C/svg%3E");
-            background-size: 100px 20px;
-            background-repeat: repeat-x;
-        }
-        
+
         .testimonials-title {
             text-align: center;
             margin-bottom: 60px;
         }
-        
+
         .testimonials-title h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
+            color: var(--dark-text);
         }
-        
-        .testimonials-title .calligraphy {
-            font-size: 1.8rem;
+
+        .testimonials-title .handwritten-script {
+            font-size: 1.6rem;
             color: var(--light-text);
         }
-        
+
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         .testimonial-card {
-            background-color: white;
-            padding: 30px;
+            background-color: var(--white);
+            padding: 35px;
             border-radius: 15px;
             box-shadow: var(--shadow);
             position: relative;
-            border: 3px solid var(--pastel-yellow);
-            transform: rotate(-2deg);
+            border: 3px solid var(--baby-blue);
+            transform: rotate(-1deg);
             transition: var(--transition-medium);
         }
-        
+
         .testimonial-card:nth-child(even) {
-            transform: rotate(2deg);
-            border-color: var(--baby-blue);
+            transform: rotate(1deg);
+            border-color: var(--sage-green);
         }
-        
+
+        .testimonial-card:nth-child(3n) {
+            border-color: var(--bubblegum-pink);
+        }
+
         .testimonial-card:hover {
             transform: rotate(0deg) translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
         }
-        
+
         .testimonial-quote {
             font-size: 1.1rem;
             font-style: italic;
             margin-bottom: 20px;
             line-height: 1.7;
+            color: var(--dark-text);
         }
-        
+
         .testimonial-author {
             font-weight: 600;
             font-size: 1.2rem;
+            font-family: 'Dancing Script', cursive;
+            color: var(--cherry-red);
         }
-        
+
         .testimonial-title {
             color: var(--light-text);
             font-size: 0.9rem;
+            margin-top: 5px;
         }
-        
-        /* Polaroid effect */
-        .polaroid-effect {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 80px;
-            height: 100px;
-            background: white;
-            border: 1px solid #ddd;
-            box-shadow: var(--shadow);
-            transform: rotate(15deg);
-        }
-        
-        .polaroid-effect::before {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            right: 5px;
-            height: 60%;
-            background-color: #f0f0f0;
-        }
-        
+
         /* ===== Final CTA Section ===== */
         .final-cta-section {
-            background-color: var(--blush-pink);
             padding: 80px 0;
             text-align: center;
             position: relative;
         }
-        
-        /* Star pattern for final CTA */
-        .final-cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M11 16L18 23H6L0 30L6 23L6 37H18L11 30H38L31 37H43L36 30H59L52 23H64L70 30L64 23L71 16L64 23H59L52 37H31L38 30L25 43L11 37V16z' /%3E%3C/g%3E%3C/svg%3E");
-            background-size: 80px 80px;
-            z-index: 1;
-        }
-        
+
         .final-cta-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 60px 40px;
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 3px dashed var(--sage-green);
             position: relative;
-            z-index: 2;
         }
-        
+
+        .final-cta-content::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50px;
+            width: 80px;
+            height: 30px;
+            background-color: rgba(191,219,254,0.7);
+            transform: rotate(-8deg);
+            border-radius: 3px;
+            box-shadow: var(--shadow);
+        }
+
         .final-cta-content h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--dark-text);
         }
-        
+
         .final-cta-content p {
             font-size: 1.2rem;
             margin-bottom: 40px;
             color: var(--dark-text);
+            line-height: 1.7;
         }
-        
+
         .cta-btn {
             display: inline-block;
-            padding: 15px 40px;
-            background-color: var(--dark-text);
-            color: white;
+            padding: 18px 40px;
+            background-color: var(--cherry-red);
+            color: var(--white);
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             transition: var(--transition-medium);
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
         }
-        
+
         .cta-btn:hover {
-            background-color: var(--baby-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            background-color: var(--bubblegum-pink);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(220,38,38,0.3);
         }
-        
+
         /* ===== Footer ===== */
         footer {
-            background-color: white;
+            background-color: var(--white);
             padding: 50px 0 20px;
-            margin-top: 50px;
         }
         
         .footer-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin-bottom: 40px;
         }
         
         .footer-column {
             flex: 1;
             min-width: 200px;
             margin-bottom: 30px;
+            padding: 0 15px;
         }
         
         .footer-column h3 {
@@ -2655,7 +797,14 @@
             left: 0;
             width: 40px;
             height: 3px;
-            background-color: var(--blush-pink);
+            background-color: var(--bubblegum-pink);
+        }
+
+        .footer-handwritten {
+            font-family: 'Kalam', cursive;
+            color: var(--bubblegum-pink);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
         
         .footer-links {
@@ -2670,10 +819,25 @@
             text-decoration: none;
             color: var(--light-text);
             transition: var(--transition-fast);
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            transition: var(--transition-fast);
         }
         
         .footer-links a:hover {
-            color: var(--blush-pink);
+            color: var(--bubblegum-pink);
+            padding-left: 20px;
+        }
+        
+        .footer-links a:hover:before {
+            left: 5px;
+            color: var(--bubblegum-pink);
         }
         
         .footer-bottom {
@@ -2681,6 +845,13 @@
             padding-top: 30px;
             margin-top: 30px;
             border-top: 1px solid #eee;
+        }
+
+        .footer-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            color: var(--bubblegum-pink);
+            margin-bottom: 15px;
         }
         
         .social-links {
@@ -2704,30 +875,40 @@
         }
         
         .social-link:hover {
-            background-color: var(--blush-pink);
-            color: white;
+            background-color: var(--bubblegum-pink);
+            color: var(--white);
             transform: translateY(-3px);
         }
+
+        /* ===== Reveal Animation ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
         
-        /* ===== Responsive Design ===== */
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Responsive Styles ===== */
         @media (max-width: 992px) {
-            .hero-title {
-                font-size: 3rem;
+            .hero-content h1 {
+                font-size: 2.8rem;
             }
             
-            .program-content {
-                flex-direction: column !important;
-                gap: 30px;
+            .program-content,
+            .program-content.reverse {
+                flex-direction: column;
+                gap: 40px;
             }
             
             .program-image {
                 flex: none;
                 width: 100%;
-            }
-            
-            .program-image img {
-                width: 100%;
-                height: 250px;
+                max-width: 400px;
+                margin: 0 auto;
             }
         }
         
@@ -2737,18 +918,19 @@
             }
             
             nav {
-                display: none;
                 position: fixed;
                 top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: white;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
                 box-shadow: var(--shadow);
-                z-index: 999;
+                transition: var(--transition-medium);
+                z-index: 1000;
             }
             
             nav.active {
-                display: block;
+                left: 0;
             }
             
             nav ul {
@@ -2757,11 +939,15 @@
             }
             
             nav ul li {
-                margin: 10px 0;
+                margin: 0 0 15px 0;
             }
             
-            .hero-title {
-                font-size: 2.5rem;
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .program-name {
+                font-size: 2rem;
             }
             
             .filter-buttons {
@@ -2769,8 +955,8 @@
             }
             
             .filter-btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+                padding: 12px 25px;
+                font-size: 1rem;
             }
             
             .testimonials-grid {
@@ -2780,15 +966,21 @@
             .submission-container {
                 padding: 30px 20px;
             }
+
+            .gingham-pink,
+            .gingham-blue,
+            .gingham-lilac {
+                background-size: 30px 30px;
+            }
         }
         
         @media (max-width: 576px) {
-            .hero-subtitle {
-                font-size: 1.1rem;
+            .hero-content h1 {
+                font-size: 1.8rem;
             }
             
             .program-name {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .program-description {
@@ -2803,29 +995,28 @@
             .final-cta-content h2 {
                 font-size: 2rem;
             }
-        }
-        
-        /* ===== Scroll Animations ===== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+
+            .gingham-pink,
+            .gingham-blue,
+            .gingham-lilac {
+                background-size: 25px 25px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Header & Navigation -->
+    <header id="main-header">
         <div class="container header-container">
             <div class="logo">
-                <img src="/api/placeholder/50/50" alt="PAA Logo">
-                <h1>Pediatric Advocacy Alliance</h1>
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=60&h=60&fit=crop&crop=center" alt="PAA Logo">
+                <div class="logo-text">
+                    <span class="pediatric-text">Pediatric</span>
+                    <span class="advocacy-script">Advocacy</span>
+                    <span class="alliance-text">Alliance</span>
+                </div>
             </div>
+
             <div class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
@@ -2848,108 +1039,128 @@
     <section class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Programs That Make a Difference</h1>
-                <p class="hero-subtitle">From classrooms to clinics, we bring change where kids and families need it most.</p>
-                
-
+                <h1>Programs That Make a <span class="calligraphy">Difference</span></h1>
+                <p>From classrooms to clinics, we bring change where kids and families need it most.</p>
+                <div class="hero-accent handwritten-script">making magic happen, one program at a time</div>
             </div>
         </div>
     </section>
     
-    <!-- Programs Overview Section -->
-    <section class="programs-section">
-        <!-- Bundles of Joy Program -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Est. Spring 2025</div>
-                    <h2 class="program-name">Bundles of Joy</h2>
-                    <p class="program-description">We create care packages for new and expecting mothers, filled with essentials for both baby and mom. From diapers and onesies to self-care items, each bundle is packed with love and practical support for those transitioning into parenthood.</p>
-                    <a href="#" class="program-btn">Learn More</a>
-                </div>
-                <div class="program-image">
-                    <img src="/api/placeholder/400/300" alt="Bundles of Joy assembly">
-                    <div class="tape-effect"></div>
+    <!-- Bundles of Joy Program -->
+    <section class="program-section gingham-pink">
+        <div class="program-content reveal">
+            <div class="program-info">
+                <div class="program-label">Est. Spring 2025</div>
+                <h2 class="program-name">Bundles of Joy</h2>
+                <p class="program-description">We create care packages for new and expecting mothers, filled with essentials for both baby and mom. From diapers and onesies to self-care items, each bundle is packed with love and practical support for those transitioning into parenthood.</p>
+                <a href="#" class="program-btn">Learn More</a>
+            </div>
+            <div class="program-image">
+                <div class="polaroid-frame">
+                    <div style="width: 100%; height: 250px; background: linear-gradient(45deg, var(--sage-green), var(--baby-blue)); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; border-radius: 2px;">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="polaroid-caption handwritten">Bundles of love for new families</div>
                 </div>
             </div>
         </div>
+    </section>
         
-        <!-- PAA Reads Program -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Seasonal Favorite</div>
-                    <h2 class="program-name">PAA Reads</h2>
-                    <p class="program-description">Our literacy initiative brings PAA members into local schools and libraries to read with children ages 5-10. We also organize book donation drives and create reading corner setups in underserved communities, fostering a lifelong love of reading.</p>
-                    <a href="#" class="program-btn">Get Involved</a>
-                </div>
-                <div class="program-image">
-                    <img src="/api/placeholder/400/300" alt="Reading with children">
-                    <div class="tape-effect"></div>
+    <!-- PAA Reads Program -->
+    <section class="program-section">
+        <div class="program-content reverse reveal">
+            <div class="program-info">
+                <div class="program-label">Seasonal Favorite</div>
+                <h2 class="program-name">PAA Reads</h2>
+                <p class="program-description">Our literacy initiative brings PAA members into local schools and libraries to read with children ages 5-10. We also organize book donation drives and create reading corner setups in underserved communities, fostering a lifelong love of reading.</p>
+                <a href="#" class="program-btn">Get Involved</a>
+            </div>
+            <div class="program-image">
+                <div class="polaroid-frame">
+                    <div style="width: 100%; height: 250px; background: linear-gradient(45deg, var(--bubblegum-pink), var(--bright-lilac)); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; border-radius: 2px;">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="polaroid-caption handwritten">Reading adventures together</div>
                 </div>
             </div>
         </div>
+    </section>
         
-        <!-- Community Health Outreach -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Core Program</div>
-                    <h2 class="program-name">Community Health Outreach</h2>
-                    <p class="program-description">We partner with local healthcare providers to offer health screenings, vaccination clinics, and educational workshops in communities with limited healthcare access. Our campus nursing students get real-world experience while serving families in need.</p>
-                    <a href="#" class="program-btn">Sign Up</a>
-                </div>
-                <div class="program-image">
-                    <img src="/api/placeholder/400/300" alt="Health screening event">
-                    <div class="tape-effect"></div>
+    <!-- Community Health Outreach -->
+    <section class="program-section gingham-blue">
+        <div class="program-content reveal">
+            <div class="program-info">
+                <div class="program-label">Core Program</div>
+                <h2 class="program-name">Community Health Outreach</h2>
+                <p class="program-description">We partner with local healthcare providers to offer health screenings, vaccination clinics, and educational workshops in communities with limited healthcare access. Our campus nursing students get real-world experience while serving families in need.</p>
+                <a href="#" class="program-btn">Sign Up</a>
+            </div>
+            <div class="program-image">
+                <div class="polaroid-frame">
+                    <div style="width: 100%; height: 250px; background: linear-gradient(45deg, var(--cherry-red), var(--bubblegum-pink)); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; border-radius: 2px;">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="polaroid-caption handwritten">Health care in our community</div>
                 </div>
             </div>
         </div>
+    </section>
         
-        <!-- Glow Up for Good -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Annual Flagship</div>
-                    <h2 class="program-name">Glow Up for Good</h2>
-                    <p class="program-description">Our signature event transforms a campus space into a spa day for underserved youth. Participants enjoy nail art, face masks, hairstyling, and confidence-building workshops. It's a day of pampering and self-care that reminds every child they deserve to feel special.</p>
-                    <a href="#" class="program-btn">Learn More</a>
-                </div>
-                <div class="program-image">
-                    <img src="/api/placeholder/400/300" alt="Glow Up for Good event">
-                    <div class="tape-effect"></div>
+    <!-- Glow Up for Good -->
+    <section class="program-section">
+        <div class="program-content reverse reveal">
+            <div class="program-info">
+                <div class="program-label">Annual Flagship</div>
+                <h2 class="program-name">Glow Up for Good</h2>
+                <p class="program-description">Our signature event transforms a campus space into a spa day for underserved youth. Participants enjoy nail art, face masks, hairstyling, and confidence-building workshops. It's a day of pampering and self-care that reminds every child they deserve to feel special.</p>
+                <a href="#" class="program-btn">Learn More</a>
+            </div>
+            <div class="program-image">
+                <div class="polaroid-frame">
+                    <div style="width: 100%; height: 250px; background: linear-gradient(45deg, var(--bright-lilac), var(--baby-blue)); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; border-radius: 2px;">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <div class="polaroid-caption handwritten">Everyone deserves to glow</div>
                 </div>
             </div>
         </div>
+    </section>
         
-        <!-- Policy & Advocacy -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Leadership Builder</div>
-                    <h2 class="program-name">Policy & Advocacy</h2>
-                    <p class="program-description">PAA members engage in legislative advocacy for children's health and welfare. We organize Capitol visits, letter-writing campaigns, and community forums. Students develop leadership skills while fighting for systemic change that impacts children's lives.</p>
-                    <a href="#" class="program-btn">Get Involved</a>
-                </div>
-                <div class="program-image">
-                    <img src="/api/placeholder/400/300" alt="Advocacy training session">
-                    <div class="tape-effect"></div>
+    <!-- Policy & Advocacy -->
+    <section class="program-section gingham-lilac">
+        <div class="program-content reveal">
+            <div class="program-info">
+                <div class="program-label">Leadership Builder</div>
+                <h2 class="program-name">Policy & Advocacy</h2>
+                <p class="program-description">PAA members engage in legislative advocacy for children's health and welfare. We organize Capitol visits, letter-writing campaigns, and community forums. Students develop leadership skills while fighting for systemic change that impacts children's lives.</p>
+                <a href="#" class="program-btn">Get Involved</a>
+            </div>
+            <div class="program-image">
+                <div class="polaroid-frame">
+                    <div style="width: 100%; height: 250px; background: linear-gradient(45deg, var(--sage-green), var(--cherry-red)); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; border-radius: 2px;">
+                        <i class="fas fa-megaphone"></i>
+                    </div>
+                    <div class="polaroid-caption handwritten">Fighting for change together</div>
                 </div>
             </div>
         </div>
+    </section>
         
-        <!-- Education Partners -->
-        <div class="program-block reveal">
-            <div class="program-content">
-                <div class="program-info">
-                    <div class="program-label calligraphy">Partnership Program</div>
-                    <h2 class="program-name">Education Partners</h2>
-                    <p class="program-description">We collaborate with K-12 schools to provide after-school tutoring, college prep workshops, and career day presentations. PAA members mentor students, share healthcare career paths, and help bridge educational gaps in underserved communities.</p>
-                    <a href="#" class="program-btn">Sign Up</a>
-                </div>
-                <div class="program-image">
-                    <img src="/api/placeholder/400/300" alt="Tutoring session">
-                    <div class="tape-effect"></div>
+    <!-- Education Partners -->
+    <section class="program-section">
+        <div class="program-content reverse reveal">
+            <div class="program-info">
+                <div class="program-label">Partnership Program</div>
+                <h2 class="program-name">Education Partners</h2>
+                <p class="program-description">We collaborate with K-12 schools to provide after-school tutoring, college prep workshops, and career day presentations. PAA members mentor students, share healthcare career paths, and help bridge educational gaps in underserved communities.</p>
+                <a href="#" class="program-btn">Sign Up</a>
+            </div>
+            <div class="program-image">
+                <div class="polaroid-frame">
+                    <div style="width: 100%; height: 250px; background: linear-gradient(45deg, var(--baby-blue), var(--sage-green)); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; border-radius: 2px;">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="polaroid-caption handwritten">Building bridges to education</div>
                 </div>
             </div>
         </div>
@@ -2958,9 +1169,9 @@
     <!-- Focus Filter Section -->
     <section class="filter-section">
         <div class="container">
-            <div class="filter-title">
+            <div class="filter-title reveal">
                 <h2>What Kind of Work Do We Do?</h2>
-                <div class="calligraphy">Find your passion, make your mark</div>
+                <div class="handwritten-script">Find your passion, make your mark</div>
             </div>
             
             <div class="filter-buttons">
@@ -2983,10 +1194,10 @@
     <!-- Program Idea Submission Section -->
     <section class="submission-section">
         <div class="container">
-            <div class="submission-container">
+            <div class="submission-container reveal">
                 <div class="submission-title">
                     <h2>Got a Program Idea?</h2>
-                    <div class="calligraphy">We'd love to hear from you!</div>
+                    <div class="handwritten-script">We'd love to hear from you!</div>
                 </div>
                 
                 <form id="program-idea-form">
@@ -3019,63 +1230,57 @@
     <!-- Testimonials Section -->
     <section class="testimonials-section">
         <div class="container">
-            <div class="testimonials-title">
-                <h2>In Their Words</h2>
-                <div class="calligraphy">What PAA means to our community</div>
+            <div class="testimonials-title reveal">
+                <h2>In Their <span class="calligraphy">Words</span></h2>
+                <div class="handwritten-script">What PAA means to our community</div>
             </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card reveal">
-                    <div class="polaroid-effect"></div>
                     <blockquote class="testimonial-quote">
                         "Helping lead the Glow Up for Good event made me realize how small acts of care can make someone feel seen. Watching those kids light up when they got their nails painted was everything."
                     </blockquote>
-                    <cite class="testimonial-author calligraphy">— Harmony, VP</cite>
+                    <cite class="testimonial-author">— Harmony, VP</cite>
                     <div class="testimonial-title">Glow Up for Good Coordinator</div>
                 </div>
                 
                 <div class="testimonial-card reveal">
-                    <div class="polaroid-effect"></div>
                     <blockquote class="testimonial-quote">
                         "PAA Reads gave my daughter a love for books she never had before. The college students made reading feel special and fun. Thank you for believing in our kids."
                     </blockquote>
-                    <cite class="testimonial-author calligraphy">— Maria L., Parent</cite>
+                    <cite class="testimonial-author">— Maria L., Parent</cite>
                     <div class="testimonial-title">PAA Reads Participant</div>
                 </div>
                 
                 <div class="testimonial-card reveal">
-                    <div class="polaroid-effect"></div>
                     <blockquote class="testimonial-quote">
                         "Through PAA's advocacy program, I found my voice. We actually got the school board to implement mental health resources. That's real change happening because students cared enough to act."
                     </blockquote>
-                    <cite class="testimonial-author calligraphy">— James K., Senior</cite>
+                    <cite class="testimonial-author">— James K., Senior</cite>
                     <div class="testimonial-title">Policy & Advocacy Lead</div>
                 </div>
                 
                 <div class="testimonial-card reveal">
-                    <div class="polaroid-effect"></div>
                     <blockquote class="testimonial-quote">
                         "The partnerships PAA builds are incredible. Having student mentors from the university changed everything for my son. They showed him college is possible."
                     </blockquote>
-                    <cite class="testimonial-author calligraphy">— Dr. Reyes</cite>
+                    <cite class="testimonial-author">— Dr. Reyes</cite>
                     <div class="testimonial-title">Community Partner, Lincoln Elementary</div>
                 </div>
                 
                 <div class="testimonial-card reveal">
-                    <div class="polaroid-effect"></div>
                     <blockquote class="testimonial-quote">
                         "As a nursing student, the Community Health Outreach program has been invaluable. Real clinical experience while serving families who really need it? That's what healthcare should be."
                     </blockquote>
-                    <cite class="testimonial-author calligraphy">— Sarah M., Nursing Major</cite>
+                    <cite class="testimonial-author">— Sarah M., Nursing Major</cite>
                     <div class="testimonial-title">Health Outreach Volunteer</div>
                 </div>
                 
                 <div class="testimonial-card reveal">
-                    <div class="polaroid-effect"></div>
                     <blockquote class="testimonial-quote">
                         "Getting a Bundle of Joy when my baby was born meant more than you know. Those essentials made such a difference during a really tough time. PAA gets what families need."
                     </blockquote>
-                    <cite class="testimonial-author calligraphy">— Ashley T., New Mom</cite>
+                    <cite class="testimonial-author">— Ashley T., New Mom</cite>
                     <div class="testimonial-title">Bundles of Joy Recipient</div>
                 </div>
             </div>
@@ -3084,10 +1289,12 @@
     
     <!-- Final CTA Section -->
     <section class="final-cta-section">
-        <div class="final-cta-content">
-            <h2>Want to bring these programs to your class, department, or community?</h2>
-            <p>Whether you're a faculty member, community leader, or organization looking to partner with PAA, we'd love to explore how we can work together to serve children and families.</p>
-            <a href="contact.html" class="cta-btn">Contact Us to Collaborate</a>
+        <div class="container">
+            <div class="final-cta-content reveal">
+                <h2>Want to bring these programs to your class, department, or community?</h2>
+                <p>Whether you're a faculty member, community leader, or organization looking to partner with PAA, we'd love to explore how we can work together to serve children and families.</p>
+                <a href="contact.html" class="cta-btn">Contact Us to Collaborate</a>
+            </div>
         </div>
     </section>
     
@@ -3096,7 +1303,8 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
-                    <h3>About PAA</h3>
+                    <h3>About</h3>
+                    <div class="footer-handwritten handwritten">learn our story</div>
                     <ul class="footer-links">
                         <li><a href="#">Our Mission</a></li>
                         <li><a href="#">Our Team</a></li>
@@ -3106,6 +1314,7 @@
                 </div>
                 <div class="footer-column">
                     <h3>Get Involved</h3>
+                    <div class="footer-handwritten handwritten">join the movement</div>
                     <ul class="footer-links">
                         <li><a href="#">Volunteer</a></li>
                         <li><a href="#">Donate</a></li>
@@ -3115,24 +1324,27 @@
                 </div>
                 <div class="footer-column">
                     <h3>Resources</h3>
+                    <div class="footer-handwritten handwritten">helpful links</div>
                     <ul class="footer-links">
-                        <li><a href="#">Calendar</a></li>
-                        <li><a href="#">CBL Hub</a></li>
+                        <li><a href="#">Events Calendar</a></li>
+                        <li><a href="#">Newsletter Archive</a></li>
                         <li><a href="#">Educational Materials</a></li>
                         <li><a href="#">FAQs</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Contact Us</h3>
+                    <h3>Connect</h3>
+                    <div class="footer-handwritten handwritten">stay in touch</div>
                     <ul class="footer-links">
-                        <li><a href="#">Email Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Email: info@paa.org</a></li>
                         <li><a href="#">Phone: (123) 456-7890</a></li>
                         <li><a href="#">Campus Location</a></li>
-                        <li><a href="#">Contact Form</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
+                <div class="footer-signature handwritten-script">with love, PAA</div>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -3146,7 +1358,7 @@
     
     <!-- JavaScript -->
     <script>
-        // Mobile menu toggle
+        // Mobile Menu Toggle
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const nav = document.querySelector('nav');
         
@@ -3154,25 +1366,36 @@
             nav.classList.toggle('active');
         });
         
-        // Scroll reveal animation
+        // Reveal on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        
         function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+            for (let i = 0; i < revealElements.length; i++) {
+                let elementTop = revealElements[i].getBoundingClientRect().top;
+                let windowHeight = window.innerHeight;
+                let elementVisible = 150;
                 
-                if (elementTop < windowHeight - 50) {
-                    element.classList.add('active');
+                if (elementTop < windowHeight - elementVisible) {
+                    revealElements[i].classList.add('active');
                 }
-            });
+            }
+        }
+
+        // Enhanced scroll handler with navbar effects
+        function handleScroll() {
+            revealOnScroll();
+            
+            // Navbar scroll effect
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         }
         
-        // Add scroll event listener
-        window.addEventListener('scroll', revealOnScroll);
-        
-        // Initial check on page load
-        revealOnScroll();
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
         
         // Form submission
         document.getElementById('program-idea-form').addEventListener('submit', function(e) {
@@ -3186,10 +1409,10 @@
             submitBtn.textContent = 'Sending... ✨';
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual form handling)
+            // Simulate form submission
             setTimeout(() => {
                 submitBtn.textContent = 'Sent to PAA Board! 💌';
-                submitBtn.style.background = 'var(--soft-mint)';
+                submitBtn.style.background = 'var(--sage-green)';
                 
                 // Reset form after delay
                 setTimeout(() => {
@@ -3214,57 +1437,41 @@
                 }
             });
         });
-        
 
-        // Create floating animations for decorative elements
-        function createFloatingAnimation() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            filterButtons.forEach(button => {
-                const floatAmount = Math.random() * 5 + 3;
-                const duration = Math.random() * 1 + 3;
-                
-                button.style.setProperty('--float-amount', `${floatAmount}px`);
-                button.addEventListener('mouseenter', function() {
-                    this.style.animation = `float ${duration}s ease-in-out infinite`;
-                });
-                
-                button.addEventListener('mouseleave', function() {
-                    this.style.animation = '';
-                });
+        // Add hover effects to program sections
+        const programSections = document.querySelectorAll('.program-section');
+        programSections.forEach(section => {
+            section.addEventListener('mouseenter', function() {
+                this.style.transition = 'background-position 0.3s ease';
+                this.style.backgroundPosition = '5px 5px';
             });
-        }
-        
+            
+            section.addEventListener('mouseleave', function() {
+                this.style.backgroundPosition = '0 0';
+            });
+        });
+
+        // Add floating animation to filter buttons
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.animation = 'float 2s ease-in-out infinite';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.animation = '';
+            });
+        });
+
         // Add CSS keyframe for floating animation
         const style = document.createElement('style');
         style.textContent = `
             @keyframes float {
-                0%, 100% { transform: translateY(0) ; }
-                50% { transform: translateY(var(--float-amount, -10px)); }
-            }
-            
-            @keyframes bounce {
-                0% { transform: translateY(0) scale(1); }
-                50% { transform: translateY(-10px) scale(1.1); }
-                100% { transform: translateY(0) scale(1); }
+                0%, 100% { transform: translateY(-5px) scale(1.05); }
+                50% { transform: translateY(-8px) scale(1.05); }
             }
         `;
         document.head.appendChild(style);
-        
-        // Apply floating animation setup
-        createFloatingAnimation();
-        
-        // Add pattern animation on hover for program cards
-        const programCards = document.querySelectorAll('.program-block');
-        programCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transition = 'background-position 0.3s ease';
-                this.style.backgroundPosition = '10px 10px';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.backgroundPosition = '0 0';
-            });
-        });
     </script>
 </body>
 </html>
