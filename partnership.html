@@ -18,6 +18,9 @@
             --vintage-brown: #8b7355;
             --off-white: #fefdfb;
             --slate-blue: #6b7c93;
+            --burnt-orange: #d2691e;
+            --vintage-gold: #b8860b;
+            --deep-burgundy: #722f37;
             --shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
             --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -209,10 +212,10 @@
             transform: scale(1.1);
         }
 
-        /* ===== Hero Section (Lovebirdie Style) ===== */
+        /* ===== Hero Section (Vintage Style) ===== */
         .hero-section {
             height: 100vh;
-            background: linear-gradient(rgba(168, 181, 160, 0.3), rgba(157, 180, 192, 0.4)), 
+            background: linear-gradient(rgba(114, 47, 55, 0.4), rgba(139, 115, 85, 0.3)), 
                         url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1920&h=1080&fit=crop&crop=center');
             background-size: cover;
             background-position: center;
@@ -224,52 +227,88 @@
             overflow: hidden;
         }
 
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(216, 216, 216, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 40%, rgba(216, 216, 216, 0.08) 1px, transparent 1px),
+                radial-gradient(circle at 40% 80%, rgba(216, 216, 216, 0.12) 3px, transparent 3px);
+            background-size: 50px 50px, 30px 30px, 70px 70px;
+            pointer-events: none;
+        }
+
         .hero-badge {
             background: var(--off-white);
-            padding: 40px 50px;
-            clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
-            box-shadow: var(--shadow-medium);
+            padding: 50px 60px;
+            clip-path: polygon(25px 0%, 100% 0%, calc(100% - 25px) 100%, 0% 100%);
+            box-shadow: 
+                var(--shadow-medium),
+                inset 0 0 0 3px var(--vintage-gold),
+                inset 0 0 0 6px white,
+                inset 0 0 0 9px var(--deep-burgundy);
             text-align: center;
-            border: 3px solid var(--sage-green);
             position: relative;
+            transform: rotate(-1deg);
+            transition: var(--transition);
+        }
+
+        .hero-badge:hover {
+            transform: rotate(0deg) scale(1.02);
         }
 
         .hero-badge::before {
             content: '';
             position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border: 2px solid var(--dusty-blue);
-            clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px solid var(--burnt-orange);
+            clip-path: polygon(25px 0%, 100% 0%, calc(100% - 25px) 100%, 0% 100%);
             z-index: -1;
         }
 
         .hero-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            color: var(--sage-green);
-            margin-bottom: 10px;
-            font-weight: 600;
+            font-size: 4rem;
+            color: var(--deep-burgundy);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .hero-subtitle {
             font-family: 'Libre Baskerville', serif;
-            font-size: 1.1rem;
-            color: var(--charcoal);
+            font-size: 1.2rem;
+            color: var(--vintage-brown);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             font-weight: 400;
+            position: relative;
         }
 
-        /* ===== Navigation Tabs (Lovebirdie Style) ===== */
+        .hero-subtitle::before,
+        .hero-subtitle::after {
+            content: '◆';
+            color: var(--vintage-gold);
+            margin: 0 15px;
+            font-size: 0.8rem;
+        }
+
+        /* ===== Navigation Tabs (Vintage Style) ===== */
         .page-nav {
-            background: var(--off-white);
-            border-bottom: 1px solid var(--soft-gray);
+            background: linear-gradient(90deg, var(--warm-cream) 0%, var(--off-white) 50%, var(--warm-cream) 100%);
+            border-bottom: 3px solid var(--vintage-gold);
+            border-top: 1px solid var(--soft-gray);
             position: sticky;
             top: 100px;
             z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .nav-tabs {
@@ -277,32 +316,55 @@
             justify-content: center;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        .nav-tabs::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(184, 134, 11, 0.05) 10px,
+                rgba(184, 134, 11, 0.05) 11px
+            );
+            pointer-events: none;
         }
 
         .nav-tab {
-            padding: 20px 40px;
+            padding: 25px 45px;
             background: none;
             border: none;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--charcoal);
+            letter-spacing: 2px;
+            color: var(--vintage-brown);
             cursor: pointer;
             position: relative;
             transition: var(--transition);
+            border-left: 1px solid rgba(139, 115, 85, 0.2);
+        }
+
+        .nav-tab:first-child {
+            border-left: none;
         }
 
         .nav-tab::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -3px;
             left: 0;
             width: 0;
             height: 3px;
-            background: var(--sage-green);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, var(--burnt-orange), var(--vintage-gold));
+            transition: width 0.4s ease;
         }
 
         .nav-tab:hover::after,
@@ -312,7 +374,24 @@
 
         .nav-tab:hover,
         .nav-tab.active {
-            color: var(--sage-green);
+            color: var(--deep-burgundy);
+            background: rgba(210, 105, 30, 0.05);
+        }
+
+        .nav-tab::before {
+            content: '◆';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--vintage-gold);
+            font-size: 0.6rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-tab.active::before {
+            opacity: 1;
         }
 
         /* ===== Main Content Area ===== */
@@ -362,16 +441,43 @@
         }
 
         .column-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 30px;
-            background: var(--dusty-blue);
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 35px;
+            background: linear-gradient(135deg, var(--burnt-orange), var(--vintage-gold));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            box-shadow: 
+                var(--shadow-soft),
+                inset 0 0 0 3px white,
+                inset 0 0 0 6px var(--deep-burgundy);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .column-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .column-icon::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px dashed var(--vintage-gold);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .column-title {
@@ -394,6 +500,33 @@
         .partners-gallery {
             padding: 100px 0;
             background: var(--off-white);
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(168, 181, 160, 0.1) 2px,
+                rgba(168, 181, 160, 0.1) 3px
+            );
+            background-size: 20px 20px;
+            position: relative;
+        }
+
+        .partners-gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 1px,
+                rgba(157, 180, 192, 0.08) 1px,
+                rgba(157, 180, 192, 0.08) 2px
+            );
+            background-size: 12px 12px;
+            pointer-events: none;
         }
 
         .gallery-header {
@@ -519,31 +652,7 @@
             border: none;
         }
 
-        .map-arrow {
-            position: absolute;
-            top: 50%;
-            right: -60px;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 500;
-            background: var(--sage-green);
-            padding: 15px 20px;
-            border-radius: 25px;
-            animation: bounce 2s infinite;
-        }
 
-        .map-arrow::before {
-            content: '→';
-            margin-right: 8px;
-            font-size: 1.2rem;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(-50%); }
-            40% { transform: translateY(-60px); }
-            60% { transform: translateY(-40px); }
-        }
 
         /* ===== Success Story Section ===== */
         .success-story {
@@ -627,18 +736,30 @@
         }
 
         .step-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--sage-green);
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--deep-burgundy), var(--burnt-orange));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            margin: 0 auto 25px;
-            border: 4px solid white;
-            box-shadow: var(--shadow-soft);
+            font-size: 1.8rem;
+            margin: 0 auto 30px;
+            border: 5px solid white;
+            box-shadow: 
+                var(--shadow-soft),
+                0 0 0 3px var(--vintage-gold);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .step-icon:hover {
+            transform: scale(1.15);
+            box-shadow: 
+                var(--shadow-medium),
+                0 0 0 3px var(--vintage-gold),
+                0 0 20px rgba(210, 105, 30, 0.3);
         }
 
         .step-title {
@@ -735,24 +856,42 @@
 
         .submit-btn {
             width: 100%;
-            padding: 18px;
-            background: var(--slate-blue);
+            padding: 20px;
+            background: linear-gradient(135deg, var(--burnt-orange), var(--vintage-gold));
             color: white;
             border: none;
-            border-radius: 50px;
+            border-radius: 0;
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             cursor: pointer;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
         }
 
         .submit-btn:hover {
-            background: var(--sage-green);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-soft);
+            background: linear-gradient(135deg, var(--deep-burgundy), var(--burnt-orange));
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
         }
 
         /* ===== Responsive Design ===== */
@@ -967,13 +1106,12 @@
                         <h2 class="map-title">Building Networks of Care</h2>
                         <p class="map-subtitle">Starting from Dominican University</p>
                     </div>
-                    <div style="position: relative;">
-                        <iframe class="map-embed" 
-                                src="https://www.google.com/maps/embed/v1/place?q=dominican+university&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-                                allowfullscreen="">
-                        </iframe>
-                        <div class="map-arrow">Starting from here!</div>
-                    </div>
+                        <div class="map-embed">
+                            <iframe style="width: 100%; height: 400px; border: none;" 
+                                    src="https://www.google.com/maps/embed/v1/place?q=dominican+university&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                                    allowfullscreen="">
+                            </iframe>
+                        </div>
                 </div>
             </div>
         </section>
