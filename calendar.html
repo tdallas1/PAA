@@ -626,6 +626,18 @@
         .day-event.advocacy {
             background: linear-gradient(135deg, var(--soft-purple) 0%, #ddd2f0 100%);
         }
+
+        .day-event.social {
+            background: linear-gradient(135deg, #ffc6d2 0%, #ffb3c6 100%);
+        }
+
+        .day-event.fundraiser {
+            background: linear-gradient(135deg, #b3e5d1 0%, #9fdfbc 100%);
+        }
+
+        .day-event.memorial {
+            background: linear-gradient(135deg, #d1c4e9 0%, #b39ddb 100%);
+        }
         
         .calendar-day.other-month {
             opacity: 0.5;
@@ -745,6 +757,17 @@
             justify-content: flex-end;
             margin-top: 10px;
         }
+
+        /* Preface styling for event details */
+        .event-preface {
+            background: linear-gradient(135deg, rgba(249,209,217,0.1) 0%, rgba(209,224,246,0.1) 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--blush-pink);
+            font-style: italic;
+            line-height: 1.6;
+        }
         
         /* ===== Event Popup Modal ===== */
         .event-modal-overlay {
@@ -765,10 +788,11 @@
             background: linear-gradient(135deg, white 0%, #fefefe 100%);
             border-radius: 20px;
             width: 90%;
-            max-width: 500px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
             position: relative;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
             transform: scale(0.8);
             opacity: 0;
             transition: var(--transition-medium);
@@ -1849,18 +1873,18 @@
     <div class="month-navigation">
         <div class="container">
             <div class="month-tabs">
-                <div class="month-tab" data-month="march">March</div>
-                <div class="month-tab active" data-month="april">April</div>
-                <div class="month-tab" data-month="may">May</div>
-                <div class="month-tab" data-month="june">June</div>
-                <div class="month-tab" data-month="july">July</div>
                 <div class="month-tab" data-month="august">August</div>
-                <div class="month-tab" data-month="september">September</div>
+                <div class="month-tab active" data-month="september">September</div>
                 <div class="month-tab" data-month="october">October</div>
                 <div class="month-tab" data-month="november">November</div>
                 <div class="month-tab" data-month="december">December</div>
                 <div class="month-tab" data-month="january">January</div>
                 <div class="month-tab" data-month="february">February</div>
+                <div class="month-tab" data-month="march">March</div>
+                <div class="month-tab" data-month="april">April</div>
+                <div class="month-tab" data-month="may">May</div>
+                <div class="month-tab" data-month="june">June</div>
+                <div class="month-tab" data-month="july">July</div>
             </div>
         </div>
     </div>
@@ -1891,6 +1915,18 @@
                     <div class="event-type" data-type="advocacy">
                         <i class="fas fa-bullhorn"></i>
                         <div class="event-type-label">Advocacy</div>
+                    </div>
+                    <div class="event-type" data-type="social">
+                        <i class="fas fa-users"></i>
+                        <div class="event-type-label">Social</div>
+                    </div>
+                    <div class="event-type" data-type="fundraiser">
+                        <i class="fas fa-dollar-sign"></i>
+                        <div class="event-type-label">Fundraiser</div>
+                    </div>
+                    <div class="event-type" data-type="memorial">
+                        <i class="fas fa-heart"></i>
+                        <div class="event-type-label">Memorial</div>
                     </div>
                 </div>
             </section>
@@ -2034,6 +2070,9 @@
                 </div>
             </div>
             <div class="event-modal-body">
+                <div class="event-preface" id="modal-preface" style="display: none;">
+                    <!-- Preface content will be inserted here -->
+                </div>
                 <div class="event-modal-description">
                     Event description will appear here.
                 </div>
@@ -2053,16 +2092,6 @@
     <footer>
         <div class="container">
             <div class="footer-container">
-                <div class="footer-column">
-                    <h3>About PAA</h3>
-                    <div class="footer-handwritten handwritten">learn our story</div>
-                    <ul class="footer-links">
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Our Team</a></li>
-                        <li><a href="#">History</a></li>
-                        <li><a href="#">Impact</a></li>
-                    </ul>
-                </div>
                 <div class="footer-column">
                     <h3>Get Involved</h3>
                     <div class="footer-handwritten handwritten">join the movement</div>
@@ -2109,160 +2138,133 @@
     
     <!-- JavaScript -->
     <script>
-        // Calendar Data - Current functionality reflects the current date
+        // Calendar Data - Updated with Fall 2025 events
         const currentDate = new Date();
-        const currentMonth = currentDate.getMonth() + 1; // JavaScript months are 0-indexed
+        const currentMonth = currentDate.getMonth() + 1;
         const currentYear = currentDate.getFullYear();
         const currentDay = currentDate.getDate();
 
-        // Event data for each month
+        // Event data for each month with Fall 2025 events
         const eventData = {
-            march: {
-                year: 2025,
-                month: 3,
-                subtitle: "New Beginnings",
-                events: [
-                    { day: 15, title: "Spring Kickoff Event", type: "social" },
-                    { day: 22, title: "Child Health Awareness", type: "advocacy" },
-                    { day: 29, title: "Volunteer Orientation", type: "volunteer" }
-                ]
-            },
-            april: {
-                year: 2025,
-                month: 4,
-                subtitle: "Child Abuse Prevention",
-                highlighted: "Family Resource Day",
-                events: [
-                    { 
-                        day: 1, 
-                        title: "Child Abuse Prevention Month Begins", 
-                        type: "drive",
-                        description: "Join us as we kick off Child Abuse Prevention Month with our campus-wide blue ribbon campaign. Throughout April, we'll host educational workshops and awareness events to support this important cause.",
-                        location: "Campus-wide",
-                        time: "All Day"
-                    },
-                    { 
-                        day: 10, 
-                        title: "Pediatric Advocacy Day: Action for Change", 
-                        type: "advocacy",
-                        description: "A day dedicated to advocating for children's health and welfare policies. Learn advocacy skills, participate in letter-writing campaigns, and connect with local representatives.",
-                        location: "Student Center",
-                        time: "9:00 AM - 3:00 PM"
-                    },
-                    { 
-                        day: 11, 
-                        title: "Board Application Closes", 
-                        type: "social",
-                        description: "Last day to submit your application to join the 2025-2026 PAA Executive Board.",
-                        location: "Online",
-                        time: "11:59 PM"
-                    },
-                    { 
-                        day: 22, 
-                        title: "Family Resource Day", 
-                        type: "workshop",
-                        description: "This hands-on workshop is all about guiding families through the enrollment process for critical programs like Medicaid, SNAP, childcare assistance, and more.",
-                        location: "Elmwood Park Public Library",
-                        time: "5:00 PM - 7:00 PM"
-                    },
-                    { 
-                        day: 22, 
-                        title: "Sunshine & Service: Bundles of Joy Assembling", 
-                        type: "volunteer",
-                        description: "Join us for a cozy spring afternoon as we gather to assemble our first round of Bundles of Joy!",
-                        location: "The Grotto & Labyrinth",
-                        time: "3:00 PM - 4:15 PM"
-                    },
-                    { 
-                        day: 25, 
-                        title: "2025-2026 Board Member Reveal", 
-                        type: "social",
-                        description: "Join us for the exciting reveal of our new 2025-2026 Executive Board members!",
-                        location: "Parmer Hall, Room 108",
-                        time: "4:00 PM - 5:30 PM"
-                    }
-                ]
-            },
-            may: {
-                year: 2025,
-                month: 5,
-                subtitle: "Mental Health Awareness",
-                highlighted: "Mental Health Panel Discussion",
-                events: [
-                    { day: 5, title: "Mental Health Week Begins", type: "advocacy" },
-                    { day: 12, title: "Mindfulness Workshop", type: "workshop" },
-                    { day: 20, title: "Mental Health Panel Discussion", type: "workshop" },
-                    { day: 27, title: "End of Year Celebration", type: "social" }
-                ]
-            },
-            june: {
-                year: 2025,
-                month: 6,
-                subtitle: "Summer Health & Safety",
-                events: [
-                    { day: 3, title: "Summer Safety Workshop", type: "workshop" },
-                    { day: 15, title: "Community Health Fair", type: "workshop" },
-                    { day: 22, title: "Summer Volunteer Signup", type: "volunteer" }
-                ]
-            },
-            july: {
-                year: 2025,
-                month: 7,
-                subtitle: "Childhood Enrichment",
-                events: [
-                    { day: 4, title: "Independence Day Event", type: "social" },
-                    { day: 18, title: "Summer Reading Program", type: "workshop" },
-                    { day: 25, title: "Art & Crafts Volunteer Day", type: "volunteer" }
-                ]
-            },
             august: {
                 year: 2025,
                 month: 8,
-                subtitle: "Back to School Wellness",
+                subtitle: "Launching into Action",
+                highlighted: "PAA Work Week",
                 events: [
-                    { day: 8, title: "Back to School Drive", type: "drive" },
-                    { day: 15, title: "School Supply Distribution", type: "volunteer" },
-                    { day: 29, title: "New Student Orientation", type: "social" }
+                    { 
+                        day: 25, 
+                        title: "PAA Work Week", 
+                        type: "social",
+                        description: "A week-long initiative for Executive Board alignment, planning, and building visibility with hoodie handouts and social media campaigns.",
+                        location: "Campus-wide",
+                        time: "All Week",
+                        preface: "A launchpad for connection and collaboration, PAA Work Week gives our Executive Board time to align, plan, and build visibility. With hoodie handouts, social media rollouts, and team meetings, it sets the tone for a high-impact semester rooted in service and sisterhood."
+                    },
+                    { 
+                        day: 30, 
+                        title: "Wash & Raise: For the Littles", 
+                        type: "fundraiser",
+                        description: "Community car wash fundraiser featuring PAA crop tops, music, and mission-driven energy to raise funds for child-focused outreach.",
+                        location: "Campus Parking Lot",
+                        time: "10:00 AM - 4:00 PM",
+                        preface: "This public-facing fundraiser brings our community together to raise funds for child-focused outreach. With PAA crop tops, music, and a mission-driven vibe, it's the perfect kickoff that reminds us how teamwork can fuel real change."
+                    }
                 ]
             },
             september: {
                 year: 2025,
                 month: 9,
-                subtitle: "Childhood Obesity Prevention",
+                subtitle: "Strength in Sisterhood",
+                highlighted: "Strong Starts with Sisterhood",
                 events: [
-                    { day: 7, title: "Healthy Eating Workshop", type: "workshop" },
-                    { day: 14, title: "Community Garden Day", type: "volunteer" },
-                    { day: 28, title: "Nutrition Panel Discussion", type: "advocacy" }
+                    { 
+                        day: 15, 
+                        title: "Strong Starts with Sisterhood", 
+                        type: "volunteer",
+                        description: "Partnering with local Girl Scout troops to provide health, confidence, and creativity-based programming that empowers the next generation of girls.",
+                        location: "Local Girl Scout Centers",
+                        time: "2:00 PM - 5:00 PM",
+                        preface: "Partnering with local Girl Scout troops, this event offers health, confidence, and creativity-based programming that empowers the next generation of girls. It's a powerful reminder that advocacy starts early—and starts with us."
+                    }
                 ]
             },
             october: {
                 year: 2025,
                 month: 10,
-                subtitle: "Bullying Prevention",
+                subtitle: "Remembrance & Joy",
+                highlighted: "Under the Same Moon: A Night for Them",
                 events: [
-                    { day: 5, title: "Bullying Prevention Week", type: "advocacy" },
-                    { day: 12, title: "Safe Schools Forum", type: "advocacy" },
-                    { day: 26, title: "Community Support Drive", type: "drive" }
+                    { 
+                        day: 12, 
+                        title: "Trunk-or-Treat with Purpose", 
+                        type: "social",
+                        description: "Community-facing event bringing joy and safety to families during spooky season with age-themed trunks and intentional goodie bags.",
+                        location: "Campus Quad",
+                        time: "4:00 PM - 7:00 PM",
+                        preface: "Designed to bring joy and safety to families during spooky season, this community-facing event uses age-themed trunks and intentional goodie bags to promote child well-being. It's festive, heartwarming, and built on service."
+                    },
+                    { 
+                        day: 25, 
+                        title: "Under the Same Moon: A Night for Them", 
+                        type: "memorial",
+                        description: "Our most sacred event - a sky lantern festival to honor every child we've lost too soon, from illness to violence to those simply vanished without a trace.",
+                        location: "The Grotto & Labyrinth",
+                        time: "7:00 PM - 9:00 PM",
+                        preface: "This is our most sacred event of the semester. Under the Same Moon is a collective night of remembrance for every child we've lost too soon—those taken by illness, unstable home environments, miscarriage or stillbirth, maternal mortality, violence, natural disaster, displacement, or simply vanished without a trace. From the children in Gaza to those affected by the Texas floods and the quiet grief of families everywhere, we release light into the sky to honor them. It's a moment to mourn, reflect, and recommit ourselves to building a world where every child is safe, seen, and held with love."
+                    }
                 ]
             },
             november: {
                 year: 2025,
                 month: 11,
-                subtitle: "Children's Health Month",
+                subtitle: "Hope & Connection",
+                highlighted: "PAA After Dark",
                 events: [
-                    { day: 3, title: "Children's Health Fair", type: "workshop" },
-                    { day: 10, title: "Health Screening Day", type: "volunteer" },
-                    { day: 24, title: "Thanksgiving Community Dinner", type: "social" }
+                    { 
+                        day: 8, 
+                        title: "PAA After Dark", 
+                        type: "social",
+                        description: "Cozy dorm lounge takeover bringing students together to unwind, share, and learn through games, snacks, and advocacy conversations.",
+                        location: "Dorm Lounges",
+                        time: "7:00 PM - 11:00 PM",
+                        preface: "Cozy and connected, this dorm lounge takeover brings students together to unwind, share, and learn through games, snacks, and advocacy conversations. It's teenhood nostalgia with a purpose."
+                    },
+                    { 
+                        day: 15, 
+                        title: "Hope on the Windshield", 
+                        type: "volunteer",
+                        description: "Quiet act of kindness where we write heartfelt notes and place them on cars in hospital lots, uplifting families, staff, and patients.",
+                        location: "Local Hospital Parking Lots",
+                        time: "12:00 PM - 3:00 PM",
+                        preface: "In this quiet act of kindness, we write heartfelt notes and place them on cars in hospital lots, uplifting families, staff, and patients. It's a reminder that small gestures can create big hope."
+                    },
+                    { 
+                        day: 22, 
+                        title: "Restock & Reach Out", 
+                        type: "drive",
+                        description: "Year-end donation drive partnering with River Forest Methodist Church to meet real needs of partner organizations with flexible, impactful giving.",
+                        location: "River Forest Methodist Church",
+                        time: "10:00 AM - 2:00 PM",
+                        preface: "As the year winds down, this drive centers on meeting the real needs of partner organizations. It's flexible, impactful, and rooted in our mission to reach children and families where they are—with love and supplies in hand."
+                    }
                 ]
             },
             december: {
                 year: 2025,
                 month: 12,
-                subtitle: "Holiday Giving",
+                subtitle: "Joy & Purpose",
+                highlighted: "Tiny Tinsel Trot",
                 events: [
-                    { day: 7, title: "Holiday Toy Drive", type: "drive" },
-                    { day: 14, title: "Gift Wrapping Volunteer Day", type: "volunteer" },
-                    { day: 21, title: "Winter Holiday Party", type: "social" }
+                    { 
+                        day: 7, 
+                        title: "Tiny Tinsel Trot", 
+                        type: "fundraiser",
+                        description: "Festive 5K Jingle Bell Run in custom PAA onesies and accessories, advocating for little lives with joy, love, and purpose.",
+                        location: "Elmwood Park",
+                        time: "9:00 AM - 12:00 PM",
+                        preface: "We end the semester with cheer and purpose by joining the Jingle Bell Run in custom PAA onesies and accessories. This festive 5K lets us advocate for little lives in a big way—running with joy, love, and a cause."
+                    }
                 ]
             },
             january: {
@@ -2283,6 +2285,71 @@
                     { day: 7, title: "Heart Health Awareness", type: "advocacy" },
                     { day: 14, title: "Valentine's Day Fundraiser", type: "drive" },
                     { day: 28, title: "CPR Certification Workshop", type: "workshop" }
+                ]
+            },
+            march: {
+                year: 2026,
+                month: 3,
+                subtitle: "New Beginnings",
+                events: [
+                    { day: 15, title: "Spring Kickoff Event", type: "social" },
+                    { day: 22, title: "Child Health Awareness", type: "advocacy" },
+                    { day: 29, title: "Volunteer Orientation", type: "volunteer" }
+                ]
+            },
+            april: {
+                year: 2026,
+                month: 4,
+                subtitle: "Child Abuse Prevention",
+                highlighted: "Family Resource Day",
+                events: [
+                    { 
+                        day: 1, 
+                        title: "Child Abuse Prevention Month Begins", 
+                        type: "drive",
+                        description: "Join us as we kick off Child Abuse Prevention Month with our campus-wide blue ribbon campaign.",
+                        location: "Campus-wide",
+                        time: "All Day"
+                    },
+                    { 
+                        day: 22, 
+                        title: "Family Resource Day", 
+                        type: "workshop",
+                        description: "Hands-on workshop guiding families through enrollment for critical programs like Medicaid, SNAP, and childcare assistance.",
+                        location: "Elmwood Park Public Library",
+                        time: "5:00 PM - 7:00 PM"
+                    }
+                ]
+            },
+            may: {
+                year: 2026,
+                month: 5,
+                subtitle: "Mental Health Awareness",
+                events: [
+                    { day: 5, title: "Mental Health Week Begins", type: "advocacy" },
+                    { day: 12, title: "Mindfulness Workshop", type: "workshop" },
+                    { day: 20, title: "Mental Health Panel Discussion", type: "workshop" },
+                    { day: 27, title: "End of Year Celebration", type: "social" }
+                ]
+            },
+            june: {
+                year: 2026,
+                month: 6,
+                subtitle: "Summer Health & Safety",
+                events: [
+                    { day: 3, title: "Summer Safety Workshop", type: "workshop" },
+                    { day: 15, title: "Community Health Fair", type: "workshop" },
+                    { day: 22, title: "Summer Volunteer Signup", type: "volunteer" }
+                ]
+            },
+            july: {
+                year: 2026,
+                month: 7,
+                subtitle: "Childhood Enrichment",
+                events: [
+                    { day: 4, title: "Independence Day Event", type: "social" },
+                    { day: 18, title: "Summer Reading Program", type: "workshop" },
+                    { day: 25, title: "Art & Crafts Volunteer Day", type: "volunteer" }
                 ]
             }
         };
@@ -2339,7 +2406,7 @@
             const section = document.createElement('section');
             section.id = monthKey;
             section.className = 'calendar-section reveal';
-            if (monthKey !== 'april') {
+            if (monthKey !== 'september') {
                 section.style.display = 'none';
             }
 
@@ -2433,7 +2500,7 @@
                             ${event.description || 'Details coming soon!'}
                         </div>
                         <div class="event-actions">
-                            <a href="#" class="btn" onclick="openEventModal('${monthKey}', '${event.day}', '${event.title.replace(/'/g, "\\'")}')">View Details</a>
+                            <button class="btn" onclick="openEventModal(${JSON.stringify(event).replace(/"/g, '&quot;')}, '${monthKey}')">View Details</button>
                         </div>
                     </div>
                 `;
@@ -2489,25 +2556,12 @@
         // Month tab navigation
         function setupMonthNavigation() {
             const monthTabs = document.querySelectorAll('.month-tab');
-            const currentMonthIndex = currentMonth - 1;
             
-            // Set initial active month based on current date
-            if (currentMonth >= 3 && currentMonth <= 12 && currentYear === 2025) {
-                const currentMonthKey = Object.keys(eventData).find(key => 
-                    eventData[key].month === currentMonth && eventData[key].year === currentYear
-                );
-                if (currentMonthKey) {
-                    // Show current month
-                    document.querySelectorAll('.calendar-section').forEach(section => {
-                        section.style.display = 'none';
-                    });
-                    document.getElementById(currentMonthKey).style.display = 'block';
-                    
-                    // Update active tab
-                    monthTabs.forEach(tab => tab.classList.remove('active'));
-                    document.querySelector(`[data-month="${currentMonthKey}"]`).classList.add('active');
-                }
-            }
+            // Set September as default active month for Fall 2025
+            document.querySelectorAll('.calendar-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('september').style.display = 'block';
 
             monthTabs.forEach(tab => {
                 tab.addEventListener('click', function() {
@@ -2571,6 +2625,15 @@
             modal.querySelector('#modal-time').textContent = event.time || 'Time TBD';
             modal.querySelector('#modal-location').textContent = event.location || 'Location TBD';
             modal.querySelector('.event-modal-description').textContent = event.description || 'Details coming soon!';
+
+            // Show/hide preface if it exists
+            const prefaceEl = modal.querySelector('#modal-preface');
+            if (event.preface) {
+                prefaceEl.textContent = event.preface;
+                prefaceEl.style.display = 'block';
+            } else {
+                prefaceEl.style.display = 'none';
+            }
 
             // Clear and add tags
             const tagsContainer = modal.querySelector('.event-modal-tags');
@@ -2717,4 +2780,3 @@
         });
     </script>
 </body>
-</html>
