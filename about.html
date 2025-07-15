@@ -633,262 +633,194 @@
             box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
         }
 
-        /* ===== Leaders Section (from PAA2) ===== */
-        .leaders-section {
+        /* ===== Fast Facts Section ===== */
+        .fast-facts-section {
             padding: 80px 0;
             background: var(--cream);
             overflow: hidden;
             position: relative;
         }
-        
-        .book-container {
-            max-width: 900px;
-            height: 650px;
-            margin: 0 auto;
-            position: relative;
-            perspective: 2000px;
-        }
-        
-        .book {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transform: rotateX(10deg);
-            transition: transform 0.5s ease;
-        }
-        
-        .page {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            border-radius: 10px;
-            transform-origin: left center;
-            transform-style: preserve-3d;
-            transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-            box-shadow: var(--shadow);
-            padding: 3.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
-        /* Scrapbook Page Patterns */
-        .page:nth-child(1) {
-            background-image: radial-gradient(circle at 20% 20%, #fff8dc 8px, transparent 8px),
-                              radial-gradient(circle at 80% 40%, #fff8dc 6px, transparent 6px),
-                              radial-gradient(circle at 40% 80%, #fff8dc 7px, transparent 7px);
-            background-size: 40px 40px, 35px 35px, 45px 45px;
-            background-color: #fef9f0;
-        }
-
-        .page:nth-child(2) {
-            background-image: repeating-linear-gradient(
-                0deg,
-                #f9d1d9,
-                #f9d1d9 8px,
-                #d1e0f6 8px,
-                #d1e0f6 16px,
-                #ffffff 16px,
-                #ffffff 24px
-            );
-        }
-
-        .page:nth-child(3) {
-            background-image: 
-                repeating-linear-gradient(0deg, #e6e0f4, #e6e0f4 12px, transparent 12px, transparent 24px),
-                repeating-linear-gradient(90deg, #e6e0f4, #e6e0f4 12px, transparent 12px, transparent 24px);
-            background-color: white;
-        }
-
-        .page:nth-child(4) {
-            background-image: 
-                radial-gradient(circle at 15% 25%, #e6f0e4 4px, transparent 4px),
-                radial-gradient(circle at 45% 15%, #f9d1d9 3px, transparent 3px),
-                radial-gradient(circle at 75% 35%, #e6e0f4 4px, transparent 4px),
-                radial-gradient(circle at 25% 65%, #d1e0f6 3px, transparent 3px),
-                radial-gradient(circle at 85% 75%, #fcf5d9 4px, transparent 4px);
-            background-size: 50px 50px, 45px 45px, 55px 55px, 40px 40px, 48px 48px;
-            background-color: #f8f8f8;
-        }
-
-        .page:nth-child(5) {
-            background-image: 
-                linear-gradient(#d1e0f6 1px, transparent 1px),
-                linear-gradient(90deg, #d1e0f6 1px, transparent 1px);
-            background-size: 20px 20px;
-            background-color: white;
-        }
-
-        .page:nth-child(6) {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23f9d1d9' fill-opacity='0.3'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E");
-            background-color: #fefefe;
-        }
-
-        .page:nth-child(7) {
-            background-image: 
-                linear-gradient(45deg, #fcf5d9 25%, transparent 25%),
-                linear-gradient(-45deg, #e6f0e4 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, #f9d1d9 75%),
-                linear-gradient(-45deg, transparent 75%, #e6e0f4 75%);
-            background-size: 30px 30px;
-            background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
-            background-color: white;
-        }
-
-        .page:nth-child(8) {
-            background-image: 
-                radial-gradient(circle at 50% 50%, #fff8dc 12px, transparent 12px),
-                radial-gradient(circle at 25% 25%, #ff97aa 8px, transparent 8px),
-                radial-gradient(circle at 75% 75%, #fff8dc 10px, transparent 10px);
-            background-size: 60px 60px, 45px 45px, 55px 55px;
-            background-color: #fef9f0;
-        }
-
-        .page:nth-child(9) {
-            background-image: 
-                radial-gradient(ellipse at top, #e6f0e4 0%, transparent 70%),
-                radial-gradient(ellipse at bottom, #d1e0f6 0%, transparent 70%),
-                linear-gradient(45deg, transparent 40%, rgba(230, 240, 228, 0.3) 50%, transparent 60%);
-            background-color: white;
-        }
-
-        .page:nth-child(10) {
-            background-image: 
-                radial-gradient(ellipse at top, #e6f0e4 0%, transparent 70%),
-                radial-gradient(ellipse at bottom, #d1e0f6 0%, transparent 70%),
-                linear-gradient(45deg, transparent 40%, rgba(230, 240, 228, 0.3) 50%, transparent 60%);
-            background-color: white;
-        }
-
-        .page:nth-child(11) {
-            background-image: 
-                radial-gradient(ellipse 60px 40px at 20% 30%, #d1e0f6 40%, transparent 40%),
-                radial-gradient(ellipse 80px 50px at 70% 20%, #ffffff 40%, transparent 40%),
-                radial-gradient(ellipse 100px 60px at 40% 70%, #d1e0f6 40%, transparent 40%);
-            background-color: #f0f8ff;
-        }
-
-        .page:nth-child(12) {
-            background-image: 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23f9d1d9' fill-opacity='0.2'%3E%3Cpath d='M10 10l5 0 0 5-5 0z'/%3E%3Cpath d='M45 15l3 0 0 3-3 0z'/%3E%3Cpath d='M20 35l4 0 0 4-4 0z'/%3E%3Cpath d='M50 45l2 0 0 2-2 0z'/%3E%3C/g%3E%3C/svg%3E");
-            background-color: white;
-        }
-        
-        .page-content {
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-        }
-        
-        .leader-polaroid {
-            width: 340px;
-            height: 400px;
-            background-color: white;
-            border: 18px solid white;
-            box-shadow: var(--shadow);
-            position: relative;
-            transform: rotate(-3deg);
-            margin-bottom: 2.5rem;
-            transition: var(--transition-medium);
-        }
-        
-        .leader-polaroid:hover {
-            transform: rotate(2deg) translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .leader-photo {
-            width: 100%;
-            height: 100%;
-            background-color: #f5f5f5;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .leader-name-container {
-            position: relative;
-            width: 100%;
-            height: 70px;
-            margin-bottom: 1.8rem;
-        }
-        
-        .leader-name {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
-            color: var(--blush-pink);
+        .fast-facts-section::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            text-align: center;
-            opacity: 0;
-            transition: all 0.5s ease;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f9d1d9' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            pointer-events: none;
         }
-        
-        .leader-name.show {
-            opacity: 1;
-        }
-        
-        .leader-title {
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--dark-text);
-            text-align: center;
-        }
-        
-        .leader-fact-container {
-            background-color: var(--pastel-yellow);
-            padding: 1.8rem;
-            border-radius: 12px;
-            transform: rotate(2deg);
-            margin-bottom: 1rem;
-            max-width: 390px;
+
+        /* ===== Interactive Facts Grid ===== */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
             position: relative;
-            box-shadow: var(--shadow);
-            transition: var(--transition-medium);
+            z-index: 2;
         }
-        
-        .leader-fact-container:hover {
-            transform: rotate(-1deg) translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        .leader-fact {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        .book-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .book-btn {
-            padding: 1rem 2.5rem;
-            background-color: var(--blush-pink);
-            border: none;
-            border-radius: 30px;
+
+        .fact-card {
+            background: linear-gradient(135deg, var(--white) 0%, #fefefe 100%);
+            border-radius: var(--border-radius);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
             cursor: pointer;
-            transition: var(--transition-medium);
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: white;
-            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
+            border: 2px solid transparent;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        
-        .book-btn:hover {
-            background-color: var(--baby-blue);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+
+        /* Background patterns for different cards */
+        .fact-card:nth-child(1) {
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(249,209,217,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 80%, rgba(209,224,246,0.1) 2px, transparent 2px);
+            background-size: 30px 30px, 25px 25px;
+            background-color: var(--white);
+        }
+
+        .fact-card:nth-child(2) {
+            background: linear-gradient(135deg, rgba(232,225,255,0.3) 0%, var(--white) 100%);
+        }
+
+        .fact-card:nth-child(3) {
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(230,240,228,0.1) 15px, rgba(230,240,228,0.1) 17px);
+            background-color: var(--white);
+        }
+
+        .fact-card:nth-child(4) {
+            background: linear-gradient(135deg, rgba(252,245,217,0.4) 0%, var(--white) 100%);
+        }
+
+        .fact-card:nth-child(5) {
+            background-image: 
+                radial-gradient(circle at 25% 75%, rgba(255,151,170,0.08) 3px, transparent 3px),
+                radial-gradient(circle at 75% 25%, rgba(209,224,246,0.08) 4px, transparent 4px);
+            background-size: 40px 40px, 35px 35px;
+            background-color: var(--white);
+        }
+
+        .fact-card:nth-child(6) {
+            background: linear-gradient(135deg, rgba(230,224,244,0.3) 0%, var(--white) 100%);
+        }
+
+        .fact-card:nth-child(7) {
+            background-image: 
+                linear-gradient(45deg, rgba(249,209,217,0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(230,240,228,0.05) 25%, transparent 25%);
+            background-size: 20px 20px;
+            background-color: var(--white);
+        }
+
+        .fact-card:nth-child(8) {
+            background: linear-gradient(135deg, rgba(255,241,247,0.6) 0%, var(--white) 100%);
+        }
+
+        .fact-card:nth-child(9) {
+            background: linear-gradient(135deg, rgba(255,241,247,0.6) 0%, var(--white) 100%);
+        }
+
+        .fact-card:nth-child(10) {
+            background-image: 
+                radial-gradient(circle at 15% 85%, rgba(230,224,244,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 85% 15%, rgba(252,245,217,0.1) 3px, transparent 3px);
+            background-size: 25px 25px, 30px 30px;
+            background-color: var(--white);
+        }
+
+        .fact-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-strong);
+            border-color: var(--coral-pink);
+        }
+
+        .fact-card.flipped {
+            background: linear-gradient(135deg, var(--hot-rose) 0%, var(--coral-pink) 100%);
+            color: var(--white);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-strong);
+            border-color: var(--hot-rose);
+        }
+
+        .fact-front {
+            transition: all 0.4s ease;
+        }
+
+        .fact-card.flipped .fact-front {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .fact-back {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) translateY(10px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            text-align: center;
+            padding: 10px;
+            width: 90%;
+        }
+
+        .fact-card.flipped .fact-back {
+            opacity: 1;
+            transform: translate(-50%, -50%) translateY(0);
+        }
+
+        .fact-category {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .fact-card.flipped .fact-category {
+            color: var(--white);
+        }
+
+        .fact-icon {
+            font-size: 1.5rem;
+            color: var(--hot-rose);
+            margin-bottom: 8px;
+        }
+
+        .fact-card.flipped .fact-icon {
+            color: var(--white);
+        }
+
+        .fact-reveal {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--white);
+        }
+
+        .fact-reveal strong {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .fact-reveal em {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            font-style: normal;
         }
 
         /* Values Row */
@@ -1133,6 +1065,23 @@
         @keyframes float {
             0%, 100% { transform: translateY(0) scale(1); }
             50% { transform: translateY(-10px) scale(1.1); }
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         /* Build a Member Game Modal */
@@ -1403,61 +1352,6 @@
             box-shadow: 0 8px 25px rgba(242, 92, 143, 0.6);
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .build-member-content {
-                width: 95%;
-                height: 85vh;
-            }
-
-            .build-member-body {
-                flex-direction: column;
-            }
-
-            .character-preview {
-                flex: none;
-                height: 200px;
-                padding: 20px;
-            }
-
-            .character-display {
-                width: 150px;
-                height: 180px;
-                margin-bottom: 10px;
-            }
-
-            .character-avatar {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-
-            .character-outfit {
-                font-size: 2rem;
-            }
-
-            .customization-panel {
-                padding: 20px;
-            }
-
-            .option-grid {
-                grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-            }
-
-            .option-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .game-trigger-btn {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
         footer {
             background-color: var(--dark-text);
             padding: 60px 0 30px;
@@ -1532,7 +1426,7 @@
             padding: 0.5rem 1rem;
         }
 
-        /* Responsive Styles */
+        /* ===== Mobile Responsiveness ===== */
         @media (max-width: 992px) {
             .hero-title {
                 font-size: 3.5rem;
@@ -1561,14 +1455,10 @@
                 height: 50px;
                 margin-top: 25px;
             }
-            
-            .book-container {
-                height: 550px;
-            }
-            
-            .leader-polaroid {
-                width: 280px;
-                height: 340px;
+
+            .facts-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 700px;
             }
         }
         
@@ -1656,14 +1546,82 @@
                 width: 130px;
                 height: 280px;
             }
-            
-            .leader-polaroid {
-                width: 250px;
-                height: 300px;
+
+            .facts-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                max-width: 400px;
             }
-            
-            .leader-name {
-                font-size: 1.8rem;
+
+            .fact-card {
+                padding: 20px 15px;
+                min-height: 120px;
+            }
+
+            .fact-category {
+                font-size: 1rem;
+            }
+
+            .advisors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .advisors-section {
+                padding: 40px 20px;
+                margin-top: 60px;
+            }
+
+            .build-member-content {
+                width: 95%;
+                height: 85vh;
+            }
+
+            .build-member-body {
+                flex-direction: column;
+            }
+
+            .character-preview {
+                flex: none;
+                height: 200px;
+                padding: 20px;
+            }
+
+            .character-display {
+                width: 150px;
+                height: 180px;
+                margin-bottom: 10px;
+            }
+
+            .character-avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .character-outfit {
+                font-size: 2rem;
+            }
+
+            .customization-panel {
+                padding: 20px;
+            }
+
+            .option-grid {
+                grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+            }
+
+            .option-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .game-trigger-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
             }
         }
         
@@ -1694,13 +1652,41 @@
                 gap: 1rem;
             }
 
-            .leader-polaroid {
-                width: 220px;
-                height: 270px;
+            .advisors-title {
+                font-size: 2rem;
             }
-            
-            .leader-name {
-                font-size: 1.6rem;
+
+            .fact-card {
+                min-height: 100px;
+            }
+        }
+
+        /* ===== Animation for page load ===== */
+        .fact-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .fact-card:nth-child(1) { animation-delay: 0.1s; }
+        .fact-card:nth-child(2) { animation-delay: 0.2s; }
+        .fact-card:nth-child(3) { animation-delay: 0.3s; }
+        .fact-card:nth-child(4) { animation-delay: 0.4s; }
+        .fact-card:nth-child(5) { animation-delay: 0.5s; }
+        .fact-card:nth-child(6) { animation-delay: 0.6s; }
+        .fact-card:nth-child(7) { animation-delay: 0.7s; }
+        .fact-card:nth-child(8) { animation-delay: 0.8s; }
+        .fact-card:nth-child(9) { animation-delay: 0.9s; }
+        .fact-card:nth-child(10) { animation-delay: 1.0s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -1903,24 +1889,143 @@
         </div>
     </section>
 
-    <!-- Leaders Section (from PAA2) -->
-    <section class="leaders-section">
+    <!-- Fast Facts Section -->
+    <section class="fast-facts-section">
         <div class="container">
             <div class="section-title">
-                <h2>Meet Our <span class="calligraphy">Leaders</span></h2>
-                <p>The passionate individuals behind our mission.</p>
+                <h2>PAA <span class="calligraphy">Quick Facts</span></h2>
+                <p class="section-subtitle">Get to know us better - click each card to discover more!</p>
             </div>
-            <div class="book-container">
-                <div class="book" id="leaderBook">
-                    <!-- Pages will be added by JavaScript -->
+            
+            <div class="facts-grid">
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-university"></i></div>
+                        <div class="fact-category">Founded</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <strong>October 2024</strong>
+                            at Dominican University
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-crown"></i></div>
+                        <div class="fact-category">Founder</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <strong>Trinity Dallas</strong>
+                            Visionary leader and advocate for children's rights
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-heart"></i></div>
+                        <div class="fact-category">Mantra</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <em>"Lead with heart. Serve with purpose."</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-users"></i></div>
+                        <div class="fact-category">Number of Members</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <strong>70+ active members</strong>
+                            (and growing!) committed to pediatric advocacy, outreach, and education
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-shapes"></i></div>
+                        <div class="fact-category">Mascot</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <strong>A baby bird and a teddy bear</strong>
+                            Soft symbols of care and childhood
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-palette"></i></div>
+                        <div class="fact-category">Colors</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <strong>Pastel rainbow</strong>
+                            Reflecting hope, diversity, and childhood joy
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-seedling"></i></div>
+                        <div class="fact-category">Flower</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <strong>Baby's Breath</strong>
+                            Delicate and pure, like the children we serve
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-bullseye"></i></div>
+                        <div class="fact-category">Core Focus</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <strong>Child well-being</strong>
+                            through advocacy, education, and community action
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-quote-left"></i></div>
+                        <div class="fact-category">Favorite Phrase</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <em>"with love, PAA"</em>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fact-card" onclick="flipCard(this)">
+                    <div class="fact-front">
+                        <div class="fact-icon"><i class="fas fa-user-graduate"></i></div>
+                        <div class="fact-category">Our Advisors</div>
+                    </div>
+                    <div class="fact-back">
+                        <div class="fact-reveal">
+                            <strong>Dr. William G. Zic & Dr. James Scherrer</strong>
+                            Expert guidance in nursing and social work
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="book-nav">
-                <button class="book-btn" id="prevBtn">Previous Page</button>
-                <button class="book-btn" id="nextBtn">Next Page</button>
-            </div>
-        </div>
-    </section>
 
     <!-- Values Row -->
     <section class="values-section">
@@ -2203,156 +2308,53 @@
                     }
                 });
             });
+        });
 
-            // Leaders Scrapbook
-            const leaderData = [
-                {
-                    name: 'Trinity Dallas',
-                    title: 'President',
-                    fact: 'Double majoring in Nursing and Business Management.'
-                },
-                {
-                    name: 'Harmony Perez',
-                    title: 'Vice President',
-                    fact: 'Experience in behavioral and molecular neuroscience research.'
-                },
-                {
-                    name: 'Myles Waters',
-                    title: 'Treasurer',
-                    fact: 'Double majoring in Computer Information Systems and Black World Studies.'
-                },
-                {
-                    name: 'Elsy Hernandez Lozano',
-                    title: 'Secretary',
-                    fact: 'Biology major with minors in Chemistry and Sociology of Health.'
-                },
-                {
-                    name: 'Daisy Tenemaza',
-                    title: 'Events Coordinator',
-                    fact: 'Double majoring in Biochemistry and Spanish.'
-                },
-                {
-                    name: 'Nataly Dominguez',
-                    title: 'Events Coordinator',
-                    fact: 'Nursing major with a passion for child health.'
-                },
-                {
-                    name: 'Samantha Acosta',
-                    title: 'Volunteer Coordinator',
-                    fact: 'Biochemistry major with experience as Patient Care Technician.'
-                },
-                {
-                    name: 'Elizabeth John',
-                    title: 'Volunteer Coordinator',
-                    fact: 'Biology major with minors in Chemistry and Health Communication.'
-                },
-                {
-                    name: 'Juliana Macias',
-                    title: 'Membership Engagement Chair',
-                    fact: 'Double majoring in Psychology and Social Work.'
-                },
-                {
-                    name: 'Lizbeth Lopez',
-                    title: 'Community Engagement Chair',
-                    fact: 'Junior Biochemistry Honors student on the Pre-Dental track.'
-                },
-                {
-                    name: 'Chloe Flores',
-                    title: 'Marketing & Communications',
-                    fact: 'Junior Nursing major bringing creativity, consistency, and energy to PAA.'
+        // Function to flip cards
+        function flipCard(card) {
+            // Remove flipped class from all other cards
+            const allCards = document.querySelectorAll('.fact-card');
+            allCards.forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('flipped');
                 }
-            ];
-            
-            const leaderBook = document.getElementById('leaderBook');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            let currentPage = 0;
-            
-            // Create pages
-            leaderData.forEach((leader, index) => {
-                const page = document.createElement('div');
-                page.className = 'page';
-                page.style.zIndex = 100 - index;
-                page.style.transform = `rotateY(0deg)`;
-                
-                const pageContent = document.createElement('div');
-                pageContent.className = 'page-content';
-                
-                pageContent.innerHTML = `
-                    <div class="leader-polaroid">
-                        <div class="leader-photo"></div>
-                    </div>
-                    <div class="leader-name-container">
-                        <div class="leader-name" id="leaderName${index}">${leader.name}</div>
-                    </div>
-                    <div class="leader-title">${leader.title}</div>
-                    <div class="leader-fact-container">
-                        <div class="leader-fact">${leader.fact}</div>
-                    </div>
-                `;
-                
-                page.appendChild(pageContent);
-                leaderBook.appendChild(page);
             });
             
-            // Get all pages
-            const pages = document.querySelectorAll('.page');
-            
-            // Update book display
-            function updateBook() {
-                pages.forEach((page, index) => {
-                    if (index < currentPage) {
-                        // Pages before current are turned to the left
-                        page.style.transform = 'rotateY(-180deg)';
-                    } else if (index === currentPage) {
-                        // Current page is in the process of turning
-                        page.style.transform = 'rotateY(0deg)';
-                        page.style.zIndex = 100 - index;
-                        
-                        // Animate name with handwriting effect
-                        const nameElement = document.getElementById(`leaderName${index}`);
-                        if (nameElement) {
-                            nameElement.style.opacity = '0';
-                            setTimeout(() => {
-                                nameElement.style.transition = 'opacity 0.8s ease';
-                                nameElement.style.opacity = '1';
-                            }, 500);
-                        }
-                    } else {
-                        // Pages after current are flat
-                        page.style.transform = 'rotateY(0deg)';
-                        page.style.zIndex = 100 - index;
-                    }
+            // Toggle flipped class on clicked card
+            card.classList.toggle('flipped');
+        }
+
+        // Close card when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.fact-card')) {
+                document.querySelectorAll('.fact-card').forEach(card => {
+                    card.classList.remove('flipped');
                 });
             }
-            
-            // Next button
-            nextBtn.addEventListener('click', () => {
-                if (currentPage < pages.length - 1) {
-                    currentPage++;
-                    updateBook();
-                }
+        });
+
+        // Prevent card from closing when clicking inside it
+        document.querySelectorAll('.fact-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
             });
-            
-            // Previous button
-            prevBtn.addEventListener('click', () => {
-                if (currentPage > 0) {
-                    currentPage--;
-                    updateBook();
-                }
-            });
-            
-            // Initialize book
-            updateBook();
-            
-            // Animate first leader name
-            const firstNameElement = document.getElementById('leaderName0');
-            if (firstNameElement) {
-                setTimeout(() => {
-                    firstNameElement.style.transition = 'opacity 0.8s ease';
-                    firstNameElement.style.opacity = '1';
-                }, 1000);
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.fact-card').forEach(card => {
+                    card.classList.remove('flipped');
+                });
             }
+        });
+
+        // Add touch support for mobile
+        document.querySelectorAll('.fact-card').forEach(card => {
+            card.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                flipCard(this);
+            });
         });
 
         // Build Member Game Functions
