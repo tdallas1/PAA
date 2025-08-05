@@ -17,6 +17,20 @@
             --soft-purple: #e6e0f4;
             --dark-text: #333333;
             --light-text: #666666;
+            --paa-pink: #E8A9B8;
+            --punchy-rose: #D24571;
+            --classic-cream: #F8F4EF;
+            --milk-chocolate: #7A4E39;
+            --emerald-teal: #1B4B3D;
+            --lemon-sherbet: #FCE97E;
+            --sky-blue: #9ED5E0;
+            --lilac-pop: #C6B5F1;
+            --paa-red: #C9364D;
+            --bubblegum: #F59FB7;
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-strong: 0 12px 40px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --shadow: 0 4px 12px rgba(0,0,0,0.05);
             --photo-shadow: 0 8px 25px rgba(0,0,0,0.15);
             --transition-fast: all 0.2s ease;
@@ -993,116 +1007,245 @@
             padding: 0 10px;
         }
 
-        /* ===== Notable Members Section ===== */
-        .notable-members-section {
-            padding: 80px 0;
-            background-color: white;
-            position: relative;
-        }
 
-        .members-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .members-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .members-header .handwritten-script {
-            font-size: 1.6rem;
-            color: var(--blush-pink);
-            margin: 1rem 0;
-        }
-
-        .members-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .member-card {
-            position: relative;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--photo-shadow);
-            transition: var(--transition-medium);
-            cursor: pointer;
-            transform: rotate(-1deg);
-        }
-
-        .member-card:nth-child(even) {
-            transform: rotate(1deg);
-        }
-
-        .member-card:hover {
-            transform: rotate(0deg) scale(1.05);
-            z-index: 10;
-        }
-
-        .member-photo {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, var(--blush-pink), var(--baby-blue));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
+        .fast-facts-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--classic-cream) 0%, rgba(248, 244, 239, 0.8) 100%);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(232, 169, 184, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 40%, rgba(158, 213, 224, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 40% 80%, rgba(198, 181, 241, 0.1) 2px, transparent 2px);
+            background-size: 40px 40px, 35px 35px, 45px 45px;
             position: relative;
             overflow: hidden;
         }
 
-        .member-info {
-            padding: 15px;
+        .facts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
             text-align: center;
-            background: white;
-            min-height: 80px;
+            margin-bottom: 80px;
         }
 
-        .member-name {
-            font-family: 'Kalam', cursive;
-            font-size: 1rem;
-            margin-bottom: 5px;
-            color: var(--dark-text);
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--punchy-rose);
+            margin-bottom: 20px;
+            font-weight: 600;
+            position: relative;
         }
 
-        .member-role {
-            font-size: 0.8rem;
-            color: var(--light-text);
-            margin-bottom: 5px;
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--paa-pink), var(--sky-blue));
+            border-radius: 2px;
         }
 
-        .member-patch {
-            font-size: 0.75rem;
-            color: var(--blush-pink);
+        .section-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            color: var(--milk-chocolate);
             font-weight: 500;
         }
 
-        /* Photo Grid Styles */
-        .photo-grid-section {
-            padding: 40px 0;
-        }
-
-        .photo-grid {
+        .facts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .photo-card {
+        .fact-box {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 25px;
+            cursor: pointer;
+            transition: var(--transition);
             position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            box-shadow: var(--shadow-soft);
         }
 
-        .photo-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
+        .fact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                var(--paa-pink) 0%, 
+                var(--sky-blue) 25%, 
+                var(--lilac-pop) 50%, 
+                var(--lemon-sherbet) 75%, 
+                var(--bubblegum) 100%);
+            opacity: 0.1;
+            transition: opacity 0.3s ease;
+        }
+
+        .fact-box:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-strong);
+            border-color: var(--paa-pink);
+        }
+
+        .fact-box:hover::before {
+            opacity: 0.2;
+        }
+
+        .fact-category {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--punchy-rose);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .fact-reveal {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--milk-chocolate);
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            transition: opacity 0.3s ease;
+            z-index: 3;
+        }
+
+        .fact-box:hover .fact-category {
+            opacity: 0;
+        }
+
+        .fact-box:hover .fact-reveal {
+            opacity: 1;
+        }
+
+        /* Special styling for certain boxes */
+        .fact-box:nth-child(1) { border-left: 4px solid var(--punchy-rose); }
+        .fact-box:nth-child(2) { border-left: 4px solid var(--emerald-teal); }
+        .fact-box:nth-child(3) { border-left: 4px solid var(--sky-blue); }
+        .fact-box:nth-child(4) { border-left: 4px solid var(--lemon-sherbet); }
+        .fact-box:nth-child(5) { border-left: 4px solid var(--lilac-pop); }
+        .fact-box:nth-child(6) { border-left: 4px solid var(--bubblegum); }
+        .fact-box:nth-child(7) { border-left: 4px solid var(--paa-red); }
+        .fact-box:nth-child(8) { border-left: 4px solid var(--paa-pink); }
+        .fact-box:nth-child(9) { border-left: 4px solid var(--emerald-teal); }
+        .fact-box:nth-child(10) { border-left: 4px solid var(--sky-blue); }
+        .fact-box:nth-child(11) { border-left: 4px solid var(--punchy-rose); }
+        .fact-box:nth-child(12) { border-left: 4px solid var(--lilac-pop); }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .facts-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+
+            .fact-box {
+                padding: 20px;
+            }
+
+            .fact-category {
+                font-size: 0.9rem;
+            }
+
+            .fact-reveal {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fast-facts-section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                margin-bottom: 50px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation on scroll */
+        .fact-box {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fact-box:nth-child(1) { animation-delay: 0.1s; }
+        .fact-box:nth-child(2) { animation-delay: 0.2s; }
+        .fact-box:nth-child(3) { animation-delay: 0.3s; }
+        .fact-box:nth-child(4) { animation-delay: 0.4s; }
+        .fact-box:nth-child(5) { animation-delay: 0.5s; }
+        .fact-box:nth-child(6) { animation-delay: 0.6s; }
+        .fact-box:nth-child(7) { animation-delay: 0.7s; }
+        .fact-box:nth-child(8) { animation-delay: 0.8s; }
+        .fact-box:nth-child(9) { animation-delay: 0.9s; }
+        .fact-box:nth-child(10) { animation-delay: 1.0s; }
+        .fact-box:nth-child(11) { animation-delay: 1.1s; }
+        .fact-box:nth-child(12) { animation-delay: 1.2s; }
+
+        /* Special styling for mantra box */
+        .mantra-box {
+            font-style: italic;
+        }
+
+        .mantra-box .fact-reveal {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Special styling for signature phrase */
+        .signature-box .fact-reveal {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: var(--punchy-rose);
+            font-weight: 600;
         }
         
         /* ===== Values Banner ===== */
@@ -2324,106 +2467,94 @@
         </div>
     </section>
 
-    <!-- Notable Members Section -->
-    <section class="notable-members-section">
-        <div class="container">
-            <div class="members-header reveal">
-                <h2>Our Amazing <span class="calligraphy">Team</span></h2>
-                <div class="handwritten-script">Past Event Leaders</div>
-                <p>Meet the dedicated students who have led our initiatives and made a lasting impact.</p>
+   <section class="fast-facts-section">
+        <div class="facts-container">
+            <div class="section-title">
+                <h2>PAA Quick Facts</h2>
+                <p class="section-subtitle">hover to discover our story</p>
             </div>
-            <div class="members-grid reveal">
-                <div class="member-card" data-member="sarah">
-                    <div class="member-photo">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-name">Sarah Chen</div>
-                        <div class="member-role">Bundles of Joy Lead</div>
-                        <div class="member-patch">Community Service Patch</div>
-                    </div>
+            
+            <div class="facts-grid">
+                <div class="fact-box">
+                    <div class="fact-category">Founded</div>
+                    <div class="fact-reveal">October 2024 at Dominican University</div>
                 </div>
-                <div class="member-card" data-member="marcus">
-                    <div class="member-photo">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-name">Marcus Rodriguez</div>
-                        <div class="member-role">Health Fair Coordinator</div>
-                        <div class="member-patch">Leadership Excellence</div>
-                    </div>
+                
+                <div class="fact-box">
+                    <div class="fact-category">Founder</div>
+                    <div class="fact-reveal">Trinity Dallas</div>
                 </div>
-                <div class="member-card" data-member="emily">
-                    <div class="member-photo">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-name">Emily Johnson</div>
-                        <div class="member-role">Literacy Program Lead</div>
-                        <div class="member-patch">Education Advocate</div>
-                    </div>
+                
+                <div class="fact-box mantra-box">
+                    <div class="fact-category">Mantra</div>
+                    <div class="fact-reveal">Lead with heart. Serve with purpose.</div>
                 </div>
-                <div class="member-card" data-member="david">
-                    <div class="member-photo">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-name">David Park</div>
-                        <div class="member-role">Volunteer Coordinator</div>
-                        <div class="member-patch">Service Champion</div>
-                    </div>
+                
+                <div class="fact-box">
+                    <div class="fact-category">Mascot</div>
+                    <div class="fact-reveal">A baby bird and a teddy bear — soft symbols of care and childhood</div>
                 </div>
-                <div class="member-card" data-member="maria">
-                    <div class="member-photo">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-name">Maria Santos</div>
-                        <div class="member-role">Advocacy Campaign Lead</div>
-                        <div class="member-patch">Voice for Change</div>
-                    </div>
+                
+                <div class="fact-box">
+                    <div class="fact-category">Colors</div>
+                    <div class="fact-reveal">Pastel rainbow</div>
                 </div>
-                <div class="member-card" data-member="james">
-                    <div class="member-photo">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-name">James Wilson</div>
-                        <div class="member-role">Fundraising Director</div>
-                        <div class="member-patch">Impact Maker</div>
-                    </div>
+                
+                <div class="fact-box">
+                    <div class="fact-category">Flower</div>
+                    <div class="fact-reveal">Baby's Breath</div>
                 </div>
-            </div>
-
-            <div class="photo-grid-section">
-                <div class="members-header">
-                    <div class="handwritten-script">Patch Earners Wall</div>
-                    <p>Celebrating our members who have earned recognition for their outstanding service.</p>
+                
+                <div class="fact-box">
+                    <div class="fact-category">Core Focus</div>
+                    <div class="fact-reveal">Child well-being through advocacy, education, and community action</div>
                 </div>
-                <div class="photo-grid reveal">
-                    <div class="photo-card taped-photo">
-                        <div class="polaroid-frame">
-                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop&crop=faces" alt="Team Event">
-                            <div class="polaroid-caption handwritten">Health Fair 2024</div>
-                        </div>
-                    </div>
-                    <div class="photo-card taped-photo">
-                        <div class="polaroid-frame">
-                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop&crop=center" alt="Volunteer Event">
-                            <div class="polaroid-caption handwritten">Book Drive Success</div>
-                        </div>
-                    </div>
-                    <div class="photo-card taped-photo">
-                        <div class="polaroid-frame">
-                            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop&crop=center" alt="Community Service">
-                            <div class="polaroid-caption handwritten">Community Outreach</div>
-                        </div>
-                    </div>
+                
+                <div class="fact-box signature-box">
+                    <div class="fact-category">Favorite Phrase</div>
+                    <div class="fact-reveal">with love, PAA</div>
+                </div>
+                
+                <div class="fact-box">
+                    <div class="fact-category">Number of Members</div>
+                    <div class="fact-reveal">70+ active members (and growing!) committed to pediatric advocacy, outreach, and education</div>
+                </div>
+                
+                <div class="fact-box">
+                    <div class="fact-category">Advisor</div>
+                    <div class="fact-reveal">Dr. William G. Zic, DNP, MSN, RN — Nursing faculty with 20+ years in pediatric and critical care</div>
+                </div>
+                
+                <div class="fact-box">
+                    <div class="fact-category">Advisor</div>
+                    <div class="fact-reveal">Dr. James Scherrer, PhD, MSW — Social work professor with 49+ years in child welfare and family-centered care</div>
+                </div>
+                
+                <div class="fact-box">
+                    <div class="fact-category">Our Promise</div>
+                    <div class="fact-reveal">Every child deserves advocacy, care, and a voice in their health journey</div>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <style>
+        /* Mobile click state */
+        @media (max-width: 768px) {
+            .fact-box.mobile-active .fact-category {
+                opacity: 0;
+            }
+            
+            .fact-box.mobile-active .fact-reveal {
+                opacity: 1;
+            }
+            
+            .fact-box:focus {
+                outline: 2px solid var(--punchy-rose);
+                outline-offset: 2px;
+            }
+        }
+         </style>
     <!-- Values Banner -->
     <div class="values-banner">
         <div class="values-track">
@@ -2869,18 +3000,34 @@
             formMessage.innerHTML = 'Thank you! You\'ve been subscribed 💌';
             this.reset();
         });
-
-        // Member Card Interactions
-        const memberCards = document.querySelectorAll('.member-card');
         
-        memberCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const memberData = this.dataset.member;
-                // Add click interaction for member details
-                console.log('Clicked member:', memberData);
+        // Enhanced hover effects and accessibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const factBoxes = document.querySelectorAll('.fact-box');
+            
+            factBoxes.forEach(box => {
+                // Add click functionality for mobile
+                box.addEventListener('click', function() {
+                    // Toggle active state for mobile
+                    if (window.innerWidth <= 768) {
+                        this.classList.toggle('mobile-active');
+                    }
+                });
+                
+                // Add keyboard accessibility
+                box.setAttribute('tabindex', '0');
+                box.setAttribute('role', 'button');
+                box.setAttribute('aria-label', 'Click to reveal fact about ' + box.querySelector('.fact-category').textContent);
+                
+                box.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
             });
         });
-
+        
         // Letter Form Function
         function openLetterForm() {
             // Open form in new window/tab - integrate with Google Forms or Tally
