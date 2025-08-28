@@ -382,75 +382,79 @@
             color: var(--dark-text);
         }
 
-        /* Featured Photos */
-        .featured-section {
-            padding: 80px 0;
-            background: var(--light-cream);
-        }
+      /* Featured Photos */
+.featured-section {
+  padding: 80px 0;
+  background: var(--light-cream);
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
 
-        .section-title h2 {
-            font-size: 3rem;
-            color: var(--dark-text);
-            margin-bottom: 15px;
-        }
+.section-title h2 {
+  font-size: 3rem;
+  color: var(--dark-text);
+  margin-bottom: 15px;
+}
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray-text);
-            font-weight: 400;
-        }
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--gray-text);
+  font-weight: 400;
+}
 
-        .photos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
 
-        .photo-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition);
-        }
+/* NEW: card frame so images clip to rounded corners */
+.photo-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
 
-        .photo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
-        }
+/* Image fills the media slot */
+.photo-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;   /* crops nicely without distortion */
+  display: block;
+}
 
-        .photo-placeholder {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--soft-lavender), var(--coral-pink));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.1rem;
-        }
+/* Hover effect */
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
 
-        .photo-caption {
-            padding: 20px;
-            text-align: center;
-        }
+/* Remove old gradient boxes (or keep only as a fallback) */
+.photo-placeholder { 
+  display: none; 
+}
 
-        .photo-caption h4 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: var(--hot-rose);
-        }
+.photo-caption {
+  padding: 20px;
+  text-align: center;
+}
 
-        .photo-caption p {
-            color: var(--gray-text);
-            font-size: 0.95rem;
-        }
+.photo-caption h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--hot-rose);
+}
+
+.photo-caption p {
+  color: var(--gray-text);
+  font-size: 0.95rem;
+}
 
         /* About Section */
         .about-section {
@@ -1790,59 +1794,65 @@
         </div>
     </section>
 
-    <!-- Featured Photos Section -->
-    <section class="featured-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Moments That Matter</h2>
-                <p class="section-subtitle">Capturing our impact in the community</p>
-            </div>
-            <div class="photos-grid">
-                <div class="photo-card">
-                    <div class="photo-placeholder">Pediatric Advocacy Day</div>
-                    <div class="photo-caption">
-                        <h4>Advocacy in Action</h4>
-                        <p>Students leading change for children's health rights</p>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo-placeholder">Spring Wellness Workshop</div>
-                    <div class="photo-caption">
-                        <h4>Community Education</h4>
-                        <p>Teaching families about pediatric health resources</p>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo-placeholder">Hospital Volunteer Event</div>
-                    <div class="photo-caption">
-                        <h4>Hands-On Service</h4>
-                        <p>Supporting young patients and their families</p>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo-placeholder">Leadership Training</div>
-                    <div class="photo-caption">
-                        <h4>Building Leaders</h4>
-                        <p>Developing the next generation of advocates</p>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo-placeholder">Bundles of Joy Drive</div>
-                    <div class="photo-caption">
-                        <h4>Community Care</h4>
-                        <p>Collecting essential items for families in need</p>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo-placeholder">Campus Health Fair</div>
-                    <div class="photo-caption">
-                        <h4>Health Promotion</h4>
-                        <p>Bringing wellness resources to our university community</p>
-                    </div>
-                </div>
-            </div>
+   <!-- Featured Photos Section -->
+<section class="featured-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Moments That Matter</h2>
+      <p class="section-subtitle">Capturing our impact in the community</p>
+    </div>
+
+    <div class="photos-grid">
+      <div class="photo-card">
+        <img src="images/pediatric-advocacy-day.jpg" alt="Pediatric Advocacy Day" loading="lazy">
+        <div class="photo-caption">
+          <h4>Advocacy in Action</h4>
+          <p>Students leading change for children's health rights</p>
         </div>
-    </section>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/spring-wellness-workshop.jpg" alt="Spring Wellness Workshop" loading="lazy">
+        <div class="photo-caption">
+          <h4>Community Education</h4>
+          <p>Teaching families about pediatric health resources</p>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/hospital-volunteer-event.jpg" alt="Hospital Volunteer Event" loading="lazy">
+        <div class="photo-caption">
+          <h4>Hands-On Service</h4>
+          <p>Supporting young patients and their families</p>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/leadership-training.jpg" alt="Leadership Training" loading="lazy">
+        <div class="photo-caption">
+          <h4>Building Leaders</h4>
+          <p>Developing the next generation of advocates</p>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/bundles-of-joy-drive.jpg" alt="Bundles of Joy Drive" loading="lazy">
+        <div class="photo-caption">
+          <h4>Community Care</h4>
+          <p>Collecting essential items for families in need</p>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/campus-health-fair.jpg" alt="Campus Health Fair" loading="lazy">
+        <div class="photo-caption">
+          <h4>Health Promotion</h4>
+          <p>Bringing wellness resources to our university community</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- About Section -->
     <section class="about-section">
