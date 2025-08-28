@@ -457,76 +457,99 @@
 }
 
         /* About Section */
-        .about-section {
-            padding: 100px 0;
-            background: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
+.about-section {
+  padding: 100px 0;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
 
-        .about-decoration {
-            position: absolute;
-            right: -200px;
-            top: 0;
-            width: 400px;
-            height: 100%;
-            background: linear-gradient(135deg, var(--soft-lavender), rgba(255, 151, 170, 0.1));
-            clip-path: polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%);
-        }
+.about-decoration {
+  position: absolute;
+  right: -200px;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  background: linear-gradient(135deg, var(--soft-lavender), rgba(255, 151, 170, 0.1));
+  clip-path: polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%);
+}
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
 
-        .about-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, var(--hot-rose), var(--coral-pink));
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-            box-shadow: var(--shadow-medium);
-        }
+/* Image container (keeps your gradient as a fallback) */
+.about-image {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(135deg, var(--hot-rose), var(--coral-pink));
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-medium);
 
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
-            color: var(--dark-text);
-        }
+  /* new: make the image clip to rounded corners */
+  position: relative;
+  overflow: hidden;
+}
 
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--gray-text);
-            margin-bottom: 20px;
-        }
+/* new: real image fills the box nicely */
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-        .about-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: var(--hot-rose);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            margin-top: 20px;
-        }
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: var(--dark-text);
+}
 
-        .about-btn:hover {
-            background: var(--coral-pink);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
-        }
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--gray-text);
+  margin-bottom: 20px;
+}
 
+.about-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: var(--hot-rose);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition);
+  margin-top: 20px;
+}
+
+.about-btn:hover {
+  background: var(--coral-pink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 900px) {
+  .about-content {zzz
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .about-image {
+    height: 320px;
+  }
+}
         /* ===== Pillars Section (from PAA2) ===== */
         .pillars-section {
             padding: 80px 0;
@@ -1854,23 +1877,40 @@
   </div>
 </section>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="about-decoration"></div>
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    Team PAA Photo
-                </div>
-                <div class="about-text">
-                    <h2>What We Stand For</h2>
-                    <p>The Pediatric Advocacy Alliance (PAA) is a student-led organization at Dominican University dedicated to advancing the health, rights, and well-being of children—especially those in underserved communities.</p>
-                    <p>Our mission is to promote pediatric equity through advocacy, education, and service. We empower students to take action on the issues affecting children and families by creating meaningful volunteer opportunities, raising awareness of systemic disparities, and collaborating with partners across healthcare, education, and social services.</p>
-                    <a href="about.html" class="about-btn">Learn More About PAA</a>
-                </div>
-            </div>
-        </div>
-    </section>
+   <!-- About Section -->
+<section class="about-section" id="about">
+  <div class="about-decoration" aria-hidden="true"></div>
+  <div class="container">
+    <div class="about-content">
+      <div class="about-image">
+        <img
+          src="team-paa.jpg"
+          alt="PAA team at an event"
+          loading="lazy"
+          decoding="async"
+          width="1200"
+          height="800"
+        />
+      </div>
+
+      <div class="about-text">
+        <h2>What We Stand For</h2>
+        <p>
+          The Pediatric Advocacy Alliance (PAA) is a student-led organization at Dominican
+          University dedicated to advancing the health, rights, and well-being of children—especially
+          those in underserved communities.
+        </p>
+        <p>
+          Our mission is to promote pediatric equity through advocacy, education, and service.
+          We empower students to take action on the issues affecting children and families by creating
+          meaningful volunteer opportunities, raising awareness of systemic disparities, and
+          collaborating with partners across healthcare, education, and social services.
+        </p>
+        <a href="about.html" class="about-btn">Learn More About PAA</a>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Pillars Section (from PAA2) -->
     <section class="pillars-section">
