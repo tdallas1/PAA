@@ -542,7 +542,7 @@
 
 /* Responsive: stack on smaller screens */
 @media (max-width: 900px) {
-  .about-content {zzz
+  .about-content {
     grid-template-columns: 1fr;
     gap: 30px;
   }
@@ -828,13 +828,16 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
-        .leader-photo {
-            width: 100%;
-            height: 100%;
-            background-color: #f5f5f5;
-            position: relative;
-            overflow: hidden;
-        }
+.leader-photo {
+  width: 100%;
+  height: 100%;
+  background-image: url('aboutusleaders.jpg'); /* <- your JPG */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f5f5f5; /* fallback */
+}
+
         
         .leader-name-container {
             position: relative;
@@ -2255,96 +2258,55 @@
             });
 
             // Leaders Scrapbook
-            const leaderData = [
-                {
-                    name: 'Trinity Dallas',
-                    title: 'President',
-                    fact: 'Double majoring in Nursing and Business Management.'
-                },
-                {
-                    name: 'Harmony Perez',
-                    title: 'Vice President',
-                    fact: 'Experience in behavioral and molecular neuroscience research.'
-                },
-                {
-                    name: 'Myles Waters',
-                    title: 'Treasurer',
-                    fact: 'Double majoring in Computer Information Systems and Black World Studies.'
-                },
-                {
-                    name: 'Elsy Hernandez Lozano',
-                    title: 'Secretary',
-                    fact: 'Biology major with minors in Chemistry and Sociology of Health.'
-                },
-                {
-                    name: 'Daisy Tenemaza',
-                    title: 'Events Coordinator',
-                    fact: 'Double majoring in Biochemistry and Spanish.'
-                },
-                {
-                    name: 'Nataly Dominguez',
-                    title: 'Events Coordinator',
-                    fact: 'Nursing major with a passion for child health.'
-                },
-                {
-                    name: 'Samantha Acosta',
-                    title: 'Volunteer Coordinator',
-                    fact: 'Biochemistry major with experience as Patient Care Technician.'
-                },
-                {
-                    name: 'Elizabeth John',
-                    title: 'Volunteer Coordinator',
-                    fact: 'Biology major with minors in Chemistry and Health Communication.'
-                },
-                {
-                    name: 'Juliana Macias',
-                    title: 'Membership Engagement Chair',
-                    fact: 'Double majoring in Psychology and Social Work.'
-                },
-                {
-                    name: 'Lizbeth Lopez',
-                    title: 'Community Engagement Chair',
-                    fact: 'Junior Biochemistry Honors student on the Pre-Dental track.'
-                },
-                {
-                    name: 'Chloe Flores',
-                    title: 'Marketing & Communications',
-                    fact: 'Junior Nursing major bringing creativity, consistency, and energy to PAA.'
-                }
-            ];
-            
+const leaderData = [
+  { name: 'Trinity Dallas',           title: 'President',                   fact: 'Double majoring in Nursing and Business Management.',                               photo: 'trinity.jpg' },
+  { name: 'Harmony Perez',            title: 'Vice President',              fact: 'Experience in behavioral and molecular neuroscience research.',                     photo: 'harmony.jpg' },
+  { name: 'Myles Waters',             title: 'Treasurer',                   fact: 'Double majoring in Computer Information Systems and Black World Studies.',          photo: 'myles.jpg' },
+  { name: 'Elsy Hernandez Lozano',    title: 'Secretary',                   fact: 'Biology major with minors in Chemistry and Sociology of Health.',                  photo: 'elsy.jpg' },
+  { name: 'Daisy Tenemaza',           title: 'Events Coordinator',          fact: 'Double majoring in Biochemistry and Spanish.',                                     photo: 'daisy.jpg' },
+  { name: 'Nataly Dominguez',         title: 'Events Coordinator',          fact: 'Nursing major with a passion for child health.',                                   photo: 'nataly.jpg' },
+  { name: 'Samantha Acosta',          title: 'Volunteer Coordinator',       fact: 'Biochemistry major with experience as Patient Care Technician.',                   photo: 'samantha.jpg' },
+  { name: 'Elizabeth John',           title: 'Volunteer Coordinator',       fact: 'Biology major with minors in Chemistry and Health Communication.',                 photo: 'elizabeth.jpg' },
+  { name: 'Juliana Macias',           title: 'Membership Engagement Chair', fact: 'Double majoring in Psychology and Social Work.',                                   photo: 'juliana.jpg' },
+  { name: 'Lizbeth Lopez',            title: 'Community Engagement Chair',  fact: 'Junior Biochemistry Honors student on the Pre-Dental track.',                      photo: 'lizbeth.jpg' },
+  { name: 'Chloe Flores',             title: 'Marketing & Communications',  fact: 'Junior Nursing major bringing creativity, consistency, and energy to PAA.',        photo: 'chloe.jpg' }
+];
+
             const leaderBook = document.getElementById('leaderBook');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             let currentPage = 0;
             
-            // Create pages
-            leaderData.forEach((leader, index) => {
-                const page = document.createElement('div');
-                page.className = 'page';
-                page.style.zIndex = 100 - index;
-                page.style.transform = `rotateY(0deg)`;
-                
-                const pageContent = document.createElement('div');
-                pageContent.className = 'page-content';
-                
-                pageContent.innerHTML = `
-                    <div class="leader-polaroid">
-                        <div class="leader-photo"></div>
-                    </div>
-                    <div class="leader-name-container">
-                        <div class="leader-name" id="leaderName${index}">${leader.name}</div>
-                    </div>
-                    <div class="leader-title">${leader.title}</div>
-                    <div class="leader-fact-container">
-                        <div class="leader-fact">${leader.fact}</div>
-                    </div>
-                `;
-                
-                page.appendChild(pageContent);
-                leaderBook.appendChild(page);
-            });
-            
+// Create pages (use each leader's photo)
+leaderData.forEach((leader, index) => {
+  const page = document.createElement('div');
+  page.className = 'page';
+  page.style.zIndex = 100 - index;
+
+  const pageContent = document.createElement('div');
+  pageContent.className = 'page-content';
+
+  pageContent.innerHTML = `
+    <div class="leader-polaroid">
+      <div class="leader-photo"></div>
+    </div>
+    <div class="leader-name-container">
+      <div class="leader-name" id="leaderName${index}">${leader.name}</div>
+    </div>
+    <div class="leader-title">${leader.title}</div>
+    <div class="leader-fact-container">
+      <div class="leader-fact">${leader.fact}</div>
+    </div>
+  `;
+
+  const photoDiv = pageContent.querySelector('.leader-photo');
+  const imgUrl = leader.photo || 'aboutusleaders.jpg'; // falls back to your global placeholder if missing
+  photoDiv.style.background = `url('${imgUrl}') center / cover no-repeat`;
+
+  page.appendChild(pageContent);
+  leaderBook.appendChild(page);
+});
+
             // Get all pages
             const pages = document.querySelectorAll('.page');
             
