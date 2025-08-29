@@ -1963,7 +1963,7 @@
                                 <!-- Camera screen/display -->
                                 <div class="camera-screen">
                                     <div class="camera-screen-content">
-                                        <img id="event-image" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop&crop=center" alt="Event Image">
+                                        <img id="event-image" src="mylesfix2.jpg" alt="Event Image">
                                         <div class="event-info">
                                             <h3 id="event-title">Fall Donation Drive 2024</h3>
                                             <p id="event-date">October 15, 2024</p>
@@ -2356,33 +2356,33 @@
 
         // Past events data for PAA Rewind
         const pastEvents = [
-            {
-                id: 1,
-                title: "Fall Donation Drive 2024",
-                date: "October 15, 2024",
-                description: "We collected over 500 items for local children in need, including warm clothing, books, and school supplies.",
-                image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop&crop=center"
-            },
+{
+  id: 1,
+  title: "Fall Donation Drive 2024",
+  date: "October 15, 2024",
+  description: "We collected over 500 items for local children in need, including warm clothing, books, and school supplies.",
+  image: "mylesfix2.jpg"
+},
             {
                 id: 2,
                 title: "Community Health Fair",
                 date: "September 8, 2024",
                 description: "PAA volunteers provided health screenings and resources to over 200 families at our annual health fair.",
-                image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop&crop=center"
+                image: "mylesfix3.jpg"
             },
             {
                 id: 3,
                 title: "Back to School Backpack Drive",
                 date: "August 20, 2024",
                 description: "Thanks to your generosity, we provided 150 fully-stocked backpacks to children starting the school year!",
-                image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop&crop=center"
+                image: "mylesfix4.jpg"
             },
             {
                 id: 4,
                 title: "Summer Reading Program",
                 date: "July 12, 2024",
                 description: "Our volunteers read to over 100 children at local libraries and distributed free books to promote literacy.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=center"
+                image: "mylesfix5.jpg"
             }
         ];
 
@@ -2516,23 +2516,24 @@
                 const timeDiff = targetDate - today;
                 const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
-                highlightSection.innerHTML = `
-                    <div class="highlight-container">
-                        <div class="highlight-image">
-                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&h=300&fit=crop&crop=center" alt="${highlightEvent.title}">
-                        </div>
-                        <div class="highlight-content">
-                            <h3>Featured Event: ${highlightEvent.title}</h3>
-                            <div class="highlight-countdown">${daysLeft > 0 ? daysLeft + ' days left to register!' : 'Registration closed'}</div>
-                            <p>${highlightEvent.description}</p>
-                            <p>Join us on ${monthNames[monthIndex]} ${highlightEvent.day}, ${year} at ${highlightEvent.time}.</p>
-                            <a href="#" class="btn">Register Now</a>
-                        </div>
-                    </div>
-                    ${Array(10).fill().map((_, i) => `
-                        <div class="confetti" style="left: ${10 + i * 10}%; animation-delay: ${i * 0.5}s;"></div>
-                    `).join('')}
-                `;
+highlightSection.innerHTML = `
+    <div class="highlight-container">
+        <div class="highlight-image">
+            <img src="mylesfix1.jpg" alt="${highlightEvent.title}">
+        </div>
+        <div class="highlight-content">
+            <h3>Featured Event: ${highlightEvent.title}</h3>
+            <div class="highlight-countdown">${daysLeft > 0 ? daysLeft + ' days left to register!' : 'Registration closed'}</div>
+            <p>${highlightEvent.description}</p>
+            <p>Join us on ${monthNames[monthIndex]} ${highlightEvent.day}, ${year} at ${highlightEvent.time}.</p>
+            <a href="#" class="btn">Register Now</a>
+        </div>
+    </div>
+    ${Array(10).fill().map((_, i) => `
+        <div class="confetti" style="left: ${10 + i * 10}%; animation-delay: ${i * 0.5}s;"></div>
+    `).join('')}
+`;
+
                 section.appendChild(highlightSection);
             }
 
